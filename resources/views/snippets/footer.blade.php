@@ -90,7 +90,7 @@
           </li>
         </ul>
         <p class="col-md-auto mb-0 text-muted">
-          © 2020 homeID. All Rights Reserved
+          &copy; {{ now()->year }} GeoHomes. All Rights Reserved
         </p>
       </div>
     </div>

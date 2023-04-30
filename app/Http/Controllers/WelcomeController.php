@@ -9,4 +9,8 @@ class WelcomeController extends Controller
     public function index() {
         return view('welcome');
     }
+
+    public function error() {
+        return view('errors.404');
+    }
 }

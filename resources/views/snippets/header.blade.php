@@ -1,5 +1,4 @@
-<header
-    class="main-header position-absolute fixed-top m-0 navbar-dark header-sticky header-sticky-smart header-mobile-xl">
+<header class="main-header position-absolute fixed-top m-0 navbar-dark header-sticky header-sticky-smart header-mobile-xl">
     <div class="sticky-area">
         <div class="container container-xxl">
             <div class="d-flex align-items-center">
@@ -8,10 +7,11 @@
                         <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="HomeID" class="normal-logo">
                         <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="HomeID" class="sticky-logo">
                     </a>
-                    {{-- <a class="d-block d-xl-none ml-auto mr-4 position-relative text-white p-2" href="#">
-                        <i class="fal fa-heart fs-large-4"></i>
-                        <span class="badge badge-primary badge-circle badge-absolute">1</span>
-                    </a> --}}
+
+                    <a class="d-block d-xl-none ml-auto mr-4 position-relative text-white p-2" href="#">
+                        <i class="fal fa-user fs-large-4"></i>
+                    </a>
+
                     <button class="navbar-toggler border-0 px-0" type="button" data-toggle="collapse"
                         data-target="#primaryMenu02" aria-controls="primaryMenu02" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -21,8 +21,8 @@
                         <ul class="navbar-nav hover-menu main-menu px-0 mx-xl-n4">
                             <li id="navbar-item-home" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="#rentorbuy">
-                                    Buy or Rent
+                                <a class="nav-link p-0" href="#">
+                                    Buy or Rent {{-- should be Listings --}}
                                 </a>
                             </li>
 
@@ -50,7 +50,7 @@
                             <li id="navbar-item-dashboard" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item dropdown py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link dropdown-toggle p-0" href="#" data-toggle="dropdown">
-                                    Contact
+                                    More
                                     <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu pt-3 pb-0 pb-xl-3" aria-labelledby="navbar-item-dashboard">
@@ -94,7 +94,7 @@
                                     </div>
                                 </li>
                                 <li class="divider"></li>
-                                <li class="nav-item ">
+                                <li class="nav-item hide-from-mobile">
                                     <a class="nav-link pl-3 pr-2" data-toggle="modal"
                                         href="#login-register-modal">SIGN IN</a>
                                 </li>

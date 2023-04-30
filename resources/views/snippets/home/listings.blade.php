@@ -9,12 +9,12 @@
           <div class="card border-hover shadow-2 shadow-hover-lg-1 pl-5 pr-6 py-6 h-100 hover-change-image">
             <div class="row no-gutters">
               <div class="col-sm-3">
-                <img src="images/group-16.png"
+                <img src="{{ asset('assets/images/group-16.png') }}"
                              alt="Buy a new home">
               </div>
               <div class="col-sm-9">
                 <div class="card-body p-0 pl-0 pl-sm-5 pt-5 pt-sm-0">
-                  <a href="single-property-1.html"
+                  <a href="#"
                                class="d-flex align-items-center text-dark hover-secondary"><h4
                                     class="fs-20 lh-1625 mb-1">Buy a new home </h4>
                     <span class="ml-2 text-primary fs-42 lh-1 hover-image d-inline-flex align-items-center">
@@ -32,12 +32,12 @@
           <div class="card border-hover shadow-2 shadow-hover-lg-1 pl-5 pr-6 py-6 h-100 hover-change-image">
             <div class="row no-gutters">
               <div class="col-sm-3">
-                <img src="images/group-17.png"
+                <img src="{{ asset('assets/images/group-17.png') }}"
                              alt="Sell a home">
               </div>
               <div class="col-sm-9">
                 <div class="card-body p-0 pl-0 pl-sm-5 pt-5 pt-sm-0">
-                  <a href="single-property-1.html"
+                  <a href="#"
                                class="d-flex align-items-center text-dark hover-secondary"><h4
                                     class="fs-20 lh-1625 mb-1">Sell a home </h4>
                     <span class="ml-2 text-primary fs-42 lh-1 hover-image d-inline-flex align-items-center">
@@ -55,12 +55,12 @@
           <div class="card border-hover shadow-2 shadow-hover-lg-1 pl-5 pr-6 py-6 h-100 hover-change-image">
             <div class="row no-gutters">
               <div class="col-sm-3">
-                <img src="images/group-21.png"
+                <img src="{{ asset('assets/images/group-21.png') }}"
                              alt="Rent a home">
               </div>
               <div class="col-sm-9">
                 <div class="card-body p-0 pl-0 pl-sm-5 pt-5 pt-sm-0">
-                  <a href="single-property-1.html"
+                  <a href="#"
                                class="d-flex align-items-center text-dark hover-secondary"><h4
                                     class="fs-20 lh-1625 mb-1">Rent a home </h4>
                     <span class="ml-2 text-primary fs-42 lh-1 hover-image d-inline-flex align-items-center">
