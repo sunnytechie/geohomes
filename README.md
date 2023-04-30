@@ -29,7 +29,7 @@ Clone the repo https://github.com/sunnytechie/con.git
 
 ```bash
 $ git init
-$ git clone https://github.com/sunnytechie/con.git
+$ git clone https://github.com/sunnytechie/geohomes.git
 $ cp .env.example .env
 # Make or create your database using mysql sql or redis.
 $ composer install

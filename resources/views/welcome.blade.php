@@ -6,11 +6,16 @@
       <div style="background-image: url('assets/images/bg-home-01.jpg')"
        class="bg-cover d-flex align-items-center custom-vh-100">
         <div class="container pt-lg-15 py-8" data-animate="zoomIn">
+          {{-- Just a navigator --}}
+          <span id="rentorbuy"></span>
+          
             <p class="text-white fs-md-22 fs-18 font-weight-500 letter-spacing-367 mb-6 text-center text-uppercase">
                 Let us guide your home
             </p>
           <h2 class="text-white display-2 text-center mb-sm-13 mb-8">Find Your Dream Home</h2>
+            
           
+
           {{-- Desktop Search --}}
           <form class="property-search py-lg-0 z-index-2 position-relative d-none d-lg-block">
             <div class="row no-gutters">
@@ -545,7 +550,7 @@
               </div>
             </div>
           </form>
-
+          
         </div>
       </div>
     </section>
