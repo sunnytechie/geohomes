@@ -5,6 +5,12 @@
     .remove-this-item {
       display: none !important;
     }
+
+    @media only screen and (max-width: 1024px) {
+      .mt-12 {
+        margin-top: 0 !important;
+      }
+    }
 </style>
     
 <main id="content">
