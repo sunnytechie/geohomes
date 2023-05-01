@@ -554,19 +554,15 @@
         </div>
       </div>
     </section>
-
-
-
-
     
-    @include('snippets.home.sale')
-    @include('snippets.home.explore')
-    @include('snippets.home.rent')
-    @include('snippets.home.find')
-    @include('snippets.home.destinations')
-    @include('snippets.home.listings')
-   {{--  @include('snippets.home.partners') 
-    --}}
+        @include('snippets.home.sale')
+        @include('snippets.home.explore')
+        @include('snippets.home.rent')
+        @include('snippets.home.find')
+        @include('snippets.home.destinations')
+        @include('snippets.home.listings')
+   {{--  @include('snippets.home.partners')  --}}
+   
 
 
     {{-- <div id="compare" class="compare">

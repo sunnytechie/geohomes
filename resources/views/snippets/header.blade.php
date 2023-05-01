@@ -3,7 +3,7 @@
         <div class="container container-xxl">
             <div class="d-flex align-items-center">
                 <nav class="navbar navbar-expand-xl bg-transparent px-0 w-100 w-xl-auto">
-                    <a class="navbar-brand mr-7" href="#">
+                    <a class="navbar-brand mr-7" href="/">
                         <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="HomeID" class="normal-logo">
                         <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="HomeID" class="sticky-logo">
                     </a>
@@ -21,29 +21,29 @@
                         <ul class="navbar-nav hover-menu main-menu px-0 mx-xl-n4">
                             <li id="navbar-item-home" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="#">
+                                <a class="nav-link p-0" href="{{ route('page.listings') }}">
                                     Buy or Rent {{-- should be Listings --}}
                                 </a>
                             </li>
 
                             <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="#">
+                                <a class="nav-link p-0" href="{{ route('page.agents') }}">
                                     Estate Agents
                                 </a>
                             </li>
 
                             <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="#">
+                                <a class="nav-link p-0" href="{{ route('new.request') }}">
                                     Request Property
                                 </a>
                             </li>
 
                             <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="#">
-                                    News
+                                <a class="nav-link p-0" href="{{ route('page.about') }}">
+                                    About Us
                                 </a>
                             </li>
 
@@ -55,19 +55,19 @@
                                 </a>
                                 <ul class="dropdown-menu pt-3 pb-0 pb-xl-3" aria-labelledby="navbar-item-dashboard">
                                     <li class="dropdown-item">
-                                        <a id="navbar-link-dashboard" class="dropdown-link" href=#">
+                                        <a id="navbar-link-dashboard" class="dropdown-link" href="{{ route('page.contact') }}">
                                             Contact Us
                                         </a>
                                     </li>
-                                    <li class="dropdown-item">
+                                    {{-- <li class="dropdown-item">
                                         <a id="navbar-link-add-new-property" class="dropdown-link"
-                                            href="#">
+                                            href="{{ route('page.about') }}">
                                             About Us
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="dropdown-item">
                                         <a id="navbar-link-my-properties" class="dropdown-link"
-                                            href="#">
+                                            href="{{ route('page.faq') }}">
                                             Faq
                                         </a>
                                     </li>
@@ -127,12 +127,16 @@
                         <li class="divider"></li>
 
                         <li class="nav-item ">
-                            <a class="nav-link pl-3 pr-2" data-toggle="modal" href="#login-register-modal">SIGN
-                                IN</a>
+                            @guest
+                                <a class="nav-link pl-3 pr-2" data-toggle="modal" href="#login-register-modal">SIGN IN</a>
+                                @else
+                                <a class="nav-link pl-3 pr-2" href="#"> <span><i class="far fa-user"></i></span> <span class="ml-1">Dashboard</span></a>
+                            @endguest
+                            
                         </li>
                         
-                        
-                        <li class="nav-item">
+                        @auth
+                        <li class="nav-item remove-this-item">
                             <a class="btn btn-outline-light btn-lg text-white rounded-lg bg-hover-primary border-hover-primary hover-white d-none d-lg-block"
                                 href="#">
                                 Add listing
@@ -147,6 +151,7 @@
                                 <img src="{{ asset('assets/images/add-listing-icon.png') }}" alt="Add listing" class="ml-1">
                             </a>
                         </li>
+                        @endauth
                     </ul>
                 </div>
             </div>

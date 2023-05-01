@@ -7,7 +7,7 @@
           </a>
           <div class="lh-26 font-weight-500">
             <p class="mb-0">Enugu, Enugu, Nigeria</p>
-            <a class="d-block text-muted hover-white" href="mailto:contact@geohomesgroup.co">contact@geohomesgroup.com/</a>
+            <a class="d-block text-muted hover-white" href="mailto:contact@geohomesgroup.co">contact@geohomesgroup.com</a>
             <a class="d-block text-lighter font-weight-bold fs-15 hover-white"
                      href="tel:(+68)122109876">(+234) 5678901</a>
             <a class="d-block text-muted hover-white" href=".">www.geohomesgroup.co</a>
