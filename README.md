@@ -1,5 +1,5 @@
 # Church Of Nigeria Anglican Admin Control Dashboard
-This application is real estate application developed for Geohomes Group
+This application is real estate application developed for Geohomes Group.
 
 ## Teck stack used on this project
 * Laravel 10
@@ -24,21 +24,6 @@ https://geohomesgroup.com/
 ## Reusable
 the application code are highly reusable, customizable and can be improved by a Laravel developer.
 
-## How to use
-Clone the repo https://github.com/sunnytechie/con.git
-
-```bash
-$ git init
-$ git clone https://github.com/sunnytechie/geohomes.git
-$ cp .env.example .env
-# Make or create your database using mysql sql or redis.
-$ composer install
-$ php artisan key:gen
-$ php artisan migrate:fresh or just migrate
-$ npm install
-$ npm run dev # optional only if any changes you make in resource/js
-$ npx mix watch # optional only if you want to lookout for any changes you make in resource/js
-```
 ## Issues
 If you encounter issues installing this application on your server, kindly contact the developers of the application for help
 
