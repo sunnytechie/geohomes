@@ -24,7 +24,7 @@ Route::get('/faq', [App\Http\Controllers\PagesController::class, 'faq'])->name('
 Route::get('/listings', [App\Http\Controllers\PagesController::class, 'listings'])->name('page.listings');
 Route::get('/news', [App\Http\Controllers\PagesController::class, 'news'])->name('page.news');
 Route::get('/buy-rent', [App\Http\Controllers\PagesController::class, 'buyRent'])->name('page.buy.rent');
-Route::get('/projects', [App\Http\Controllers\PagesController::class, 'projects'])->name('page.projects');
+Route::get('/geohomes-projects', [App\Http\Controllers\PagesController::class, 'projects'])->name('page.projects');
 Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'])->name('page.services');
 
 //post request
