@@ -26,8 +26,16 @@ class PagesController extends Controller
         return view('pages.listings');
     }
 
-    public function news() {
-        return view('pages.news');
+    public function services() {
+        return view('pages.services');
+    }
+
+    public function buyRent() {
+        return view('pages.buyrent');
+    }
+
+    public function projects() {
+        return view('pages.projects');
     }
 
 }

@@ -23,16 +23,25 @@ Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])
 Route::get('/faq', [App\Http\Controllers\PagesController::class, 'faq'])->name('page.faq');
 Route::get('/listings', [App\Http\Controllers\PagesController::class, 'listings'])->name('page.listings');
 Route::get('/news', [App\Http\Controllers\PagesController::class, 'news'])->name('page.news');
+Route::get('/buy-rent', [App\Http\Controllers\PagesController::class, 'buyRent'])->name('page.buy.rent');
+Route::get('/projects', [App\Http\Controllers\PagesController::class, 'projects'])->name('page.projects');
+Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'])->name('page.services');
 
 //post request
-Route::get('/request-properties', [App\Http\Controllers\RequestPropertyController::class, 'new'])->name('new.request');
-Route::post('/request-properties', [App\Http\Controllers\RequestPropertyController::class, 'store'])->name('store.request');
+//Route::get('/request-properties', [App\Http\Controllers\RequestPropertyController::class, 'new'])->name('new.request');
+//Route::post('/request-properties', [App\Http\Controllers\RequestPropertyController::class, 'store'])->name('store.request');
 
 //dashboard
 Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 Route::get('/gh-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
 
 //listings Resources
+Route::resource('properties', 'App\Http\Controllers\PropertyController');
+Route::resource('projects', 'App\Http\Controllers\ProjectController');
+Route::resource('destinations', 'App\Http\Controllers\DestinationController');
+Route::resource('agents', 'App\Http\Controllers\AgentController');
+Route::resource('invoices', 'App\Http\Controllers\InvoiceController');
+Route::resource('admins', 'App\Http\Controllers\AdminController');
 
 //account
 Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');

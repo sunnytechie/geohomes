@@ -8,7 +8,7 @@
                         <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="HomeID" class="sticky-logo">
                     </a>
 
-                    <a class="d-block d-xl-none ml-auto mr-4 position-relative text-white p-2" href="#">
+                    <a class="d-block d-xl-none ml-auto mr-4 position-relative text-white p-2" href="{{ route('dashboard.index') }}">
                         <i class="fal fa-user fs-large-4"></i>
                     </a>
 
@@ -19,10 +19,17 @@
                     </button>
                     <div class="collapse navbar-collapse mt-3 mt-xl-0" id="primaryMenu02">
                         <ul class="navbar-nav hover-menu main-menu px-0 mx-xl-n4">
-                            <li id="navbar-item-home" aria-haspopup="true" aria-expanded="false"
+                            <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="{{ route('page.listings') }}">
+                                <a class="nav-link p-0" href="{{ route('page.buy.rent') }}">
                                     Buy or Rent {{-- should be Listings --}}
+                                </a>
+                            </li>
+
+                            <li aria-haspopup="true" aria-expanded="false"
+                                class="nav-item py-2 py-xl-5 px-0 px-xl-4">
+                                <a class="nav-link p-0" href="{{ route('page.projects') }}">
+                                    Projects
                                 </a>
                             </li>
 
@@ -35,8 +42,8 @@
 
                             <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="{{ route('new.request') }}">
-                                    Request Property
+                                <a class="nav-link p-0" href="/about-us#service">
+                                    Services
                                 </a>
                             </li>
 
@@ -47,7 +54,14 @@
                                 </a>
                             </li>
 
-                            <li id="navbar-item-dashboard" aria-haspopup="true" aria-expanded="false"
+                            <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
+                                class="nav-item py-2 py-xl-5 px-0 px-xl-4">
+                                <a class="nav-link p-0" href="{{ route('page.about') }}">
+                                    Contact Us
+                                </a>
+                            </li>
+
+                            {{-- <li id="navbar-item-dashboard" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item dropdown py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link dropdown-toggle p-0" href="#" data-toggle="dropdown">
                                     More
@@ -59,12 +73,12 @@
                                             Contact Us
                                         </a>
                                     </li>
-                                    {{-- <li class="dropdown-item">
+                                     <li class="dropdown-item">
                                         <a id="navbar-link-add-new-property" class="dropdown-link"
                                             href="{{ route('page.about') }}">
                                             About Us
                                         </a>
-                                    </li> --}}
+                                    </li> 
                                     <li class="dropdown-item">
                                         <a id="navbar-link-my-properties" class="dropdown-link"
                                             href="{{ route('page.faq') }}">
@@ -72,27 +86,12 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
 
                         <div class="d-block d-xl-none">
-                            <ul
-                                class="navbar-nav flex-row ml-auto align-items-center justify-content-lg-end flex-wrap py-2">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle mr-md-2 pr-2 pl-0 pl-lg-2" href="#"
-                                        id="bd-versions-mobile" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        ENG
-                                    </a>
-                                    <div class="dropdown-menu dropdown-sm dropdown-menu-left"
-                                        aria-labelledby="bd-versions-mobile">
-                                        {{-- <a class="dropdown-item" href="#">VN</a> --}}
-                                        <a class="dropdown-item active" href="#">ENG</a>
-                                        {{-- <a class="dropdown-item" href="#">ARB</a>
-                                        <a class="dropdown-item" href="#">KR</a>
-                                        <a class="dropdown-item" href="#">JN</a> --}}
-                                    </div>
-                                </li>
+                            <ul class="navbar-nav flex-row ml-auto align-items-center justify-content-lg-end flex-wrap py-2">
+                                
                                 <li class="divider"></li>
                                 <li class="nav-item hide-from-mobile">
                                     <a class="nav-link pl-3 pr-2" data-toggle="modal"
@@ -111,26 +110,14 @@
                 </nav>
                 <div class="ml-auto d-none d-xl-block">
                     <ul class="navbar-nav flex-row ml-auto align-items-center justify-content-lg-end flex-wrap py-2">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle mr-md-2 pr-2 pl-0 pl-lg-2" href="#"
-                                id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ENG
-                            </a>
-                            <div class="dropdown-menu dropdown-sm dropdown-menu-right" aria-labelledby="bd-versions">
-                                {{-- <a class="dropdown-item" href="#">VN</a> --}}
-                                <a class="dropdown-item active" href="#">ENG</a>
-                                {{-- <a class="dropdown-item" href="#">ARB</a>
-                                <a class="dropdown-item" href="#">KR</a>
-                                <a class="dropdown-item" href="#">JN</a> --}}
-                            </div>
-                        </li>
+                       
                         <li class="divider"></li>
 
                         <li class="nav-item ">
                             @guest
                                 <a class="nav-link pl-3 pr-2" data-toggle="modal" href="#login-register-modal">SIGN IN</a>
                                 @else
-                                <a class="nav-link pl-3 pr-2" href="#"> <span><i class="far fa-user"></i></span> <span class="ml-1">Dashboard</span></a>
+                                <a class="nav-link pl-3 pr-2" href="{{ route('dashboard.index') }}"> <span><i class="far fa-user"></i></span> <span class="ml-1">Dashboard</span></a>
                             @endguest
                             
                         </li>
