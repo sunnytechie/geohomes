@@ -18,13 +18,13 @@ Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name(
 
 //Pages
 Route::get('/about-us', [App\Http\Controllers\PagesController::class, 'about'])->name('page.about');
-Route::get('/agents', [App\Http\Controllers\PagesController::class, 'agents'])->name('page.agents');
+Route::get('/geo-agents', [App\Http\Controllers\PagesController::class, 'agents'])->name('page.agents');
 Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])->name('page.contact');
 Route::get('/faq', [App\Http\Controllers\PagesController::class, 'faq'])->name('page.faq');
 Route::get('/listings', [App\Http\Controllers\PagesController::class, 'listings'])->name('page.listings');
 Route::get('/news', [App\Http\Controllers\PagesController::class, 'news'])->name('page.news');
 Route::get('/buy-rent', [App\Http\Controllers\PagesController::class, 'buyRent'])->name('page.buy.rent');
-Route::get('/geohomes-projects', [App\Http\Controllers\PagesController::class, 'projects'])->name('page.projects');
+Route::get('/geo-projects', [App\Http\Controllers\PagesController::class, 'projects'])->name('page.projects');
 Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'])->name('page.services');
 
 //post request
