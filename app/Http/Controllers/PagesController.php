@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -35,7 +36,8 @@ class PagesController extends Controller
     }
 
     public function projects() {
-        return view('pages.projects');
+        $projects = Project::orderBy('id', 'desc')->paginate(12);
+        return view('pages.projects', compact('projects'));
     }
 
 }

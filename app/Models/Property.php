@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
+    protected $table = 'properties';
+
     use HasFactory;
+
+    //belongs to user
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

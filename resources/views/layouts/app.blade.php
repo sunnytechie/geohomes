@@ -50,9 +50,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <style>
-        
-    </style>
+    <title>GeoHomes estate agnecy plattform.</title>
 
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
@@ -368,7 +366,6 @@
            title="Back To Top"><i class="fal fa-arrow-up"></i>
          </a>
     </div>
-
 
 </body>
 </html>

@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invoice extends Model
 {
+    protected $table = 'invoices';
+    
     use HasFactory;
+
+    //belongs to user
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

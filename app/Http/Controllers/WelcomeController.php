@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
     public function index() {
-        return view('welcome');
+        $projects = Project::orderBy('id', 'desc')->paginate(12);
+        
+        return view('welcome', compact('projects'));
     }
 
     public function error() {

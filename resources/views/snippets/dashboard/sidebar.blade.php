@@ -29,10 +29,10 @@
                   <i class="far fa-bell"></i>
                   <span class="badge badge-primary badge-circle badge-absolute font-weight-bold fs-13">1</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-menu dropdown-menu-right" style="min-width: 250px;">
+                  <div class="px-5">
+                    <span>No notification here.</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -119,10 +119,10 @@
                   <div class="card card-body border-0 bg-transparent py-0 pl-6">
                     <ul class="list-group list-group-flush list-group-no-border">
                       <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                        <a class="text-heading lh-1 sidebar-link" href="#">Listing Projects</a>
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('projects.index') }}">Listing Projects</a>
                       </li>
                       <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                        <a class="text-heading lh-1 sidebar-link" href="#">Add New Projects</a>
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('projects.create') }}">Add New Projects</a>
                       </li>
                     </ul>
                   </div>
@@ -144,10 +144,10 @@
                 <div class="card card-body border-0 bg-transparent py-0 pl-6">
                   <ul class="list-group list-group-flush list-group-no-border">
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="#">Listing Properties</a>
+                      <a class="text-heading lh-1 sidebar-link" href="{{ route('properties.index') }}">Listing Properties</a>
                     </li>
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="#">Add New Property</a>
+                      <a class="text-heading lh-1 sidebar-link" href="{{ route('properties.create') }}">Add New Property</a>
                     </li>
                   </ul>
                 </div>
@@ -169,10 +169,10 @@
                 <div class="card card-body border-0 bg-transparent py-0 pl-6">
                   <ul class="list-group list-group-flush list-group-no-border">
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="#">Listing Destinations</a>
+                      <a class="text-heading lh-1 sidebar-link" href="{{ route('destinations.index') }}">Listing Destinations</a>
                     </li>
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="#">Add New Destination</a>
+                      <a class="text-heading lh-1 sidebar-link" href="{{ route('destinations.create') }}">Add New Destination</a>
                     </li>
                   </ul>
                 </div>
@@ -194,7 +194,7 @@
                 <div class="card card-body border-0 bg-transparent py-0 pl-6">
                   <ul class="list-group list-group-flush list-group-no-border">
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="#">Our Agents</a>
+                      <a class="text-heading lh-1 sidebar-link" href="{{ route('agents.index') }}">Our Agents</a>
                     </li>
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                       <a class="text-heading lh-1 sidebar-link" href="#">Approved Agents</a>
@@ -222,22 +222,13 @@
               <div class="card card-body border-0 bg-transparent py-0 pl-6">
                 <ul class="list-group list-group-flush list-group-no-border">
                   <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                    <a class="text-heading lh-1 sidebar-link" href="#">Invoice listing</a>
+                    <a class="text-heading lh-1 sidebar-link" href="{{ route('invoices.index') }}">Invoice listing</a>
                   </li>
                 </ul>
               </div>
             </div>
 
               </ul>
-
-              {{-- Drop down widget for the lists --}}
-              
-
-              
-
-              
-
-              
 
             </li>
 
@@ -262,17 +253,17 @@
                 <div class="card card-body border-0 bg-transparent py-0 pl-6">
                   <ul class="list-group list-group-flush list-group-no-border">
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="#">Manage Admin</a>
+                      <a class="text-heading lh-1 sidebar-link" href="{{ route('admins.index') }}">Manage Admin</a>
                     </li>
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="#">Create Admin</a>
+                      <a class="text-heading lh-1 sidebar-link" href="{{ route('admins.create') }}">Create Admin</a>
                     </li>
                   </ul>
                 </div>
               </div>
 
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="#" class="text-heading lh-1 sidebar-link">
+                  <a href="{{ route('profile.show') }}" class="text-heading lh-1 sidebar-link">
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
                       <i class="fa fa-user"></i>
                     </span>

@@ -13,13 +13,13 @@
           </a>
         </div>
       </div>
-      <div class="slick-slider mx-n2 custom-arrow-spacing-30"
-         data-slick-options='{"slidesToShow": 5, "autoplay":false,"dots":false,"arrows":true,"responsive":[{"breakpoint": 1600,"settings": {"slidesToShow":3,"arrows":false}},{"breakpoint": 992,"settings": {"slidesToShow":3,"arrows":false}},{"breakpoint": 768,"settings": {"slidesToShow": 2,"arrows":false,"dots":true,"autoplay":true}},{"breakpoint": 576,"settings": {"slidesToShow": 1,"arrows":false,"dots":true,"autoplay":true}}]}'>
+      <div class="slick-slider mx-n2 custom-arrow-spacing-30" data-slick-options='{"slidesToShow": 5, "autoplay":false,"dots":false,"arrows":true,"responsive":[{"breakpoint": 1600,"settings": {"slidesToShow":3,"arrows":false}},{"breakpoint": 992,"settings": {"slidesToShow":3,"arrows":false}},{"breakpoint": 768,"settings": {"slidesToShow": 2,"arrows":false,"dots":true,"autoplay":true}},{"breakpoint": 576,"settings": {"slidesToShow": 1,"arrows":false,"dots":true,"autoplay":true}}]}'>
+        
+        @foreach ($projects as $project)
         <div class="box px-2" data-animate="fadeInUp">
           <div class="card border-0 hover-change-image">
             <div class="bg-overlay-gradient-1 bg-hover-overlay-gradient-3 rounded-lg card-img">
-              <img src="{{ asset('assets/images/properties-grid-12.jpg') }}"
-                         alt="Villa on Hollywood Boulevard">
+              <img src="/storage/{{ $project->image }}" alt="{{ $project->title }}">
               <div class="card-img-overlay d-flex flex-column justify-content-between">
                 
                 {{-- Do not remove this list... --}}
@@ -38,7 +38,7 @@
                 </ul>
                 {{-- End Do not remove this list... --}}
                 <ul class="list-inline d-flex mb-0 flex-wrap px-2 mr-n5">
-                  <li class="list-inline-item text-white font-weight-500 fs-13 d-flex align-items-center mr-5" data-toggle="tooltip" title="3 Bedroom">
+                  {{-- <li class="list-inline-item text-white font-weight-500 fs-13 d-flex align-items-center mr-5" data-toggle="tooltip" title="3 Bedroom">
                     <svg class="icon icon-bedroom fs-18 text-primary mr-1">
                       <use xlink:href="#icon-bedroom"></use>
                     </svg>
@@ -55,18 +55,19 @@
                       <use xlink:href="#icon-square"></use>
                     </svg>
                     2300 Sq.Ft
-                  </li>
+                  </li> --}}
                 </ul>
               </div>
             </div>
             <div class="card-body p-0">
-              <h2 class="my-0 mt-1"><a href="#" class="fs-16 text-dark hover-primary lh-2">Villa on Hollywood Boulevard</a>
+              <h2 class="my-0 mt-1"><a href="#" class="fs-16 text-dark hover-primary lh-2">{{ $project->title }}</a>
               </h2>
-              <p class="text-gray-light font-weight-500 mb-1">1421 San Pedro St, Los Angeles</p>
-              <p class="fs-17 font-weight-bold text-heading mb-0">$1.250.000</p>
+              <p class="text-gray-light font-weight-500 mb-1">{{ $project->address }}</p>
+              {{-- <p class="fs-17 font-weight-bold text-heading mb-0">$1.250.000</p> --}}
             </div>
           </div>
         </div>
+        @endforeach
         
       </div>
     </div>

@@ -27,7 +27,7 @@
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-right w-100">
-              <a class="dropdown-item" href="#">My Profile</a>
+              <a class="dropdown-item" href="{{ route('profile.show') }}">My Profile</a>
               <a class="dropdown-item" href="#">Logout</a>
             </div>
           </div>
@@ -37,10 +37,10 @@
               <i class="far fa-bell"></i>
               <span class="badge badge-primary badge-circle badge-absolute font-weight-bold fs-13">1</span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-menu dropdown-menu-right" style="min-width: 250px;">
+              <div class="px-5">
+                <span>No notification here.</span>
+              </div>
             </div>
           </div>
         </div>

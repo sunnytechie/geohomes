@@ -31,20 +31,22 @@ Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'
 //Route::get('/request-properties', [App\Http\Controllers\RequestPropertyController::class, 'new'])->name('new.request');
 //Route::post('/request-properties', [App\Http\Controllers\RequestPropertyController::class, 'store'])->name('store.request');
 
+//Route::get('/gh-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
+
 //dashboard
-Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
-Route::get('/gh-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
+Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
 
 //listings Resources
-Route::resource('properties', 'App\Http\Controllers\PropertyController');
-Route::resource('projects', 'App\Http\Controllers\ProjectController');
-Route::resource('destinations', 'App\Http\Controllers\DestinationController');
-Route::resource('agents', 'App\Http\Controllers\AgentController');
-Route::resource('invoices', 'App\Http\Controllers\InvoiceController');
-Route::resource('admins', 'App\Http\Controllers\AdminController');
+Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth');
+Route::resource('projects', 'App\Http\Controllers\ProjectController')->middleware('auth');
+Route::get('/geo-projects-image', [App\Http\Controllers\PagesController::class, 'projectImage'])->name('project.image.upload');
+Route::resource('destinations', 'App\Http\Controllers\DestinationController')->middleware('auth');
+Route::resource('agents', 'App\Http\Controllers\AgentController')->middleware('auth');
+Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middleware('auth');
+Route::resource('admins', 'App\Http\Controllers\AdminController')->middleware('auth');
 
 //account
-Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
+Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show')->middleware('auth');
 
 //Error page
 Route::get('/not-found', [App\Http\Controllers\WelcomeController::class, 'error'])->name('error404');
