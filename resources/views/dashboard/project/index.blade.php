@@ -80,7 +80,7 @@
                     class="new-control new-checkbox checkbox-primary m-auto">
                   <input type="checkbox" class="new-control-input child-chk select-customers-info">
                 </label></td>
-              <td class="align-middle"><a href="#"><span
+              <td class="align-middle"><a href="{{ route('projects.show', $project->id) }}"><span
                     class="inv-number">#{{ $project->id }}</span></a>
               </td>
               <td class="align-middle">

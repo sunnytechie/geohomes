@@ -118,7 +118,7 @@
                                             <div class="col-md-8 offset-md-2">
                                                 <div class="card">
                                                     <div class="card-body p-6">
-                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Upload phot of project</h3>
+                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Upload photo of project</h3>
                                                         <p class="card-text mb-5">Recommended size: 1080x1080 <span class="text-muted">(Mandatory)</span></p>
                                                         <div class="text-center py-5">
                                                             
@@ -168,16 +168,16 @@
 </script>
 
 <script>
-    function toggleButton() {
-        var input = document.getElementById("title");
-        var button = document.getElementById("disableUntilInputIsFilled");
+    //function toggleButton() {
+       // var input = document.getElementById("title");
+        //var button = document.getElementById("disableUntilInputIsFilled");
 
-        if (input.value.trim() !== "") {
-        button.disabled = false;
-        } else {
-        button.disabled = true;
-        }
-    }
+        //if (input.value.trim() !== "") {
+        //button.disabled = false;
+       // } else {
+        //button.disabled = true;
+       // }
+   // }
     </script>
 
 @endsection

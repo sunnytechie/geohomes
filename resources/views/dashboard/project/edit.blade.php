@@ -23,7 +23,7 @@
 
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 my-profile">
         <div class="mb-6">
-            <h2 class="mb-0 text-heading fs-22 lh-15">Add new Project
+            <h2 class="mb-0 text-heading fs-22 lh-15">Edit Project
             </h2>
             <p class="mb-1">Adding a new project and publishing it will put it on the homepage.</p>
         </div>
@@ -189,16 +189,7 @@
 </script>
 
 <script>
-    function toggleButton() {
-        var input = document.getElementById("title");
-        var button = document.getElementById("disableUntilInputIsFilled");
-
-        if (input.value.trim() !== "") {
-        button.disabled = false;
-        } else {
-        button.disabled = true;
-        }
-    }
-    </script>
+    
+</script>
 
 @endsection
