@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 @section('content')
-<section class="py-13 mt-5">
+<section class="py-2">
     <div class="container">
         <div class="row login-register">
         <div class="col-md-6 offset-md-3">

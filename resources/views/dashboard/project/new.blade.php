@@ -93,7 +93,7 @@
                                             </div>
                                         </div>
                                         <div class="text-right">
-                                            <button class="btn btn-lg btn-primary next-button" disabled id="disableUntilInputIsFilled">Next step
+                                            <button class="btn btn-lg btn-primary next-button">Next step
                                                 <span class="d-inline-block ml-2 fs-16"><i class="fal fa-long-arrow-right"></i></span>
                                             </button>
                                         </div>
@@ -107,7 +107,7 @@
                             <div class="card bg-transparent border-0">
                                 <div class="card-header d-block d-md-none bg-transparent px-0 py-1 border-bottom-0" id="heading-media">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-lg collapse-parent btn-block border shadow-none" disabled id="disableUntilInputIsFilled" data-toggle="collapse" data-number="2." data-target="#media-collapse" aria-expanded="true" aria-controls="media-collapse">
+                                        <button class="btn btn-lg collapse-parent btn-block border shadow-none" data-toggle="collapse" data-number="2." data-target="#media-collapse" aria-expanded="true" aria-controls="media-collapse">
                                             <span class="number">2.</span> Media
                                         </button>
                                     </h5>
