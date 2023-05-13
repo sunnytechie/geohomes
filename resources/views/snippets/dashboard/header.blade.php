@@ -28,7 +28,13 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right w-100">
               <a class="dropdown-item" href="{{ route('profile.show') }}">My Profile</a>
-              <a class="dropdown-item" href="#">Logout</a>
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+              <a class="dropdown-item" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                      this.closest('form').submit();"
+              >Logout</a>
+            </form>
             </div>
           </div>
           <div class="dropdown no-caret py-3 px-3 px-sm-6 d-flex align-items-center justify-content-end notice">

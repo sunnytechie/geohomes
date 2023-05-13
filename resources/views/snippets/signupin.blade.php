@@ -100,19 +100,19 @@
                   <button type="submit" class="btn btn-primary btn-lg btn-block">Log in</button>
                 </form>
 
-                <div class="divider text-center my-2">
+                {{-- <div class="divider text-center my-2">
                   <span class="px-4 bg-white lh-17 text">
                     or continue with
                   </span>
-                </div>
+                </div> --}}
 
                 {{-- Login with google --}}
-                <a href="#" class="btn btn-lg btn-block google px-0">
+                {{-- <a href="#" class="btn btn-lg btn-block google px-0">
                     <div class="d-flex justify-content-center align-items-center">
                     <div><img src="{{ asset('assets/images/google.png') }}" alt="Google"></div>
                     <div class="mx-2">Google</div>
                     </div>
-                </a>
+                </a> --}}
 
               </div>
 
@@ -167,7 +167,7 @@
                   </div>
 
                 <div class="form-row">
-                    <div class="form-group col-md-6 mb-4">
+                    <div class="form-group col-md-12 mb-4">
                         <label for="password" class="sr-only">Password</label>
                         <div class="input-group input-group-lg">
                         <div class="input-group-prepend ">
@@ -194,7 +194,7 @@
                         
                     </div>
 
-                    <div class="form-group col-md-6 mb-4">
+                    <div class="form-group col-md-12 mb-4">
                         <label for="password" class="sr-only">Password</label>
                         <div class="input-group input-group-lg">
                         <div class="input-group-prepend ">
@@ -208,8 +208,6 @@
                                 name="password_confirmation" 
                                 required
                                 placeholder="Confirm Password">
-
-                            
                         <div class="input-group-append show-password3">
                             <span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>
                         </div>
@@ -223,19 +221,19 @@
                   <button type="submit" class="btn btn-primary btn-lg btn-block">Sign up</button>
                 </form>
 
-                <div class="divider text-center my-2">
+                {{-- <div class="divider text-center my-2">
                   <span class="px-4 bg-white lh-17 text">
                     or continue with
                   </span>
-                </div>
+                </div> --}}
 
                 {{-- Login with google --}}
-                <a href="#" class="btn btn-lg btn-block google px-0">
+                {{-- <a href="#" class="btn btn-lg btn-block google px-0">
                     <div class="d-flex justify-content-center align-items-center">
                     <div><img src="{{ asset('assets/images/google.png') }}" alt="Google"></div>
                     <div class="mx-2">Google</div>
                     </div>
-                </a>
+                </a> --}}
 
                 <div class="mt-2">By creating an account, you agree to Geohomes Group
                   <a class="text-heading" href="#"><u>Terms of Use</u> </a> and

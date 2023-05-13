@@ -26,8 +26,8 @@
             </div>
             <div class="col-7 text-center">
               <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
-                 data-end="29" data-decimals="0"
-                 data-duration="0" data-separator="">29</p>
+                 data-end="{{ $properties->count(); }}" data-decimals="0"
+                 data-duration="0" data-separator="">{{ $properties->count(); }}</p>
               <p>Properties</p>
             </div>
           </div>
@@ -43,8 +43,8 @@
             </div>
             <div class="col-7 text-center">
               <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
-                 data-end="1730" data-decimals="0"
-                 data-duration="0" data-separator="">1730</p>
+                 data-end="{{ $projects->count(); }}" data-decimals="0"
+                 data-duration="0" data-separator="">{{ $projects->count(); }}</p>
               <p>Projects</p>
             </div>
           </div>
@@ -60,8 +60,8 @@
             </div>
             <div class="col-8 text-center">
               <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
-                 data-end="329" data-decimals="0"
-                 data-duration="0" data-separator="">329</p>
+                 data-end="{{ $agents->count(); }}" data-decimals="0"
+                 data-duration="0" data-separator="">{{ $agents->count(); }}</p>
               <p>Agents</p>
             </div>
           </div>
@@ -77,8 +77,8 @@
             </div>
             <div class="col-7 text-center">
               <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
-                 data-end="914" data-decimals="0"
-                 data-duration="0" data-separator="">914</p>
+                 data-end="{{ $destinations->count(); }}" data-decimals="0"
+                 data-duration="0" data-separator="">{{ $destinations->count(); }}</p>
               <p>Destinations</p>
             </div>
           </div>
