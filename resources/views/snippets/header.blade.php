@@ -14,6 +14,10 @@
         color: #000000;
         }
     }
+
+    header {
+        border-top: 0.3rem solid #00A75A;
+    }
 </style>
 
 <header class="main-header position-absolute fixed-top m-0 navbar-dark header-sticky header-sticky-smart header-mobile-xl">
