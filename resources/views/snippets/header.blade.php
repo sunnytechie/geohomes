@@ -41,6 +41,13 @@
                     </button>
                     <div class="collapse navbar-collapse mt-3 mt-xl-0" id="primaryMenu02">
                         <ul class="navbar-nav hover-menu main-menu px-0 mx-xl-n4">
+                            <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
+                                class="nav-item py-2 py-xl-5 px-0 px-xl-4">
+                                <a class="nav-link p-0" href="/">
+                                    Home
+                                </a>
+                            </li>
+
                             <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link p-0" href="{{ route('page.buy.rent') }}">
@@ -52,13 +59,6 @@
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link p-0" href="{{ route('page.projects') }}">
                                     Projects
-                                </a>
-                            </li>
-
-                            <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
-                                class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="{{ route('page.agents') }}">
-                                    Estate Agents
                                 </a>
                             </li>
 
@@ -137,7 +137,7 @@
 
                         <li class="nav-item ">
                             @guest
-                                <a class="nav-link pl-3 pr-2" data-toggle="modal" href="#login-register-modal">SIGN IN</a>
+                                <a class="nav-link pl-3 pr-2" href="{{ route('login') }}">SIGN IN</a>
                                 {{-- @else
                                 <a class="nav-link pl-3 pr-2" href="{{ route('dashboard.index') }}"> <span><i class="far fa-user"></i></span> <span class="ml-1">Dashboard</span></a> --}}
                             @endguest

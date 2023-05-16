@@ -51,6 +51,13 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <title>GeoHomes estate agnecy plattform.</title>
+    <style>
+        @media screen and (max-width: 1024px) {
+            .hide-from-1024 {
+                display: none;
+            }
+        }
+    </style>
 
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}

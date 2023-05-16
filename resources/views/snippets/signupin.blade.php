@@ -166,57 +166,57 @@
                     </div>
                   </div>
 
-                <div class="form-row">
-                    <div class="form-group col-md-12 mb-4">
-                        <label for="password" class="sr-only">Password</label>
-                        <div class="input-group input-group-lg">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text bg-gray-01 border-0 text-muted fs-18">
-                            <i class="far fa-lock"></i>
-                            </span>
-                        </div>
-                        <input type="password" 
-                                class="form-control border-0 shadow-none fs-13 password-input2"
-                                id="password" 
-                                name="password" 
-                                required
-                                placeholder="Password">
-                        <div class="input-group-append show-password2">
-                            <span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>
-                        </div>
+                  <div class="form-row">
+                      <div class="form-group col-md-12 mb-4">
+                          <label for="password" class="sr-only">Password</label>
+                          <div class="input-group input-group-lg">
+                          <div class="input-group-prepend ">
+                              <span class="input-group-text bg-gray-01 border-0 text-muted fs-18">
+                              <i class="far fa-lock"></i>
+                              </span>
+                          </div>
+                          <input type="password" 
+                                  class="form-control border-0 shadow-none fs-13 password-input2"
+                                  id="password" 
+                                  name="password" 
+                                  required
+                                  placeholder="Password">
+                          <div class="input-group-append show-password2">
+                              <span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>
+                          </div>
 
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                        </div>
-                        
-                    </div>
+                          @error('password')
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $message }}</strong>
+                              </span>
+                          @enderror
+                          </div>
+                          
+                      </div>
 
-                    <div class="form-group col-md-12 mb-4">
-                        <label for="password" class="sr-only">Password</label>
-                        <div class="input-group input-group-lg">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text bg-gray-01 border-0 text-muted fs-18">
-                            <i class="far fa-lock"></i>
-                            </span>
-                        </div>
-                        <input type="password" 
-                                class="form-control border-0 shadow-none fs-13 password-input3"
-                                id="password_confirmation" 
-                                name="password_confirmation" 
-                                required
-                                placeholder="Confirm Password">
-                        <div class="input-group-append show-password3">
-                            <span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>
-                        </div>
-                        </div>
-            
-                    </div>
+                      <div class="form-group col-md-12 mb-4">
+                          <label for="password" class="sr-only">Password</label>
+                          <div class="input-group input-group-lg">
+                          <div class="input-group-prepend ">
+                              <span class="input-group-text bg-gray-01 border-0 text-muted fs-18">
+                              <i class="far fa-lock"></i>
+                              </span>
+                          </div>
+                          <input type="password" 
+                                  class="form-control border-0 shadow-none fs-13 password-input3"
+                                  id="password_confirmation" 
+                                  name="password_confirmation" 
+                                  required
+                                  placeholder="Confirm Password">
+                          <div class="input-group-append show-password3">
+                              <span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>
+                          </div>
+                          </div>
+              
+                      </div>
 
-                    <p class="form-text">Minimum 8 characters with 1 number and 1 letter</p>
-                </div>
+                      <p class="form-text">Minimum 8 characters with 1 number and 1 letter</p>
+                  </div>
 
                   <button type="submit" class="btn btn-primary btn-lg btn-block">Sign up</button>
                 </form>

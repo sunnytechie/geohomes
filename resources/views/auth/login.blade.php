@@ -3,10 +3,11 @@
 @section('content')
 <section class="py-2">
     <div class="container">
+      <div class="mt-12 hide-from-1024"></div>
       <div class="row login-register">
         <div class="col-md-6 offset-md-3">
-          <div class="card border-0 shadow-xxs-2 mb-6">
-            <div class="card-body px-8 py-6">
+          <div class="card border-1 shadow mb-10">
+            <div class="card-body">
               <h2 class="card-title fs-30 font-weight-600 text-dark lh-16 mb-2">Log In</h2>
               <p class="mb-4">Don't have an account? <a href="{{ route('register') }}" class="text-heading hover-primary"><u>Sign Up</u></a></p>
               
@@ -27,13 +28,11 @@
                 <div class="form-group mb-4">
                   <label for="password-2">Password</label>
                   <div class="input-group input-group-lg">
-                    <input type="text" class="form-control @error('password') is-invalid @enderror border-0 shadow-none fs-13" id="password-2" name="password" placeholder="Password">
+                    <input type="password" class="form-control password-input @error('password') is-invalid @enderror border-0 shadow-none fs-13" id="password" name="password" placeholder="Password">
                     
-                    <div class="input-group-append">
-                      <span class="input-group-text bg-gray-01 border-0 text-body fs-18">
-                        <i class="far fa-eye-slash"></i>
-                      </span>
-                    </div>
+                    <div class="input-group-append show-password" style="cursor: pointer">
+                        <span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>
+                      </div>
                   </div>
 
                   @error('password')
@@ -48,7 +47,7 @@
                     <input class="form-check-input" type="checkbox" value="" id="remember-me-1" name="remember">
                     <label class="form-check-label" for="remember-me-1">Stay signed in </label>
                   </div>
-                  <a href="password-recovery.html" class="d-inline-block ml-auto fs-13 lh-2 text-body">
+                  <a href="{{ route('password.request') }}" class="d-inline-block ml-auto fs-13 lh-2 text-body">
                     <u>Forgot your password?</u>
                   </a>
                 </div>
@@ -65,4 +64,31 @@
       </div>
     </div>
   </section>
+
+  <script>
+    const passwordInput = document.querySelector(".password-input");
+    const showPasswordButton = document.querySelector(".show-password");
+    const passwordInput2 = document.querySelector(".password-input2");
+    const showPasswordButton2 = document.querySelector(".show-password2");
+
+    showPasswordButton.addEventListener("click", function() {
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        showPasswordButton.innerHTML = '<span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye-slash"></i></span>';
+    } else {
+        passwordInput.type = "password";
+        showPasswordButton.innerHTML = '<span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>';
+    }
+    });
+
+    showPasswordButton2.addEventListener("click", function() {
+    if (passwordInput2.type === "password") {
+        passwordInput2.type = "text";
+        showPasswordButton2.innerHTML = '<span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye-slash"></i></span>';
+    } else {
+        passwordInput2.type = "password";
+        showPasswordButton2.innerHTML = '<span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>';
+    }
+    });
+</script>
 @endsection

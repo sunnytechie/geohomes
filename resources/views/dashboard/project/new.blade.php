@@ -56,7 +56,7 @@
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="address" class="text-heading">Address <span class="text-muted">(Optional)</span></label>
+                                                            <label for="address" class="text-heading">Address</label>
                                                             <input type="text" class="form-control form-control-lg border-0 @error('address') is-invalid @enderror" id="address" value="{{ old('address') }}" name="address" oninput="toggleButton()">
                                                             
                                                             @if ($errors->has('address'))
@@ -65,6 +65,18 @@
                                                                 </div>
                                                             @endif
                                                         </div>
+
+                                                        <div class="form-group">
+                                                            <label for="state" class="text-heading">State <span class="text-muted">(Optional)</span></label>
+                                                            <input type="text" class="form-control form-control-lg border-0 @error('state') is-invalid @enderror" id="state" value="{{ old('state') }}" name="state" oninput="toggleButton()">
+                                                            
+                                                            @if ($errors->has('state'))
+                                                                <div id="stateHelp" class="form-text text-danger">
+                                                                    <div>{{ $errors->first('state') }}</div>
+                                                                </div>
+                                                            @endif
+                                                        </div>
+
 
                                                         <div class="form-group">
                                                             <label for="map_embed_code" class="text-heading">Map Embed Code <span class="text-muted">(mandatory) Recommended map height 200, width 100%</span></label>

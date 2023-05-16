@@ -40,6 +40,8 @@ class ProjectController extends Controller
             'title' => 'required',
             'map_embed_code' => 'required',
             'address' => '',
+            'state' => '',
+            'country' => '',
             'description' => '',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -54,6 +56,8 @@ class ProjectController extends Controller
         $project = new Project();
         $project->title = $request->title;
         $project->address = $request->address;
+        $project->state = $request->state;
+        $project->country = $request->country;
         $project->map_embed_code = $request->map_embed_code;
         $project->description = $request->description;
         $project->image = $imagePath;
@@ -90,6 +94,8 @@ class ProjectController extends Controller
             'title' => 'required',
             'map_embed_code' => 'required',
             'address' => '',
+            'state' => '',
+            'country' => '',
             'description' => '',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -105,6 +111,8 @@ class ProjectController extends Controller
         $project = Project::find($id);
         $project->title = $request->title;
         $project->address = $request->address;
+        $project->state = $request->state;
+        $project->country = $request->country;
         $project->map_embed_code = $request->map_embed_code;
         $project->description = $request->description;
         if ($request->hasFile('image')) {
