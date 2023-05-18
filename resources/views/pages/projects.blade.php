@@ -12,6 +12,10 @@
   }
   }
 
+  /* override GoogleMap settings */
+.MapPlaceHolder {
+    max-height: 200px;
+}
 
   .map {
     margin-bottom: 20px; /* Adjust the margin as needed */
