@@ -15,7 +15,7 @@
       <div class="slick-slider mx-n2 custom-arrow-spacing-30" data-slick-options='{"slidesToShow": 5, "autoplay":false,"dots":false,"arrows":true,"responsive":[{"breakpoint": 1600,"settings": {"slidesToShow":4,"arrows":false}},{"breakpoint": 992,"settings": {"slidesToShow":3,"arrows":false}},{"breakpoint": 768,"settings": {"slidesToShow": 2,"arrows":false,"dots":true,"autoplay":true}},{"breakpoint": 576,"settings": {"slidesToShow": 1,"arrows":false,"dots":true,"autoplay":true}}]}'>
         
         @foreach ($projects as $project)
-        <div class="box px-2" data-animate="fadeInUp">
+        <div class="box px-3" data-animate="fadeInUp">
           <div class="card border-0 hover-change-image">
             <a href="#">
               <div class="rounded-lg card-img">
