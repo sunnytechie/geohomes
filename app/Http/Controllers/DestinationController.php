@@ -39,7 +39,7 @@ class DestinationController extends Controller
 
         //dd($request->all());
         
-        $imagePath = request('image')->store('projects', 'public');
+        $imagePath = request('image')->store('destination', 'public');
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(540, 675);
         $image->save();
 

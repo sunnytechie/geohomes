@@ -3,8 +3,8 @@
 <section class="py-2">
     <div class="container">
         <div class="mt-12 hide-from-1024"></div>
-        <div class="row login-register">
-        <div class="col-md-6 offset-md-3">
+        <div class="row justify-content-center login-register">
+        <div class="col-md-6">
             <div class="card border-1 shadow mb-10">
             <div class="card-body">
                 <h2 class="card-title fs-30 font-weight-600 text-dark lh-16 mb-2">Sign Up</h2>
@@ -80,7 +80,7 @@
 
                 </div>
                 
-                <button type="submit" class="btn btn-primary btn-lg btn-block rounded">Register</button>
+                <button type="submit" class="btn btn-primary geo-btn-bg btn-lg btn-block rounded">Register</button>
                 </form>
                 
             </div>

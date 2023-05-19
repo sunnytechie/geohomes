@@ -193,9 +193,9 @@
               <div class="collapse" id="agent_collapse">
                 <div class="card card-body border-0 bg-transparent py-0 pl-6">
                   <ul class="list-group list-group-flush list-group-no-border">
-                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                    {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                       <a class="text-heading lh-1 sidebar-link" href="{{ route('agents.index') }}">Our Agents</a>
-                    </li>
+                    </li> --}}
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                       <a class="text-heading lh-1 sidebar-link" href="#">Approved Agents</a>
                     </li>
@@ -271,7 +271,11 @@
                   </a>
                 </li>
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="#" class="text-heading lh-1 sidebar-link">
+                  <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                  <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                  this.closest('form').submit();" class="text-heading lh-1 sidebar-link">
+                    
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
                       <i class="fa fa-sign-out"></i>
                     </span>

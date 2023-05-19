@@ -4,13 +4,18 @@
 <section class="py-2">
     <div class="container">
       <div class="mt-12 hide-from-1024"></div>
-      <div class="row login-register">
-        <div class="col-md-6 offset-md-3">
+      <div class="row justify-content-center login-register">
+        <div class="col-md-5">
           <div class="card border-1 shadow mb-10">
             <div class="card-body">
               <h2 class="card-title fs-30 font-weight-600 text-dark lh-16 mb-2">Reset Password</h2>
               <p class="mb-4">Remember your credentials? <a href="{{ route('login') }}" class="text-heading hover-primary"><u>Sign In</u></a></p>
               
+              @if (session('status'))
+                  <div class="alert alert-success" role="alert">
+                      {{ session('status') }}
+                  </div>
+              @endif
 
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
@@ -31,7 +36,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-12">
-                              <button type="submit" class="btn btn-primary btn-lg btn-block rounded">Send Reset link</button>
+                              <button type="submit" class="btn btn-primary geo-btn-bg btn-lg btn-block rounded">Send Reset link</button>
                             </div>
                         </div>
                     </form>

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //Landing page
+Route::get('/home', [App\Http\Controllers\WelcomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('index.welcome');
 
 //Pages
@@ -34,23 +35,37 @@ Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'
 //Route::get('/gh-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
 
 //dashboard
-Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth');
+Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified');
 
 //listings Resources
-Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth');
-Route::resource('projects', 'App\Http\Controllers\ProjectController')->middleware('auth');
+Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth', 'verified');
+Route::resource('projects', 'App\Http\Controllers\ProjectController')->middleware('auth', 'verified');
 Route::get('/geo-projects-image', [App\Http\Controllers\PagesController::class, 'projectImage'])->name('project.image.upload');
-Route::resource('destinations', 'App\Http\Controllers\DestinationController')->middleware('auth');
-Route::resource('agents', 'App\Http\Controllers\AgentController')->middleware('auth');
-Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middleware('auth');
-Route::resource('admins', 'App\Http\Controllers\AdminController')->middleware('auth');
+Route::resource('destinations', 'App\Http\Controllers\DestinationController')->middleware('auth', 'verified');
+Route::resource('agents', 'App\Http\Controllers\AgentController')->middleware('auth', 'verified');
+Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middleware('auth', 'verified');
+Route::resource('admins', 'App\Http\Controllers\AdminController')->middleware('auth', 'verified');
 
 //account
-Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show')->middleware('auth');
+Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show')->middleware('auth', 'verified');
+Route::put('/my-profile/update', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update')->middleware('auth', 'verified');
 
 //Error page
 Route::get('/not-found', [App\Http\Controllers\WelcomeController::class, 'error'])->name('error404');
 
 Auth::routes();
+
+Route::get('/email/verify', function () {
+    return view('auth.verify');
+})->middleware(['auth'])->name('verification.notice');
+
+Route::post('/email/verify/resend', 'App\Http\Controllers\VerificationController@resend')
+    ->middleware(['auth'])
+    ->name('verification.resend');
+
+Route::get('/email/verify/{id}/{hash}', 'App\Http\Controllers\VerificationController@verify')
+    ->middleware(['signed', 'throttle:6,1'])
+    ->name('verification.verify');
+
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

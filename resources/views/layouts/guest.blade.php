@@ -57,6 +57,14 @@
                 display: none;
             }
         }
+
+        .geo-btn-bg {
+            background: #00A75A;
+        }
+
+        .geo-btn-bg:hover {
+            background: #14ba6d;
+        }
     </style>
 
     <!-- Scripts -->

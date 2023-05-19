@@ -145,16 +145,16 @@
                         </li>
                         
                         @auth
-                        <li class="nav-item remove-this-item">
-                            <a class="btn btn-outline-light btn-lg text-white rounded-lg bg-hover-primary border-hover-primary hover-white d-none d-lg-block"
+                        <li class="nav-item">
+                            {{-- <a class="btn btn-outline-light btn-lg text-white rounded-lg bg-hover-primary border-hover-primary hover-white d-none d-lg-block"
                                 href="{{ route('dashboard.index') }}">
                                 Dashboard
                                 <img src="{{ asset('assets/images/add-listing-icon.png') }}" alt="Add listing"
                                     class="ml-1 normal-button-icon">
                                 <img src="{{ asset('assets/images/add-listing-icon-primary.png') }}" alt="Add listing"
                                     class="ml-1 sticky-button-icon">
-                            </a>
-                            <a class="btn btn-primary btn-lg d-block d-lg-none"
+                            </a> --}}
+                            <a class="btn btn-primary"
                                 href="{{ route('dashboard.index') }}">
                                 Dashboard
                                 <img src="{{ asset('assets/images/add-listing-icon.png') }}" alt="Add listing" class="ml-1">
