@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Destination;
 use App\Models\Project;
 use App\Models\Property;
 use Illuminate\Http\Request;
@@ -17,7 +18,9 @@ class WelcomeController extends Controller
         $propertiesForRent = Property::orderBy('id', 'desc')
                             ->where('category', "For Rent")->paginate(12);
 
-        return view('welcome', compact('projects', 'propertiesForSale', 'propertiesForRent'));
+        $destinations = Destination::orderBy('id', 'desc')->paginate(12);  
+
+        return view('welcome', compact('projects', 'destinations', 'propertiesForSale', 'propertiesForRent'));
     }
 
     public function error() {

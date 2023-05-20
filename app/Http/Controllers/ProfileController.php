@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
@@ -14,10 +15,26 @@ class ProfileController extends Controller
     }
 
     public function update(Request $request) {
-        dd("Still working on it.");
+        //dd($request->all());
         $request->validate([
-            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'name' => 'required',
+            'phone' => 'required',
+            //'password' => ['nullable', 'string', 'min:8'],
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
+
+        //if ($request->oldPassword != null) {
+            // Compare the entered password with the hashed user password
+        //    if (Hash::check($request->oldPassword != Auth::user()->password)) {
+        //        return redirect()->back()->with('message', "Incorrect Old password. try again.");
+        //    }
+
+            //Password Check
+        //    if ($request->password != $request->password_confirmation) {
+        //        return redirect()->back()->with('message', "Password Mismatched. Kindly enter the new password again.");
+        //    }
+
+        //}
 
         if ($request->has('image')) {
             $imagePath = request('image')->store('profile', 'public');
@@ -31,11 +48,11 @@ class ProfileController extends Controller
         if ($request->has('image')) {
             $user->image = $imagePath;
         }
-        if ($request->has('newPassword')) {
-
-        }
+        //if ($request->password != null) {
+        //$user->password = Hash::make($request->password);
+        //}
         $user->save();
 
-        return redirect()->back()->with('message', "Your Profile is updated successfully");
+        return redirect()->back()->with('message', "Your Profile has been updated successfully");
     }
 }

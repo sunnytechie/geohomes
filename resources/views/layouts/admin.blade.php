@@ -47,7 +47,11 @@
 
     {{-- Dropify css --}}
     <link rel="stylesheet" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
-
+    <style>
+      .alert-dismissible .close {
+        padding: 0.5rem 1.25rem !important;
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper dashboard-wrapper">

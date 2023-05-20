@@ -3,6 +3,27 @@
 @section('content')
 
 <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10">
+
+  {{-- session --}}
+  @if (session('message'))
+    <div class="px-3">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="hide-from-mobile mt-2"></div>
+            
+                {{-- alert --}}
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    {{ session('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: 6px">
+                      <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
+                    </button>
+                </div>
+            
+        </div>
+    </div>
+    </div>
+  @endif
+
     <div class="mb-6">
       <h2 class="mb-0 text-heading fs-22 lh-15">My Profile
       </h2>
@@ -23,7 +44,13 @@
                   <p class="card-text">Upload your profile photo.</p>
                 </div>
                 <div class="col-sm-8 col-xl-12 col-xxl-5">
+                  @if (Auth::user()->image == null)
                   <img id="profile-image" src="assets/images/my-profile.png" alt="My Profile" class="w-100">
+                  @else
+                  <img id="profile-image" src="/storage/{{ Auth::user()->image }}" alt="My Profile" class="w-100">
+                  @endif
+                  
+
                   <div class="custom-file mt-4 h-auto">
                     <input type="file" class="custom-file-input" hidden id="customFile" name="image">
                     <label class="btn btn-secondary btn-lg btn-block" for="customFile">
@@ -51,7 +78,12 @@
                     <div class="form-group col-md-12 px-4">
                     <label for="name" class="text-heading">Full Name</label>
                     <input type="text" class="form-control form-control-lg border-0" id="name" name="name" value="{{ Auth::user()->name ?? old('name') }}">
-                    </div>
+                                @error('name')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                  </div>
                 </div>
 
                 <div class="form-row mx-n4">
@@ -65,14 +97,19 @@
                     <div class="form-group col-md-12 px-4 mb-md-0">
                     <label for="email" class="text-heading">Email</label>
                     <input type="email" disabled class="form-control form-control-lg border-0" placeholder="{{ Auth::user()->email }}" id="email" name="email">
-                    </div>
+                                @error('email')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                                @enderror
+                  </div>
                 </div>
 
                 </div>
             </div>
 
             {{-- Password change section --}}
-            <div class="card">
+            {{-- <div class="card">
                 <div class="card-body px-6 pt-6 pb-5">
                 <h3 class="card-title mb-0 text-heading fs-22 lh-15">Change password</h3>
                 <p class="card-text">You can change you password to keep your account secure.</p>
@@ -100,15 +137,15 @@
                     </div>
                 </div>
                 </div>
-            </div>
+            </div> --}}
+
+              <div class="d-flex justify-content-start flex-wrap">
+                  <button class="btn btn-lg btn-primary mb-3 w-100 w-md-auto">Update Profile</button>
+              </div>
 
         </div>
 
-        <div class="col-md-12 mt-5 justify-content-end">
-            <div class="d-flex justify-content-end flex-wrap">
-                <button class="btn btn-lg btn-primary ml-4 mb-3 w-100 w-md-auto">Update Profile</button>
-            </div>
-        </div>
+        
         
       </div>
       

@@ -19,8 +19,11 @@
                class="dropdown-toggle text-heading pr-3 pr-sm-6 d-flex align-items-center justify-content-end"
                data-toggle="dropdown">
               <div class="mr-4 w-48px">
-                <img src="{{ asset('assets/images/testimonial-5.jpg') }}"
-                         alt="{{ auth()->user()->name }}" class="rounded-circle">
+                @if (Auth::user()->image == null)
+                  <img src="assets/images/my-profile.png" alt="{{ auth()->user()->name }}" class="rounded-circle">
+                @else
+                  <img src="/storage/{{ Auth::user()->image }}" alt="{{ auth()->user()->name }}" class="rounded-circle"> 
+                @endif
               </div>
               <div class="fs-13 font-weight-500 lh-1">
                 {{ auth()->user()->name }}
