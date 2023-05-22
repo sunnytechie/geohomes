@@ -11,16 +11,22 @@
                 <a href="#" class="dropdown-toggle d-flex align-items-center text-heading"
                      data-toggle="dropdown">
                   <div class="w-48px">
-                    <img src="assets/images/testimonial-5.jpg"
-                               alt="{{ auth()->user()->name }}" class="rounded-circle">
+                    @if (Auth::user()->image == null)
+                    <img src="assets/images/my-profile.png" alt="{{ auth()->user()->name }}" class="rounded-circle">
+                      @else
+                    <img src="/storage/{{ Auth::user()->image }}" alt="{{ auth()->user()->name }}" class="rounded-circle">
+                    @endif
                   </div>
                   <span class="fs-13 font-weight-500 d-none d-sm-inline ml-2">
                     {{ auth()->user()->name }}
                   </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#">My Profile</a>
-                  <a class="dropdown-item" href="#">Logout</a>
+                  <a class="dropdown-item" href="{{ route('profile.show') }}">My Profile</a>
+                  <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                  </form>
                 </div>
               </div>
               <div class="dropdown no-caret py-4 px-3 d-flex align-items-center notice mr-3">

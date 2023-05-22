@@ -118,16 +118,19 @@
                             <ul class="navbar-nav flex-row ml-auto align-items-center justify-content-lg-end flex-wrap py-2">
                                 
                                 <li class="divider"></li>
-                                <li class="nav-item hide-from-mobile">
-                                    <a class="nav-link pl-3 pr-2" data-toggle="modal"
-                                        href="#login-register-modal">SIGN IN</a>
-                                </li>
-                                <li class="nav-item ml-auto w-100 w-sm-auto">
-                                    <a class="btn btn-primary btn-lg" href="dashboard-add-new-property.html">
-                                        Add listing
-                                        <img src="{{ asset('assets/images/add-listing-icon.png') }}" alt="Add listing" class="ml-1">
-                                    </a>
-                                </li>
+                                @guest
+                                    <li class="nav-item hide-from-mobile">
+                                        <a class="nav-link pl-3 pr-2" href="{{ route('login') }}">SIGN IN</a>
+                                    </li>
+                                    @else
+                                    <li class="nav-item ml-auto w-100 w-sm-auto">
+                                        <a class="btn btn-primary btn-lg" href="{{ route('dashboard.index') }}" style="background: #00A75A">
+                                            Add listing
+                                            <img src="{{ asset('assets/images/add-listing-icon.png') }}" alt="Add listing" class="ml-1">
+                                        </a>
+                                    </li>
+                                @endguest
+                                
                             </ul>
                         </div>
 
@@ -158,7 +161,7 @@
                                     class="ml-1 sticky-button-icon">
                             </a> --}}
                             <a class="btn btn-primary"
-                                href="{{ route('dashboard.index') }}">
+                                href="{{ route('dashboard.index') }}" style="background: #00A75A">
                                 Dashboard
                                 <img src="{{ asset('assets/images/add-listing-icon.png') }}" alt="Add listing" class="ml-1">
                             </a>
