@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -69,5 +72,50 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function userRegister(Request $request) {
+        
+        //validate
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => 'required',
+            'country' => 'required',
+            'user_type' => '',
+            'company_name' => '',
+            'company_type' => '',
+            'website' => '',
+            'address' => 'required',
+            'city' => 'required',
+            'zip' => '',
+        ]);
+
+        //dd($request->all());
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->password = Hash::make($request->password);
+        $user->country = $request->country;
+        $user->user_type = $request->user_type;
+        $user->company_name = $request->company_name;
+        $user->company_type = $request->company_type;
+        $user->website = $request->website;
+        $user->address = $request->address;
+        $user->city = $request->city;
+        $user->zip = $request->zip;
+        $user->save();
+
+        //Auth
+        event(new Registered($user));
+        Auth::login($user);
+
+        //Send email
+        //$request->user()->sendEmailVerificationNotification();
+
+        return redirect()->route('dashboard.index');
     }
 }

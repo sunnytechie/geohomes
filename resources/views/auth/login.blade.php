@@ -3,7 +3,7 @@
 @section('content')
 <section class="py-2">
     <div class="container">
-      <div class="mt-12 hide-from-1024"></div>
+      <div class="mt-9 hide-from-1024"></div>
       <div class="row justify-content-center login-register">
         <div class="col-md-5">
           <div class="card border-1 shadow mb-10">
@@ -30,8 +30,8 @@
                   <div class="input-group input-group-lg">
                     <input type="password" class="form-control password-input @error('password') is-invalid @enderror border-0 shadow-none fs-13" id="password" name="password" placeholder="Password">
                     
-                    <div class="input-group-append show-password" style="cursor: pointer">
-                        <span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>
+                    <div class="input-group-append show-password" style="cursor: pointer; position:absolute; right: 0; z-index: 999; background: transparent; margin-top: 8px">
+                        <span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye"></i></span>
                       </div>
                   </div>
 
@@ -68,27 +68,16 @@
   <script>
     const passwordInput = document.querySelector(".password-input");
     const showPasswordButton = document.querySelector(".show-password");
-    const passwordInput2 = document.querySelector(".password-input2");
-    const showPasswordButton2 = document.querySelector(".show-password2");
 
     showPasswordButton.addEventListener("click", function() {
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
-        showPasswordButton.innerHTML = '<span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye-slash"></i></span>';
+        showPasswordButton.innerHTML = '<span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye-slash"></i></span>';
     } else {
         passwordInput.type = "password";
-        showPasswordButton.innerHTML = '<span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>';
+        showPasswordButton.innerHTML = '<span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye"></i></span>';
     }
     });
-
-    showPasswordButton2.addEventListener("click", function() {
-    if (passwordInput2.type === "password") {
-        passwordInput2.type = "text";
-        showPasswordButton2.innerHTML = '<span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye-slash"></i></span>';
-    } else {
-        passwordInput2.type = "password";
-        showPasswordButton2.innerHTML = '<span class="input-group-text bg-gray-01 border-0 text-body fs-18"><i class="far fa-eye"></i></span>';
-    }
-    });
+   
 </script>
 @endsection

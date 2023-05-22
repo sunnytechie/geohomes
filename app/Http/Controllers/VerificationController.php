@@ -15,7 +15,7 @@ class VerificationController extends Controller
         //dd($user);
 
         if ($user->hasVerifiedEmail()) {
-            return redirect()->route('index.welcome')->with('success', 'Your email is already verified.');
+            return redirect()->route('dashboard.index')->with('success', 'Your email is already verified.');
         }
 
         $request->user()->sendEmailVerificationNotification();
@@ -27,6 +27,6 @@ class VerificationController extends Controller
     {
         $request->fulfill();
 
-        return redirect()->route('index.welcome')->with('success', 'Your email has been verified.');
+        return redirect()->route('dashboard.index')->with('success', 'Your email has been verified.');
     }
 }

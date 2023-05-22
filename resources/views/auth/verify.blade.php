@@ -1,3 +1,4 @@
+<title>Email Verification - Veriy your account with GeoHomes</title>
 @extends('layouts.guest')
 @section('content')
 <section class="py-2">

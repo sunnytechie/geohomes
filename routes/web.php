@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', [App\Http\Controllers\WelcomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name('index.welcome');
 
+//register users
+Route::post('/register/user', [App\Http\Controllers\Auth\RegisterController::class, 'userRegister'])->name('create.new.user');
+
 //Pages
 Route::get('/about-us', [App\Http\Controllers\PagesController::class, 'about'])->name('page.about');
 Route::get('/geo-agents', [App\Http\Controllers\PagesController::class, 'agents'])->name('page.agents');
@@ -57,7 +60,7 @@ Auth::routes();
 
 Route::get('/email/verify', function () {
     return view('auth.verify');
-})->middleware(['auth'])->name('verification.notice');
+})->middleware(['auth', 'isVerified'])->name('verification.notice');
 
 Route::post('/email/verify/resend', 'App\Http\Controllers\VerificationController@resend')
     ->middleware(['auth'])

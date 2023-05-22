@@ -30,15 +30,18 @@
                         <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="HomeID" class="sticky-logo">
                     </a>
 
+                    @auth
                     <a class="d-block d-xl-none ml-auto mr-4 position-relative text-black-icon p-2" href="{{ route('dashboard.index') }}">
                         <i class="fal fa-user fs-large-4"></i>
                     </a>
+                    @endauth
 
                     <button class="navbar-toggler border-0 px-0" type="button" data-toggle="collapse"
                         data-target="#primaryMenu02" aria-controls="primaryMenu02" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="text-black-icon fs-24"><i class="fal fa-bars"></i></span>
                     </button>
+
                     <div class="collapse navbar-collapse mt-3 mt-xl-0" id="primaryMenu02">
                         <ul class="navbar-nav hover-menu main-menu px-0 mx-xl-n4">
                             <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"

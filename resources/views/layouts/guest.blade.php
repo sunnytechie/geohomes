@@ -65,6 +65,11 @@
         .geo-btn-bg:hover {
             background: #14ba6d;
         }
+
+        .form-navigation {
+          display: flex;
+          justify-content: space-between;
+        }
     </style>
 
     <!-- Scripts -->
@@ -72,13 +77,13 @@
 </head>
 <body>
        
-        @include('snippets.header')
+        {{-- @include('snippets.header') --}}
 
         <main id="content">
             @yield('content')
         </main>
 
-        @include('snippets.footer')
+        {{-- @include('snippets.footer') --}}
 
     <script src="{{ asset("assets/vendors/jquery.min.js") }}"></script>
     <script src="{{ asset("assets/vendors/jquery-ui/jquery-ui.min.js") }}"></script>
