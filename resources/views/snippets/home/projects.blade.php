@@ -17,19 +17,30 @@
         @foreach ($projects as $project)
         <div class="box px-3" data-animate="fadeInUp">
           <div class="card border-0 hover-change-image">
-            <a href="#">
               <div class="rounded-lg card-img">
                 <img src="/storage/{{ $project->image }}" alt="{{ $project->title }}">
                 <div class="card-img-overlay d-flex flex-column justify-content-between">
                 </div>
               </div>
-            </a>
             <div class="card-body p-0">
-              <h2 class="my-0 mt-1"><a href="#" class="fs-16 text-dark hover-primary lh-2">{{ $project->title }}</a>
+              <h2 class="my-0 mt-1"><span class="fs-16 text-dark hover-primary lh-2">{{ $project->title }}</span>
               </h2>
               <p class="text-gray-light font-weight-500 mb-1">{{ $project->address }}</p>
               {{-- <p class="fs-17 font-weight-bold text-heading mb-0">$1.250.000</p> --}}
             </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <form class="w-50 mr-1" action="{{ route('subscription') }}" method="POST" style="padding: 0; margin: 0">
+              @csrf
+              <input type="hidden" name="project_id" value="{{ $project->id }}">
+              <button type="submit" class="btn btn-primary w-100 rounded-0 border-0" style="background: #EAF1F2; color: #3e3e42 !important;">Subscribe</button>
+            </form>
+
+            <form class="w-50" action="{{ route('inspection') }}" method="POST" style="padding: 0; margin: 0">
+              @csrf
+              <input type="hidden" name="project_id" value="{{ $project->id }}">
+              <button type="submit" class="btn btn-primary w-100 rounded-0 border-0" style="background: #00A75A">Inspection</button>
+            </form>
           </div>
         </div>
         @endforeach
