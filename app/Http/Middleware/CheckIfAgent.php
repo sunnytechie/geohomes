@@ -16,11 +16,12 @@ class CheckIfAgent
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->is_agent == 1 && Auth::user()->agent_profile == 1) {
-            return $next($request);
+        if (Auth::user()->is_agent) {
+            if (Auth::user()->agent_profile == 0) {
+                return redirect()->route('agent.profile', Auth::user()->id);
+            }
         }
-
-        return redirect()->route('agent.profile', Auth::user()->id);
         
+        return $next($request);
     }
 }

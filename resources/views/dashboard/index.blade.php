@@ -40,7 +40,8 @@
           <span>Add New Project</span>
         </a>
       </div>
-      @else
+      @endif
+      @if (Auth::user()->is_admin || Auth::user()->is_agent)
       <div>
         <a href="{{ route('properties.create') }}" class="btn btn-primary btn-lg">
           <span>Add New Property</span>
@@ -52,6 +53,7 @@
     </div>
 
     <div class="row">
+      @if (Auth::user()->is_agent)
       <div class="col-sm-6 col-xxl-3 mb-6">
         <div class="card">
           <div class="card-body row align-items-center px-6 py-7">
@@ -69,6 +71,7 @@
           </div>
         </div>
       </div>
+      @endif
 
       @if (!Auth::user()->is_admin)
       <div class="col-sm-6 col-xxl-3 mb-6">
