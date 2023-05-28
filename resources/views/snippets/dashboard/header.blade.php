@@ -20,7 +20,7 @@
                data-toggle="dropdown">
               <div class="mr-4 w-48px">
                 @if (Auth::user()->image == null)
-                  <img src="assets/images/my-profile.png" alt="{{ auth()->user()->name }}" class="rounded-circle">
+                  <img src="{{ asset('assets/images/my-profile.png') }}" alt="{{ auth()->user()->name }}" class="rounded-circle">
                 @else
                   <img src="/storage/{{ Auth::user()->image }}" alt="{{ auth()->user()->name }}" class="rounded-circle"> 
                 @endif
@@ -30,7 +30,12 @@
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-right w-100">
-              <a class="dropdown-item" href="{{ route('profile.show') }}">My Profile</a>
+              @if (Auth::user()->is_agent)
+                  <a class="dropdown-item" href="{{ route('agent.profile', Auth::user()->id) }}">My Profile</a>
+              @else
+                  <a class="dropdown-item" href="{{ route('profile.show') }}">My Profile</a>
+              @endif
+              
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
               <a class="dropdown-item" href="{{ route('logout') }}"

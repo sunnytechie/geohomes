@@ -38,27 +38,32 @@ Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'
 //Route::get('/gh-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
 
 //dashboard
-Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified');
+Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified', 'checkIfAgentAndIsSet');
 
 //listings Resources
-Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth', 'verified');
-Route::resource('projects', 'App\Http\Controllers\ProjectController')->middleware('auth', 'verified');
+Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth', 'verified', 'isAgent', 'checkIfAgentAndIsSet');
+Route::resource('projects', 'App\Http\Controllers\ProjectController')->middleware('auth', 'verified', 'isAdmin');
 Route::get('/geo-projects-image', [App\Http\Controllers\PagesController::class, 'projectImage'])->name('project.image.upload');
-Route::resource('destinations', 'App\Http\Controllers\DestinationController')->middleware('auth', 'verified');
+Route::resource('destinations', 'App\Http\Controllers\DestinationController')->middleware('auth', 'verified', 'isAdmin');
 Route::resource('agents', 'App\Http\Controllers\AgentController')->middleware('auth', 'verified');
 Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middleware('auth', 'verified');
-Route::resource('admins', 'App\Http\Controllers\AdminController')->middleware('auth', 'verified');
+Route::resource('admins', 'App\Http\Controllers\AdminController')->middleware('auth', 'verified', 'isAdmin');
 
 //account
 Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show')->middleware('auth', 'verified');
 Route::put('/my-profile/update', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update')->middleware('auth', 'verified');
+//Agent account
+Route::get('/agent-profile/{id}', [App\Http\Controllers\AgentController::class, 'profile'])->name('agent.profile')->middleware('auth', 'verified', 'isAgent');
+Route::put('/agent-profile/{id}/update', [App\Http\Controllers\AgentController::class, 'profileUpdate'])->name('agent.profile.update')->middleware('auth', 'verified', 'isAgent');
 
 //Paystack
 Route::post('/payment/subscription', [App\Http\Controllers\PaymentController::class, 'subscription'])->name('subscription')->middleware('auth', 'verified');
 Route::post('/payment/inspection', [App\Http\Controllers\PaymentController::class, 'inspection'])->name('inspection')->middleware('auth', 'verified');
+Route::get('/payment/agent', [App\Http\Controllers\PaymentController::class, 'agent'])->name('agent')->middleware('auth', 'verified');
 Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('handleGatewayCallback')->middleware('auth', 'verified');
 //Error page
 Route::get('/not-found', [App\Http\Controllers\WelcomeController::class, 'error'])->name('error404');
+Route::get('/agent-limit', [App\Http\Controllers\AgentController::class, 'agentupgrade'])->name('agentupgrade')->middleware('auth', 'isAgent');
 
 Auth::routes();
 

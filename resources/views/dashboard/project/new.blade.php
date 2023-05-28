@@ -38,7 +38,7 @@
                                 <div id="description-collapse" class="collapse show collapsible" aria-labelledby="heading-description" data-parent="#collapse-tabs-accordion">
                                     <div class="card-body py-4 py-md-0 px-0">
                                         <div class="row">
-                                            <div class="col-lg-8 offset-md-2">
+                                            <div class="col-lg-12">
 
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
@@ -127,7 +127,7 @@
                                 <div id="media-collapse" class="collapse collapsible" aria-labelledby="heading-media" data-parent="#collapse-tabs-accordion">
                                     <div class="card-body py-4 py-md-0 px-0">
                                         <div class="row">
-                                            <div class="col-md-8 offset-md-2">
+                                            <div class="col-md-12">
                                                 <div class="card">
                                                     <div class="card-body p-6">
                                                         <h3 class="card-title mb-0 text-heading fs-22 lh-15">Upload photo of project</h3>
@@ -146,6 +146,88 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="row mt-5">
+                                            <div class="col-md-6">
+                                                <div class="card mb-6">
+                                                    <div class="card-body p-6">
+                                                        <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
+                                                        <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                        <div class="text-center py-5">
+                                                            
+                                                                <input type="file" name="file1" id="file1" class="dropify" data-allowed-file-extensions="jpg jpeg png">
+                                                                
+                                                        </div>
+                                                        @if ($errors->has('file1'))
+                                                            <div id="file1Help" class="form-text text-danger">
+                                                                <div>{{ $errors->first('file1') }}</div>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card mb-6">
+                                                    <div class="card-body p-6">
+                                                        <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
+                                                        <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                        <div class="text-center py-5">
+                                                            
+                                                                <input type="file" name="file2" id="file2" class="dropify" data-allowed-file-extensions="jpg jpeg png">
+                                                                
+                                                        </div>
+                                                        @if ($errors->has('file2'))
+                                                            <div id="file2Help" class="form-text text-danger">
+                                                                <div>{{ $errors->first('file2') }}</div>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card mb-6">
+                                                    <div class="card-body p-6">
+                                                        <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
+                                                        <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                        <div class="text-center py-5">
+                                                            
+                                                                <input type="file" name="file3" id="file3" class="dropify" data-allowed-file-extensions="jpg jpeg png">
+                                                                
+                                                        </div>
+                                                        @if ($errors->has('file3'))
+                                                            <div id="file3Help" class="form-text text-danger">
+                                                                <div>{{ $errors->first('file3') }}</div>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="card mb-6">
+                                                    <div class="card-body p-6">
+                                                        <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
+                                                        <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                        <div class="text-center py-5">
+                                                            
+                                                                <input type="file" name="file4" id="file4" class="dropify" data-allowed-file-extensions="jpg jpeg png">
+                                                                
+                                                        </div>
+                                                        @if ($errors->has('file4'))
+                                                            <div id="file4Help" class="form-text text-danger">
+                                                                <div>{{ $errors->first('file4') }}</div>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        
 
                                         <div class="d-flex flex-wrap mt-3">
                                             <a href="#" class="btn btn-lg bg-hover-white border rounded-lg mb-3 mr-auto prev-button">

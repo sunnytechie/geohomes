@@ -33,6 +33,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at',
     ];
 
+    //Has one agent
+    public function agent()
+    {
+        return $this->hasOne('App\Models\Agent');
+    }
+
     //hasMany project
     public function projects()
     {

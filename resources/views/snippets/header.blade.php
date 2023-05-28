@@ -61,7 +61,7 @@
                             <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link p-0" href="{{ route('page.projects') }}">
-                                    Projects
+                                    Estate
                                 </a>
                             </li>
 
@@ -139,6 +139,9 @@
                 <div class="ml-auto d-none d-xl-block">
                     <ul class="navbar-nav flex-row ml-auto align-items-center justify-content-lg-end flex-wrap py-2">
                        
+                        <li class="nav-item ">
+                                <a class="nav-link pl-3 pr-2" href="#">Become an Agent</a>
+                        </li>
                         {{-- <li class="divider"></li> --}}
 
                         <li class="nav-item ">

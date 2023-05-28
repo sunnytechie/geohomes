@@ -3,16 +3,52 @@
 @section('content')
 
 <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10">
+  {{-- session --}}
+  @if (session('message'))
+  <div class="row">
+      <div class="col-md-12">
+          <div class="hide-from-mobile mt-2"></div>
+          
+              {{-- alert --}}
+              <div class="alert alert-info alert-dismissible fade show" role="alert">
+                  {{ session('message') }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: 6px">
+                  <span aria-hidden="true" style="font-size: 12px">Close</span>
+                  </button>
+              </div>
+          
+      </div>
+  </div>
+  @endif
     <div class="d-flex flex-wrap flex-md-nowrap mb-6">
       <div class="mr-0 mr-md-auto">
         <h2 class="mb-0 text-heading fs-22 lh-15">Hi, {{ Auth::user()->name }}</h2>
-        <p>Your Dashboard gives you a heads-up on your analytics.</p>
+        @if (Auth::user()->is_agent)
+          @if (Auth::user()->agent->subscribed != 1)
+              You can only post 3 properties on GeoHomes, <a href="{{ route('agent') }}">You can Upgrade to 10 at #10,000</a>.
+          @else
+          <p>You're on a Pro Agent with GeoHomes. Your subscription is active.</p>
+          @endif
+           @else 
+           <p>Your Dashboard gives you a heads-up on your analytics.</p>
+        @endif
       </div>
+
+      @if (Auth::user()->is_admin)
+      <div>
+        <a href="{{ route('prjects.create') }}" class="btn btn-primary btn-lg">
+          <span>Add New Project</span>
+        </a>
+      </div>
+      @else
       <div>
         <a href="{{ route('properties.create') }}" class="btn btn-primary btn-lg">
           <span>Add New Property</span>
         </a>
       </div>
+      @endif
+      
+
     </div>
 
     <div class="row">
@@ -33,57 +69,80 @@
           </div>
         </div>
       </div>
+
+      @if (!Auth::user()->is_admin)
       <div class="col-sm-6 col-xxl-3 mb-6">
         <div class="card">
           <div class="card-body row align-items-center px-6 py-7">
             <div class="col-5">
-              <span class="w-83px h-83 d-flex align-items-center justify-content-center fs-36 badge badge-green badge-circle">
-                <i class="fa fa-briefcase"></i>
-              </span>
-            </div>
-            <div class="col-7 text-center">
-              <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
-                 data-end="{{ $projects->count(); }}" data-decimals="0"
-                 data-duration="0" data-separator="">{{ $projects->count(); }}</p>
-              <p>Projects</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-xxl-3 mb-6">
-        <div class="card">
-          <div class="card-body row align-items-center px-6 py-7">
-            <div class="col-4">
               <span class="w-83px h-83 d-flex align-items-center justify-content-center fs-36 badge badge-yellow badge-circle">
-                <i class="fa fa-users"></i>
-              </span>
-            </div>
-            <div class="col-8 text-center">
-              <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
-                 data-end="{{ $agents->count(); }}" data-decimals="0"
-                 data-duration="0" data-separator="">{{ $agents->count(); }}</p>
-              <p>Agents</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-xxl-3 mb-6">
-        <div class="card">
-          <div class="card-body row align-items-center px-6 py-7">
-            <div class="col-5">
-              <span class="w-83px h-83 d-flex align-items-center justify-content-center fs-36 badge badge-pink badge-circle">
-                <i class="fa fa-map"></i>
+                <i class="fal fa-file-invoice"></i>
               </span>
             </div>
             <div class="col-7 text-center">
               <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
-                 data-end="{{ $destinations->count(); }}" data-decimals="0"
-                 data-duration="0" data-separator="">{{ $destinations->count(); }}</p>
-              <p>Destinations</p>
+                 data-end="{{ $invoices->count(); }}" data-decimals="0"
+                 data-duration="0" data-separator="">{{ $invoices->count(); }}</p>
+              <p>Invoice</p>
             </div>
           </div>
         </div>
       </div>
+      @endif
+
+      @if (Auth::user()->is_admin)
+        <div class="col-sm-6 col-xxl-3 mb-6">
+          <div class="card">
+            <div class="card-body row align-items-center px-6 py-7">
+              <div class="col-5">
+                <span class="w-83px h-83 d-flex align-items-center justify-content-center fs-36 badge badge-green badge-circle">
+                  <i class="fa fa-briefcase"></i>
+                </span>
+              </div>
+              <div class="col-7 text-center">
+                <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
+                  data-end="{{ $projects->count(); }}" data-decimals="0"
+                  data-duration="0" data-separator="">{{ $projects->count(); }}</p>
+                <p>Estate</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xxl-3 mb-6">
+          <div class="card">
+            <div class="card-body row align-items-center px-6 py-7">
+              <div class="col-4">
+                <span class="w-83px h-83 d-flex align-items-center justify-content-center fs-36 badge badge-yellow badge-circle">
+                  <i class="fa fa-users"></i>
+                </span>
+              </div>
+              <div class="col-8 text-center">
+                <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
+                  data-end="{{ $agents->count(); }}" data-decimals="0"
+                  data-duration="0" data-separator="">{{ $agents->count(); }}</p>
+                <p>Agents</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xxl-3 mb-6">
+          <div class="card">
+            <div class="card-body row align-items-center px-6 py-7">
+              <div class="col-5">
+                <span class="w-83px h-83 d-flex align-items-center justify-content-center fs-36 badge badge-pink badge-circle">
+                  <i class="fa fa-map"></i>
+                </span>
+              </div>
+              <div class="col-7 text-center">
+                <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
+                  data-end="{{ $destinations->count(); }}" data-decimals="0"
+                  data-duration="0" data-separator="">{{ $destinations->count(); }}</p>
+                <p>Destinations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      @endif
     </div>
 
 

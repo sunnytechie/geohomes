@@ -17,11 +17,14 @@
         @foreach ($projects as $project)
         <div class="box px-3" data-animate="fadeInUp">
           <div class="card border-0 hover-change-image">
+            <a href="{{ route('projects.show', $project->id) }}">
               <div class="rounded-lg card-img">
-                <img src="/storage/{{ $project->image }}" alt="{{ $project->title }}">
-                <div class="card-img-overlay d-flex flex-column justify-content-between">
-                </div>
+                    <img src="/storage/{{ $project->image }}" alt="{{ $project->title }}">
+                
+                    <div class="card-img-overlay d-flex flex-column justify-content-between"></div>
               </div>
+            </a>
+            
             <div class="card-body p-0">
               <h2 class="my-0 mt-1"><span class="fs-16 text-dark hover-primary lh-2">{{ $project->title }}</span>
               </h2>

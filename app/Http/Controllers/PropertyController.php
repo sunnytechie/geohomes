@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
 class PropertyController extends Controller
@@ -23,6 +24,13 @@ class PropertyController extends Controller
      */
     public function create()
     {
+        $properties = Property::where('user_id', Auth::user()->id)->count();
+        #$properties->count();
+        //dd($properties);
+        if (Auth::user()->agent->subscribed == 0 && $properties == 3) {
+            return redirect()->route('agentupgrade');
+        }
+        
         return view('dashboard.property.new');
     }
 
@@ -31,6 +39,11 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        $properties = Property::where('user_id', Auth::user()->id)->count();
+        if (Auth::user()->agent->subscribed == 0 && $properties >= 3) {
+            //redirect to notice page
+            return redirect()->route('agentupgrade');
+        }
         //validate
         $request->validate([
             'title' => 'required',

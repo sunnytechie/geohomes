@@ -64,5 +64,10 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'isVerified' => \App\Http\Middleware\IsVerified::class,
+        'isAgent' => \App\Http\Middleware\IsAgent::class,
+        'checkIfAgentAndIsSet' => \App\Http\Middleware\CheckIfAgent::class,
+        'isAdmin' => \App\Http\Middleware\IsAdmin::class,
+        'isNotVerifiedYet' => \App\Http\Middleware\IsAuthButNotVerified::class,
+        'UnSubAgentCannot' => \App\Http\Middleware\CountAgentPost::class,
     ];
 }

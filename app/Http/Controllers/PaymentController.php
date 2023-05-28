@@ -52,6 +52,18 @@ class PaymentController extends Controller
     return Paystack::getAuthorizationUrl($data)->redirectNow();
     }
 
+    public function agent() {
+        $data = array(
+            "amount" => 10000 * 100,
+            "reference" => Paystack::genTranxRef(),
+            "email" => Auth::user()->email,
+            "currency" => "NGN",
+            "orderID" => Auth::user()->id,
+        );
+    
+    return Paystack::getAuthorizationUrl($data)->redirectNow();
+    }
+
 
     public function inspection() {
         $data = array(

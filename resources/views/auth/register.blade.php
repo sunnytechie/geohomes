@@ -1,6 +1,19 @@
 @extends('layouts.guest')
 
 @section('content')
+<style>
+    /* Style the options */
+.custom-select option {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+/* Style the selected option */
+.custom-select option:checked {
+  background-color: #007bff;
+  color: #fff;
+}
+</style>
 <section class="py-2">
     <div class="container">
         <div class="mt-9 hide-from-1024"></div>
@@ -100,7 +113,7 @@
                         <div class="col-sm-6 px-2">
                             <div class="form-group">
                                 <label for="country" class="text-heading">Country</label>
-                                <select name="country" class="form-control @error('country') is-invalid @enderror form-control-lg border-0" id="country">
+                                <select name="country" class="form-control border-0 shadow-none form-control-lg selectpicker" data-style="btn-lg py-2 h-52" id="country">
                                     <option>Nigeria</option>
                                     <option>Ghana</option>
                                 </select>
@@ -119,8 +132,9 @@
                     <div class="form-row mx-">
                         <div class="col-12">
                             <div class="form-group">
-                                <select class="form-control form-control-lg border-0" id="user_type" name="user_type" onchange="toggleCompanyFields()">
+                                <select class="form-control border-0 shadow-none form-control-lg selectpicker" data-style="btn-lg py-2 h-52" id="user_type" name="user_type" onchange="toggleCompanyFields()">
                                     <option value="customer">Customer</option>
+                                    <option value="agent">Agent</option>
                                     <option value="company">Company</option>
                                   </select>
                             </div>
@@ -139,7 +153,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <select class="form-control form-control-lg border-0" id="company_type" name="company_type">
+                                    <select class="form-control border-0 shadow-none form-control-lg selectpicker" data-style="btn-lg py-2 h-52" id="company_type" name="company_type">
                                         <!-- Add options for company types here -->
                                         <option>Private</option>
                                         <option>Public</option>

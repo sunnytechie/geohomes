@@ -53,11 +53,11 @@
 
                   <div class="custom-file mt-4 h-auto">
                     <input type="file" class="custom-file-input" hidden id="customFile" name="image">
-                    <label class="btn btn-secondary btn-lg btn-block" for="customFile">
+                    <label class="btn btn-lg btn-block" for="customFile" style="background: #00A75A; color: #fff">
                       <span class="d-inline-block mr-1"><i class="fal fa-cloud-upload"></i></span>Upload profile image</label>
                   </div>
                   <p class="mb-0 mt-2">
-                    *minimum 500px x 500px
+                    *Max: 500px x 500px
                   </p>
                 </div>
               </div>
@@ -140,7 +140,7 @@
             </div> --}}
 
               <div class="d-flex justify-content-start flex-wrap">
-                  <button class="btn btn-lg btn-primary mb-3 w-100 w-md-auto">Update Profile</button>
+                  <button class="btn btn-lg mb-3 w-100 w-md-auto" style="background: #00A75A; color: #fff">Update Profile</button>
               </div>
 
         </div>

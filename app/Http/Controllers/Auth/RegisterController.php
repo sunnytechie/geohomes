@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Agent;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
@@ -107,7 +108,22 @@ class RegisterController extends Controller
         $user->address = $request->address;
         $user->city = $request->city;
         $user->zip = $request->zip;
+        if ($request->user_type == "agent") {
+            $user->is_agent = 1;
+        }
+        if ($request->user_type == "customer") {
+            $user->is_customer = 1;
+        }
+        if ($request->user_type == "company") {
+            $user->is_company = 1;
+        }
         $user->save();
+
+        if ($request->user_type == "agent") {
+            $agent = new Agent();
+            $agent->user_id = $user->id;
+            $agent->save();
+        }
 
         //Auth
         event(new Registered($user));

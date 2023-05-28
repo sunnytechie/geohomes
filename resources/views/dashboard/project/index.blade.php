@@ -39,7 +39,7 @@
               </select>
             </div>
             <div class="align-self-center">
-              <a href="{{ route('projects.create') }}" class="btn btn-primary btn-lg" tabindex="0" aria-controls="invoice-list"><span>Add New Project</span></a>
+              <a href="{{ route('projects.create') }}" class="btn btn-primary btn-lg" tabindex="0" aria-controls="invoice-list"><span>Add New Estate</span></a>
             </div>
           </div>
           <div class="col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-3">

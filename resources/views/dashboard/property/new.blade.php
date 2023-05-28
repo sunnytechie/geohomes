@@ -73,24 +73,10 @@
                                                 </div>
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
-                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Select Category</h3>
+                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Organize your Listings</h3>
                                                         <p class="card-text mb-5">Organize your properties effortlessly with the listed intuitive categorization.</p>
                                                         <div class="form-row mx-n2">
-                                                            <div class="col-md-6 col-lg-12 col-xxl-6 px-2 mb-4 mb-md-0">
-                                                                <div class="form-group mb-0">
-                                                                    <label for="category" class="text-heading">Category</label>
-                                                                    <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" id="category" name="category">
-                                                                        <option>For Rent</option>
-                                                                        <option>For Sale</option>
-                                                                    </select>
-
-                                                                    @if ($errors->has('category'))
-                                                                        <div id="categoryHelp" class="form-text text-danger">
-                                                                            <div>{{ $errors->first('category') }}</div>
-                                                                        </div>
-                                                                    @endif
-                                                                </div>
-                                                            </div>
+                                                            
                                                             <div class="col-md-6 col-lg-12 col-xxl-6 px-2 mb-4 mb-md-0">
                                                                 <div class="form-group mb-0">
                                                                     <label for="lint_in" class="text-heading">Listed in</label>
@@ -112,10 +98,30 @@
 
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
-                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Property
-                                                            Price</h3>
+                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Property</h3>
                                                         <p class="card-text mb-5">Set the right value for your property with accurate pricing.</p>
                                                         <div class="form-row mx-n2">
+
+                                                            <div class="col-md-6 col-lg-12 col-xxl-6 px-2 mb-4 mb-md-0">
+                                                                <div class="form-group mb-0">
+                                                                    <label for="category" class="text-heading">Category</label>
+                                                                    @php
+                                                                        $categories = ['Apartment', 'House', 'Office', 'Villa'];
+                                                                    @endphp
+                                                                    <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" id="category" name="category">
+                                                                        @foreach ($categories as $item)
+                                                                        <option>{{ $item }}</option>
+                                                                        @endforeach
+                                                                    </select>
+
+                                                                    @if ($errors->has('category'))
+                                                                        <div id="categoryHelp" class="form-text text-danger">
+                                                                            <div>{{ $errors->first('category') }}</div>
+                                                                        </div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+
                                                             <div class="col-md-6 col-lg-12 col-xxl-6 px-2">
                                                                 <div class="form-group">
                                                                     <label for="price" class="text-heading">Price
@@ -285,8 +291,7 @@
                                             <div class="col-lg-8 offset-md-2">
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
-                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Listing
-                                                            Location</h3>
+                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Listing Location</h3>
                                                         <p class="card-text mb-5">Infomation on where the property is located</p>
                                                         <div class="form-group">
                                                             <label for="address" class="text-heading">Address</label>

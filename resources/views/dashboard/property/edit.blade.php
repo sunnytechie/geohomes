@@ -5,7 +5,9 @@
         <div class="mb-6">
             <h2 class="mb-0 text-heading fs-22 lh-15">Edit property
             </h2>
-            <p class="mb-1">Expand your real estate portfolio by adding a new property to your listings. This user-friendly platform makes it effortless to showcase your property's details and attract potential buyers or tenants.</p>
+            <p class="mb-1">Expand your real estate portfolio by adding a new property to your listings. This
+                user-friendly platform makes it effortless to showcase your property's details and attract potential
+                buyers or tenants.</p>
         </div>
         <div class="collapse-tabs new-property-step">
             <ul class="nav nav-pills border py-2 px-3 mb-6 d-none d-md-flex mb-6" role="tablist">
@@ -49,15 +51,16 @@
                                                     <div class="card-body p-6">
                                                         <h3 class="card-title mb-0 text-heading fs-22 lh-15">Property
                                                             Description</h3>
-                                                        <p class="card-text mb-5">Capture the essence of your property with a compelling description.</p>
+                                                        <p class="card-text mb-5">Capture the essence of your property
+                                                            with a compelling description.</p>
                                                         <div class="form-group">
                                                             <label for="title" class="text-heading">Title <span class="text-muted">(mandatory)</span></label>
                                                             <input type="text" class="form-control form-control-lg border-0" placeholder="Name here..." id="title" value="{{ $property->title ?? old('title') }}" name="title">
 
                                                             @if ($errors->has('title'))
-                                                                <div id="titleHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('title') }}</div>
-                                                                </div>
+                                                            <div id="titleHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('title') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                         <div class="form-group mb-0">
@@ -65,58 +68,39 @@
                                                             <textarea class="form-control border-0" rows="5" name="description" id="description-01" placeholder="Write here...">{{ $property->description ?? old('description') }}</textarea>
 
                                                             @if ($errors->has('description'))
-                                                                <div id="descriptionHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('description') }}</div>
-                                                                </div>
+                                                            <div id="descriptionHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('description') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
-                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Select Category</h3>
-                                                        <p class="card-text mb-5">Organize your properties effortlessly with the listed intuitive categorization.</p>
+                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Organize your Listings</h3>
+                                                        <p class="card-text mb-5">Organize your properties effortlessly
+                                                            with the listed intuitive categorization.</p>
                                                         <div class="form-row mx-n2">
+                                                            
                                                             <div class="col-md-6 col-lg-12 col-xxl-6 px-2 mb-4 mb-md-0">
                                                                 <div class="form-group mb-0">
-                                                                    <label for="category" class="text-heading">Category</label>
+                                                                    <label for="lint_in" class="text-heading">Listed
+                                                                        in</label>
                                                                     @php
-                                                                        $categories = ['For Rent', 'For Sale'];
-                                                                    @endphp
-                                                                    <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" id="category" name="category">
-                                                                        
-                                                                        @foreach ($categories as $category)
-                                                                            <option value="{{ $category }}" {{ $category == $property->category ? 'selected' : '' }}>
-                                                                                {{ $category }}
-                                                                            </option>
-                                                                        @endforeach
-                                                                    </select>
-
-                                                                    @if ($errors->has('category'))
-                                                                        <div id="categoryHelp" class="form-text text-danger">
-                                                                            <div>{{ $errors->first('category') }}</div>
-                                                                        </div>
-                                                                    @endif
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6 col-lg-12 col-xxl-6 px-2 mb-4 mb-md-0">
-                                                                <div class="form-group mb-0">
-                                                                    <label for="lint_in" class="text-heading">Listed in</label>
-                                                                    @php
-                                                                        $categories = ['For Rent', 'For Sale'];
+                                                                    $categories = ['For Rent', 'For Sale'];
                                                                     @endphp
                                                                     <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" id="lint_in" name="lint_in">
                                                                         @foreach ($categories as $category)
-                                                                            <option value="{{ $category }}" {{ $category == $property->lint_in ? 'selected' : '' }}>
-                                                                                {{ $category }}
-                                                                            </option>
+                                                                        <option value="{{ $category }}" {{ $category == $property->lint_in ? 'selected' : '' }}>
+                                                                            {{ $category }}
+                                                                        </option>
                                                                         @endforeach
                                                                     </select>
 
                                                                     @if ($errors->has('lint_in'))
-                                                                        <div id="lint_inHelp" class="form-text text-danger">
-                                                                            <div>{{ $errors->first('lint_in') }}</div>
-                                                                        </div>
+                                                                    <div id="lint_inHelp" class="form-text text-danger">
+                                                                        <div>{{ $errors->first('lint_in') }}</div>
+                                                                    </div>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -126,10 +110,32 @@
 
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
-                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Property
-                                                            Price</h3>
+                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Property</h3>
                                                         <p class="card-text mb-5">Set the right value for your property with accurate pricing.</p>
                                                         <div class="form-row mx-n2">
+                                                            <div class="col-md-6 col-lg-12 col-xxl-6 px-2 mb-4 mb-md-0">
+                                                                <div class="form-group mb-0">
+                                                                    <label for="category" class="text-heading">Category</label>
+                                                                    @php
+                                                                    $categories = ['Apartment', 'House', 'Office', 'Villa'];
+                                                                    @endphp
+                                                                    <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" id="category" name="category">
+
+                                                                        @foreach ($categories as $category)
+                                                                        <option value="{{ $category }}" {{ $category == $property->category ? 'selected' : '' }}>
+                                                                            {{ $category }}
+                                                                        </option>
+                                                                        @endforeach
+                                                                    </select>
+
+                                                                    @if ($errors->has('category'))
+                                                                    <div id="categoryHelp" class="form-text text-danger">
+                                                                        <div>{{ $errors->first('category') }}</div>
+                                                                    </div>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+
                                                             <div class="col-md-6 col-lg-12 col-xxl-6 px-2">
                                                                 <div class="form-group">
                                                                     <label for="price" class="text-heading">Price
@@ -138,17 +144,18 @@
                                                                     <input type="text" class="form-control form-control-lg border-0" id="price" value="{{ $property->price ?? old('price') }}" name="price" placeholder="100xxxxxx">
 
                                                                     @if ($errors->has('price'))
-                                                                        <div id="priceHelp" class="form-text text-danger">
-                                                                            <div>{{ $errors->first('price') }}</div>
-                                                                        </div>
+                                                                    <div id="priceHelp" class="form-text text-danger">
+                                                                        <div>{{ $errors->first('price') }}</div>
+                                                                    </div>
                                                                     @endif
                                                                 </div>
                                                             </div>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="text-right">
                                             <button class="btn btn-lg btn-primary next-button">Next step
@@ -175,17 +182,18 @@
                                             <div class="col-lg-8 offset-md-2">
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
-                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Upload photo of project</h3>
+                                                        <h3 class="card-title mb-0 text-heading fs-22 lh-15">Upload
+                                                            photo of project</h3>
                                                         <p class="card-text mb-5">Recommended size: 1080x1080 <span class="text-muted">(Mandatory)</span></p>
                                                         <div class="text-center py-5">
-                                                            
-                                                                <input type="file" name="image" id="image" class="dropify" data-default-file="/storage/{{ $property->image ?? old('image') }}" data-allowed-file-extensions="jpg jpeg png">
-                                                                
+
+                                                            <input type="file" name="image" id="image" class="dropify" data-default-file="/storage/{{ $property->image ?? old('image') }}" data-allowed-file-extensions="jpg jpeg png">
+
                                                         </div>
                                                         @if ($errors->has('image'))
-                                                            <div id="imageHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('image') }}</div>
-                                                            </div>
+                                                        <div id="imageHelp" class="form-text text-danger">
+                                                            <div>{{ $errors->first('image') }}</div>
+                                                        </div>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -194,17 +202,19 @@
                                                     <div class="col-md-6">
                                                         <div class="card mb-6">
                                                             <div class="card-body p-6">
-                                                                <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
-                                                                <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                                <h3 class="card-title mb-0 text-heading fs-14 lh-15">
+                                                                    Upload photo of project</h3>
+                                                                <p class="card-text mb-5">Recommended size: 1080x1080
+                                                                </p>
                                                                 <div class="text-center py-5">
-                                                                    
-                                                                        <input type="file" name="file1" id="file1" class="dropify" data-default-file="/storage/{{ $property->file1 ?? old('file1') }}" data-allowed-file-extensions="jpg jpeg png">
-                                                                        
+
+                                                                    <input type="file" name="file1" id="file1" class="dropify" data-default-file="/storage/{{ $property->file1 ?? old('file1') }}" data-allowed-file-extensions="jpg jpeg png">
+
                                                                 </div>
                                                                 @if ($errors->has('file1'))
-                                                                    <div id="file1Help" class="form-text text-danger">
-                                                                        <div>{{ $errors->first('file1') }}</div>
-                                                                    </div>
+                                                                <div id="file1Help" class="form-text text-danger">
+                                                                    <div>{{ $errors->first('file1') }}</div>
+                                                                </div>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -213,17 +223,19 @@
                                                     <div class="col-md-6">
                                                         <div class="card mb-6">
                                                             <div class="card-body p-6">
-                                                                <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
-                                                                <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                                <h3 class="card-title mb-0 text-heading fs-14 lh-15">
+                                                                    Upload photo of project</h3>
+                                                                <p class="card-text mb-5">Recommended size: 1080x1080
+                                                                </p>
                                                                 <div class="text-center py-5">
-                                                                    
-                                                                        <input type="file" name="file2" id="file2" class="dropify" data-default-file="/storage/{{ $property->file2 ?? old('file2') }}" data-allowed-file-extensions="jpg jpeg png">
-                                                                        
+
+                                                                    <input type="file" name="file2" id="file2" class="dropify" data-default-file="/storage/{{ $property->file2 ?? old('file2') }}" data-allowed-file-extensions="jpg jpeg png">
+
                                                                 </div>
                                                                 @if ($errors->has('file2'))
-                                                                    <div id="file2Help" class="form-text text-danger">
-                                                                        <div>{{ $errors->first('file2') }}</div>
-                                                                    </div>
+                                                                <div id="file2Help" class="form-text text-danger">
+                                                                    <div>{{ $errors->first('file2') }}</div>
+                                                                </div>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -232,17 +244,19 @@
                                                     <div class="col-md-6">
                                                         <div class="card mb-6">
                                                             <div class="card-body p-6">
-                                                                <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
-                                                                <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                                <h3 class="card-title mb-0 text-heading fs-14 lh-15">
+                                                                    Upload photo of project</h3>
+                                                                <p class="card-text mb-5">Recommended size: 1080x1080
+                                                                </p>
                                                                 <div class="text-center py-5">
-                                                                    
-                                                                        <input type="file" name="file3" id="file3" class="dropify" data-default-file="/storage/{{ $property->file3 ?? old('file3') }}" data-allowed-file-extensions="jpg jpeg png">
-                                                                        
+
+                                                                    <input type="file" name="file3" id="file3" class="dropify" data-default-file="/storage/{{ $property->file3 ?? old('file3') }}" data-allowed-file-extensions="jpg jpeg png">
+
                                                                 </div>
                                                                 @if ($errors->has('file3'))
-                                                                    <div id="file3Help" class="form-text text-danger">
-                                                                        <div>{{ $errors->first('file3') }}</div>
-                                                                    </div>
+                                                                <div id="file3Help" class="form-text text-danger">
+                                                                    <div>{{ $errors->first('file3') }}</div>
+                                                                </div>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -251,17 +265,19 @@
                                                     <div class="col-md-6">
                                                         <div class="card mb-6">
                                                             <div class="card-body p-6">
-                                                                <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
-                                                                <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                                <h3 class="card-title mb-0 text-heading fs-14 lh-15">
+                                                                    Upload photo of project</h3>
+                                                                <p class="card-text mb-5">Recommended size: 1080x1080
+                                                                </p>
                                                                 <div class="text-center py-5">
-                                                                    
-                                                                        <input type="file" name="file4" id="file4" class="dropify" data-default-file="/storage/{{ $property->file1 ?? old('file4') }}" data-allowed-file-extensions="jpg jpeg png">
-                                                                        
+
+                                                                    <input type="file" name="file4" id="file4" class="dropify" data-default-file="/storage/{{ $property->file4 ?? old('file4') }}" data-allowed-file-extensions="jpg jpeg png">
+
                                                                 </div>
                                                                 @if ($errors->has('file4'))
-                                                                    <div id="file4Help" class="form-text text-danger">
-                                                                        <div>{{ $errors->first('file4') }}</div>
-                                                                    </div>
+                                                                <div id="file4Help" class="form-text text-danger">
+                                                                    <div>{{ $errors->first('file4') }}</div>
+                                                                </div>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -270,7 +286,7 @@
                                             </div>
 
 
-                                            
+
                                         </div>
                                         <div class="d-flex flex-wrap">
                                             <a href="#" class="btn btn-lg bg-hover-white border rounded-lg mb-3 mr-auto prev-button">
@@ -301,7 +317,8 @@
                                                     <div class="card-body p-6">
                                                         <h3 class="card-title mb-0 text-heading fs-22 lh-15">Listing
                                                             Location</h3>
-                                                        <p class="card-text mb-5">Infomation on where the property is located</p>
+                                                        <p class="card-text mb-5">Infomation on where the property is
+                                                            located</p>
                                                         <div class="form-group">
                                                             <label for="address" class="text-heading">Address</label>
                                                             <input type="text" class="form-control form-control-lg border-0" placeholder="location address" id="address" value="{{ $property->address ?? old('address') }}" name="address">
@@ -311,11 +328,11 @@
                                                                 <div class="form-group">
                                                                     <label for="state" class="text-heading">State</label>
                                                                     <input type="text" class="form-control form-control-lg border-0" id="state" placeholder="State" value="{{ $property->state ?? old('state') }}" name="state">
-                                                                
+
                                                                     @if ($errors->has('state'))
-                                                                        <div id="stateHelp" class="form-text text-danger">
-                                                                            <div>{{ $errors->first('state') }}</div>
-                                                                        </div>
+                                                                    <div id="stateHelp" class="form-text text-danger">
+                                                                        <div>{{ $errors->first('state') }}</div>
+                                                                    </div>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -323,11 +340,11 @@
                                                                 <div class="form-group">
                                                                     <label for="city" class="text-heading">City</label>
                                                                     <input type="text" class="form-control form-control-lg border-0" placeholder="write city..." id="city" value="{{ $property->city ?? old('city') }}" name="city">
-                                                                    
+
                                                                     @if ($errors->has('city'))
-                                                                        <div id="cityHelp" class="form-text text-danger">
-                                                                            <div>{{ $errors->first('city') }}</div>
-                                                                        </div>
+                                                                    <div id="cityHelp" class="form-text text-danger">
+                                                                        <div>{{ $errors->first('city') }}</div>
+                                                                    </div>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -337,11 +354,11 @@
                                                                 <div class="form-group">
                                                                     <label for="zip" class="text-heading">Zip</label>
                                                                     <input type="text" class="form-control form-control-lg border-0" id="zip" name="zip" value="{{ $property->zip ?? old('zip') }}" placeholder="Zip code">
-                                                                
+
                                                                     @if ($errors->has('zip'))
-                                                                        <div id="zipHelp" class="form-text text-danger">
-                                                                            <div>{{ $errors->first('zip') }}</div>
-                                                                        </div>
+                                                                    <div id="zipHelp" class="form-text text-danger">
+                                                                        <div>{{ $errors->first('zip') }}</div>
+                                                                    </div>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -350,26 +367,26 @@
                                                             <label for="country" class="text-heading">Country
                                                             </label>
                                                             @php
-                                                                $countries = ['Nigeria', 'Ghana', 'Cameroon', 'Kenya'];
+                                                            $countries = ['Nigeria', 'Ghana', 'Cameroon', 'Kenya'];
                                                             @endphp
                                                             <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" id="country" name="country">
                                                                 @foreach ($countries as $country)
-                                                                    <option value="{{ $country }}" {{ $country == $property->country ? 'selected' : '' }}>
-                                                                        {{ $country }}
-                                                                    </option>
+                                                                <option value="{{ $country }}" {{ $country == $property->country ? 'selected' : '' }}>
+                                                                    {{ $country }}
+                                                                </option>
                                                                 @endforeach
                                                             </select>
 
                                                             @if ($errors->has('country'))
-                                                                <div id="countryHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('country') }}</div>
-                                                                </div>
+                                                            <div id="countryHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('country') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="d-flex flex-wrap">
                                             <a href="#" class="btn btn-lg bg-hover-white border rounded-lg mb-3 mr-auto prev-button">
@@ -398,30 +415,33 @@
                                             <div class="card-body p-6">
                                                 <h3 class="card-title mb-0 text-heading fs-22 lh-15">Listing Detail
                                                 </h3>
-                                                <p class="card-text mb-5">comprehensive and captivating property details.</p>
+                                                <p class="card-text mb-5">comprehensive and captivating property
+                                                    details.</p>
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label for="size-in-ft" class="text-heading">Size in ft
                                                                 <span class="text-muted">(only numbers)</span></label>
                                                             <input type="text" class="form-control form-control-lg border-0" id="size_in_fit" value="{{ $property->size_in_fit ?? old('size_in_fit') }}" name="size_in_fit">
-                                                        
+
                                                             @if ($errors->has('size_in_fit'))
-                                                                <div id="size_in_fitHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('size_in_fit') }}</div>
-                                                                </div>
+                                                            <div id="size_in_fitHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('size_in_fit') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <label for="lot_size_in_fit" class="text-heading">Lot size in ft <span class="text-muted">(only numbers)</span></label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="lot_size_in_fit" value="{{  $property->lot_size_in_fit ?? old('lot_size_in_fit') }}" name="lot_size_in_fit">
-                                                            
+                                                            <label for="lot_size_in_fit" class="text-heading">Lot size
+                                                                in ft <span class="text-muted">(only
+                                                                    numbers)</span></label>
+                                                            <input type="text" class="form-control form-control-lg border-0" id="lot_size_in_fit" value="{{ $property->lot_size_in_fit ?? old('lot_size_in_fit') }}" name="lot_size_in_fit">
+
                                                             @if ($errors->has('lot_size_in_fit'))
-                                                                <div id="lot_size_in_fitHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('lot_size_in_fit') }}</div>
-                                                                </div>
+                                                            <div id="lot_size_in_fitHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('lot_size_in_fit') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -429,11 +449,11 @@
                                                         <div class="form-group">
                                                             <label for="room" class="text-heading">Rooms</label>
                                                             <input type="text" class="form-control form-control-lg border-0" id="room" name="rooms" value="{{ $property->rooms ?? old('rooms') }}">
-                                                            
+
                                                             @if ($errors->has('rooms'))
-                                                                <div id="roomsHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('rooms') }}</div>
-                                                                </div>
+                                                            <div id="roomsHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('rooms') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -445,9 +465,9 @@
                                                             <input type="text" class="form-control form-control-lg border-0" id="bedrooms" name="bedrooms" value="{{ $property->bedrooms ?? old('bedrooms') }}">
 
                                                             @if ($errors->has('bedrooms'))
-                                                                <div id="size_in_fitHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('size_in_fit') }}</div>
-                                                                </div>
+                                                            <div id="size_in_fitHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('size_in_fit') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -457,13 +477,13 @@
                                                             <input type="text" class="form-control form-control-lg border-0" id="bathrooms" name="bathrooms" value="{{ $property->bathrooms ?? old('bathrooms') }}">
 
                                                             @if ($errors->has('bathrooms'))
-                                                                <div id="bathroomsHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('bathrooms') }}</div>
-                                                                </div>
+                                                            <div id="bathroomsHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('bathrooms') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-4">
@@ -472,21 +492,22 @@
                                                             <input type="text" class="form-control form-control-lg border-0" id="garages" name="garages" value="{{ $property->garages ?? old('garages') }}">
 
                                                             @if ($errors->has('garages'))
-                                                                <div id="garagesHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('garages') }}</div>
-                                                                </div>
+                                                            <div id="garagesHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('garages') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <label for="garage-size" class="text-heading">Garage size</label>
+                                                            <label for="garage-size" class="text-heading">Garage
+                                                                size</label>
                                                             <input type="text" class="form-control form-control-lg border-0" id="garage_size" name="garage_size" value="{{ $property->garage_size ?? old('garage_size') }}">
 
                                                             @if ($errors->has('garage_size'))
-                                                                <div id="garage_sizeHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('garage_size') }}</div>
-                                                                </div>
+                                                            <div id="garage_sizeHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('garage_size') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -497,9 +518,9 @@
                                                             <input type="text" class="form-control form-control-lg border-0" id="year_built" name="year_built" value="{{ $property->year_built ?? old('year_built') }}">
 
                                                             @if ($errors->has('year_built'))
-                                                                <div id="year_builtHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('year_built') }}</div>
-                                                                </div>
+                                                            <div id="year_builtHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('year_built') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -507,14 +528,15 @@
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <label for="available_from" class="text-heading">Available from
+                                                            <label for="available_from" class="text-heading">Available
+                                                                from
                                                                 <span class="text-muted">(date)</span></label>
                                                             <input type="date" class="form-control form-control-lg border-0" id="available_from" name="available_from" value="{{ $property->available_from ?? old('available_from') }}">
 
                                                             @if ($errors->has('available_from'))
-                                                                <div id="available_fromHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('available_from') }}</div>
-                                                                </div>
+                                                            <div id="available_fromHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('available_from') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -524,21 +546,22 @@
                                                             <input type="text" class="form-control form-control-lg border-0" id="basement" name="basement" value="{{ $property->basement ?? old('basement') }}">
 
                                                             @if ($errors->has('basement'))
-                                                                <div id="basementHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('basement') }}</div>
-                                                                </div>
+                                                            <div id="basementHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('basement') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <label for="extra_details" class="text-heading">Extra details</label>
+                                                            <label for="extra_details" class="text-heading">Extra
+                                                                details</label>
                                                             <input type="text" class="form-control form-control-lg border-0" id="extra_details" name="extra_details" value="{{ $property->extra_details ?? old('extra_details') }}">
 
                                                             @if ($errors->has('extra_details'))
-                                                                <div id="extra_detailsHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('extra_details') }}</div>
-                                                                </div>
+                                                            <div id="extra_detailsHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('extra_details') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -550,64 +573,66 @@
                                                             <input type="text" class="form-control form-control-lg border-0" id="roofing" name="roofing" value="{{ $property->roofing ?? old('roofing') }}">
 
                                                             @if ($errors->has('roofing'))
-                                                                <div id="roofingHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('roofing') }}</div>
-                                                                </div>
+                                                            <div id="roofingHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('roofing') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="floors_no" class="text-heading">Floors no</label>
+                                                            <label for="floors_no" class="text-heading">Floors
+                                                                no</label>
                                                             @php
-                                                                $floors = ['1','2','3','4','5','6','7','8','9','10'];
+                                                            $floors = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
                                                             @endphp
                                                             <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" value="{{ old('floors_no') }}" id="floors_no" name="floors_no">
                                                                 @foreach ($floors as $floor)
-                                                                    <option value="{{ $floor }}" {{ $floor == $property->floors_no ? 'selected' : '' }}>
-                                                                        {{ $floor }}
-                                                                    </option>
+                                                                <option value="{{ $floor }}" {{ $floor == $property->floors_no ? 'selected' : '' }}>
+                                                                    {{ $floor }}
+                                                                </option>
                                                                 @endforeach
                                                             </select>
 
                                                             @if ($errors->has('floors_no'))
-                                                                <div id="floors_noHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('floors_no') }}</div>
-                                                                </div>
+                                                            <div id="floors_noHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('floors_no') }}</div>
+                                                            </div>
                                                             @endif
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="house_type" class="text-heading">House Type</label>
+                                                            <label for="house_type" class="text-heading">House
+                                                                Type</label>
                                                             @php
-                                                                $types = ['Single-Family Home', 'Bungalow', 'Duplex', 'Cape Cod', 'Colonial', 'Victorian', 'Tudor', 'Ranch'];
+                                                            $types = ['Single-Family Home', 'Bungalow', 'Duplex', 'Cape Cod', 'Colonial', 'Victorian', 'Tudor', 'Ranch'];
                                                             @endphp
                                                             <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" value="{{ old('house_type') }}" id="house_type" name="house_type">
                                                                 @foreach ($types as $type)
-                                                                    <option value="{{ $type }}" {{ $type == $property->house_type ? 'selected' : '' }}>
-                                                                        {{ $type }}
-                                                                    </option>
+                                                                <option value="{{ $type }}" {{ $type == $property->house_type ? 'selected' : '' }}>
+                                                                    {{ $type }}
+                                                                </option>
                                                                 @endforeach
                                                             </select>
 
                                                             @if ($errors->has('house_type'))
-                                                                <div id="house_typeHelp" class="form-text text-danger">
-                                                                    <div>{{ $errors->first('house_type') }}</div>
-                                                                </div>
+                                                            <div id="house_typeHelp" class="form-text text-danger">
+                                                                <div>{{ $errors->first('house_type') }}</div>
+                                                            </div>
                                                             @endif
 
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
-                                        
+
                                         <div class="d-flex flex-wrap">
                                             <a href="#" class="btn btn-lg bg-hover-white border rounded-lg mb-3 mr-auto prev-button">
                                                 <span class="d-inline-block text-primary mr-2 fs-16"><i class="fal fa-long-arrow-left"></i></span>Prev step
@@ -907,4 +932,3 @@
     </div>
 </main>
 @endsection
-

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsAdmin
+class CheckIfAgent
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,11 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->is_admin) {
+        if (Auth::user()->is_agent == 1 && Auth::user()->agent_profile == 1) {
             return $next($request);
         }
+
+        return redirect()->route('agent.profile', Auth::user()->id);
         
-        return redirect()->back();
     }
 }

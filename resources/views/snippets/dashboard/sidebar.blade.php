@@ -108,14 +108,14 @@
                     <span class="sidebar-item-number ml-auto text-primary fs-15 font-weight-bold">29</span>
                   </a>
                 </li> --}}
-
+                @if (Auth::user()->is_admin)
                 {{-- Projects --}}
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="#project_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
                       <i class="fal fa-briefcase"></i>
                     </span>
-                    <span class="sidebar-item-text">Projects</span>
+                    <span class="sidebar-item-text">Estate</span>
                     <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
                   </a>
                 </li>
@@ -125,15 +125,17 @@
                   <div class="card card-body border-0 bg-transparent py-0 pl-6">
                     <ul class="list-group list-group-flush list-group-no-border">
                       <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                        <a class="text-heading lh-1 sidebar-link" href="{{ route('projects.index') }}">Listing Projects</a>
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('projects.index') }}">Listing Estate</a>
                       </li>
                       <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                        <a class="text-heading lh-1 sidebar-link" href="{{ route('projects.create') }}">Add New Projects</a>
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('projects.create') }}">Add New Estate</a>
                       </li>
                     </ul>
                   </div>
                 </div>
-
+                @endif
+                 
+                @if (Auth::user()->is_admin || Auth::user()->is_agent)
                 {{-- Property --}}
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="#property_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
@@ -146,19 +148,21 @@
                 </li>
 
                 {{-- Property dropdown --}}
-              <div class="collapse" id="property_collapse">
-                <div class="card card-body border-0 bg-transparent py-0 pl-6">
-                  <ul class="list-group list-group-flush list-group-no-border">
-                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="{{ route('properties.index') }}">Listing Properties</a>
-                    </li>
-                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="{{ route('properties.create') }}">Add New Property</a>
-                    </li>
-                  </ul>
+                <div class="collapse" id="property_collapse">
+                  <div class="card card-body border-0 bg-transparent py-0 pl-6">
+                    <ul class="list-group list-group-flush list-group-no-border">
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('properties.index') }}">Listing Properties</a>
+                      </li>
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('properties.create') }}">Add New Property</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
+                @endif
 
+               @if (Auth::user()->is_admin)
                 {{-- Destinations --}}
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="#destination_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
@@ -171,20 +175,22 @@
                 </li>
 
                 {{-- Destination --}}
-              <div class="collapse" id="destination_collapse">
-                <div class="card card-body border-0 bg-transparent py-0 pl-6">
-                  <ul class="list-group list-group-flush list-group-no-border">
-                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="{{ route('destinations.index') }}">Listing Destinations</a>
-                    </li>
-                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="{{ route('destinations.create') }}">Add New Destination</a>
-                    </li>
-                  </ul>
+                <div class="collapse" id="destination_collapse">
+                  <div class="card card-body border-0 bg-transparent py-0 pl-6">
+                    <ul class="list-group list-group-flush list-group-no-border">
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('destinations.index') }}">Listing Destinations</a>
+                      </li>
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('destinations.create') }}">Add New Destination</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
+                @endif
 
                 {{-- Agents --}}
+                @if (Auth::user()->is_admin)
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="#agent_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
@@ -196,43 +202,45 @@
                 </li>
 
                 {{-- Agents dropdown list --}}
-              <div class="collapse" id="agent_collapse">
+                <div class="collapse" id="agent_collapse">
+                  <div class="card card-body border-0 bg-transparent py-0 pl-6">
+                    <ul class="list-group list-group-flush list-group-no-border">
+                      {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('agents.index') }}">Our Agents</a>
+                      </li> --}}
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="#">Approved Agents</a>
+                      </li>
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="#">Pending Agents</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                @endif
+
+                {{-- Invoice --}}
+                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                  <a href="#invoice_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
+                    <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
+                      <i class="fal fa-file-invoice"></i>
+                    </span>
+                    <span class="sidebar-item-text">Your Invoice</span>
+                    <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
+                  </a>
+                </li>
+                
+
+              {{-- Invoice dropdown list --}}
+              <div class="collapse" id="invoice_collapse">
                 <div class="card card-body border-0 bg-transparent py-0 pl-6">
                   <ul class="list-group list-group-flush list-group-no-border">
-                    {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="{{ route('agents.index') }}">Our Agents</a>
-                    </li> --}}
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="#">Approved Agents</a>
-                    </li>
-                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="#">Pending Agents</a>
+                      <a class="text-heading lh-1 sidebar-link" href="{{ route('invoices.index') }}">Invoice listing</a>
                     </li>
                   </ul>
                 </div>
               </div>
-
-              {{-- Invoice --}}
-              <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                <a href="#invoice_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
-                  <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
-                    <i class="fal fa-file-invoice"></i>
-                  </span>
-                  <span class="sidebar-item-text">Your Invoice</span>
-                  <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
-                </a>
-              </li>
-
-              {{-- Invoice dropdown list --}}
-            <div class="collapse" id="invoice_collapse">
-              <div class="card card-body border-0 bg-transparent py-0 pl-6">
-                <ul class="list-group list-group-flush list-group-no-border">
-                  <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                    <a class="text-heading lh-1 sidebar-link" href="{{ route('invoices.index') }}">Invoice listing</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
 
               </ul>
 
@@ -242,7 +250,8 @@
             <li class="list-group-item pt-6 pb-4">
               <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Acount</h5>
               <ul class="list-group list-group-no-border rounded-lg">
-
+                
+                @if (Auth::user()->is_admin)
                 {{-- Admins --}}
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="#admin_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
@@ -254,22 +263,29 @@
                   </a>
                 </li>
 
-                {{-- Agents dropdown list --}}
-              <div class="collapse" id="admin_collapse">
-                <div class="card card-body border-0 bg-transparent py-0 pl-6">
-                  <ul class="list-group list-group-flush list-group-no-border">
-                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="{{ route('admins.index') }}">Manage Admin</a>
-                    </li>
-                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                      <a class="text-heading lh-1 sidebar-link" href="{{ route('admins.create') }}">Create Admin</a>
-                    </li>
-                  </ul>
+                {{-- Only Admin --}}
+               
+                <div class="collapse" id="admin_collapse">
+                  <div class="card card-body border-0 bg-transparent py-0 pl-6">
+                    <ul class="list-group list-group-flush list-group-no-border">
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('admins.index') }}">Manage Admin</a>
+                      </li>
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('admins.create') }}">Create Admin</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
+                @endif
 
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="{{ route('profile.show') }}" class="text-heading lh-1 sidebar-link">
+                  @if (Auth::user()->is_agent)
+                  <a href="{{ route('agent.profile', Auth::user()->id) }}" class="text-heading lh-1 sidebar-link">
+                  @else
+                  <a href="{{ route('profile.show') }}" class="text-heading lh-1 sidebar-link"> 
+                  @endif
+                  
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
                       <i class="fa fa-user"></i>
                     </span>

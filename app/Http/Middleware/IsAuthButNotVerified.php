@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsAdmin
+class IsAuthButNotVerified
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->is_admin) {
-            return $next($request);
+        if (Auth::user()->email_verified_at != null) {
+            return $next($request);  
         }
         
-        return redirect()->back();
+        return view('auth.verify');
     }
 }

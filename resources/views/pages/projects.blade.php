@@ -24,7 +24,7 @@
     
 <main id="content">
 
-  <section class="mt-12 pb-5 pb-lg-10 page-title bg-overlay bg-img-cover-center" style="background-image: url('assets/images/BG3.jpg');">
+  <section class="mt-12 pb-5 pb-lg-10 page-title bg-overlay bg-img-cover-center" style="background-image: url('assets/images/bg-home-6.jpg');">
         <div class="container">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb text-light mb-0">
@@ -36,21 +36,24 @@
             GeoHomes is an estate agency that helps people live in more thoughtful and beautiful ways.
           </h1>
         </div>
-      </section>
-    <section class="pb-9 pb-md-11 mt-14">
+  </section>
+    <section class="pb-9 pb-md-11 mt-10">
         <div class="container">
 
           @foreach ($projects as $project)
-            <div class="media p-4 border rounded-lg shadow-hover-1 pr-lg-8 mb-6 flex-column flex-lg-row no-gutters" data-animate="fadeInUp">
+            <div class="media p-4 border rounded-lg shadow-hover-1 pr-lg-8 mb-6 flex-column flex-lg-row no-gutters">
               <div class="col-lg-4 mr-lg-5 card border-0 hover-change-image bg-hover-overlay">
-                <img src="/storage/{{ $project->image }}" class="card-img" alt="{{ $project->title }}">
+                <a href="{{ route('projects.show', $project->id) }}">
+                  <img src="/storage/{{ $project->image }}" class="card-img" alt="{{ $project->title }}">
+                
                 <div class="card-img-overlay p-2 d-flex flex-column">
                 </div>
+                </a>
               </div>
 
               <div class="media-body mt-5 mt-lg-0">
                 <h2 class="my-0">
-                  <a href="single-property-1.html" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $project->title }}</a>
+                  <a href="{{ route('projects.show', $project->id) }}" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $project->title }}</a>
                 </h2>
                 <p class="mb-2 font-weight-500 text-gray-light">{{ $project->address }}</p>
                 <p class="mb-6 mxw-571 ml-0">{{ $project->description }}</p>
@@ -60,6 +63,24 @@
                   {!! $project->map_embed_code !!}
                 </div>
                 {{-- End map --}}
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="d-flex justify-content-between">
+                      <form class="w-50 mr-1" action="{{ route('subscription') }}" method="POST" style="padding: 0; margin: 0">
+                        @csrf
+                        <input type="hidden" name="project_id" value="{{ $project->id }}">
+                        <button type="submit" class="btn btn-primary w-100 rounded-0 border-0" style="background: #EAF1F2; color: #3e3e42 !important;">Subscribe</button>
+                      </form>
+          
+                      <form class="w-50" action="{{ route('inspection') }}" method="POST" style="padding: 0; margin: 0">
+                        @csrf
+                        <input type="hidden" name="project_id" value="{{ $project->id }}">
+                        <button type="submit" class="btn btn-primary w-100 rounded-0 border-0" style="background: #00A75A">Inspection</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
 
               </div>
             </div>
