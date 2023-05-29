@@ -120,12 +120,15 @@
                                 <li class="divider"></li>
                                 @guest
                                     <li class="nav-item hide-from-mobile">
-                                        <a class="nav-link pl-3 pr-2" href="{{ route('login') }}">SIGN IN</a>
+                                        <a class="nav-link pr-2" href="{{ route('login') }}">SIGN IN</a>
                                     </li>
                                     @else
+                                    <li class="nav-item hide-from-mobile mb-2">
+                                        <a class="nav-link pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">Become an Agent</a>
+                                    </li>
                                     <li class="nav-item ml-auto w-100 w-sm-auto">
                                         <a class="btn btn-primary btn-lg" href="{{ route('dashboard.index') }}" style="background: #00A75A">
-                                            Add listing
+                                            Dashboard
                                             <img src="{{ asset('assets/images/add-listing-icon.png') }}" alt="Add listing" class="ml-1">
                                         </a>
                                     </li>
@@ -138,10 +141,12 @@
                 </nav>
                 <div class="ml-auto d-none d-xl-block">
                     <ul class="navbar-nav flex-row ml-auto align-items-center justify-content-lg-end flex-wrap py-2">
-                       
-                        <li class="nav-item ">
-                                <a class="nav-link pl-3 pr-2" href="#">Become an Agent</a>
+                       @auth
+                       <li class="nav-item ">
+                                <a class="nav-link pl-3 pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">Become an Agent</a>
                         </li>
+                       @endauth
+                        
                         {{-- <li class="divider"></li> --}}
 
                         <li class="nav-item ">

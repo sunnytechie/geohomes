@@ -56,6 +56,10 @@ Route::put('/my-profile/update', [App\Http\Controllers\ProfileController::class,
 Route::get('/agent-profile/{id}', [App\Http\Controllers\AgentController::class, 'profile'])->name('agent.profile')->middleware('auth', 'verified', 'isAgent');
 Route::put('/agent-profile/{id}/update', [App\Http\Controllers\AgentController::class, 'profileUpdate'])->name('agent.profile.update')->middleware('auth', 'verified', 'isAgent');
 
+//Join Agent
+Route::get('/join-agent-profile/{id}', [App\Http\Controllers\AgentController::class, 'profileJoin'])->name('agent.profile.join')->middleware('auth', 'verified');
+Route::put('/join-agent-profile/{id}/update', [App\Http\Controllers\AgentController::class, 'profileJoinUpdate'])->name('agent.profile.join.update')->middleware('auth', 'verified');
+
 //Paystack
 Route::post('/payment/subscription', [App\Http\Controllers\PaymentController::class, 'subscription'])->name('subscription')->middleware('auth', 'verified');
 Route::post('/payment/inspection', [App\Http\Controllers\PaymentController::class, 'inspection'])->name('inspection')->middleware('auth', 'verified');

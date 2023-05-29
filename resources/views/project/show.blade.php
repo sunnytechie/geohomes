@@ -21,12 +21,20 @@
   .map {
     margin-bottom: 20px; /* Adjust the margin as needed */
   }
+
+  @media only screen and (max-width: 1024px) {
+    .hide-from-mobile {
+    margin-top: 10px !important;
+  }
+}
+  
 </style>
     
 <main id="content">
-  <section class="mt-10">
+  <section>
+    <div class="spacer mt-13 hide-from-mobile"></div>
     <div class="container">
-      <nav aria-label="breadcrumb">
+      {{-- <nav aria-label="breadcrumb">
         <ol class="breadcrumb pt-lg-0 pb-3">
           <li class="breadcrumb-item fs-12 letter-spacing-087">
             <a href=".">Home</a>
@@ -37,7 +45,7 @@
           <li class="breadcrumb-item fs-12 letter-spacing-087 active">Villa on Hollywood Boulevard</li>
         </ol>
       </nav>
-    </div>
+    </div> --}}
     <div class="container-fluid">
       <div class="position-relative" data-animate="zoomIn">
         
@@ -59,17 +67,19 @@
                 $images = ["$project->file1", "$project->file2", "$project->file3", "$project->file4"];
             @endphp
             @foreach ($images as $image)
-            <div class="col-md-6 p-1">
-              <div class="item item-size-4-3">
-                <div class="card p-0 hover-zoom-in">
-                  <a href="/storage/{{ $image }}" class="card-img"
-                                   data-gtf-mfp="true"
-                                   data-gallery-id="01"
-                                   style="background-image:url('/storage/{{ $image }}')">
-                  </a>
+            @if ($image)
+                <div class="col-md-6 p-1">
+                    <div class="item item-size-4-3">
+                        <div class="card p-0 hover-zoom-in">
+                            <a href="/storage/{{ $image }}" class="card-img"
+                              data-gtf-mfp="true"
+                              data-gallery-id="01"
+                              style="background-image:url('/storage/{{ $image }}')">
+                            </a>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
+            @endif
             @endforeach
           </div>
         </div>
@@ -126,7 +136,7 @@
   </div>
 </div>
 
-
+<div class="mt-10"></div>
 </main>
 
 <script>
