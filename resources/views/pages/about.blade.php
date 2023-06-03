@@ -114,7 +114,7 @@
     </section>
 
 
-    <section class="py-12" id="leadership">
+    <section class="py-6" id="leadership">
       <div class="container">
         <h2 class="text-dark lh-1625 text-center mb-2 fs-22 fs-md-32">Leadership</h2>
         <p class="mxw-751 text-center mb-1 px-8">Meet the great minds making GeoHomes a place of great possibilities and service delivery.</p>
@@ -155,26 +155,23 @@
 
 
     <section id="office">
-      <div>
-        <div class="position-relative">
-          <div id="map" class="mapbox-gl map-point-animate" style="height: 550px"
-               data-mapbox-access-token="pk.eyJ1IjoiZHVvbmdsaCIsImEiOiJjanJnNHQ4czExMzhyNDVwdWo5bW13ZmtnIn0.f1bmXQsS6o4bzFFJc8RCcQ"
-               data-mapbox-options='{"center":[-73.981566, 40.739011],"setLngLat":[-73.981566, 40.739011]}'
-               data-mapbox-marker='[{"position":[-73.981566, 40.739011],"className":"marker","backgroundImage":"assets/images/googlle-market-01.png","backgroundRepeat":"no-repeat","width":"32px","height":"40px"}]'
-          ></div>
-          <div class="container">
-            <div class="map-info position-absolute">
-              <div class="card border-0 shadow-xs-4">
-                <div class="card-body pl-7 pr-6 pt-7 pb-10">
-                  <h4 class="fs-22 lh-238 mb-0">Offices Location</h4>
-                  <p class="mb-8">We are devoted to offering you properties that stand the test of time and market changes. As technology grows, we grow with it too. So whatever you need, we are ready to provide.
-                    Our passion at Geohomes is to give you everything you need to achieve your real estate dreams.
-                    </p>
-                  <h5 class="fs-16 lh-2 mb-0">Visit our office at</h5>
-                  <p class="mb-0">Enugu, Enugu, Nigeria</p>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card border-0 shadow-xs-4">
+              <div class="card-body pl-7 pr-6 pt-7 pb-10">
+                <h4 class="fs-22 lh-238 mb-0">Offices Location</h4>
+                <p class="mb-8">We are devoted to offering you properties that stand the test of time and market changes. As technology grows, we grow with it too. So whatever you need, we are ready to provide.
+                  Our passion at Geohomes is to give you everything you need to achieve your real estate dreams.
+                  </p>
+                <h5 class="fs-16 lh-2 mb-0">Visit our office at</h5>
+                <p class="mb-0">26 Moorehouse street Ogui Enugu</p>
               </div>
             </div>
+          </div>
+
+          <div class="col-md-8">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.6468249970967!2d7.492525573327757!3d6.439381724138578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1044a3d8f51f6071%3A0x6b07f5ee68d7e660!2s26%20Moorehouse%20St%2C%20Ogui%20400001%2C%20Enugu!5e0!3m2!1sen!2sng!4v1685829579897!5m2!1sen!2sng" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>

@@ -37,7 +37,7 @@
               </div>
               <div class="col-sm-9">
                 <div class="card-body p-0 pl-0 pl-sm-5 pt-5 pt-sm-0">
-                  <a href="{{ route('page.contact') }}"
+                  <a href={{ route('dashboard.index') }}"
                                class="d-flex align-items-center text-dark hover-secondary"><h4
                                     class="fs-20 lh-1625 mb-1">Sell a home </h4>
                     <span class="ml-2 text-primary fs-42 lh-1 hover-image d-inline-flex align-items-center">

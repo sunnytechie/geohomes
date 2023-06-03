@@ -7,7 +7,7 @@
           <p class="mb-7">Contact us today.</p>
         </div>
         <div class="col-md-6 text-md-right">
-          <a href="{{ route('page.projects') }}" class="btn btn-lg text-secondary btn-accent rounded-lg mb-8">See all Our Estate
+          <a href="{{ route('page.projects') }}" class="btn btn-lg text-secondary btn-accent rounded-lg mb-8">See all Our Estates
             <i class="far fa-long-arrow-right ml-1"></i>
           </a>
         </div>
