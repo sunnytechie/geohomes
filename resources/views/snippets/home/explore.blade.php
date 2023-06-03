@@ -6,8 +6,8 @@
             <h2 class="text-heading lh-1625">Explore <br>
                by Property Type</h2>
             <span class="heading-divider"></span>
-            <p class="mb-6">Lorem ipsum dolor sit amet, consec tetur cing elit. Suspe ndisse suscipit</p>
-            <a href="listing-grid-with-left-filter.html"
+            <p class="mb-6">Our Properties are organized in a way to help you find what you want.</p>
+            <a href="{{ route('page.buy.rent') }}"
                    class="btn btn-lg text-secondary btn-accent">+2300 Available Properties
               <i class="far fa-long-arrow-right ml-1"></i>
             </a>

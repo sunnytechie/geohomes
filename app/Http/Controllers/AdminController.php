@@ -49,6 +49,7 @@ class AdminController extends Controller
         if ($request->role == "superadmin") {
             $admin->is_super_admin = 1;
             $admin->is_admin = 1;
+            $admin->is_agent = 1;
         }
         if ($request->role == "staff") {
             $admin->is_staff = 1;

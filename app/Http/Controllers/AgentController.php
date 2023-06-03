@@ -120,6 +120,9 @@ class AgentController extends Controller
         $agent->office_number = $request->office_number;
         $agent->mobile_number = $request->mobile_number;
         $agent->fax_number = $request->fax_number;
+        if (Auth::user()->is_admin) {
+            $agent->subscribed = 1;
+        }
         $agent->save();
 
         $user = User::find(Auth::user()->id);
@@ -131,6 +134,10 @@ class AgentController extends Controller
         $user->agent_profile = 1;
         $user->is_agent = 1;
         $user->save();
+
+        if (Auth::user()->is_admin) {
+            return redirect()->route('dashboard.index')->with('message', "Your profile has been updated.");
+        }
 
         return redirect()->route('dashboard.index')->with('message', "Your profile has been updated to an agent.");
     }

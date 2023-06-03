@@ -38,10 +38,10 @@ Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'
 //Route::get('/gh-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
 
 //dashboard
-Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified', 'checkIfAgentAndIsSet');
+Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified', 'hasAdminButNotAgent', 'checkIfAgentAndIsSet');
 
 //listings Resources
-Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth', 'verified', 'isAgent', 'checkIfAgentAndIsSet');
+Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth', 'verified', 'hasAdminButNotAgent', 'isAgent');
 Route::resource('projects', 'App\Http\Controllers\ProjectController')->middleware('auth', 'verified', 'isAdmin');
 Route::get('/geo-projects-image', [App\Http\Controllers\PagesController::class, 'projectImage'])->name('project.image.upload');
 Route::resource('destinations', 'App\Http\Controllers\DestinationController')->middleware('auth', 'verified', 'isAdmin');

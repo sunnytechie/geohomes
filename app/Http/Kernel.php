@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
         'isAdmin' => \App\Http\Middleware\IsAdmin::class,
         'isNotVerifiedYet' => \App\Http\Middleware\IsAuthButNotVerified::class,
         'UnSubAgentCannot' => \App\Http\Middleware\CountAgentPost::class,
+        'hasAdminButNotAgent' => \App\Http\Middleware\HasAdminNoAgent::class,
     ];
 }

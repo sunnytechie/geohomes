@@ -28,11 +28,11 @@
             <div class="card-body p-0">
               <h2 class="my-0 mt-1"><span class="fs-16 text-dark hover-primary lh-2">{{ $project->title }}</span>
               </h2>
-              <p class="text-gray-light font-weight-500 mb-1">{{ $project->address }}</p>
-              {{-- <p class="fs-17 font-weight-bold text-heading mb-0">$1.250.000</p> --}}
+              <p class="text-gray-light font-weight-500 mb-1">Location: {{ $project->address }}, {{ $project->state }}</p>
+              <p class="fs-17 font-weight-bold text-heading mb-0">{{ $project->price }}</p>
             </div>
           </div>
-          <div class="d-flex justify-content-between">
+          {{-- <div class="d-flex justify-content-between">
             <form class="w-50 mr-1" action="{{ route('subscription') }}" method="POST" style="padding: 0; margin: 0">
               @csrf
               <input type="hidden" name="project_id" value="{{ $project->id }}">
@@ -44,7 +44,7 @@
               <input type="hidden" name="project_id" value="{{ $project->id }}">
               <button type="submit" class="btn btn-primary w-100 rounded-0 border-0" style="background: #00A75A">Inspection</button>
             </form>
-          </div>
+          </div> --}}
         </div>
         @endforeach
         

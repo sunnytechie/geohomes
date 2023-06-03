@@ -25,9 +25,15 @@
   @endif
 
     <div class="mb-6">
-      <h2 class="mb-0 text-heading fs-22 lh-15">My Profile
-      </h2>
-      <p class="mb-1">GeoHomes will never share your personal details with anyone.</p>
+      
+      @if (Auth::user()->is_admin)
+      <h2 class="mb-0 text-heading fs-22 lh-15">GeoHome Admin Profile</h2>
+      <p class="mb-1">GeoHomes Need more details about you so that you can post property as Geohomes</p> 
+      @else
+      <h2 class="mb-0 text-heading fs-22 lh-15">My Profile</h2>
+      <p class="mb-1">Setup your personal information.</p>
+      @endif
+      
     </div>
     <form method="POST" action="{{ route('agent.profile.join.update', Auth::user()->id) }}" enctype="multipart/form-data">
         @csrf

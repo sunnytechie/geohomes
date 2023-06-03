@@ -77,6 +77,17 @@
                                                         </div>
 
                                                         <div class="form-group">
+                                                            <label for="price" class="text-heading">Price <span class="text-muted">(mandatory)</span></label>
+                                                            <input type="text" class="form-control form-control-lg border-0 @error('price') is-invalid @enderror" id="price" value="{{ $project->price ?? old('price') }}" name="price" placeholder="#2,000,000">
+                                                            
+                                                            @if ($errors->has('price'))
+                                                                <div id="priceHelp" class="form-text text-danger">
+                                                                    <div>{{ $errors->first('price') }}</div>
+                                                                </div>
+                                                            @endif
+                                                        </div>
+
+                                                        <div class="form-group">
                                                             <label for="address" class="text-heading">Address</label>
                                                             <input type="text" class="form-control form-control-lg border-0 @error('address') is-invalid @enderror" id="address" value="{{ $project->address ?? old('address') }}" name="address" oninput="toggleButton()">
                                                             

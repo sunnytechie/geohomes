@@ -103,10 +103,10 @@
               <h2 class="fs-35 font-weight-600 lh-15 text-heading">{{ $project->title }}</h2>
               <p class="mb-0"><i class="fal fa-map-marker-alt mr-2"></i>{{ $project->address }}, {{ $project->state }}, {{ $project->country }}</p>
             </div>
-            {{-- <div class="mt-2 text-lg-right">
-              <p class="fs-22 text-heading font-weight-bold mb-0">$1.250.000</p>
-              <p class="mb-0">$9350/SqFt</p>
-            </div> --}}
+            <div class="mt-2 text-lg-right">
+              <p class="fs-22 text-heading font-weight-bold mb-0">{{ $project->price }}</p>
+              {{-- <p class="mb-0">$9350/SqFt</p> --}}
+            </div>
           </div>
           <h4 class="fs-22 text-heading mt-6 mb-2">Description</h4>
           <p class="mb-0 lh-214">{{ $project->description }}</p>

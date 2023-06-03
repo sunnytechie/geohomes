@@ -50,8 +50,7 @@
         </div>
         <div class="col-md-6 col-lg-4 mb-6 mb-md-0">
           <h4 class="text-white fs-16 my-4 font-weight-500">Sign Up for Our Newsletter</h4>
-          <p class="font-weight-500 text-muted lh-184">Lorem ipsum dolor sit amet, consecte tur cing elit.
-            Suspe ndisse suscipit sagittis </p>
+          <p class="font-weight-500 text-muted lh-184">Be the first to hear about a new property and projects </p>
           <form>
             <div class="input-group input-group-lg mb-6">
               <input type="email" name="email" class="form-control bg-white shadow-none border-0 z-index-1" placeholder="Your email">

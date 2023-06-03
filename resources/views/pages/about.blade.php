@@ -114,16 +114,16 @@
     </section>
 
 
-    {{-- <section class="py-12" id="leadership">
+    <section class="py-12" id="leadership">
       <div class="container">
         <h2 class="text-dark lh-1625 text-center mb-2 fs-22 fs-md-32">Leadership</h2>
-        <p class="mxw-751 text-center mb-1 px-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim</p>
-        <div class="row mx-lg-n6 mt-8">
+        <p class="mxw-751 text-center mb-1 px-8">Meet the great minds making GeoHomes a place of great possibilities and service delivery.</p>
+        <div class="row justify-content-center mx-lg-n6 mt-8">
 
           <div class="col-md-4 col-sm-12 mb-md-7 mb-4 px-lg-6">
             <div class="card border-0 our-team text-center">
               <div class="rounded overflow-hidden bg-hover-overlay d-inline-block">
-                <img class="card-img" src="{{ asset('assets/images/our-team-01.jpg') }}" alt="Dollie Horton">
+                <img class="card-img" src="{{ asset('assets/images/profile/ceo.jpg') }}" alt="Uchechukwu Godwin Nnam. CEO">
                 <ul class="list-inline text-gray-lighter position-absolute w-100 m-0 p-0 z-index-2">
                   <li class="list-inline-item m-0">
                     <a href="#" class="w-32px h-32 rounded shadow-xxs-3 bg-hover-primary bg-white hover-white text-body d-flex align-items-center justify-content-center"><i class="fab fa-twitter"></i></a>
@@ -141,9 +141,9 @@
               </div>
               <div class="card-body pt-5">
                 <h3 class="fs-22 text-heading lh-164 mb-0">
-                  <a href="#" class="text-heading hover-primary">Dollie Horton</a>
+                  <a href="#" class="text-heading hover-primary">Uchechukwu Godwin Nnam.</a>
                 </h3>
-                <p class="m-0">President & CEO</p>
+                <p class="m-0">CEO. Geohomes Group</p>
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@
         </div>
        
       </div>
-    </section> --}}
+    </section> 
 
 
     <section id="office">
@@ -190,11 +190,17 @@
           Our home is at the heart of the design, allowing us to engage with our community through talks and events,
           and uphold our company culture with film screenings, yoga classes and team lunches.
         </p>
+        @auth
         @if (Auth::user()->is_agent == 0 && Auth::user()->is_admin == 0)
           <div class="text-center mb-11">
             <a href="{{ route('agent.profile.join') }}" class="btn btn-lg btn-primary">Join our team</a>
           </div> 
         @endif
+        @else
+        <div class="text-center mb-11">
+          <a href="{{ route('login') }}" class="btn btn-lg btn-primary">Join our team</a>
+        </div> 
+        @endauth
         
         <div class="row galleries mb-lg-n16">
           <div class="col-sm-8 mb-6">

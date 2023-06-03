@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agent;
 use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,13 @@ class PropertyController extends Controller
     {
         $properties = Property::orderBy('id', 'desc')->get();
         //dd($properties);
-        return view('dashboard.property.index', compact('properties'));
+        $exists = Agent::where('user_id', Auth::user()->id)->exists();
+        if ($exists) {
+            return view('dashboard.property.index', compact('properties'));
+        } else {
+            return redirect()->route('agent.profile.join', Auth::user()->id);
+        }
+        
     }
 
     /**
@@ -26,12 +33,18 @@ class PropertyController extends Controller
     {
         $properties = Property::where('user_id', Auth::user()->id)->count();
         #$properties->count();
-        //dd($properties);
+        $exists = Agent::where('user_id', Auth::user()->id)->exists();
+        if ($exists) {
+            //dd($properties);
         if (Auth::user()->agent->subscribed == 0 && $properties == 3) {
             return redirect()->route('agentupgrade');
         }
         
         return view('dashboard.property.new');
+        } else {
+            return redirect()->route('agent.profile.join', Auth::user()->id);
+        }
+        
     }
 
     /**
@@ -164,9 +177,14 @@ class PropertyController extends Controller
      */
     public function edit(string $id)
     {
+        $exists = Agent::where('user_id', Auth::user()->id)->exists();
+        if ($exists) {
         $property = Property::find($id);
 
-        return view('dashboard.property.edit', compact('property'));
+            return view('dashboard.property.edit', compact('property'));
+        } else {
+            return redirect()->route('agent.profile.join', Auth::user()->id);
+        }
     }
 
     /**
