@@ -6,6 +6,8 @@ use App\Http\Requests;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Inspectiontransaction;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Unicodeveloper\Paystack\Facades\Paystack;
@@ -33,20 +35,59 @@ class PaymentController extends Controller
     public function handleGatewayCallback()
     {
         $paymentDetails = Paystack::getPaymentData();
+        //dd($paymentDetails);
 
-        dd($paymentDetails);
-        // Now you have the payment details,
-        // you can store the authorization_code in your db to allow for recurrent subscriptions
-        // you can then redirect or do whatever you want
+        //Get required details
+        $amount = $paymentDetails['data']['amount'];
+        $status = $paymentDetails['data']['status'];
+        $reference = $paymentDetails['data']['reference'];
+        $email = $paymentDetails['data']['customer']['email']; //Email of Auth user
+        $order_id = $paymentDetails['data']['order_id'];
+        $currency = $paymentDetails['data']['currency'];
+
+        $checkTransactionTable = Transaction::where('tx_ref', $reference)->first();
+        $checkInspectiontransactionTable = Inspectiontransaction::where('tx_ref', $reference)->first();
+
+        if ($checkTransactionTable != NULL) {
+            //update transaction from table
+            $transaction = Transaction::find($checkTransactionTable->id);
+            $transaction->status = 1;
+            $transaction->save();
+
+            //return to escrow dashboard
+            dd('completed');
+            //return redirect()->route('escrow.service')->with('message', "A transaction has been initiated with $escrow->email. You will be notified when they approve the transaction");
+        }
+
+        if ($checkInspectiontransactionTable != NULL) {
+            //update transaction from table
+            $transaction = Inspectiontransaction::find($checkInspectiontransactionTable->id);
+            $transaction->status = 1;
+            $transaction->save();
+
+            //return to escrow dashboard
+            dd('completed');
+            //return redirect()->route('escrow.service')->with('message', "A transaction has been initiated with $escrow->email. You will be notified when they approve the transaction");
+        }
+
+        
     }
 
-    public function subscription() {
+    public function subscription(Request $request) {
+        //dd($request->all());
+        $tx_ref = Paystack::genTranxRef();
+        $transaction = new Transaction();
+        $transaction->project_id = $request->project_id;
+        $transaction->user_id = Auth::user()->id;
+        $transaction->tx_ref = $tx_ref;
+        $transaction->save();
+
         $data = array(
             "amount" => 20000 * 100,
-            "reference" => Paystack::genTranxRef(),
+            "reference" => $tx_ref,
             "email" => Auth::user()->email,
             "currency" => "NGN",
-            "orderID" => Auth::user()->id,
+            "orderID" => now(),
         );
     
     return Paystack::getAuthorizationUrl($data)->redirectNow();
@@ -65,13 +106,20 @@ class PaymentController extends Controller
     }
 
 
-    public function inspection() {
+    public function inspection(Request $request) {
+        $tx_ref = Paystack::genTranxRef();
+        $transaction = new Inspectiontransaction();
+        $transaction->project_id = $request->project_id;
+        $transaction->user_id = Auth::user()->id;
+        $transaction->tx_ref = $tx_ref;
+        $transaction->save();
+
         $data = array(
             "amount" => 10000 * 100,
-            "reference" => Paystack::genTranxRef(),
+            "reference" => $tx_ref,
             "email" => Auth::user()->email,
             "currency" => "NGN",
-            "orderID" => Auth::user()->id,
+            "orderID" => now(),
         );
     
     return Paystack::getAuthorizationUrl($data)->redirectNow();

@@ -72,6 +72,35 @@
                 </li>
               </ul>
             </li>
+
+            <li class="list-group-item pt-6 pb-4">
+              <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Task</h5>
+              <ul class="list-group list-group-no-border rounded-lg">
+                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                  <a href="{{ route('transaction') }}" class="text-heading lh-1 sidebar-link">
+                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-dollar-sign" style="color: #ababab"></i></span>
+                    <span class="sidebar-item-text">Transactions</span>
+                  </a>
+                </li>
+                
+                {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                  <a href="#" class="text-heading lh-1 sidebar-link">
+                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-map" style="color: #ababab"></i></span>
+                    <span class="sidebar-item-text">Allocation</span>
+                  </a>
+                </li> --}}
+                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                  <a href="{{ route('schedule') }}" class="text-heading lh-1 sidebar-link">
+                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-calendar" style="color: #ababab"></i></span>
+                    <span class="sidebar-item-text">Schedules</span>
+                  </a>
+                </li>
+                
+              </ul>
+            </li>
+
+            
+
             <li class="list-group-item pt-6 pb-4">
               <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Listings</h5>
               <ul class="list-group list-group-no-border rounded-lg">
@@ -129,6 +158,30 @@
                       </li>
                       <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                         <a class="text-heading lh-1 sidebar-link" href="{{ route('projects.create') }}">Add New Estate</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {{-- Plots --}}
+                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                  <a href="#plot_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
+                    <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
+                      <i class="fal fa-map"></i>
+                    </span>
+                    <span class="sidebar-item-text">Plots</span>
+                    <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
+                  </a>
+                </li>
+
+                <div class="collapse" id="plot_collapse">
+                  <div class="card card-body border-0 bg-transparent py-0 pl-6">
+                    <ul class="list-group list-group-flush list-group-no-border">
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('plots.index') }}">Plots</a>
+                      </li>
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('plots.create') }}">Add New plot</a>
                       </li>
                     </ul>
                   </div>
@@ -220,7 +273,7 @@
                 @endif
 
                 {{-- Invoice --}}
-                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="#invoice_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
                       <i class="fal fa-file-invoice"></i>
@@ -228,11 +281,11 @@
                     <span class="sidebar-item-text">Your Invoice</span>
                     <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
                   </a>
-                </li>
+                </li>--}}
                 
 
               {{-- Invoice dropdown list --}}
-              <div class="collapse" id="invoice_collapse">
+              {{-- <div class="collapse" id="invoice_collapse">
                 <div class="card card-body border-0 bg-transparent py-0 pl-6">
                   <ul class="list-group list-group-flush list-group-no-border">
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
@@ -240,7 +293,7 @@
                     </li>
                   </ul>
                 </div>
-              </div>
+              </div>  --}}
 
               </ul>
 
@@ -287,7 +340,7 @@
                   @endif
                   
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
-                      <i class="fa fa-user"></i>
+                      <i class="fal fa-user"></i>
                     </span>
                     <span class="sidebar-item-text">My Profile</span>
                   </a>
@@ -299,7 +352,7 @@
                   this.closest('form').submit();" class="text-heading lh-1 sidebar-link">
                     
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
-                      <i class="fa fa-sign-out"></i>
+                      <i class="fal fa-sign-out"></i>
                     </span>
                     <span class="sidebar-item-text">Log Out</span>
                   </a>

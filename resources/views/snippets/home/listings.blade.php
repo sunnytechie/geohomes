@@ -14,7 +14,7 @@
               </div>
               <div class="col-sm-9">
                 <div class="card-body p-0 pl-0 pl-sm-5 pt-5 pt-sm-0">
-                  <a href="#"
+                  <a href="{{ route('page.buy.rent') }}"
                                class="d-flex align-items-center text-dark hover-secondary"><h4
                                     class="fs-20 lh-1625 mb-1">Buy a new home </h4>
                     <span class="ml-2 text-primary fs-42 lh-1 hover-image d-inline-flex align-items-center">
@@ -22,7 +22,7 @@
                                         xlink:href="#icon-long-arrow"></use></svg>
                     </span>
                   </a>
-                  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                  <p class="mb-0">Buying a home can seem like a daunting task but with our careful planning and knowledge of the process, buying a home can be an exciting and rewarding experience.</p>
                 </div>
               </div>
             </div>
@@ -37,7 +37,7 @@
               </div>
               <div class="col-sm-9">
                 <div class="card-body p-0 pl-0 pl-sm-5 pt-5 pt-sm-0">
-                  <a href="#"
+                  <a href="{{ route('page.contact') }}"
                                class="d-flex align-items-center text-dark hover-secondary"><h4
                                     class="fs-20 lh-1625 mb-1">Sell a home </h4>
                     <span class="ml-2 text-primary fs-42 lh-1 hover-image d-inline-flex align-items-center">
@@ -45,7 +45,7 @@
                                         xlink:href="#icon-long-arrow"></use></svg>
                     </span>
                   </a>
-                  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                  <p class="mb-0">Selling a home is a significant decision. It is essential to take the appropriate steps to prepare the property for sale to get the best possible price and a faster sale. </p>
                 </div>
               </div>
             </div>
@@ -60,7 +60,7 @@
               </div>
               <div class="col-sm-9">
                 <div class="card-body p-0 pl-0 pl-sm-5 pt-5 pt-sm-0">
-                  <a href="#"
+                  <a href="{{ route('page.buy.rent') }}"
                                class="d-flex align-items-center text-dark hover-secondary"><h4
                                     class="fs-20 lh-1625 mb-1">Rent a home </h4>
                     <span class="ml-2 text-primary fs-42 lh-1 hover-image d-inline-flex align-items-center">
@@ -68,7 +68,7 @@
                                         xlink:href="#icon-long-arrow"></use></svg>
                     </span>
                   </a>
-                  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
+                  <p class="mb-0">Renting a house, an apartment or an industrial space can be an excellent option if you’re not ready to commit to purchasing a home.</p>
                 </div>
               </div>
             </div>

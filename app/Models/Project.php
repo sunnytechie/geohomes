@@ -16,4 +16,19 @@ class Project extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function plots()
+    {
+        return $this->hasMany('App\Models\Plot');
+    }
+
+    public function inspectiontransactions()
+    {
+        return $this->hasMany('App\Models\Inspectiontransaction');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany('App\Models\Transaction');
+    }
 }

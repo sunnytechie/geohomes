@@ -12,15 +12,15 @@
             <h2 class="text-white lh-1625">Find your<br/>
               neighborhood</h2>
             <span class="heading-divider"></span>
-            <p class="mb-6 text-white">Lorem ipsum dolor sit amet, consec tetur cing elit. Suspe ndisse</p>
-            <div class="input-group input-group-lg pr-sm-17">
+            <p class="mb-6 text-white">It takes much effort and consideration to find a conducive neighborhood that interest one’s taste. So, we resort on bringing to your door step list of properties that will interest you and meet your needs.</p>
+            {{-- <div class="input-group input-group-lg pr-sm-17">
               <input type="text"
                            class="form-control fs-13 font-weight-500 text-gray-light rounded-lg rounded-right-0 border-0 shadow-none h-52 bg-white"
                            name="search" placeholder="Enter an address, neighbourhood">
               <button type="submit" class="btn btn-primary fs-18 rounded-left-0 rounded-lg px-6 border-0">
                 <i class="far fa-search"></i>
               </button>
-            </div>
+            </div> --}}
           </div>
         </div>
       </div>

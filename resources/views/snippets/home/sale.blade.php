@@ -5,10 +5,10 @@
         <div class="col-md-6">
           <h2 class="text-heading">Best Properties For Sale</h2>
           <span class="heading-divider"></span>
-          <p class="mb-6">Lorem ipsum dolor sit amet, consec tetur cing elit. Suspe ndisse suscipit</p>
+          <p class="mb-6">Find the best properties for sale on Geohomes</p>
         </div>
         <div class="col-md-6 text-md-right">
-          <a href="#"
+          <a href="{{ route('page.buy.rent') }}"
                class="btn fs-14 text-secondary btn-accent py-3 lh-15 px-7 mb-6 mb-lg-0">See all properties
             <i class="far fa-long-arrow-right ml-1"></i>
           </a>

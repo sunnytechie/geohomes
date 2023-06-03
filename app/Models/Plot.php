@@ -5,20 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Destination extends Model
+class Plot extends Model
 {
-    protected $table = 'destinations';
-    
+    protected $table = 'plots';
     use HasFactory;
 
-    //belongs to user
+    public function project()
+    {
+        return $this->belongsTo('App\Models\Project');
+    }
+
     public function user()
     {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function project()
+    public function transactions()
     {
-        return $this->belongsTo('App\Models\Project');
+        return $this->hasMany('App\Models\Transaction');
     }
 }

@@ -51,24 +51,24 @@
                                 </a>
                             </li>
 
-                            <li aria-haspopup="true" aria-expanded="false"
+                            <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="{{ route('page.buy.rent') }}">
-                                    Buy or Rent {{-- should be Listings --}}
+                                <a class="nav-link p-0" href="/about-us#service">
+                                    Services
                                 </a>
                             </li>
 
                             <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link p-0" href="{{ route('page.projects') }}">
-                                    Estate
+                                    Our Estate
                                 </a>
                             </li>
 
-                            <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
+                            <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="/about-us#service">
-                                    Services
+                                <a class="nav-link p-0" href="{{ route('page.buy.rent') }}">
+                                    Buy or Rent {{-- should be Listings --}}
                                 </a>
                             </li>
 
@@ -123,9 +123,12 @@
                                         <a class="nav-link pr-2" href="{{ route('login') }}">SIGN IN</a>
                                     </li>
                                     @else
+                                    @if (Auth::user()->is_agent == 0 || Auth::user()->is_admin == 0)
                                     <li class="nav-item hide-from-mobile mb-2">
                                         <a class="nav-link pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">Become an Agent</a>
                                     </li>
+                                    @endif
+                                    
                                     <li class="nav-item ml-auto w-100 w-sm-auto">
                                         <a class="btn btn-primary btn-lg" href="{{ route('dashboard.index') }}" style="background: #00A75A">
                                             Dashboard
@@ -142,9 +145,11 @@
                 <div class="ml-auto d-none d-xl-block">
                     <ul class="navbar-nav flex-row ml-auto align-items-center justify-content-lg-end flex-wrap py-2">
                        @auth
+                       @if (Auth::user()->is_agent == 0 || Auth::user()->is_admin == 0)
                        <li class="nav-item ">
-                                <a class="nav-link pl-3 pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">Become an Agent</a>
+                           <a class="nav-link pl-3 pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">Become an Agent</a>
                         </li>
+                        @endif
                        @endauth
                         
                         {{-- <li class="divider"></li> --}}

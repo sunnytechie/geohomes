@@ -48,6 +48,7 @@ Route::resource('destinations', 'App\Http\Controllers\DestinationController')->m
 Route::resource('agents', 'App\Http\Controllers\AgentController')->middleware('auth', 'verified');
 Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middleware('auth', 'verified');
 Route::resource('admins', 'App\Http\Controllers\AdminController')->middleware('auth', 'verified', 'isAdmin');
+Route::resource('plots', 'App\Http\Controllers\PlotController')->middleware('auth', 'verified', 'isAdmin');
 
 //account
 Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show')->middleware('auth', 'verified');
@@ -65,9 +66,22 @@ Route::post('/payment/subscription', [App\Http\Controllers\PaymentController::cl
 Route::post('/payment/inspection', [App\Http\Controllers\PaymentController::class, 'inspection'])->name('inspection')->middleware('auth', 'verified');
 Route::get('/payment/agent', [App\Http\Controllers\PaymentController::class, 'agent'])->name('agent')->middleware('auth', 'verified');
 Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('handleGatewayCallback')->middleware('auth', 'verified');
+
 //Error page
 Route::get('/not-found', [App\Http\Controllers\WelcomeController::class, 'error'])->name('error404');
 Route::get('/agent-limit', [App\Http\Controllers\AgentController::class, 'agentupgrade'])->name('agentupgrade')->middleware('auth', 'isAgent');
+
+//transactions
+Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction')->middleware('auth', 'verified');
+//Allocate
+Route::get('/allocate', [App\Http\Controllers\TransactionController::class, 'allocate'])->name('allocate')->middleware('auth', 'verified', 'isAdmin');
+Route::post('/allocate/post', [App\Http\Controllers\TransactionController::class, 'allocatePost'])->name('allocatePost')->middleware('auth', 'verified', 'isAdmin');
+
+//Inspections
+Route::get('/schedules', [App\Http\Controllers\ScheduleController::class, 'index'])->name('schedule')->middleware('auth', 'verified');
+Route::get('/schedules/post', [App\Http\Controllers\ScheduleController::class, 'schedulePost'])->name('schedulePost')->middleware('auth', 'verified');
+Route::put('/schedules/Update/{id}', [App\Http\Controllers\ScheduleController::class, 'scheduleUpdate'])->name('scheduleUpdate')->middleware('auth', 'verified');
+
 
 Auth::routes();
 

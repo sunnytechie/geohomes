@@ -34,13 +34,7 @@
         @endif
       </div>
 
-      @if (Auth::user()->is_admin)
-      <div>
-        <a href="{{ route('prjects.create') }}" class="btn btn-primary btn-lg">
-          <span>Add New Project</span>
-        </a>
-      </div>
-      @endif
+    
       @if (Auth::user()->is_admin || Auth::user()->is_agent)
       <div>
         <a href="{{ route('properties.create') }}" class="btn btn-primary btn-lg">
@@ -53,6 +47,43 @@
     </div>
 
     <div class="row">
+      <div class="col-sm-6 col-xxl-3 mb-6">
+        <div class="card">
+          <div class="card-body row align-items-center px-6 py-7">
+            <div class="col-5">
+              <span class="w-83px h-83 d-flex align-items-center justify-content-center fs-36 badge badge-yellow badge-circle">
+                <i class="fal fa-file-invoice"></i>
+              </span>
+            </div>
+            <div class="col-7 text-center">
+              <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
+                 data-end="{{ $transactions->count(); }}" data-decimals="0"
+                 data-duration="0" data-separator="">{{ $transactions->count(); }}</p>
+              <p>Transactions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-xxl-3 mb-6">
+        <div class="card">
+          <div class="card-body row align-items-center px-6 py-7">
+            <div class="col-5">
+              <span class="w-83px h-83 d-flex align-items-center justify-content-center fs-36 badge badge-yellow badge-circle">
+                <i class="fal fa-file-invoice"></i>
+              </span>
+            </div>
+            <div class="col-7 text-center">
+              <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
+                 data-end="{{ $inspections->count(); }}" data-decimals="0"
+                 data-duration="0" data-separator="">{{ $inspections->count(); }}</p>
+              <p>Inspections</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       @if (Auth::user()->is_agent)
       <div class="col-sm-6 col-xxl-3 mb-6">
         <div class="card">
@@ -72,26 +103,7 @@
         </div>
       </div>
       @endif
-
-      @if (!Auth::user()->is_admin)
-      <div class="col-sm-6 col-xxl-3 mb-6">
-        <div class="card">
-          <div class="card-body row align-items-center px-6 py-7">
-            <div class="col-5">
-              <span class="w-83px h-83 d-flex align-items-center justify-content-center fs-36 badge badge-yellow badge-circle">
-                <i class="fal fa-file-invoice"></i>
-              </span>
-            </div>
-            <div class="col-7 text-center">
-              <p class="fs-42 lh-12 mb-0 counterup" data-start="0"
-                 data-end="{{ $invoices->count(); }}" data-decimals="0"
-                 data-duration="0" data-separator="">{{ $invoices->count(); }}</p>
-              <p>Invoice</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      @endif
+      
 
       @if (Auth::user()->is_admin)
         <div class="col-sm-6 col-xxl-3 mb-6">

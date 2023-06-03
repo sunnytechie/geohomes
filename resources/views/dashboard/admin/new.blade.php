@@ -51,9 +51,9 @@
                       <option value="user">Customer</option>
                     </select>
                     
-                    @if ($errors->has('email'))
-                        <div id="emailHelp" class="form-text text-danger">
-                            <div>{{ $errors->first('email') }}</div>
+                    @if ($errors->has('role'))
+                        <div id="roleHelp" class="form-text text-danger">
+                            <div>{{ $errors->first('role') }}</div>
                         </div>
                     @endif
                 </div>

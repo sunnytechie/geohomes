@@ -14,7 +14,7 @@
 </style>
     
 <main id="content">
-    <section class="bg-secondary mt-12">
+    {{-- <section class="bg-secondary mt-12">
       <div class="container">
         <form class="property-search d-none d-lg-block">
           <div class="row align-items-lg-center" id="accordion-2">
@@ -506,7 +506,9 @@
           </div>
         </form>
       </div>
-    </section>
+    </section> --}}
+    
+    <div class="mt-10"></div>
 
 
     <section class="py-14 py-lg-17 page-title bg-overlay-opacity-02"
@@ -526,8 +528,7 @@
             <h2 class="text-heading mb-2 fs-22 fs-md-32 text-center lh-16">We're always eager to hear from
               you!</h2>
             <p class="text-center mxw-670 mb-8">
-              Lorem ipsum dolor sit amet, consec tetur cing elit. Suspe ndisse suscorem ipsum dolor sit ametcipsum
-              ipsumg consec tetur cing elitelit.
+              At Geohomes, we create values by building outstanding artistry edifice with modern technology and seamless services to our customers.
             </p>
             <form class="mxw-751 px-md-5">
               <div class="row">
@@ -569,7 +570,7 @@
             </form>
           </div>
         </div>
-        <div class="row mb-12">
+        {{-- <div class="row mb-12">
           <div class="col-md-4 mb-6">
             <div class="card border-0">
               <div class="media align-items-end">
@@ -636,14 +637,14 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
     </section>
 
     
     <section>
         <div id="map" class="mapbox-gl map-point-animate"
-        style="height: 550px"
+        style="height: 350px"
         data-mapbox-access-token="pk.eyJ1IjoiZHVvbmdsaCIsImEiOiJjanJnNHQ4czExMzhyNDVwdWo5bW13ZmtnIn0.f1bmXQsS6o4bzFFJc8RCcQ"
         data-mapbox-options='{"center":[-73.981566, 40.739011],"setLngLat":[-73.981566, 40.739011]}'
         data-mapbox-marker='[{"position":[-73.981566, 40.739011],"className":"marker","backgroundImage":"assets/images/googlle-market-01.png","backgroundRepeat":"no-repeat","width":"32px","height":"40px"}]'>

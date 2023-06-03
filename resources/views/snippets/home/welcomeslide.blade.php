@@ -15,7 +15,7 @@
 
                 <div class="col-lg-7 col-md-6">
                   <h2 class="lh-12 mb-4 mt-8"><a href="#" class="text-white fs-md-60 fs-48">The GeoHomes <br> Masterpiece.</a></h2>
-                  <p class="text-white fs-18 font-weight-500">Lorem Doloremque, maiores tenetur rem numquam nobis ratione fugiat odit omnis possimus quos saepe magni id sint, laborum molestias eius rerum. Rerum, dolor!</p>
+                  <p class="text-white fs-18 font-weight-500">Geohomes Services Limited is a leading real estate development and consulting firm. </p>
                 </div>
 
               </div>
@@ -36,7 +36,7 @@
                   
                   <div class="col-lg-7 col-md-6">
                     <h2 class="lh-12 mb-4 mt-8"><a href="#" class="text-white fs-md-60 fs-48">Recreating your <br> dream.</a></h2>
-                    <p class="text-white fs-18 font-weight-500">Lorem Doloremque, maiores tenetur rem numquam nobis ratione fugiat odit omnis possimus quos saepe magni id sint, laborum molestias eius rerum. Rerum, dolor!</p>
+                    <p class="text-white fs-18 font-weight-500">We take the position of a customer-focused, and solution-driven company eager to provide what our clients need to achieve their dreams.</p>
                   </div>
 
                 </div>
@@ -57,7 +57,7 @@
                     
                   <div class="col-lg-7 col-md-6">
                     <h2 class="lh-12 mb-4 mt-8"><a href="#" class="text-white fs-md-60 fs-48">From design to <br> reality.</a></h2>
-                    <p class="text-white fs-18 font-weight-500">Lorem Doloremque, maiores tenetur rem numquam nobis ratione fugiat odit omnis possimus quos saepe magni id sint, laborum molestias eius rerum. Rerum, dolor!</p>
+                    <p class="text-white fs-18 font-weight-500">Our work and services pass every global standard and are championed by experts and experienced professionals who are trained to give you the best. </p>
                   </div>
                     
                   </div>

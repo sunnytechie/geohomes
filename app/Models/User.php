@@ -46,21 +46,36 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     //hasMany property
-    public function property()
+    public function properties()
     {
         return $this->hasMany('App\Models\Property');
     }
 
     //hasMany invoice
-    public function invoice()
+    public function invoices()
     {
         return $this->hasMany('App\Models\Invoice');
+    }
+
+    public function plots()
+    {
+        return $this->hasMany('App\Models\Plot');
     }
 
     //hasMany destination
     public function destination()
     {
         return $this->hasMany('App\Models\Destination');
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany('App\Models\Transaction');
+    }
+
+    public function inspectiontransactions()
+    {
+        return $this->hasMany('App\Models\Inspectiontransaction');
     }
 
     /**

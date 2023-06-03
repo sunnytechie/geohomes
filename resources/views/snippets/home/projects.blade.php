@@ -2,12 +2,12 @@
     <div class="container container-xxl">
       <div class="row">
         <div class="col-md-6">
-          <h2 class="text-heading">Our Projects</h2>
+          <h2 class="text-heading">Our Estate</h2>
           <span class="heading-divider"></span>
           <p class="mb-7">Contact us today.</p>
         </div>
         <div class="col-md-6 text-md-right">
-          <a href="{{ route('page.projects') }}" class="btn btn-lg text-secondary btn-accent rounded-lg mb-8">See all projects
+          <a href="{{ route('page.projects') }}" class="btn btn-lg text-secondary btn-accent rounded-lg mb-8">See all Our Estate
             <i class="far fa-long-arrow-right ml-1"></i>
           </a>
         </div>
