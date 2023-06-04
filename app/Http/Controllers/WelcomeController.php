@@ -18,9 +18,14 @@ class WelcomeController extends Controller
         $propertiesForRent = Property::orderBy('id', 'desc')
                             ->where('category', "For Rent")->paginate(12);
 
-        $destinations = Destination::orderBy('id', 'desc')->paginate(12);  
+        $destinations = Destination::orderBy('id', 'desc')->paginate(12); 
+        
+        $apertmentUrl = route('page.sorted', ['parameter_name' => "apertment"]);
+        $houseUrl = route('page.sorted', ['parameter_name' => "house"]);
+        $officeUrl = route('page.sorted', ['parameter_name' => "office"]);
+        $villaUrl = route('page.sorted', ['parameter_name' => "villa"]);
 
-        return view('welcome', compact('projects', 'destinations', 'propertiesForSale', 'propertiesForRent'));
+        return view('welcome', compact('projects', 'apertmentUrl', 'houseUrl', 'officeUrl', 'villaUrl', 'destinations', 'propertiesForSale', 'propertiesForRent'));
     }
 
     public function error() {

@@ -35,6 +35,12 @@ class PagesController extends Controller
         return view('pages.buyrent');
     }
 
+    public function sorted(Request $request) {
+        //sort according to link address
+        //dd($request->all());
+        return view('pages.sorted');
+    }
+
     public function projects() {
         $projects = Project::orderBy('id', 'desc')->paginate(12);
         return view('pages.projects', compact('projects'));

@@ -17,7 +17,7 @@
                      data-slick-options='{"slidesToShow": 4, "autoplay":true,"dots":false,"responsive":[{"breakpoint": 1200,"settings": {"slidesToShow":3,"arrows":false}},{"breakpoint": 992,"settings": {"slidesToShow":3,"arrows":false}},{"breakpoint": 768,"settings": {"slidesToShow": 3,"arrows":false,"autoplay":true}},{"breakpoint": 576,"settings": {"slidesToShow": 2,"arrows":false,"autoplay":true}}]}'>
               
               <div class="box px-0 py-6">
-                <a href="listing-grid-with-left-filter.html"
+                <a href="{{ $apertmentUrl }}"
                            class="card border-0 align-items-center justify-content-center pt-7 pb-5 px-3 shadow-hover-3 bg-transparent bg-hover-white text-decoration-none">
                   <img src="{{ asset('assets/images/verified.png') }}" class="card-img-top"
                                  alt="Apartment">
@@ -28,7 +28,7 @@
               </div>
 
               <div class="box px-0 py-6">
-                <a href="listing-grid-with-left-filter.html"
+                <a href="{{ $houseUrl }}"
                            class="card border-0 align-items-center justify-content-center pt-7 pb-5 px-3 shadow-hover-3 bg-transparent bg-hover-white text-decoration-none">
                   <img src="{{ asset('assets/images/sofa.png') }}" class="card-img-top"
                                  alt="House">
@@ -39,7 +39,7 @@
               </div>
 
               <div class="box px-0 py-6">
-                <a href="listing-grid-with-left-filter.html"
+                <a href="{{ $officeUrl }}"
                            class="card border-0 align-items-center justify-content-center pt-7 pb-5 px-3 shadow-hover-3 bg-transparent bg-hover-white text-decoration-none">
                   <img src="{{ asset('assets/images/architecture-and-city.png') }}" class="card-img-top"
                                  alt="Office">
@@ -50,7 +50,7 @@
               </div>
 
               <div class="box px-0 py-6">
-                <a href="listing-grid-with-left-filter.html"
+                <a href="{{ $villaUrl }}"
                            class="card border-0 align-items-center justify-content-center pt-7 pb-5 px-3 shadow-hover-3 bg-transparent bg-hover-white text-decoration-none">
                   <img src="{{ asset('assets/images/eco-house.png') }}" class="card-img-top"
                                  alt="Villa">

@@ -30,6 +30,7 @@ Route::get('/news', [App\Http\Controllers\PagesController::class, 'news'])->name
 Route::get('/buy-rent', [App\Http\Controllers\PagesController::class, 'buyRent'])->name('page.buy.rent');
 Route::get('/geo-projects', [App\Http\Controllers\PagesController::class, 'projects'])->name('page.projects');
 Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'])->name('page.services');
+Route::get('/filtered-search', [App\Http\Controllers\PagesController::class, 'sorted'])->name('page.sorted');
 
 //post request
 //Route::get('/request-properties', [App\Http\Controllers\RequestPropertyController::class, 'new'])->name('new.request');
