@@ -43,7 +43,7 @@
           @foreach ($projects as $project)
             <div class="media p-4 border rounded-lg shadow-hover-1 pr-lg-8 mb-6 flex-column flex-lg-row no-gutters">
               <div class="col-lg-4 mr-lg-5 card border-0 hover-change-image bg-hover-overlay">
-                <a href="{{ route('projects.show', $project->id) }}">
+                <a href="{{ route('estate.show', $project->id) }}">
                   <img src="/storage/{{ $project->image }}" class="card-img" alt="{{ $project->title }}">
                 
                 <div class="card-img-overlay p-2 d-flex flex-column">
@@ -53,7 +53,7 @@
 
               <div class="media-body mt-5 mt-lg-0">
                 <h2 class="my-0">
-                  <a href="{{ route('projects.show', $project->id) }}" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $project->title }}</a>
+                  <a href="{{ route('estate.show', $project->id) }}" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $project->title }}</a>
                 </h2>
                 <p class="mb-2 font-weight-500 text-gray-light">{{ $project->address }}</p>
                 <p class="mb-6 mxw-571 ml-0">{{ $project->description }}</p>

@@ -17,7 +17,7 @@
         @foreach ($projects as $project)
         <div class="box px-3" data-animate="fadeInUp">
           <div class="card border-0 hover-change-image">
-            <a href="{{ route('projects.show', $project->id) }}">
+            <a href="{{ route('estate.show', $project->id) }}">
               <div class="rounded-lg card-img">
                     <img src="/storage/{{ $project->image }}" alt="{{ $project->title }}">
                 

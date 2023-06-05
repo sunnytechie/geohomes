@@ -28,6 +28,14 @@ class WelcomeController extends Controller
         return view('welcome', compact('projects', 'apertmentUrl', 'houseUrl', 'officeUrl', 'villaUrl', 'destinations', 'propertiesForSale', 'propertiesForRent'));
     }
 
+    public function estate($id) {
+        $project = Project::find($id);
+        $project->views += 1;
+        $project->save();
+
+        return view('estate', compact('project'));
+    }
+
     public function error() {
         return view('errors.404');
     }
