@@ -99,8 +99,9 @@
               <td class="align-middle">
                 @if ($plot->allocation_status == 0)
                   Not Allocated
-                  @else
-                  {{ $plot->user->name }}
+                @endif
+                @if ($plot->allocation_status == 1 && optional($plot->user)->name)
+                    {{ $plot->user->name }}
                 @endif
               </td>
 
