@@ -100,9 +100,11 @@
             </li>
 
             
-
+          @if (Auth::user()->is_admin || Auth::user()->is_agent)
             <li class="list-group-item pt-6 pb-4">
+              
               <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Listings</h5>
+              
               <ul class="list-group list-group-no-border rounded-lg">
                 {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="#"
@@ -298,8 +300,7 @@
               </ul>
 
             </li>
-
-
+          @endif
             <li class="list-group-item pt-6 pb-4">
               <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Acount</h5>
               <ul class="list-group list-group-no-border rounded-lg">
@@ -359,6 +360,7 @@
                 </li>
               </ul>
             </li>
+            
           </ul>
         </div>
       </div>

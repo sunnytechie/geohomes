@@ -55,8 +55,8 @@ class PaymentController extends Controller
             $transaction->save();
 
             //return to escrow dashboard
-            dd('completed');
-            //return redirect()->route('escrow.service')->with('message', "A transaction has been initiated with $escrow->email. You will be notified when they approve the transaction");
+            //dd('completed');
+            return redirect()->route('transaction')->with('message', "Your payment was successful, Geohomes will allocate a plot to you shortly, thank you.");
         }
 
         if ($checkInspectiontransactionTable != NULL) {
@@ -66,8 +66,8 @@ class PaymentController extends Controller
             $transaction->save();
 
             //return to escrow dashboard
-            dd('completed');
-            //return redirect()->route('escrow.service')->with('message', "A transaction has been initiated with $escrow->email. You will be notified when they approve the transaction");
+            //dd('completed');
+            return redirect()->route('schedule')->with('message', "Your payment was successful, Geohomes will schedule inspection date with you shortly, thank you.");
         }
 
         

@@ -17,9 +17,11 @@ class ScheduleController extends Controller
     public function index()
     {
         if (Auth::user()->is_admin) {
-            $inspections = Inspectiontransaction::orderBy('id', 'desc')->get();
+            $inspections = Inspectiontransaction::orderBy('id', 'desc')
+                            ->where('status', 1)->get();
         } else {
             $inspections = Inspectiontransaction::orderBy('id', 'desc')
+                            ->where('status', 1)
                             ->where('user_id', Auth::user()->id)
                             ->get();
         }

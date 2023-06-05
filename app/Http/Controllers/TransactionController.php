@@ -18,11 +18,13 @@ class TransactionController extends Controller
     {
         //if isAdmin transaction list of all
         if (Auth::user()->is_admin) {
-            $transactions = Transaction::orderBy('created_at', 'desc')->get();
+            $transactions = Transaction::orderBy('created_at', 'desc')
+                            ->where('status', 1)->get();
         } else {
             //else transaction list of Auth user
             $transactions = Transaction::orderBy('id', 'desc')
                             ->where('user_id', Auth::user()->id)
+                            ->where('status', 1)
                             ->get();
         }
 

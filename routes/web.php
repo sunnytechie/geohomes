@@ -39,7 +39,7 @@ Route::get('/filtered-search', [App\Http\Controllers\PagesController::class, 'so
 //Route::get('/gh-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
 
 //dashboard
-Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified', 'hasAdminButNotAgent', 'checkIfAgentAndIsSet');
+Route::get('/gh-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified', 'checkIfAgentAndIsSet');
 
 //listings Resources
 Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth', 'verified', 'hasAdminButNotAgent', 'isAgent');
