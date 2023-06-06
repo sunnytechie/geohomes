@@ -56,9 +56,16 @@
                     <label class="btn btn-lg btn-block" for="customFile" style="background: #00A75A; color: #fff">
                       <span class="d-inline-block mr-1"><i class="fal fa-cloud-upload"></i></span>Upload profile image</label>
                   </div>
-                  <p class="mb-0 mt-2">
-                    *Max: 500px x 500px
-                  </p>
+
+                  @error('image')
+                        <p>
+                            <strong style="color:red">{{ $message }}, file max size is 2mb.</strong>
+                        </p>
+                        @else
+                        <p class="mb-0 mt-2">
+                        *Max: 500px x 500px
+                        </p>
+                    @enderror
                 </div>
               </div>
             </div>

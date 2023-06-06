@@ -19,7 +19,7 @@ class AgentController extends Controller
     }
 
     public function profileUpdate(Request $request) {
-        //dd($request->all());
+        
 
         //validate
         $request->validate([
@@ -38,8 +38,16 @@ class AgentController extends Controller
             'office_number' => '',
             'mobile_number' => '',
             'fax_number' => '',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
+
+        //dd($request->all());
+
+        if ($request->has('image')) {
+            $request->validate([
+            'image' => 'required|image|max:2048',
+        ]);
+
+        }
 
         if ($request->has('image')) {
             $imagePath = request('image')->store('profile', 'public');
@@ -96,7 +104,7 @@ class AgentController extends Controller
             'office_number' => '',
             'mobile_number' => '',
             'fax_number' => '',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
         if ($request->has('image')) {

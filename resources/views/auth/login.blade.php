@@ -1,9 +1,16 @@
 @extends('layouts.guest')
-
+<style>
+  @media only screen and (min-width: 425px) {
+  .mt-mobile {
+    margin-top: 60px;
+  }
+}
+</style>
 @section('content')
 <section class="py-2">
     <div class="container">
       <div class="mt-9 hide-from-1024"></div>
+      <div class="mt-mobile"></div>
       <div class="row justify-content-center login-register">
         <div class="col-md-5">
           <div class="card border-1 shadow mb-10">

@@ -28,6 +28,11 @@
       <h2 class="mb-0 text-heading fs-22 lh-15">My Profile
       </h2>
       <p class="mb-1">Setup your personal information.</p>
+      @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     </div>
     <form method="POST" action="{{ route('agent.profile.update', Auth::user()->id) }}" enctype="multipart/form-data">
         @csrf
@@ -57,10 +62,10 @@
                       <span class="d-inline-block mr-1"><i class="fal fa-cloud-upload"></i></span>Upload profile image</label>
                   </div>
                   
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
+                    @error('image')
+                        <p>
+                            <strong style="color:red">{{ $message }}, file max size is 2mb.</strong>
+                        </p>
                         @else
                         <p class="mb-0 mt-2">
                         *Max: 500px x 500px

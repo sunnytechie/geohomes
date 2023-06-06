@@ -34,7 +34,14 @@
                     {{-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 
                     <div class="col-md-12">
-                        <input id="password" type="password" placeholder="New Password" class="form-control @error('password') is-invalid @enderror form-control-lg border-0" name="password" required autocomplete="new-password">
+                        
+                        <div class="input-group input-group-lg">
+                            <input id="password" type="password" placeholder="New Password" class="form-control @error('password') is-invalid @enderror form-control-lg border-0 password-input" name="password" required autocomplete="new-password">
+
+                            <div class="input-group-append show-password" style="cursor: pointer; position:absolute; right: 0; z-index: 999; background: transparent; margin-top: 8px">
+                                <span class="input-group-text border-0 text-body fs-18"  style="background-color: transparent"><i class="far fa-eye"></i></span>
+                            </div>
+                        </div>
 
                         @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -48,7 +55,13 @@
                     {{-- <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label> --}}
 
                     <div class="col-md-12">
-                        <input id="password-confirm" type="password" class="form-control form-control-lg border-0" placeholder="Re-type password" name="password_confirmation" required autocomplete="new-password">
+                        <div class="input-group input-group-lg">
+                            <input id="password-confirm" type="password" class="form-control form-control-lg border-0 password-input2" placeholder="Re-type password" name="password_confirmation" required autocomplete="new-password">
+
+                            <div class="input-group-append show-password2" style="cursor: pointer; position:absolute; right: 0; z-index: 999; background: transparent; margin-top: 8px">
+                                <span class="input-group-text border-0 text-body fs-18"  style="background-color: transparent"><i class="far fa-eye"></i></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -69,6 +82,33 @@
         </div>
       </div>
     </section>
+
+    <script>
+        const passwordInput = document.querySelector(".password-input");
+        const showPasswordButton = document.querySelector(".show-password");
+        const passwordInput2 = document.querySelector(".password-input2");
+        const showPasswordButton2 = document.querySelector(".show-password2");
+    
+        showPasswordButton.addEventListener("click", function() {
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            showPasswordButton.innerHTML = '<span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye-slash"></i></span>';
+        } else {
+            passwordInput.type = "password";
+            showPasswordButton.innerHTML = '<span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye"></i></span>';
+        }
+        });
+    
+        showPasswordButton2.addEventListener("click", function() {
+        if (passwordInput2.type === "password") {
+            passwordInput2.type = "text";
+            showPasswordButton2.innerHTML = '<span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye-slash"></i></span>';
+        } else {
+            passwordInput2.type = "password";
+            showPasswordButton2.innerHTML = '<span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye"></i></span>';
+        }
+        });
+    </script>
 
   @endsection
   

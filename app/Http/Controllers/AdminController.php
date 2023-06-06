@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agent;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -35,7 +36,7 @@ class AdminController extends Controller
         //validate
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => ['required', 'string', 'email', 'unique:users'],
             'role' => 'required',
             'password' => ['required', 'string', 'min:8'],
         ]);
@@ -45,11 +46,14 @@ class AdminController extends Controller
         $admin->email = $request->email;
         $admin->role = $request->role;
         $admin->email_verified_at = now();
+        $admin->agent_profile = "agent";
+        $admin->user_type = 1;
         $admin->password = Hash::make($request->password);
         if ($request->role == "superadmin") {
             $admin->is_super_admin = 1;
             $admin->is_admin = 1;
             $admin->is_agent = 1;
+            $admin->role = "admin";
         }
         if ($request->role == "staff") {
             $admin->is_staff = 1;
@@ -58,9 +62,18 @@ class AdminController extends Controller
             $admin->is_agent = 1;
         }
         if ($request->role == "admin") {
+            $admin->is_super_admin = 1;
             $admin->is_admin = 1;
+            $admin->is_agent = 1;
+            $admin->role = "admin";
         }
         $admin->save();
+
+        $agent = new Agent();
+        $agent->user_id = $admin->id;
+        $agent->subscribed = 1;
+        $agent->agent_brand_name = "Geohomes";
+        $agent->save();
 
         return redirect()->route('admins.index')->with('message', "New User Authorization.");
     }
