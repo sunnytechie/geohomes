@@ -17,11 +17,15 @@ class DashboardController extends Controller
     public function index() {
         $properties = Property::where('user_id', Auth::user()->id)->get();
         if (Auth::user()->is_admin) {
-            $transactions = Transaction::all();
-            $inspections = Inspectiontransaction::all();
+            $transactions = Transaction::where('status', 1)->get();
+            $inspections = Inspectiontransaction::where('status', 1)->get();
         } else {
-            $transactions = Transaction::where('user_id', Auth::user()->id)->get();
-            $inspections = Inspectiontransaction::where('user_id', Auth::user()->id)->get();
+            $transactions = Transaction::where('user_id', Auth::user()->id)
+            ->where('status', 1)
+            ->get();
+            $inspections = Inspectiontransaction::where('user_id', Auth::user()->id)
+            ->where('status', 1)
+            ->get();
         }
         
         $projects = Project::all();
