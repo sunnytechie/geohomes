@@ -86,9 +86,9 @@
                     <label for="name" class="text-heading">Full Name</label>
                     <input type="text" class="form-control form-control-lg border-0" id="name" name="name" value="{{ Auth::user()->name ?? old('name') }}">
                                 @error('name')
-                                  <span class="invalid-feedback" role="alert">
+                                  <p style="color: red">
                                       <strong>{{ $message }}</strong>
-                                  </span>
+                                  </p>
                                 @enderror
                   </div>
                 </div>
@@ -105,9 +105,9 @@
                     <label for="email" class="text-heading">Email</label>
                     <input type="email" disabled class="form-control form-control-lg border-0" placeholder="{{ Auth::user()->email }}" id="email" name="email">
                                 @error('email')
-                                  <span class="invalid-feedback" role="alert">
+                                  <p style="color: red">
                                       <strong>{{ $message }}</strong>
-                                  </span>
+                                  </p>
                                 @enderror
                   </div>
                 </div>
@@ -132,9 +132,9 @@
                                 name="password">
 
                                 @error('password')
-                                  <span class="invalid-feedback" role="alert">
+                                  <p style="color: red">
                                       <strong>{{ $message }}</strong>
-                                  </span>
+                                  </p>
                                 @enderror
                     </div>
                     <div class="form-group col-md-6 col-lg-12 col-xxl-6 px-4">

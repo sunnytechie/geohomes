@@ -89,9 +89,9 @@
                   <input type="text" class="form-control form-control-lg border-0" id="agent_brand_name" placeholder="Geo Homes Group" value="{{ old('agent_brand_name') }}" name="agent_brand_name">
                 
                   @error('agent_brand_name')
-                  <span class="invalid-feedback" role="alert">
+                  <p style="color: red">
                       <strong>{{ $message }}</strong>
-                  </span>
+                  </p>
                 @enderror
                 </div>
 
@@ -100,9 +100,9 @@
                     <input type="text" class="form-control form-control-lg border-0" id="address" placeholder="Address" value="{{ old('address') }}" name="address">
                 
                 @error('address')
-                    <span class="invalid-feedback" role="alert">
+                    <p style="color: red">
                         <strong>{{ $message }}</strong>
-                    </span>
+                    </p>
                 @enderror
                 </div>
 
@@ -111,9 +111,9 @@
                     <input type="time" class="form-control form-control-lg border-0" id="opening_hours" value="{{ old('opening_hours') }}" name="opening_hours">
                 
                     @error('opening_hours')
-                    <span class="invalid-feedback" role="alert">
+                    <p style="color: red">
                         <strong>Required field.</strong>
-                    </span>
+                    </p>
                   @enderror
                 </div>
 
@@ -122,9 +122,9 @@
                     <input type="time" class="form-control form-control-lg border-0" id="closing_hours" value="{{ old('closing_hours') }}" name="closing_hours">
                 
                     @error('closing_hours')
-                      <span class="invalid-feedback" role="alert">
+                      <p style="color: red">
                           <strong>Required field</strong>
-                      </span>
+                      </p>
                     @enderror
                 </div>
 
@@ -140,9 +140,9 @@
                     <textarea name="about" id="about" class="form-control" placeholder="Write about your brand">{{ old('about') }}</textarea>
                 
                     @error('about')
-                    <span class="invalid-feedback" role="alert">
+                    <p style="color: red">
                         <strong>{{ $message }}</strong>
-                    </span>
+                    </p>
                   @enderror
                 </div>
 
@@ -166,9 +166,9 @@
                     <label for="name" class="text-heading">Full Name</label>
                     <input type="text" class="form-control form-control-lg border-0" id="name" name="name" value="{{ Auth::user()->name ?? old('name') }}">
                                 @error('name')
-                                  <span class="invalid-feedback" role="alert">
+                                  <p style="color: red">
                                       <strong>{{ $message }}</strong>
-                                  </span>
+                                  </p>
                                 @enderror
                   </div>
                 </div>
@@ -179,9 +179,9 @@
                         <input type="tel" class="form-control form-control-lg border-0" id="phone" placeholder="You phone number" name="phone" value="{{ Auth::user()->phone ?? old('phone') }}">
                     
                         @error('phone')
-                        <span class="invalid-feedback" role="alert">
+                        <p style="color: red">
                             <strong>{{ $message }}</strong>
-                        </span>
+                        </p>
                       @enderror
                     </div>
                 </div>
