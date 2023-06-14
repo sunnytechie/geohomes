@@ -52,6 +52,7 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
+        
         $properties = Property::where('user_id', Auth::user()->id)->count();
         if (Auth::user()->agent->subscribed == 0 && $properties >= 3) {
             //redirect to notice page
@@ -92,31 +93,49 @@ class PropertyController extends Controller
             'file4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        
-        $imagePath = request('image')->store('properties', 'public');
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1080, 1080);
-        $image->save();
+        //dd($request->all());
 
-        if ($request->hasFile('file1')) {
-            $file1Path = request('file1')->store('properties', 'public');
-            $file1 = Image::make(public_path("storage/{$file1Path}"))->fit(1080, 1080);
-            $file1->save();
-        }
-        if ($request->hasFile('file2')) {
-            $file2Path = request('file2')->store('properties', 'public');
-            $file2 = Image::make(public_path("storage/{$file2Path}"))->fit(1080, 1080);
-            $file2->save();
-        }
-        if ($request->hasFile('file3')) {
-            $file3Path = request('file3')->store('properties', 'public');
-            $file3 = Image::make(public_path("storage/{$file3Path}"))->fit(1080, 1080);
-            $file3->save();
-        }
-        if ($request->hasFile('file4')) {
-            $file4Path = request('file4')->store('properties', 'public');
-            $file4 = Image::make(public_path("storage/{$file4Path}"))->fit(1080, 1080);
-            $file4->save();
-        }
+            if ($request->has('image')) {
+                $imagePath = request('image')->store('products', 'public');
+                $image = Image::make(public_path("storage/{$imagePath}"))
+                    ->resize(800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                $image->save();
+            }
+            if ($request->has('file1')) {
+                $file1Path = request('file1')->store('products', 'public');
+                $file1 = Image::make(public_path("storage/{$file1Path}"))
+                    ->resize(800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                $file1->save();
+            }
+            if ($request->has('file2')) {
+                $file2Path = request('file2')->store('products', 'public');
+                $file2 = Image::make(public_path("storage/{$file2Path}"))
+                    ->resize(800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                $file2->save();
+            }
+            if ($request->has('file3')) {
+                $file3Path = request('file3')->store('products', 'public');
+                $file3 = Image::make(public_path("storage/{$file3Path}"))
+                    ->resize(800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                $file3->save();
+            }
+            if ($request->has('file4')) {
+                $file4Path = request('file4')->store('products', 'public');
+                $file4 = Image::make(public_path("storage/{$file4Path}"))
+                    ->resize(800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                $file4->save();
+            }
+       
 
         $property = new Property();
         $property->user_id = Auth()->user()->id;
@@ -169,7 +188,8 @@ class PropertyController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $property = Property::find($id);
+        return view('property.show', compact('property'));
     }
 
     /**
@@ -281,7 +301,7 @@ class PropertyController extends Controller
         $property->structure_type = $request->structure_type;
         $property->floors_no = $request->floors_no;
         $property->house_type = $request->house_type;
-        if ($request->hasFile('file1')) {
+        if ($request->hasFile('image')) {
         $property->image = $imagePath;
         }
         if ($request->hasFile('file1')) {

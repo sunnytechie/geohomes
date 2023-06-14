@@ -84,6 +84,9 @@ Route::get('/schedules', [App\Http\Controllers\ScheduleController::class, 'index
 Route::get('/schedules/post', [App\Http\Controllers\ScheduleController::class, 'schedulePost'])->name('schedulePost')->middleware('auth', 'verified');
 Route::put('/schedules/Update/{id}', [App\Http\Controllers\ScheduleController::class, 'scheduleUpdate'])->name('scheduleUpdate')->middleware('auth', 'verified');
 
+//Newsletter
+Route::post('/newsletter/subscribe', [App\Http\Controllers\NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+
 
 Auth::routes();
 

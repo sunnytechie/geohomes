@@ -19,22 +19,20 @@
          @foreach ($propertiesForRent as $property)
         <div class="box pb-7 pt-2">
           <div class="card shadow-hover-2" data-animate="zoomIn">
+            <a href="{{ route('properties.show', $property->id) }}">
             <div class="hover-change-image bg-hover-overlay rounded-lg card-img-top">
-              <img 
-                src="/storage/{{ $property->image }}"
-                  alt="{{ $property->title }}">
+              <img src="/storage/{{ $property->image }}" alt="{{ $property->title }}">
               <div class="card-img-overlay p-2 d-flex flex-column">
                 <div>
                   <span class="badge mr-2 badge-orange">featured</span>
                   <span class="badge mr-2 badge-primary">for Rent</span>
                 </div>
-               
-                
               </div>
             </div>
+            </a>
             <div class="card-body pt-3">
               <h2 class="card-title fs-16 lh-2 mb-0">
-                <a href="#"
+                <a href="{{ route('properties.show', $property->id) }}"
                 class="text-dark hover-primary">{{ $property->title }}</a></h2>
               <p class="card-text font-weight-500 text-gray-light mb-2">{{ $property->address }}, {{ $property->city }}, {{ $property->state }}</p>
               <ul class="list-inline d-flex mb-0 flex-wrap mr-n5">

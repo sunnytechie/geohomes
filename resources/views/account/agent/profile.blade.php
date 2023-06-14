@@ -173,6 +173,18 @@
                 </div>
 
                 <div class="form-row mx-n4">
+                  <div class="form-group col-md-12 px-4">
+                  <label for="position" class="text-heading">Positon or Title</label>
+                  <input type="text" class="form-control form-control-lg border-0" id="position" name="position" placeholder="Sales Manager" value="{{ Auth::user()->position ?? old('position') }}">
+                              @error('position')
+                                <p style="color: red">
+                                    <strong>{{ $message }}</strong>
+                                </p>
+                              @enderror
+                  </div>
+                </div>
+
+                <div class="form-row mx-n4">
                     <div class="form-group col-md-12 px-4">
                     <label for="phone" class="text-heading">Phone</label>
                         <input type="tel" class="form-control form-control-lg border-0" id="phone" placeholder="You phone number" name="phone" value="{{ Auth::user()->phone ?? old('phone') }}">

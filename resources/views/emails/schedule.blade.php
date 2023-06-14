@@ -70,7 +70,7 @@
   </head>
   <body>
     <div id="header">
-      <img height="50" width="150" src="http://127.0.0.1:8000/assets/images/logo/geohomeslogo.png" alt="Geohomes">
+      <img height="50" width="150" src="https://geohomesgroup.com/images/logo/geohomeslogo.png" alt="Geohomes">
     </div>
     <div id="content">
         <div class="text-1">Invitation for Inspection</div>

@@ -343,7 +343,7 @@
                                                             <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" id="country" name="country">
                                                                 <option>Nigeria</option>
                                                                 <option>Ghana</option>
-                                                                <option>Cameron</option>
+                                                                <option>Cameroon</option>
                                                                 <option>Kenya</option>
                                                             </select>
 

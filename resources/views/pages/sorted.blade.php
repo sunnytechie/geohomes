@@ -252,14 +252,17 @@
                   <h4 class="card-title fs-16 lh-2 text-dark mb-1">Newsletter Sign Up</h4>
                   <p class="card-text mb-5">Subscribe to new letter to receive exclusive offer and the latest
                     news</p>
-                  <form>
+                    
+                    <form id="newsletter-form" action="{{ route('newsletter.subscribe') }}" method="POST">
+                      @csrf
                     <div class="form-group mb-3">
-                      <label for="name" class="sr-only">Email</label>
-                      <input type="text" class="form-control form-control-lg border-0 shadow-none"
-                                         id="name"
+                      <label for="email" class="sr-only">Email</label>
+                      <input type="email" class="form-control form-control-lg border-0 shadow-none"
+                                         id="email"
                                          name="email"
                                          placeholder="Enter your email">
                     </div>
+                    <div class="text-center mb-2" id="response-message" style="color: #00A75A"></div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block shadow-none mb-2">
                       Subscribe
                     </button>
@@ -274,109 +277,39 @@
                   <div class="slick-slider mx-0" data-slick-options='{"slidesToShow": 1, "autoplay":true}'>
                     
                     {{-- Loop only 4 latest properties here --}}
+                    @foreach ($properties as $property)
                     <div class="box px-0">
                       <div class="card border-0">
-                        <img src="assets/images/feature-property-01.jpg" class="card-img" alt="Villa on Hollywood Boulevard">
+                        <img src="/storage/{{ $property->image }}" class="card-img" alt="{{ $property->title }}">
                         <div class="card-img-overlay d-flex flex-column bg-gradient-3 rounded-lg">
                           <div class="d-flex mb-auto">
                             <a href="#" class="mr-1 badge badge-orange">featured</a>
-                            <a href="#" class="badge badge-indigo">for Rent</a>
+                            <a href="#" class="badge badge-indigo">{{ $property->lint_in }}</a>
                           </div>
                           <div class="px-2 pb-2">
-                            <a href="single-property-1.html" class="text-white"><h5 class="card-title fs-16 lh-2 mb-0">Villa on Hollywood Boulevard</h5>
+                            <a href="{{ route('properties.show', $property->id) }}" class="text-white"><h5 class="card-title fs-16 lh-2 mb-0">{{ $property->title }}</h5>
                             </a>
-                            <p class="card-text text-gray-light mb-0 font-weight-500">1421 San
-                              Predro
-                              St, Los Angeles</p>
-                            <p class="text-white mb-0"><span class="fs-17 font-weight-bold">$2500 </span>/month
+                            <p class="card-text text-gray-light mb-0 font-weight-500">{{ $property->address }}</p>
+                            <p class="text-white mb-0"><span class="fs-17 font-weight-bold">{{ $property->price }} </span>
                             </p>
                           </div>
                         </div>
                       </div>
                     </div>
+                    @endforeach
 
                     
                   </div>
                 </div>
               </div>
 
-              {{-- Destination --}}
-              <div class="card city-widget mb-4">
-                <div class="card-body px-6 py-4">
-                  <h4 class="card-title fs-16 lh-2 text-dark mb-3">Destinations</h4>
-                  <div class="row no-gutters m-n1">
-                    
-                    {{-- Loop latest 4  --}}
-                    <div class="col-6 p-1">
-                      <a href="listing-with-left-sidebar.html" class="card hover-zoom-in">
-                        <div class="card-img bg-img" style="background-image: url('assets/images/small-los-angeles.jpg');background-size: cover;background-position: center"></div>
-                        <div class="card-img-overlay bg-gradient-3 rounded-lg d-flex align-items-end">
-                          <p class="card-text font-weight-500 lh-1 text-white">Los Angeles</p>
-                        </div>
-                      </a>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="card">
-                <div class="card-body px-6 py-4">
-                  <h4 class="card-title fs-16 lh-2 text-dark mb-2">Agents</h4>
-                  <ul class="list-group list-group-flush">
-
-                    {{-- Loop 3 agents --}}
-                    <li class="list-group-item px-0 pb-3 pt-0">
-                      <div class="media align-items-center">
-                        <a href="agent-details-1.html" class="d-block w-60px h-60 mr-3">
-                          <img src="assets/images/agent-1.jpg" class="rounded-circle" alt="agent">
-                        </a>
-                        <div class="media-body">
-                          <a href="agent-details-1.html" class="text-muted hover-dark font-weight-500 mb-0 lh-214">Oliver
-                            Beddows</a>
-                          <p class="mb-0 fs-13 mb-0 lh-2">Sales Excutive</p>
-                          {{-- <ul class="list-inline mb-0">
-                            <li class="list-inline-item fs-13 text-heading font-weight-500">4.8/5
-                            </li>
-                            <li class="list-inline-item fs-13 text-heading font-weight-500">
-                              <ul class="list-inline mb-0">
-                                <li class="list-inline-item mr-0">
-                                  <span class="text-warning fs-12 lh-2"><i
-                                                              class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-0">
-                                  <span class="text-warning fs-12 lh-2"><i class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-0">
-                                  <span class="text-warning fs-12 lh-2"><i
-                                                              class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-0">
-                                  <span class="text-warning fs-12 lh-2"><i
-                                                              class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-0">
-                                  <span class="text-warning fs-12 lh-2"><i
-                                                              class="fas fa-star"></i></span>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul> --}}
-                        </div>
-                      </div>
-                    </li>
-
-                    
-                  </ul>
-                </div>
-              </div>
+              
             </div>
           </div>
           <div class="col-lg-8 mb-8 mb-lg-0 order-1 order-lg-2">
-            {{-- <div class="row align-items-sm-center mb-4">
+            <div class="row align-items-sm-center mb-4">
               <div class="col-md-6">
-                <h2 class="fs-15 text-dark mb-0">We found <span class="text-primary">45</span> properties
+                <h2 class="fs-15 text-dark mb-0">We found <span class="text-primary">{{ $countFilteredProperties->count() }}</span> properties
                   available for
                   you
                 </h2>
@@ -391,96 +324,79 @@
                                       data-style="bg-transparent border-0 font-weight-600 btn-lg pl-0 pr-3"
                                       id="inputGroupSelect01" name="sortby">
                       <option selected>Top Selling</option>
-                      <option value="1">Most Viewed</option>
-                      <option value="2">Price(low to high)</option>
-                      <option value="3">Price(high to low)</option>
+                      {{-- <option value="1">Most Viewed</option> --}}
                     </select>
-                  </div>
-                  <div class="d-none d-md-block">
-                    <a class="fs-sm-18 text-dark" href="#">
-                      <i class="fas fa-list"></i>
-                    </a>
-                    <a class="fs-sm-18 text-dark opacity-2 ml-5"
-                                 href="listing-grid-with-left-sidebar.html">
-                      <i class="fa fa-th-large"></i>
-                    </a>
                   </div>
                 </div>
               </div>
-            </div> --}}
-            
+            </div> 
+
             {{-- Loop filtered result --}}
-            {{-- <div class="py-5 px-4 border rounded-lg shadow-hover-1 bg-white mb-4" data-animate="fadeInUp">
+            @foreach ($filteredProperties as $property)
+            <div class="py-5 px-4 border rounded-lg shadow-hover-1 bg-white mb-4" data-animate="fadeInUp">
               <div class="media flex-column flex-sm-row no-gutters">
+                
                 <div class="col-sm-3 mr-sm-5 card border-0 hover-change-image bg-hover-overlay mb-sm-5">
-                  <img src="assets/images/properties-list-03.jpg" class="card-img"
-                               alt="Home in Metric Way">
-                  <div class="card-img-overlay p-2">
+                  <a href="{{ route('properties.show', $property->id) }}">
+                    <img src="/storage/{{ $property->image }}" class="card-img" alt="{{ $property->title }}">
+                  
+                 <div class="card-img-overlay p-2">
                     <ul class="list-inline mb-0 d-flex justify-content-center align-items-center h-100 hover-image">
-                      <li class="list-inline-item">
-                        <a href="#"
-                                         class="w-40px h-40 border rounded-circle d-inline-flex align-items-center justify-content-center text-heading bg-white border-white bg-hover-primary border-hover-primary hover-white" data-toggle="tooltip" title="Wishlist">
-                          <i class="far fa-heart"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#"
-                                         class="w-40px h-40 border rounded-circle d-inline-flex align-items-center justify-content-center text-heading bg-white border-white bg-hover-primary border-hover-primary hover-white" data-toggle="tooltip" title="Compare">
-                          <i class="fas fa-exchange-alt"></i>
-                        </a>
-                      </li>
+                     
                     </ul>
-                  </div>
+                  </div> 
+                </a>
                 </div>
+           
                 <div class="media-body mt-3 mt-sm-0">
-                  <h2 class="my-0"><a href="single-property-1.html"
-                                              class="fs-16 lh-2 text-dark hover-primary d-block">Home in Metric Way</a>
+                  <h2 class="my-0">
+                    <a href="{{ route('properties.show', $property->id) }}" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $property->title }}</a>
                   </h2>
-                  <p class="mb-1 font-weight-500 text-gray-light">1421 San Pedro St, Los Angeles</p>
+                  <p class="mb-1 font-weight-500 text-gray-light">{{ $property->address }}</p>
                   <p class="fs-17 font-weight-bold text-heading mb-1">
-                    $1.250.000
+                    {{ $property->price }}
                   </p>
-                  <p class="mb-2 ml-0">Lorem ipsum dolor sit amet, sectetur cing elit uspe ndisse suscorem ipsum dolor sitorem sit amet, sectetur cing elit uspe ndisse suscorem</p>
+                  <p class="mb-2 ml-0">{{ $property->description }}</p>
                 </div>
               </div>
               <div class="d-sm-flex justify-content-sm-between">
                 <ul class="list-inline d-flex mb-0 flex-wrap">
-                  <li class="list-inline-item text-gray font-weight-500 fs-13 d-flex align-items-center mr-5" data-toggle="tooltip" title="3 Bedroom">
+                  <li class="list-inline-item text-gray font-weight-500 fs-13 d-flex align-items-center mr-5" data-toggle="tooltip" title="{{ $property->bedrooms }} Bedroom">
                     <svg class="icon icon-bedroom fs-18 text-primary mr-1">
                       <use xlink:href="#icon-bedroom"></use>
                     </svg>
-                    3 Br
+                    {{ $property->bedrooms }} Br
                   </li>
-                  <li class="list-inline-item text-gray font-weight-500 fs-13 d-flex align-items-center mr-5" data-toggle="tooltip" title="3 Bathrooms">
+                  <li class="list-inline-item text-gray font-weight-500 fs-13 d-flex align-items-center mr-5" data-toggle="tooltip" title="{{ $property->bathrooms }} Bathrooms">
                     <svg class="icon icon-shower fs-18 text-primary mr-1">
                       <use xlink:href="#icon-shower"></use>
                     </svg>
-                    3 Ba
+                    {{ $property->bathrooms }} Ba
                   </li>
                   <li class="list-inline-item text-gray font-weight-500 fs-13 d-flex align-items-center mr-5" data-toggle="tooltip" title="Size">
                     <svg class="icon icon-square fs-18 text-primary mr-1">
                       <use xlink:href="#icon-square"></use>
                     </svg>
-                    2300 Sq.Ft
+                    {{ $property->size_in_fit }} Sq.Ft
                   </li>
-                  <li class="list-inline-item text-gray font-weight-500 fs-13 d-flex align-items-center mr-5" data-toggle="tooltip" title="1 Garage">
+                  <li class="list-inline-item text-gray font-weight-500 fs-13 d-flex align-items-center mr-5" data-toggle="tooltip" title="{{ $property->garage_size }} Garage">
                     <svg class="icon icon-Garage fs-18 text-primary mr-1">
                       <use xlink:href="#icon-Garage"></use>
                     </svg>
-                    1 Gr
+                    {{ $property->garage_size }} Gr
                   </li>
                   <li class="list-inline-item text-gray font-weight-500 fs-13 d-flex align-items-center mr-5" data-toggle="tooltip" title="Year">
                     <svg class="icon icon-year fs-18 text-primary mr-1">
                       <use xlink:href="#icon-year"></use>
                     </svg>
-                    2020
+                    {{ $property->year_built }}
                   </li>
                 </ul>
-                <span class="badge badge-primary mr-xl-2 mt-3 mt-sm-0">For Sale</span>
+                <span class="badge badge-primary mr-xl-2 mt-3 mt-sm-0">{{ $property->lint_in }}</span>
               </div>
-            </div> --}}
-
-            <div>Available soon</div>
+            </div>
+            @endforeach
+            
 
             
             {{-- <nav class="pt-6">

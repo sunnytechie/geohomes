@@ -371,9 +371,9 @@
                                                             @endphp
                                                             <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" id="country" name="country">
                                                                 @foreach ($countries as $country)
-                                                                <option value="{{ $country }}" {{ $country == $property->country ? 'selected' : '' }}>
-                                                                    {{ $country }}
-                                                                </option>
+                                                                    <option value="{{ $country }}" @if ($country == $property->country) selected @endif>
+                                                                        {{ $country }}
+                                                                    </option>
                                                                 @endforeach
                                                             </select>
 

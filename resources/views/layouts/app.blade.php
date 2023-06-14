@@ -118,6 +118,7 @@
 
         @include('snippets.footer')
 
+
     <script src="{{ asset("assets/vendors/jquery.min.js") }}"></script>
     <script src="{{ asset("assets/vendors/jquery-ui/jquery-ui.min.js") }}"></script>
     <script src="{{ asset("assets/vendors/bootstrap/bootstrap.bundle.js") }}"></script>
@@ -134,6 +135,40 @@
     <script src="{{ asset("assets/vendors/mapbox-gl/mapbox-gl.js") }}"></script>
     <script src="{{ asset("assets/vendors/dataTables/jquery.dataTables.min.js") }}"></script>
     
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+    <script>
+      $(document).ready(function () {
+          $('#newsletter-form').submit(function (e) {
+              e.preventDefault(); // Prevent the default form submission
+  
+              var form = $(this);
+              var url = form.attr('action');
+              var data = form.serialize();
+  
+              $.ajax({
+                  type: 'POST',
+                  url: url,
+                  data: data,
+                  dataType: 'json',
+                  success: function (response) {
+                      // Handle success response
+                      $('#response-message').text('Subscription successful, thank you.');
+                      $('#response-message').removeClass('error');
+                      $('#response-message').addClass('success');
+                      form[0].reset();
+                  },
+                  error: function (xhr, status, error) {
+                      // Handle error response
+                      var errorMessage = xhr.responseText;
+                      $('#response-message').text(errorMessage);
+                      $('#response-message').removeClass('success');
+                      $('#response-message').addClass('error');
+                  }
+              });
+          });
+      });
+  </script>
+
     <!-- Theme scripts -->
     <script src="{{ asset("assets/js/theme.js") }}"></script>
 

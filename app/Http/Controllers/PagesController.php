@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -37,8 +38,16 @@ class PagesController extends Controller
 
     public function sorted(Request $request) {
         //sort according to link address
-        //dd($request->all());
-        return view('pages.sorted');
+        //dd($request->parameter_name);
+        //4 properties
+        $countFilteredProperties = Property::where('category', $request->parameter_name)->get();
+
+        $filteredProperties = Property::orderBy('id', 'desc')
+                            ->where('category', $request->parameter_name)->paginate(10);
+
+        $properties = Property::orderBy('id', 'desc')->paginate(4);
+
+        return view('pages.sorted', compact('properties', 'countFilteredProperties', 'filteredProperties'));
     }
 
     public function projects() {

@@ -31,6 +31,7 @@ class AgentController extends Controller
             'about' => 'required',
             'phone' => 'required',
             'name' => 'required',
+            'position' => 'required',
             'social_fb' => '',
             'social_ig' => '',
             'social_tt' => '',
@@ -77,6 +78,7 @@ class AgentController extends Controller
         }
         $user->phone = $request->phone;
         $user->name = $request->name;
+        $user->position = $request->position;
         $user->agent_profile = 1;
         $user->save();
 
@@ -97,6 +99,7 @@ class AgentController extends Controller
             'about' => 'required',
             'phone' => 'required',
             'name' => 'required',
+            'position' => 'required',
             'social_fb' => '',
             'social_ig' => '',
             'social_tt' => '',
@@ -139,6 +142,7 @@ class AgentController extends Controller
         }
         $user->phone = $request->phone;
         $user->name = $request->name;
+        $user->position = $request->position;
         $user->agent_profile = 1;
         $user->is_agent = 1;
         $user->save();
