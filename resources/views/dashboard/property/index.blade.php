@@ -1,3 +1,4 @@
+<title>Properties for sale or rent with geohomes</title>
 @extends('layouts.admin')
 
 @section('content')

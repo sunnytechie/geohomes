@@ -6,7 +6,9 @@ use App\Http\Requests;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Agent;
 use App\Models\Inspectiontransaction;
+use App\Models\Pendingagent;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -47,6 +49,7 @@ class PaymentController extends Controller
 
         $checkTransactionTable = Transaction::where('tx_ref', $reference)->first();
         $checkInspectiontransactionTable = Inspectiontransaction::where('tx_ref', $reference)->first();
+        $checkPendingAgent = Pendingagent::where('tx_ref', $reference)->first();
 
         if ($checkTransactionTable != NULL) {
             //update transaction from table
@@ -65,9 +68,20 @@ class PaymentController extends Controller
             $transaction->status = 1;
             $transaction->save();
 
-            //return to escrow dashboard
-            //dd('completed');
             return redirect()->route('schedule')->with('message', "Your payment was successful, Geohomes will schedule inspection date with you shortly, thank you.");
+        }
+
+        if ($checkPendingAgent != NULL) {
+            //update agent details
+            $agent = Agent::where('user_id', Auth::user()->id)->first();
+            $agent->subscribed = 1;
+            $agent->save();
+
+            //delete pending
+            $pending = Pendingagent::find($checkPendingAgent->id);
+            $pending->delete();
+
+            return redirect()->route('dashboard.index')->with('message', "Your payment was successful, You can now post more properties in Geohomes, thank you.");
         }
 
         
@@ -90,19 +104,32 @@ class PaymentController extends Controller
             "orderID" => now(),
         );
     
-    return Paystack::getAuthorizationUrl($data)->redirectNow();
+        return Paystack::getAuthorizationUrl($data)->redirectNow();
     }
 
     public function agent() {
+
+        //dd('wait first');
+
+        //$agent = Agent::where('user_id', Auth::user()->id)->first();
+        //dd($agent);
+        $tx_ref = Paystack::genTranxRef();
+
         $data = array(
             "amount" => 10000 * 100,
-            "reference" => Paystack::genTranxRef(),
+            "reference" => $tx_ref,
             "email" => Auth::user()->email,
             "currency" => "NGN",
             "orderID" => Auth::user()->id,
         );
+
+        //save data in agent pending
+        $pending = new Pendingagent();
+        $pending->user_id = Auth::user()->id;
+        $pending->tx_ref = $tx_ref;
+        $pending->save();
     
-    return Paystack::getAuthorizationUrl($data)->redirectNow();
+        return Paystack::getAuthorizationUrl($data)->redirectNow();
     }
 
 
@@ -122,6 +149,6 @@ class PaymentController extends Controller
             "orderID" => now(),
         );
     
-    return Paystack::getAuthorizationUrl($data)->redirectNow();
+        return Paystack::getAuthorizationUrl($data)->redirectNow();
     }
 }

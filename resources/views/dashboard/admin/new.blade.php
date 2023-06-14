@@ -43,12 +43,19 @@
 
                   <div class="form-group">
                     <label for="role" class="text-heading">Role <span class="text-muted">(mandatory)</span></label>
-                    <select class="form-control-lg form-control border-0" name="role" id="role">
-                      <option value="superadmin">Super Admin</option>
-                      <option value="admin">Admin</option>
+                    <select class="form-control border-0 shadow-none form-control-lg selectpicker" name="role" id="role">
+                      {{-- <option value="superadmin">Super Admin</option> --}}
+                      @if (Auth::user()->is_admin)
+                        <option value="admin">Super Admin</option>
+                      @endif
+                      
+                      <option value="manager">Manager</option>
+                      <option value="auditor">Auditor</option>
+                      <option value="accountant">Accountant</option>
+                      <option value="marketer">Marketer</option>
+                      <option value="secretary">Secretary</option>
                       <option value="staff">Staff</option>
                       <option value="agent">Agent</option>
-                      <option value="user">Customer</option>
                     </select>
                     
                     @if ($errors->has('role'))

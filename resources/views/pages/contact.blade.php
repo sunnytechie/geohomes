@@ -530,39 +530,51 @@
             <p class="text-center mxw-670 mb-8">
               At Geohomes, we create values by building outstanding artistry edifice with modern technology and seamless services to our customers.
             </p>
-            <form class="mxw-751 px-md-5">
+            {{-- session --}}
+            @if (session('message'))
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="hide-from-mobile mt-2"></div>
+                    
+                        {{-- alert --}}
+                        <div class="alert text-center alert-info alert-dismissible fade show" role="alert">
+                            {{ session('message') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: 6px">
+                            <span aria-hidden="true"><ion-icon name="close-circle-outline"></ion-icon></span>
+                            </button>
+                        </div>
+                    
+                </div>
+            </div>
+            @endif
+            <form class="mxw-751 px-md-5" method="POST" action="{{ route('contact.form') }}">
+              @csrf
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" placeholder="First Name"
-                                     class="form-control form-control-lg border-0" name="first-name">
+                    <input type="text" placeholder="First Name" class="form-control form-control-lg border-0" name="first_name" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" placeholder="Last Name" name="last-name"
-                                     class="form-control form-control-lg border-0">
+                    <input type="text" placeholder="Last Name" name="last_name" class="form-control form-control-lg border-0" required>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input placeholder="Your Email"
-                                     class="form-control form-control-lg border-0"
-                                     type="email" name="email">
+                    <input placeholder="Your Email" class="form-control form-control-lg border-0" type="email" name="email" required>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input type="text" placeholder="Your Phone" name="phone"
-                                     class="form-control form-control-lg border-0">
+                    <input type="text" placeholder="Your Phone" name="phone" class="form-control form-control-lg border-0" required>
                   </div>
                 </div>
               </div>
               <div class="form-group mb-6">
-                <textarea class="form-control border-0" placeholder="Message" name="message"
-                                rows="5"></textarea>
+                <textarea class="form-control border-0" placeholder="Message" name="message" rows="5" required></textarea>
               </div>
               <div class="text-center">
                 <button type="submit" class="btn btn-lg btn-primary px-9">Submit</button>

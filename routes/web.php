@@ -86,6 +86,8 @@ Route::put('/schedules/Update/{id}', [App\Http\Controllers\ScheduleController::c
 
 //Newsletter
 Route::post('/newsletter/subscribe', [App\Http\Controllers\NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+//contact form
+Route::post('/contact/post', [App\Http\Controllers\ContactController::class, 'contact'])->name('contact.form');
 
 
 Auth::routes();

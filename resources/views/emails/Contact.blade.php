@@ -64,7 +64,7 @@
       }
 
       .text-4 {
-        margin-top: 40px;
+        margin-top: 20px;
       }
     </style>
   </head>
@@ -73,31 +73,22 @@
       <img height="50" width="150" src="https://geohomesgroup.com/assets/images/logo/geohomeslogo.png" alt="Geohomes">
     </div>
     <div id="content">
-        <div class="text-1">Invitation for Inspection</div>
+        <div class="text-1">New Message - Geohomes Contact form</div>
         <div class="text-3">
-            You have been scheduled for inspection with GeoHomes Estate, Kindly call our customer care for more information.
-          </div>
+            You have a new message from Geohomes contact form. Kindy respond as soon as possible.  
+        </div>
         <div class="text-4">
-          Inspection date: {{ $compose['date'] }}<br>
-          Inspection time: {{ $compose['time'] }}
+          <div><strong>Details of message</strong></div>
+          <div>Name: {{ $compose['fName'] }} {{ $compose['lName'] }}</div>
+          <div>Email: {{ $compose['email'] }}</div>
+          <div>Phone: {{ $compose['phone'] }}</div>
+          <div>Messege: {{ $compose['message'] }}</div>          
         </div>
 
     </div>
     <div id="footer">
-        <div class="icons">
-            <a href="#">
-              <img height="40" width="40" src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-facebook-social-media-icon-png-image_6315968.png" alt="facebook">
-            </a>
-            <a href="#">
-              <img height="40" width="40" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram">
-            </a>
-            <a href="#">
-              <img height="40" width="40" src="https://png.pngtree.com/png-vector/20221018/ourmid/pngtree-twitter-social-media-round-icon-png-image_6315985.png" alt="Twitter">
-            </a>
-          </div>
-
         <div class="link">
-          <a href="https://www.geohomes.com">geohomes.com</a>
+          <a href="https://www.geohomes.com">www.geohomes.com</a>
         </div>
     </div>
 

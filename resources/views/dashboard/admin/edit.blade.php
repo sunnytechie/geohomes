@@ -44,12 +44,19 @@
 
                   <div class="form-group">
                     <label for="role" class="text-heading">Role <span class="text-muted">(mandatory)</span></label>
-                    <select class="form-control-lg form-control border-0" name="role" id="role">
-                      <option value="superadmin" {{ "superadmin" == $admin->role ? 'selected' : '' }}>Super Admin</option>
-                      <option value="admin" {{ "admin" == $admin->role ? 'selected' : '' }}>Admin</option>
+                    <select class="form-control border-0 shadow-none form-control-lg selectpicker" name="role" id="role">
+                      {{-- <option value="superadmin" {{ "1" == $admin->role ? 'selected' : '' }}>Super Admin</option> --}}
+                      @if (Auth::user()->is_admin)
+                      <option value="admin" {{ "1" == $admin->is_admin ? 'selected' : '' }}>Super Admin</option>
+                      @endif
+                      <option value="manager" {{ "manager" == $admin->role ? 'selected' : '' }}>Manager</option>
+                      <option value="auditor" {{ "auditor" == $admin->role ? 'selected' : '' }}>Auditor</option>
+                      <option value="accountant" {{ "accountant" == $admin->role ? 'selected' : '' }}>Accountant</option>
+                      <option value="marketer" {{ "marketer" == $admin->role ? 'selected' : '' }}>Marketer</option>
+                      <option value="secretary" {{ "secretary" == $admin->role ? 'selected' : '' }}>Secretary</option>
                       <option value="staff" {{ "staff" == $admin->role ? 'selected' : '' }}>Staff</option>
-                      <option value="user" {{ "user" == $admin->role ? 'selected' : '' }}>Customer</option>
-                      <option value="agent" {{ "agent" == $admin->role ? 'selected' : '' }}>Customer</option>
+                      <option value="user" {{ "user" == $admin->role ? 'selected' : '' }}>User</option>
+                      <option value="agent" {{ "agent" == $admin->role ? 'selected' : '' }}>Agent</option>
                     </select>
                     
                     @if ($errors->has('role'))

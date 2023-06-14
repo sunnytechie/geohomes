@@ -120,7 +120,7 @@
                                 <li class="divider"></li>
                                 @guest
                                     <li class="nav-item hide-from-mobile">
-                                        <a class="nav-link pr-2" href="{{ route('login') }}">SIGN IN</a>
+                                        <a class="nav-link pr-2" href="{{ route('login') }}">REGISTER | SIGN IN</a>
                                     </li>
                                     @else
                                     @if (Auth::user()->is_agent == 0 || Auth::user()->is_admin == 0)
@@ -156,7 +156,7 @@
 
                         <li class="nav-item ">
                             @guest
-                                <a class="nav-link pl-3 pr-2" href="{{ route('login') }}">SIGN IN</a>
+                                <a class="nav-link pl-3 pr-2" href="{{ route('login') }}">REGISTER | SIGN IN</a>
                                 {{-- @else
                                 <a class="nav-link pl-3 pr-2" href="{{ route('dashboard.index') }}"> <span><i class="far fa-user"></i></span> <span class="ml-1">Dashboard</span></a> --}}
                             @endguest
