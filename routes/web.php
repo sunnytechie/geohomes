@@ -89,6 +89,8 @@ Route::post('/newsletter/subscribe', [App\Http\Controllers\NewsletterController:
 //contact form
 Route::post('/contact/post', [App\Http\Controllers\ContactController::class, 'contact'])->name('contact.form');
 
+//Search
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
 
 Auth::routes();
 

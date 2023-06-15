@@ -57,7 +57,7 @@
             <div class="input-group input-group-lg mb-6">
               <input type="email" name="email" id="email" class="form-control bg-white shadow-none border-0 z-index-1" placeholder="Your email">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">Subscribe</button>
+                <button class="btn btn-primary" type="submit" style="background: #00A75A">Subscribe</button>
               </div>
             </div>
           </form>

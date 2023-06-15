@@ -14,217 +14,9 @@
 </style>
     
 <main id="content">
-    <section class="bg-secondary mt-12">
+    <section class="mt-12" style="background: #00A75A">
       <div class="container">
-        {{-- Desktop --}}
-        <form class="property-search d-none d-lg-block">
-          <div class="row align-items-lg-center" id="accordion-2">
-            <div class="col-xl-2 col-lg-3 col-md-4">
-              <div class="property-search-status-tab d-flex flex-row">
-                <input class="search-field" type="hidden" name="status" value="for-rent"
-                             data-default-value="">
-                <button type="button" data-value="for-rent"
-                              class="btn shadow-none btn-active-primary text-white rounded-0 hover-white text-uppercase h-lg-80 border-right-0 border-top-0 border-bottom-0 border-left border-white-opacity-03 active flex-md-1">
-                  Rent
-                </button>
-                <button type="button" data-value="for-sale"
-                              class="btn shadow-none btn-active-primary text-white rounded-0 hover-white text-uppercase h-lg-80 border-left-0 border-top-0 border-bottom-0 border-right border-white-opacity-03 flex-md-1">
-                  Sale
-                </button>
-              </div>
-            </div>
-            <div class="col-xl-8 col-lg-7 d-md-flex">
-              <select class="form-control shadow-none form-control-lg selectpicker rounded-right-md-0 rounded-md-top-left-0 rounded-lg-top-left flex-md-1 mt-3 mt-md-0"
-                          title="All Types" data-style="btn-lg py-2 h-52 border-right bg-white" id="type-1"
-                          name="type">
-                <option>Condominium</option>
-                <option>Single-Family Home</option>
-                <option>Townhouse</option>
-                <option>Multi-Family Home</option>
-              </select>
-              <div class="form-group mb-0 position-relative flex-md-3 mt-3 mt-md-0">
-                <input type="text"
-                             class="form-control form-control-lg border-0 shadow-none rounded-left-md-0 pr-8 bg-white placeholder-muted"
-                             id="key-word-1" name="key-word"
-                             placeholder="Enter an address, neighbourhood...">
-                <button type="submit"
-                              class="btn position-absolute pos-fixed-right-center p-0 text-heading fs-20 mr-4 shadow-none">
-                  <i class="far fa-search"></i>
-                </button>
-              </div>
-            </div>
-            <div class="col-lg-2">
-              <a href="#advanced-search-filters-2"
-                     class="icon-primary btn advanced-search w-100 shadow-none text-white text-left rounded-0 fs-14 font-weight-600 position-relative collapsed px-0 d-flex align-items-center"
-                     data-toggle="collapse" data-target="#advanced-search-filters-2" aria-expanded="true"
-                     aria-controls="advanced-search-filters-2">
-                Advanced Search
-              </a>
-            </div>
-            <div id="advanced-search-filters-2" class="col-12 pb-6 pt-lg-2 collapse" data-parent="#accordion-2">
-              <div class="row mx-n2">
-                <div class="col-sm-6 col-md-4 col-lg-3 pt-4 px-2">
-                  <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                                  name="status"
-                                  title="Status" data-style="btn-lg py-2 h-52 bg-white">
-                    <option>All status</option>
-                    <option>For Rent</option>
-                    <option>For Sale</option>
-                  </select>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 pt-4 px-2">
-                  <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                                  name="bedroom"
-                                  title="Bedrooms" data-style="btn-lg py-2 h-52 bg-white">
-                    <option>All Bedrooms</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                  </select>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 pt-4 px-2">
-                  <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                                  name="bathrooms"
-                                  title="Bathrooms" data-style="btn-lg py-2 h-52 bg-white">
-                    <option>All Bathrooms</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                  </select>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 pt-4 px-2">
-                  <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                                  title="All Cities" data-style="btn-lg py-2 h-52 bg-white" name="city">
-                    <option>All Cities</option>
-                    <option>Abuja</option>
-                    <option>Enugu</option>
-                  </select>
-                </div>
-                
-              </div>
-              
-             
-            </div>
-          </div>
-        </form>
-
-        {{-- Mobile --}}
-        <form class="property-search property-search-mobile d-lg-none py-6">
-          <div class="row align-items-lg-center" id="accordion-2-mobile">
-            <div class="col-12">
-              <div class="form-group mb-0 position-relative">
-                <a href="#advanced-search-filters-2-mobile"
-                         class="icon-primary btn advanced-search shadow-none pr-3 pl-0 d-flex align-items-center position-absolute pos-fixed-left-center py-0 h-100 border-right collapsed"
-                         data-toggle="collapse" data-target="#advanced-search-filters-2-mobile"
-                         aria-expanded="true"
-                         aria-controls="advanced-search-filters-2-mobile">
-                </a>
-                <input type="text"
-                             class="form-control form-control-lg border-0 shadow-none pr-9 pl-11 bg-white placeholder-muted"
-                             name="key-word"
-                             placeholder="Search...">
-                <button type="submit"
-                              class="btn position-absolute pos-fixed-right-center p-0 text-heading fs-20 px-3 shadow-none h-100 border-left bg-white">
-                  <i class="far fa-search"></i>
-                </button>
-              </div>
-            </div>
-            <div id="advanced-search-filters-2-mobile" class="col-12 pt-2 collapse"
-                   data-parent="#accordion-2-mobile">
-              <div class="row mx-n2">
-                <div class="col-sm-6 pt-4 px-2">
-                  <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                                  title="Select" data-style="btn-lg py-2 h-52 bg-white" name="type">
-                    <option>All status</option>
-                    <option>For Rent</option>
-                    <option>For Sale</option>
-                  </select>
-                </div>
-                <div class="col-sm-6 pt-4 px-2">
-                  <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                                  title="All Types" data-style="btn-lg py-2 h-52 bg-white" name="type">
-                    <option>Condominium</option>
-                    <option>Single-Family Home</option>
-                    <option>Townhouse</option>
-                    <option>Multi-Family Home</option>
-                  </select>
-                </div>
-                <div class="col-sm-6 pt-4 px-2">
-                  <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                                  name="bedroom"
-                                  title="Bedrooms" data-style="btn-lg py-2 h-52 bg-white">
-                    <option>All Bedrooms</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                  </select>
-                </div>
-                <div class="col-sm-6 pt-4 px-2">
-                  <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                                  name="bathrooms"
-                                  title="Bathrooms" data-style="btn-lg py-2 h-52 bg-white">
-                    <option>All Bathrooms</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>
-                  </select>
-                </div>
-                <div class="col-sm-6 pt-4 px-2">
-                  <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                                  title="All Cities" data-style="btn-lg py-2 h-52 bg-white" name="city">
-                    <option>All Cities</option>
-                    <option>New York</option>
-                    <option>Los Angeles</option>
-                    <option>Chicago</option>
-                    <option>Houston</option>
-                    <option>San Diego</option>
-                    <option>Las Vegas</option>
-                    <option>Las Vegas</option>
-                    <option>Atlanta</option>
-                  </select>
-                </div>
-                <div class="col-sm-6 pt-4 px-2">
-                  <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                                  name="areas"
-                                  title="All Areas" data-style="btn-lg py-2 h-52 bg-white">
-                    <option>All Areas</option>
-                    <option>Abuja</option>
-                    <option>Enugu</option>
-                  </select>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </form>
+        @include('snippets.search')
       </div>
     </section>
 
@@ -380,15 +172,17 @@
                   <h4 class="card-title fs-16 lh-2 text-dark mb-1">Newsletter Sign Up</h4>
                   <p class="card-text mb-5">Subscribe to new letter to receive exclusive offer and the latest
                     news</p>
-                  <form>
+                    <form id="newsletter-form" action="{{ route('newsletter.subscribe') }}" method="POST">
+                      @csrf
                     <div class="form-group mb-3">
-                      <label for="name" class="sr-only">Email</label>
-                      <input type="text" class="form-control form-control-lg border-0 shadow-none"
-                                         id="name"
+                      <label for="email" class="sr-only">Email</label>
+                      <input type="email" class="form-control form-control-lg border-0 shadow-none"
+                                         id="email"
                                          name="email"
                                          placeholder="Enter your email">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block shadow-none mb-2">
+                    <div class="text-center mb-2" id="response-message" style="color: #00A75A"></div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block shadow-none mb-2" style="background: #00A75A">
                       Subscribe
                     </button>
                   </form>
@@ -402,103 +196,32 @@
                   <div class="slick-slider mx-0" data-slick-options='{"slidesToShow": 1, "autoplay":true}'>
                     
                     {{-- Loop only 4 latest properties here --}}
+                    @foreach ($properties as $property)
                     <div class="box px-0">
                       <div class="card border-0">
-                        <img src="assets/images/feature-property-01.jpg" class="card-img" alt="Villa on Hollywood Boulevard">
+                        <img src="/storage/{{ $property->image }}" class="card-img" alt="{{ $property->title }}">
                         <div class="card-img-overlay d-flex flex-column bg-gradient-3 rounded-lg">
                           <div class="d-flex mb-auto">
                             <a href="#" class="mr-1 badge badge-orange">featured</a>
-                            <a href="#" class="badge badge-indigo">for Rent</a>
+                            <a href="#" class="badge badge-indigo">{{ $property->lint_in }}</a>
                           </div>
                           <div class="px-2 pb-2">
-                            <a href="single-property-1.html" class="text-white"><h5 class="card-title fs-16 lh-2 mb-0">Villa on Hollywood Boulevard</h5>
+                            <a href="{{ route('properties.show', $property->id) }}" class="text-white"><h5 class="card-title fs-16 lh-2 mb-0">{{ $property->title }}</h5>
                             </a>
-                            <p class="card-text text-gray-light mb-0 font-weight-500">1421 San
-                              Predro
-                              St, Los Angeles</p>
-                            <p class="text-white mb-0"><span class="fs-17 font-weight-bold">$2500 </span>/month
+                            <p class="card-text text-gray-light mb-0 font-weight-500">{{ $property->address }}</p>
+                            <p class="text-white mb-0"><span class="fs-17 font-weight-bold">{{ $property->price }} </span>
                             </p>
                           </div>
                         </div>
                       </div>
                     </div>
+                    @endforeach
 
                     
                   </div>
                 </div>
               </div>
 
-              {{-- Destination --}}
-              <div class="card city-widget mb-4">
-                <div class="card-body px-6 py-4">
-                  <h4 class="card-title fs-16 lh-2 text-dark mb-3">Destinations</h4>
-                  <div class="row no-gutters m-n1">
-                    
-                    {{-- Loop latest 4  --}}
-                    <div class="col-6 p-1">
-                      <a href="listing-with-left-sidebar.html" class="card hover-zoom-in">
-                        <div class="card-img bg-img" style="background-image: url('assets/images/small-los-angeles.jpg');background-size: cover;background-position: center"></div>
-                        <div class="card-img-overlay bg-gradient-3 rounded-lg d-flex align-items-end">
-                          <p class="card-text font-weight-500 lh-1 text-white">Los Angeles</p>
-                        </div>
-                      </a>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="card">
-                <div class="card-body px-6 py-4">
-                  <h4 class="card-title fs-16 lh-2 text-dark mb-2">Agents</h4>
-                  <ul class="list-group list-group-flush">
-
-                    {{-- Loop 3 agents --}}
-                    <li class="list-group-item px-0 pb-3 pt-0">
-                      <div class="media align-items-center">
-                        <a href="agent-details-1.html" class="d-block w-60px h-60 mr-3">
-                          <img src="assets/images/agent-1.jpg" class="rounded-circle" alt="agent">
-                        </a>
-                        <div class="media-body">
-                          <a href="agent-details-1.html" class="text-muted hover-dark font-weight-500 mb-0 lh-214">Oliver
-                            Beddows</a>
-                          <p class="mb-0 fs-13 mb-0 lh-2">Sales Excutive</p>
-                          {{-- <ul class="list-inline mb-0">
-                            <li class="list-inline-item fs-13 text-heading font-weight-500">4.8/5
-                            </li>
-                            <li class="list-inline-item fs-13 text-heading font-weight-500">
-                              <ul class="list-inline mb-0">
-                                <li class="list-inline-item mr-0">
-                                  <span class="text-warning fs-12 lh-2"><i
-                                                              class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-0">
-                                  <span class="text-warning fs-12 lh-2"><i class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-0">
-                                  <span class="text-warning fs-12 lh-2"><i
-                                                              class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-0">
-                                  <span class="text-warning fs-12 lh-2"><i
-                                                              class="fas fa-star"></i></span>
-                                </li>
-                                <li class="list-inline-item mr-0">
-                                  <span class="text-warning fs-12 lh-2"><i
-                                                              class="fas fa-star"></i></span>
-                                </li>
-                              </ul>
-                            </li>
-                          </ul> --}}
-                        </div>
-                      </div>
-                    </li>
-
-                    
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
 

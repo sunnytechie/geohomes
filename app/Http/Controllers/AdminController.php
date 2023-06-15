@@ -137,18 +137,40 @@ class AdminController extends Controller
         if ($request->has('password')) {
             $admin->password = Hash::make($request->password);
         }
-        if ($request->role == "superadmin") {
-            $admin->is_super_admin = 1;
+        if ($request->role == "admin") {
             $admin->is_admin = 1;
+            $admin->is_agent = 1;
+            $admin->role = "admin";
         }
-        if ($request->role == "staff") {
-            $admin->is_staff = 1;
+        if ($request->role == "manager") {
+            $admin->manager = 1;
+            $admin->is_admin = 1;
+            $admin->is_agent = 1;
+            $admin->role = "manager";
         }
         if ($request->role == "agent") {
             $admin->is_agent = 1;
+            $admin->role = "agent";
         }
-        if ($request->role == "admin") {
-            $admin->is_admin = 1;
+        if ($request->role == "staff") {
+            $admin->is_staff = 1;
+            $admin->role = "staff";
+        }
+        if ($request->role == "auditor") {
+            $admin->auditor = 1;
+            $admin->role = "auditor";
+        }
+        if ($request->role == "accountant") {
+            $admin->accountant = 1;
+            $admin->role = "accountant";
+        }
+        if ($request->role == "marketer") {
+            $admin->marketer = 1;
+            $admin->role = "marketer";
+        }
+        if ($request->role == "secretary") {
+            $admin->secretary = 1;
+            $admin->role = "secretary";
         }
         $admin->save();
 

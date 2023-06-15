@@ -33,7 +33,8 @@ class PagesController extends Controller
     }
 
     public function buyRent() {
-        return view('pages.buyrent');
+        $properties = Property::orderBy('id', 'desc')->paginate(4);
+        return view('pages.buyrent', compact('properties'));
     }
 
     public function sorted(Request $request) {
