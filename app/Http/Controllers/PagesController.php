@@ -32,15 +32,35 @@ class PagesController extends Controller
         return view('pages.services');
     }
 
-    public function buyRent() {
+    public function buyRent(Request $request) {
+        $status = $request->status;
+        $type = $request->type;
+        $bedroom = $request->bedroom;
+        $bathrooms = $request->bathrooms;
+        $city = $request->city;
+        $keyword = $request->key_word;
         $properties = Property::orderBy('id', 'desc')->paginate(4);
-        return view('pages.buyrent', compact('properties'));
+        $slideproperties = Property::orderBy('id', 'desc')->get();
+        return view('pages.buyrent', compact('properties', 'slideproperties',
+        'status',
+        'type',
+        'bedroom',
+        'bathrooms',
+        'city',
+        'keyword'));
     }
 
     public function sorted(Request $request) {
         //sort according to link address
         //dd($request->parameter_name);
         //4 properties
+        $status = $request->status;
+        $type = $request->type;
+        $bedroom = $request->bedroom;
+        $bathrooms = $request->bathrooms;
+        $city = $request->city;
+        $keyword = $request->key_word;
+         
         $countFilteredProperties = Property::where('category', $request->parameter_name)->get();
 
         $filteredProperties = Property::orderBy('id', 'desc')
@@ -48,7 +68,13 @@ class PagesController extends Controller
 
         $properties = Property::orderBy('id', 'desc')->paginate(4);
 
-        return view('pages.sorted', compact('properties', 'countFilteredProperties', 'filteredProperties'));
+        return view('pages.sorted', compact('properties', 'countFilteredProperties', 'filteredProperties',
+        'status',
+        'type',
+        'bedroom',
+        'bathrooms',
+        'city',
+        'keyword'));
     }
 
     public function projects() {

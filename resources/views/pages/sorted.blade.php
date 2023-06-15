@@ -79,7 +79,7 @@
                             <a href="#" class="badge badge-indigo">{{ $property->lint_in }}</a>
                           </div>
                           <div class="px-2 pb-2">
-                            <a href="{{ route('properties.show', $property->id) }}" class="text-white"><h5 class="card-title fs-16 lh-2 mb-0">{{ $property->title }}</h5>
+                            <a href="{{ route('gh.property.show', $property->id) }}" class="text-white"><h5 class="card-title fs-16 lh-2 mb-0">{{ $property->title }}</h5>
                             </a>
                             <p class="card-text text-gray-light mb-0 font-weight-500">{{ $property->address }}</p>
                             <p class="text-white mb-0"><span class="fs-17 font-weight-bold">{{ $property->price }} </span>
@@ -129,7 +129,7 @@
               <div class="media flex-column flex-sm-row no-gutters">
                 
                 <div class="col-sm-3 mr-sm-5 card border-0 hover-change-image bg-hover-overlay mb-sm-5">
-                  <a href="{{ route('properties.show', $property->id) }}">
+                  <a href="{{ route('gh.property.show', $property->id) }}">
                     <img src="/storage/{{ $property->image }}" class="card-img" alt="{{ $property->title }}">
                   
                  <div class="card-img-overlay p-2">
@@ -142,7 +142,7 @@
            
                 <div class="media-body mt-3 mt-sm-0">
                   <h2 class="my-0">
-                    <a href="{{ route('properties.show', $property->id) }}" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $property->title }}</a>
+                    <a href="{{ route('gh.property.show', $property->id) }}" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $property->title }}</a>
                   </h2>
                   <p class="mb-1 font-weight-500 text-gray-light">{{ $property->address }}</p>
                   <p class="fs-17 font-weight-bold text-heading mb-1">

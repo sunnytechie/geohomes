@@ -1,6 +1,6 @@
 {{-- Desktop --}}
 <form method="GET" action="{{ route('search') }}" class="property-search d-none d-lg-block">
-    @csrf
+    
     <div class="row align-items-lg-center" id="accordion-2">
       <div class="col-xl-2 col-lg-3 col-md-4">
         <div class="property-search-status-tab d-flex flex-row">
@@ -18,16 +18,17 @@
       </div>
       <div class="col-xl-8 col-lg-7 d-md-flex">
         <select class="form-control shadow-none form-control-lg selectpicker rounded-right-md-0 rounded-md-top-left-0 rounded-lg-top-left flex-md-1 mt-3 mt-md-0" title="All Types" data-style="btn-lg py-2 h-52 border-right bg-white" id="type-1" name="type">
-          <option>Condominium</option>
-          <option>Single-Family Home</option>
-          <option>Townhouse</option>
-          <option>Multi-Family Home</option>
+            <option @if ($type == "Apartment") selected @endif>Apartment</option>
+            <option @if ($type == "House") selected @endif>House</option>
+            <option @if ($type == "Villa") selected @endif>Villa</option>
+            <option @if ($type == "Office") selected @endif>Office</option>
         </select>
         <div class="form-group mb-0 position-relative flex-md-3 mt-3 mt-md-0">
           <input type="text"
                        class="form-control form-control-lg border-0 shadow-none rounded-left-md-0 pr-8 bg-white placeholder-muted"
                        id="key-word-1" name="key_word"
-                       placeholder="Enter an address, neighbourhood...">
+                       value="{{  request('key_word') }}"
+                       placeholder="Search property name or title...">
           <button type="submit" class="btn position-absolute pos-fixed-right-center p-0 text-heading fs-20 mr-4 shadow-none">
             <i class="far fa-search"></i>
           </button>
@@ -48,8 +49,8 @@
                             name="status"
                             title="Status" data-style="btn-lg py-2 h-52 bg-white">
               <option>All status</option>
-              <option>For Rent</option>
-              <option>For Sale</option>
+              <option @if ($status == "For Rent") selected @endif>For Rent</option>
+              <option @if ($status == "For Sale") selected @endif>For Sale</option>
             </select>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 pt-4 px-2">
@@ -57,16 +58,16 @@
                             name="bedroom"
                             title="Bedrooms" data-style="btn-lg py-2 h-52 bg-white">
               <option>All Bedrooms</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
+              <option @if ($bedroom == "1") selected @endif>1</option>
+              <option @if ($bedroom == "2") selected @endif>2</option>
+              <option @if ($bedroom == "3") selected @endif>3</option>
+              <option @if ($bedroom == "4") selected @endif>4</option>
+              <option @if ($bedroom == "4") selected @endif>5</option>
+              <option @if ($bedroom == "5") selected @endif>6</option>
+              <option @if ($bedroom == "6") selected @endif>7</option>
+              <option @if ($bedroom == "7") selected @endif>8</option>
+              <option @if ($bedroom == "8") selected @endif>9</option>
+              <option @if ($bedroom == "9") selected @endif>10</option>
             </select>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 pt-4 px-2">
@@ -74,24 +75,30 @@
                             name="bathrooms"
                             title="Bathrooms" data-style="btn-lg py-2 h-52 bg-white">
               <option>All Bathrooms</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
+              <option @if ($bathrooms == "1") selected @endif>1</option>
+              <option @if ($bathrooms == "2") selected @endif>2</option>
+              <option @if ($bathrooms == "3") selected @endif>3</option>
+              <option @if ($bathrooms == "4") selected @endif>4</option>
+              <option @if ($bathrooms == "4") selected @endif>5</option>
+              <option @if ($bathrooms == "5") selected @endif>6</option>
+              <option @if ($bathrooms == "6") selected @endif>7</option>
+              <option @if ($bathrooms == "7") selected @endif>8</option>
+              <option @if ($bathrooms == "8") selected @endif>9</option>
+              <option @if ($bathrooms == "9") selected @endif>10</option>
             </select>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-3 pt-4 px-2">
             <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
                             title="All Cities" data-style="btn-lg py-2 h-52 bg-white" name="city">
               <option>All Cities</option>
-              <option>Abuja</option>
-              <option>Enugu</option>
+              <option @if ($city == "Abuja") selected @endif>Abuja</option>
+              <option @if ($city == "Enugu") selected @endif>Enugu</option>
+              <option @if ($city == "Anambra") selected @endif>Anambra</option>
+              <option @if ($city == "Ebonyi") selected @endif>Ebonyi</option>
+              <option @if ($city == "Lagos") selected @endif>Lagos</option>
+              <option @if ($city == "Asaba") selected @endif>Asaba</option>
+              <option @if ($city == "Port Harcourt") selected @endif>Port Harcourt</option>
+              <option @if ($city == "Kaduna") selected @endif>Kaduna</option>
             </select>
           </div>
           
@@ -104,7 +111,7 @@
 
   {{-- Mobile --}}
   <form method="GET" action="{{ route('search') }}" class="property-search property-search-mobile d-lg-none py-6">
-    @csrf
+    
     <div class="row align-items-lg-center" id="accordion-2-mobile">
       <div class="col-12">
         <div class="form-group mb-0 position-relative">
@@ -117,6 +124,7 @@
           <input type="text"
                        class="form-control form-control-lg border-0 shadow-none pr-9 pl-11 bg-white placeholder-muted"
                        name="key_word"
+                       value="{{  request('key_word') }}"
                        placeholder="Search...">
           <button type="submit"
                         class="btn position-absolute pos-fixed-right-center p-0 text-heading fs-20 px-3 shadow-none h-100 border-left bg-white">
@@ -131,17 +139,16 @@
             <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
                             title="Select" data-style="btn-lg py-2 h-52 bg-white" name="type">
               <option>All status</option>
-              <option>For Rent</option>
-              <option>For Sale</option>
+              <option @if ($status == "For Rent") selected @endif>For Rent</option>
+              <option @if ($status == "For Sale") selected @endif>For Sale</option>
             </select>
           </div>
           <div class="col-sm-6 pt-4 px-2">
-            <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                            title="All Types" data-style="btn-lg py-2 h-52 bg-white" name="type">
-              <option>Condominium</option>
-              <option>Single-Family Home</option>
-              <option>Townhouse</option>
-              <option>Multi-Family Home</option>
+            <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white" title="All Types" data-style="btn-lg py-2 h-52 bg-white" name="type">
+              <option @if ($type == "Apartment") selected @endif>Apartment</option>
+              <option @if ($type == "House") selected @endif>House</option>
+              <option @if ($type == "Villa") selected @endif>Villa</option>
+              <option @if ($type == "Office") selected @endif>Office</option>
             </select>
           </div>
           <div class="col-sm-6 pt-4 px-2">
@@ -149,16 +156,16 @@
                             name="bedroom"
                             title="Bedrooms" data-style="btn-lg py-2 h-52 bg-white">
               <option>All Bedrooms</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
+              <option @if ($bedroom == "1") selected @endif>1</option>
+              <option @if ($bedroom == "2") selected @endif>2</option>
+              <option @if ($bedroom == "3") selected @endif>3</option>
+              <option @if ($bedroom == "4") selected @endif>4</option>
+              <option @if ($bedroom == "4") selected @endif>5</option>
+              <option @if ($bedroom == "5") selected @endif>6</option>
+              <option @if ($bedroom == "6") selected @endif>7</option>
+              <option @if ($bedroom == "7") selected @endif>8</option>
+              <option @if ($bedroom == "8") selected @endif>9</option>
+              <option @if ($bedroom == "9") selected @endif>10</option>
             </select>
           </div>
           <div class="col-sm-6 pt-4 px-2">
@@ -166,39 +173,30 @@
                             name="bathrooms"
                             title="Bathrooms" data-style="btn-lg py-2 h-52 bg-white">
               <option>All Bathrooms</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
+              <option @if ($bathrooms == "1") selected @endif>1</option>
+              <option @if ($bathrooms == "2") selected @endif>2</option>
+              <option @if ($bathrooms == "3") selected @endif>3</option>
+              <option @if ($bathrooms == "4") selected @endif>4</option>
+              <option @if ($bathrooms == "4") selected @endif>5</option>
+              <option @if ($bathrooms == "5") selected @endif>6</option>
+              <option @if ($bathrooms == "6") selected @endif>7</option>
+              <option @if ($bathrooms == "7") selected @endif>8</option>
+              <option @if ($bathrooms == "8") selected @endif>9</option>
+              <option @if ($bathrooms == "9") selected @endif>10</option>
             </select>
           </div>
           <div class="col-sm-6 pt-4 px-2">
             <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
                             title="All Cities" data-style="btn-lg py-2 h-52 bg-white" name="city">
               <option>All Cities</option>
-              <option>New York</option>
-              <option>Los Angeles</option>
-              <option>Chicago</option>
-              <option>Houston</option>
-              <option>San Diego</option>
-              <option>Las Vegas</option>
-              <option>Las Vegas</option>
-              <option>Atlanta</option>
-            </select>
-          </div>
-          <div class="col-sm-6 pt-4 px-2">
-            <select class="form-control border-0 shadow-none form-control-lg selectpicker bg-white"
-                            name="areas"
-                            title="All Areas" data-style="btn-lg py-2 h-52 bg-white">
-              <option>All Areas</option>
-              <option>Abuja</option>
-              <option>Enugu</option>
+              <option @if ($city == "Abuja") selected @endif>Abuja</option>
+              <option @if ($city == "Enugu") selected @endif>Enugu</option>
+              <option @if ($city == "Anambra") selected @endif>Anambra</option>
+              <option @if ($city == "Ebonyi") selected @endif>Ebonyi</option>
+              <option @if ($city == "Lagos") selected @endif>Lagos</option>
+              <option @if ($city == "Asaba") selected @endif>Asaba</option>
+              <option @if ($city == "Port Harcourt") selected @endif>Port Harcourt</option>
+              <option @if ($city == "Kaduna") selected @endif>Kaduna</option>
             </select>
           </div>
         </div>
