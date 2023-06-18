@@ -31,7 +31,24 @@ class DashboardController extends Controller
         $projects = Project::all();
         $agents = Agent::all();
         $destinations = Destination::all();
+
+        // Your logic to fetch data from the database
+        $successTran = Transaction::where('status', 1)->get();
+        $failedTran = Transaction::where('status', 0)->get();
+        $successInsptTran = Inspectiontransaction::where('status', 1)->get();
+        $failedInsptTran = Inspectiontransaction::where('status', 0)->get();
+        $subscribedAgent = Agent::where('subscribed', 1)->get();
+        $data = [
+            'Successfull transactions' => $successTran->count(),
+            'Failed transactions' => $failedTran->count(),
+            'Successfull Inspection' => $successInsptTran->count(),
+            'Failed Inspection' => $failedInsptTran->count(),
+            'Agent subscriptions' => $subscribedAgent->count(),
+        ];
+
+        $labels = json_encode(array_keys($data));
+        $values = json_encode(array_values($data));
         
-        return view('dashboard.index', compact('properties', 'transactions', 'inspections', 'projects', 'agents', 'destinations'));
+        return view('dashboard.index', compact('properties', 'labels', 'values', 'transactions', 'inspections', 'projects', 'agents', 'destinations'));
     }
 }

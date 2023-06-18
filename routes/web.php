@@ -51,6 +51,7 @@ Route::resource('destinations', 'App\Http\Controllers\DestinationController')->m
 Route::resource('agents', 'App\Http\Controllers\AgentController')->middleware('auth', 'verified');
 Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middleware('auth', 'verified');
 Route::resource('admins', 'App\Http\Controllers\AdminController')->middleware('auth', 'verified', 'isAdmin');
+Route::resource('users', 'App\Http\Controllers\UserController')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::resource('plots', 'App\Http\Controllers\PlotController')->middleware('auth', 'verified', 'isAdmin');
 
 //account

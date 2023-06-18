@@ -82,17 +82,18 @@
                     <span class="sidebar-item-text">Transactions</span>
                   </a>
                 </li>
-                
-                {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="#" class="text-heading lh-1 sidebar-link">
-                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-map" style="color: #ababab"></i></span>
-                    <span class="sidebar-item-text">Allocation</span>
-                  </a>
-                </li> --}}
+
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="{{ route('schedule') }}" class="text-heading lh-1 sidebar-link">
                     <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-calendar" style="color: #ababab"></i></span>
                     <span class="sidebar-item-text">Schedules</span>
+                  </a>
+                </li>
+
+                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                  <a href="{{ route('users.index') }}" class="text-heading lh-1 sidebar-link">
+                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-users" style="color: #ababab"></i></span>
+                    <span class="sidebar-item-text">Users</span>
                   </a>
                 </li>
                 

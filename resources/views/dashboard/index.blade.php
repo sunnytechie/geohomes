@@ -162,6 +162,9 @@
 
 
     {{-- Statistics --}}
+    @if (Auth::user()->is_admin || Auth::user()->manager)
+      @include('dashboard.statistics')
+    @endif
     
 
   </div>
