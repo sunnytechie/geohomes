@@ -90,12 +90,14 @@
                   </a>
                 </li>
 
+                @if (Auth::user()->auditor == 1 || Auth::user()->accountant == 1 || Auth::user()->is_admin == 1 || Auth::user()->manager == 1)
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="{{ route('users.index') }}" class="text-heading lh-1 sidebar-link">
+                  <a href="{{ route('registered.users') }}" class="text-heading lh-1 sidebar-link">
                     <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-users" style="color: #ababab"></i></span>
                     <span class="sidebar-item-text">Users</span>
                   </a>
                 </li>
+                @endif
                 
               </ul>
             </li>

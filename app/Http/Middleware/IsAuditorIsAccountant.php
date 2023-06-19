@@ -16,7 +16,7 @@ class IsAuditorIsAccountant
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->auditor || Auth::user()->accountant || Auth::user()->is_admin || Auth::user()->manager) {
+        if (Auth::user()->auditor == 1 || Auth::user()->accountant == 1 || Auth::user()->is_admin == 1 || Auth::user()->manager == 1) {
             return $next($request);
         }
 
