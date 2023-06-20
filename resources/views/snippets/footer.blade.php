@@ -10,24 +10,20 @@
             <a class="d-block text-muted hover-white" href="mailto:contact@geohomesgroup.co">contact@geohomesgroup.com</a>
             <a class="d-block text-lighter font-weight-bold fs-15 hover-white"
                      href="tel:09062972785">09062972785</a>
-            <a class="d-block text-muted hover-white" href=".">www.geohomesgroup.co</a>
+            <a class="d-block text-muted hover-white" href="{{ route('index.welcome') }}">www.geohomesgroup.com</a>
           </div>
         </div>
         <div class="col-md-6 col-lg-2 mb-6 mb-md-0">
           <h4 class="text-white fs-16 my-4 font-weight-500">Popular Searches</h4>
           <ul class="list-group list-group-flush list-group-no-border">
             <li class="list-group-item bg-transparent p-0">
-              <a href="#" class="text-muted lh-26 font-weight-500 hover-white">Apartment for Rent</a>
+              <a href="{{ route('page.buy.rent') }}" class="text-muted lh-26 font-weight-500 hover-white">Apartment for Rent</a>
             </li>
             <li class="list-group-item bg-transparent p-0">
-              <a href="#" class="text-muted lh-26 font-weight-500 hover-white">Apartment Low to
-                hide</a>
+              <a href="{{ route('page.buy.rent') }}" class="text-muted lh-26 font-weight-500 hover-white">Offices for Buy</a>
             </li>
             <li class="list-group-item bg-transparent p-0">
-              <a href="#" class="text-muted lh-26 font-weight-500 hover-white">Offices for Buy</a>
-            </li>
-            <li class="list-group-item bg-transparent p-0">
-              <a href="#" class="text-muted lh-26 font-weight-500 hover-white">Offices for Rent</a>
+              <a href="{{ route('page.buy.rent') }}" class="text-muted lh-26 font-weight-500 hover-white">Offices for Rent</a>
             </li>
           </ul>
         </div>
@@ -35,17 +31,17 @@
           <h4 class="text-white fs-16 my-4 font-weight-500">Quick links</h4>
           <ul class="list-group list-group-flush list-group-no-border">
             <li class="list-group-item bg-transparent p-0">
-              <a href="#" class="text-muted lh-26 font-weight-500 hover-white">Terms of Use</a>
+              <a href="{{ route('page.about') }}" class="text-muted lh-26 font-weight-500 hover-white">Terms of Use</a>
             </li>
             <li class="list-group-item bg-transparent p-0">
-              <a href="#" class="text-muted lh-26 font-weight-500 hover-white">Privacy Policy</a>
+              <a href="{{ route('page.about') }}" class="text-muted lh-26 font-weight-500 hover-white">Privacy Policy</a>
             </li>
             <li class="list-group-item bg-transparent p-0">
-              <a href="#" class="text-muted lh-26 font-weight-500 hover-white">Contact Support</a>
+              <a href="{{ route('page.contact') }}" class="text-muted lh-26 font-weight-500 hover-white">Contact Support</a>
             </li>
-            <li class="list-group-item bg-transparent p-0">
+            {{-- <li class="list-group-item bg-transparent p-0">
               <a href="#" class="text-muted lh-26 hover-white font-weight-500">Careers</a>
-            </li>
+            </li> --}}
           </ul>
         </div>
         <div class="col-md-6 col-lg-4 mb-6 mb-md-0">
@@ -57,7 +53,7 @@
             <div class="input-group input-group-lg mb-6">
               <input type="email" name="email" id="email" class="form-control bg-white shadow-none border-0 z-index-1" placeholder="Your email">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="submit" style="background: #00A75A">Subscribe</button>
+                <button class="btn btn-primary border-0" type="submit" style="background: #00A75A">Subscribe</button>
               </div>
             </div>
           </form>
@@ -82,15 +78,15 @@
         </div>
       </div>
       <div class="mt-0 mt-md-10 row">
-        <ul class="list-inline mb-0 col-md-6 mr-auto">
+        {{-- <ul class="list-inline mb-0 col-md-6 mr-auto">
           <li class="list-inline-item mr-6">
             <a href="#" class="text-muted lh-26 font-weight-500 hover-white">Terms of Use</a>
           </li>
           <li class="list-inline-item">
             <a href="#" class="text-muted lh-26 font-weight-500 hover-white">Privacy Policy</a>
           </li>
-        </ul>
-        <p class="col-md-auto mb-0 text-muted">
+        </ul> --}}
+        <p class="col-md-12 mb-0 text-muted text-center">
           &copy; {{ now()->year }} GeoHomes. All Rights Reserved
         </p>
       </div>

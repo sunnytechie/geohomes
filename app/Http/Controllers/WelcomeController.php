@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Destination;
 use App\Models\Project;
 use App\Models\Property;
+use App\Models\Destination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WelcomeController extends Controller
 {
     public function index() {
+        
         $projects = Project::orderBy('id', 'desc')->paginate(12);
         
         $propertiesForSale = Property::orderBy('id', 'desc')

@@ -39,11 +39,11 @@ class DashboardController extends Controller
         $failedInsptTran = Inspectiontransaction::where('status', 0)->get();
         $subscribedAgent = Agent::where('subscribed', 1)->get();
         $data = [
-            'Successfull transactions' => $successTran->count(),
-            'Failed transactions' => $failedTran->count(),
-            'Successfull Inspection' => $successInsptTran->count(),
-            'Failed Inspection' => $failedInsptTran->count(),
-            'Agent subscriptions' => $subscribedAgent->count(),
+            'Successful transactions' => $successTran->count(),
+            'Unsuccessful/Pending transactions' => $failedTran->count(),
+            'Successful Paid Inspection' => $successInsptTran->count(),
+            'Pending/Unsuccessful Inspection' => $failedInsptTran->count(),
+            'Successful Agent Upgrade' => $subscribedAgent->count(),
         ];
 
         $labels = json_encode(array_keys($data));

@@ -123,16 +123,15 @@
                                         <a class="nav-link pr-2" href="{{ route('login') }}">REGISTER | SIGN IN</a>
                                     </li>
                                     @else
-                                    @if (Auth::user()->is_agent == 0 || Auth::user()->is_admin == 0)
+                                    @if (Auth::user()->is_agent == 0)
                                     <li class="nav-item hide-from-mobile mb-2">
                                         <a class="nav-link pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">Become an Agent</a>
                                     </li>
                                     @endif
                                     
                                     <li class="nav-item ml-auto w-100 w-sm-auto">
-                                        <a class="btn btn-primary btn-lg" href="{{ route('dashboard.index') }}" style="background: #00A75A">
-                                            Dashboard
-                                            <img src="{{ asset('assets/images/add-listing-icon.png') }}" alt="Add listing" class="ml-1">
+                                        <a class="btn btn-primary border-0 btn-lg" href="{{ route('dashboard.index') }}" style="background: #00A75A">
+                                            Your Dashboard
                                         </a>
                                     </li>
                                 @endguest
@@ -145,7 +144,7 @@
                 <div class="ml-auto d-none d-xl-block">
                     <ul class="navbar-nav flex-row ml-auto align-items-center justify-content-lg-end flex-wrap py-2">
                        @auth
-                       @if (Auth::user()->is_agent == 0 || Auth::user()->is_admin == 0)
+                       @if (Auth::user()->is_agent == 0)
                        <li class="nav-item ">
                            <a class="nav-link pl-3 pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">Become an Agent</a>
                         </li>
@@ -173,10 +172,10 @@
                                 <img src="{{ asset('assets/images/add-listing-icon-primary.png') }}" alt="Add listing"
                                     class="ml-1 sticky-button-icon">
                             </a> --}}
-                            <a class="btn btn-primary"
+                            <a class="btn btn-primary border-0"
                                 href="{{ route('dashboard.index') }}" style="background: #00A75A">
-                                Dashboard
-                                <img src="{{ asset('assets/images/add-listing-icon.png') }}" alt="Add listing" class="ml-1">
+                                Your Dashboard
+                                
                             </a>
                         </li>
                         @endauth

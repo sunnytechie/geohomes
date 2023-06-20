@@ -107,7 +107,7 @@ class AgentController extends Controller
             'office_number' => '',
             'mobile_number' => '',
             'fax_number' => '',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
         if ($request->has('image')) {
@@ -138,7 +138,7 @@ class AgentController extends Controller
 
         $user = User::find(Auth::user()->id);
         if ($request->has('image')) {
-        $user->image = $imagePath;
+            $user->image = $imagePath;
         }
         $user->phone = $request->phone;
         $user->name = $request->name;

@@ -120,13 +120,13 @@
               <form class="w-50 mr-1" action="{{ route('subscription') }}" method="POST" style="padding: 0; margin: 0">
                 @csrf
                 <input type="hidden" name="project_id" value="{{ $project->id }}">
-                <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #EAF1F2; color: #3e3e42 !important;">Subscribe</button>
+                <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #00A75A; color: #ffffff !important;">Subscribe</button>
               </form>
   
               <form class="w-50" action="{{ route('inspection') }}" method="POST" style="padding: 0; margin: 0">
                 @csrf
                 <input type="hidden" name="project_id" value="{{ $project->id }}">
-                <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #00A75A">Inspection</button>
+                <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #00A75A">Book Inspection</button>
               </form>
             </div>
           </div>
