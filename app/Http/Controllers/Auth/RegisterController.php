@@ -108,6 +108,7 @@ class RegisterController extends Controller
         $user->address = $request->address;
         $user->city = $request->city;
         $user->zip = $request->zip;
+        $user->email_verified_at = now();
         if ($request->user_type == "agent") {
             $user->is_agent = 1;
         }
@@ -132,6 +133,6 @@ class RegisterController extends Controller
         //Send email
         //$request->user()->sendEmailVerificationNotification();
 
-        return redirect()->route('dashboard.index');
+        return redirect()->route('dashboard.index')->with('message', "welcome to Geohomes.");
     }
 }

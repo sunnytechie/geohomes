@@ -1,4 +1,4 @@
-<title>Geo-Home Admins ~ Admins and Sper admins</title>
+<title>Geo-Home Users Registered</title>
 @extends('layouts.admin')
 
 @section('content')
@@ -64,7 +64,7 @@
                   <input type="checkbox"
                        class="new-control-input chk-parent select-customers-info">
                 </label></th>
-              <th class="py-6">Admin Id</th>
+              <th class="py-6">User Id</th>
               <th class="py-6">Name</th>
               <th class="py-6">Role</th>
               <th class="py-6">Created Date</th>
