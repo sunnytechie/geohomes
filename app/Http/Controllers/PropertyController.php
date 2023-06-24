@@ -7,6 +7,7 @@ use App\Models\Property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Validator;
 
 class PropertyController extends Controller
 {
@@ -58,8 +59,9 @@ class PropertyController extends Controller
             //redirect to notice page
             return redirect()->route('agentupgrade');
         }
+
         //validate
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
             'category' => 'required',
@@ -92,6 +94,13 @@ class PropertyController extends Controller
             'file3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        
+        if ($validator->fails()) {
+            return redirect()->back()->with('message', "There are error with the informations you wannt to upload, please try again.")
+                            ->withErrors($validator)
+                            ->withInput();
+        }
+        
 
         //dd($request->all());
 
@@ -213,7 +222,7 @@ class PropertyController extends Controller
     public function update(Request $request, string $id)
     {
         //validate
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
             'category' => 'required',
@@ -240,12 +249,19 @@ class PropertyController extends Controller
             'structure_type' => '',
             'floors_no' => '',
             'house_type' => '',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        
+        if ($validator->fails()) {
+            return redirect()->back()->with('message', "There are error with the informations you wannt to upload, please try again.")
+                            ->withErrors($validator)
+                            ->withInput();
+        }
+
 
         if ($request->hasFile('image')) {
             $imagePath = request('image')->store('properties', 'public');

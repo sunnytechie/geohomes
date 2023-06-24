@@ -8,6 +8,28 @@
             </h2>
             <p class="mb-1">Expand your real estate portfolio by adding a new property to your listings. This user-friendly platform makes it effortless to showcase your property's details and attract potential buyers or tenants.</p>
         </div>
+        
+            {{-- alert --}}
+            {{-- session --}}
+            @if (session('message'))
+            <div class="px-3">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="hide-from-mobile mt-2"></div>
+                    
+                        {{-- alert --}}
+                        <div class="alert alert-info alert-dismissible fade show" role="alert" style="color: red">
+                            There are errors with the informations you wannt to upload, please try again.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: 10px; font-size: 12px">
+                                <span aria-hidden="true">Close</span>
+                            </button>
+                        </div>
+                    
+                </div>
+            </div>
+            </div>
+            @endif
+
         <div class="collapse-tabs new-property-step">
             <ul class="nav nav-pills border py-2 px-3 mb-6 d-none d-md-flex mb-6" role="tablist">
                 <li class="nav-item col">
@@ -169,7 +191,7 @@
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
                                                         <h3 class="card-title mb-0 text-heading fs-22 lh-15">Upload photo of project</h3>
-                                                        <p class="card-text mb-5">Recommended size: 1080x1080 <span class="text-muted">(Mandatory)</span></p>
+                                                        <p class="card-text mb-5">Recommended size: 1080x1080. Max file size: 2MB <span class="text-muted">(Mandatory)</span></p>
                                                         <div class="text-center py-5">
                                                             
                                                                 <input type="file" name="image" id="image" class="dropify" data-allowed-file-extensions="jpg jpeg png">
@@ -188,7 +210,7 @@
                                                         <div class="card mb-6">
                                                             <div class="card-body p-6">
                                                                 <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
-                                                                <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                                <p class="card-text mb-5">Recommended size: 1080x1080. Max file size: 2MB</p>
                                                                 <div class="text-center py-5">
                                                                     
                                                                         <input type="file" name="file1" id="file1" class="dropify" data-allowed-file-extensions="jpg jpeg png">
@@ -207,7 +229,7 @@
                                                         <div class="card mb-6">
                                                             <div class="card-body p-6">
                                                                 <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
-                                                                <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                                <p class="card-text mb-5">Recommended size: 1080x1080. Max file size: 2MB</p>
                                                                 <div class="text-center py-5">
                                                                     
                                                                         <input type="file" name="file2" id="file2" class="dropify" data-allowed-file-extensions="jpg jpeg png">
@@ -226,7 +248,7 @@
                                                         <div class="card mb-6">
                                                             <div class="card-body p-6">
                                                                 <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
-                                                                <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                                <p class="card-text mb-5">Recommended size: 1080x1080. Max file size: 2MB</p>
                                                                 <div class="text-center py-5">
                                                                     
                                                                         <input type="file" name="file3" id="file3" class="dropify" data-allowed-file-extensions="jpg jpeg png">
@@ -245,7 +267,7 @@
                                                         <div class="card mb-6">
                                                             <div class="card-body p-6">
                                                                 <h3 class="card-title mb-0 text-heading fs-14 lh-15">Upload photo of project</h3>
-                                                                <p class="card-text mb-5">Recommended size: 1080x1080</p>
+                                                                <p class="card-text mb-5">Recommended size: 1080x1080. Max file size: 2MB</p>
                                                                 <div class="text-center py-5">
                                                                     
                                                                         <input type="file" name="file4" id="file4" class="dropify" data-allowed-file-extensions="jpg jpeg png">
