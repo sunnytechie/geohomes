@@ -125,7 +125,7 @@
                                     @else
                                     @if (Auth::user()->is_agent == 0)
                                     <li class="nav-item hide-from-mobile mb-2">
-                                        <a class="nav-link pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">Become an Agent</a>
+                                        <a class="nav-link pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">To Post Properties Become an Agent</a>
                                     </li>
                                     @endif
                                     
@@ -146,7 +146,7 @@
                        @auth
                        @if (Auth::user()->is_agent == 0)
                        <li class="nav-item ">
-                           <a class="nav-link pl-3 pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">Become an Agent</a>
+                           <a class="nav-link pl-3 pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">To Post Properties Become an Agent</a>
                         </li>
                         @endif
                        @endauth
