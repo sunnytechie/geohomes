@@ -629,10 +629,9 @@
 
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <label for="house_type" class="text-heading">House
-                                                                Type</label>
+                                                            <label for="house_type" class="text-heading">House Type</label>
                                                             @php
-                                                            $types = ['Single-Family Home', 'Bungalow', 'Duplex', 'Cape Cod', 'Colonial', 'Victorian', 'Tudor', 'Ranch'];
+                                                                $types = ['detached duplex', 'semi detached duplex', 'bungalow', 'terraces', 'Apartments', 'land'];
                                                             @endphp
                                                             <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" value="{{ old('house_type') }}" id="house_type" name="house_type">
                                                                 @foreach ($types as $type)

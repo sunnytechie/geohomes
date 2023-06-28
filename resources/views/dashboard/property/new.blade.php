@@ -596,14 +596,12 @@
                                                         <div class="form-group">
                                                             <label for="house_type" class="text-heading">House Type</label>
                                                             <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" value="{{ old('house_type') }}" id="house_type" name="house_type">
-                                                                <option>Single-Family Home</option>
+                                                                <option>Detached duplex</option>
+                                                                <option>Semi detached duplex</option>
                                                                 <option>Bungalow</option>
-                                                                <option>Duplex</option>
-                                                                <option>Cape Cod</option>
-                                                                <option>Colonial</option>
-                                                                <option>Victorian</option>
-                                                                <option>Tudor</option>
-                                                                <option>Ranch</option>
+                                                                <option>Terraces</option>
+                                                                <option>Apartments</option>
+                                                                <option>Land</option>
                                                             </select>
 
                                                             @if ($errors->has('house_type'))
