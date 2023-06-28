@@ -83,7 +83,9 @@
               <td class="align-middle"><span class="inv-number">#{{ $agent->id }}</span></td>
               <td class="align-middle">
                 <div class="d-flex align-items-center">
-                  <p class="align-self-center mb-0 user-name">{{ $agent->user->name }}</p>
+                  @isset($agent->user)
+                    <p class="align-self-center mb-0 user-name">{{ $agent->user->name }}</p>
+                  @endisset
                 </div>
               </td>
               <td class="align-middle">
