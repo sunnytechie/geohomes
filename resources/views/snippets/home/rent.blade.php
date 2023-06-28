@@ -67,7 +67,7 @@
               </ul>
             </div>
             <div class="card-footer bg-transparent d-flex justify-content-between align-items-center py-3">
-              <p class="fs-17 font-weight-bold text-heading text-center mb-0">{{ $property->price }}</p>
+              <p class="fs-17 font-weight-bold text-heading text-center mb-0">#{{ $property->price }}</p>
               {{-- <ul class="list-inline mb-0">
                 <li class="list-inline-item">
                   <a href="#" 

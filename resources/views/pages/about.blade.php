@@ -249,7 +249,7 @@
       <div class="container">
         <h2 class="text-dark lh-1625 text-center mb-8 fs-22 fs-md-32 pt-lg-10">Keep exploring</h2>
         <div class="row">
-          <div class="col-sm-6 col-lg-4 mb-6 mb-lg-0">
+          {{-- <div class="col-sm-6 col-lg-4 mb-6 mb-lg-0">
             <a href="{{ route('page.agents') }}"
                  class="card border-0 shadow-2 px-7 py-5 h-100 shadow-hover-lg-1">
               <div class="card-img-top d-flex align-items-end justify-content-center">
@@ -260,9 +260,9 @@
                 <h4 class="card-title fs-16 lh-186 text-dark hover-primary">Meet our agents</h4>
               </div>
             </a>
-          </div>
-          <div class="col-sm-6 col-lg-4 mb-6 mb-lg-0">
-            <a href="#"
+          </div> --}}
+          <div class="col-sm-6 mb-6 mb-lg-0">
+            <a href="{{ route('page.buy.rent') }}"
                  class="card border-0 shadow-2 px-7 py-5 h-100 shadow-hover-lg-1">
               <div class="card-img-top d-flex align-items-end justify-content-center">
                 <img src="{{ asset('assets/images/icon-box-5.png') }}"
@@ -285,7 +285,7 @@
               </div>
             </a>
           </div> --}}
-          <div class="col-sm-6 col-lg-4 mb-6 mb-lg-0">
+          <div class="col-sm-6 mb-6 mb-lg-0">
             <a href="{{ route('page.contact') }}"
                  class="card border-0 shadow-2 px-7 py-5 h-100 shadow-hover-lg-1">
               <div class="card-img-top d-flex align-items-end justify-content-center">

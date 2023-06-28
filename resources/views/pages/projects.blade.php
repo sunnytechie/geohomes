@@ -13,13 +13,36 @@
   }
 
   /* override GoogleMap settings */
-.MapPlaceHolder {
-    max-height: 200px;
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* Adjust this value to control the aspect ratio of the map */
+  height: 0;
+  overflow: hidden;
 }
 
-  .map {
-    margin-bottom: 20px; /* Adjust the margin as needed */
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  /* Adjust the breakpoint value as needed */
+  .map-container {
+    padding-bottom: 100%; /* Increase the aspect ratio for mobile */
   }
+}
+
+@media only screen and (min-width: 601px) {
+  /* Adjust the breakpoint value as needed */
+  .map-container {
+    padding-bottom: 75%; /* Restore the aspect ratio for desktop */
+  }
+}
+
 </style>
     
 <main id="content">
@@ -40,65 +63,54 @@
     <section class="pb-9 pb-md-11 mt-10">
         <div class="container">
 
-          @foreach ($projects as $project)
-            <div class="media p-4 border rounded-lg shadow-hover-1 pr-lg-8 mb-6 flex-column flex-lg-row no-gutters">
-              <div class="col-lg-4 mr-lg-5 card border-0 hover-change-image bg-hover-overlay">
-                <a href="{{ route('estate.show', $project->id) }}">
-                  <img src="/storage/{{ $project->image }}" class="card-img" alt="{{ $project->title }}">
-                
-                <div class="card-img-overlay p-2 d-flex flex-column">
-                </div>
-                </a>
-              </div>
-
-              <div class="media-body mt-5 mt-lg-0">
-                <h2 class="my-0">
-                  <a href="{{ route('estate.show', $project->id) }}" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $project->title }}</a>
-                </h2>
-                <p class="mb-2 font-weight-500 text-gray-light">{{ $project->address }}</p>
-                <p class="mb-6 mxw-571 ml-0">{{ $project->description }}</p>
-                
-                {{-- map height 200, width 100% --}}
-                <div class="map">
-                  {!! $project->map_embed_code !!}
-                </div>
-                {{-- End map --}}
-
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="d-flex justify-content-between">
-                      <form class="w-50 mr-1" action="{{ route('subscription') }}" method="POST" style="padding: 0; margin: 0">
-                        @csrf
-                        <input type="hidden" name="project_id" value="{{ $project->id }}">
-                        <button type="submit" class="btn btn-primary w-100 rounded-0 border-0" style="background: #EAF1F2; color: #3e3e42 !important;">Subscribe</button>
-                      </form>
           
-                      <form class="w-50" action="{{ route('inspection') }}" method="POST" style="padding: 0; margin: 0">
-                        @csrf
-                        <input type="hidden" name="project_id" value="{{ $project->id }}">
-                        <button type="submit" class="btn btn-primary w-100 rounded-0 border-0" style="background: #00A75A">Inspection</button>
-                      </form>
-                    </div>
+            @foreach ($projects as $project)
+            <div class="mb-5">
+              <div class="row">
+                <div class="col-md-4">
+                  <a href="{{ route('estate.show', $project->id) }}">
+                    <img src="/storage/{{ $project->image }}" class="card-img" alt="{{ $project->title }}">
+                  </a>
+                </div>
+  
+                <div class="col-md-4">
+                  <div>
+                    <h2 class="my-0">
+                      <a href="{{ route('estate.show', $project->id) }}" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $project->title }}</a>
+                    </h2>
+                    <p class="mb-2 font-weight-500 text-gray-light">{{ $project->address }}</p>
+                    <p class="mb-6 mxw-571 ml-0"><p>{{ Str::limit($project->description, 150) }}</p>
+                  </div>
+
+                  <div class="d-flex mb-3">
+                    <form action="{{ route('subscription') }}" method="POST" style="padding: 0; margin-bottom: 0; margin-right: 10px">
+                      @csrf
+                      <input type="hidden" name="project_id" value="{{ $project->id }}">
+                      <button type="submit" class="btn btn-primary w-100 rounded-0 border-0" style="background: #00A75A;">Subscribe</button>
+                    </form>
+        
+                    <form action="{{ route('inspection') }}" method="POST" style="padding: 0; margin-bottom: 0;">
+                      @csrf
+                      <input type="hidden" name="project_id" value="{{ $project->id }}">
+                      <button type="submit" class="btn btn-primary w-100 rounded-0 border-0" style="background: #00A75A">Book Inspection</button>
+                    </form>
                   </div>
                 </div>
 
+                <div class="col-md-4">
+                  {{-- map height 200, width 100% --}}
+                  @if ($project->map_embed_code)
+                    <div class="map-container">
+                      {!! $project->map_embed_code !!}
+                    </div>
+                    {{-- End map --}}
+                  @endif
+                  
+                </div>
               </div>
             </div>
             @endforeach
-
-          {{-- <nav class="pt-4">
-            <ul class="pagination rounded-active justify-content-center mb-0">
-              <li class="page-item"><a class="page-link" href="#"><i class="far fa-angle-double-left"></i></a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item active"><a class="page-link" href="#">2</a></li>
-              <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">...</li>
-              <li class="page-item"><a class="page-link" href="#">6</a></li>
-              <li class="page-item"><a class="page-link" href="#"><i
-						class="far fa-angle-double-right"></i></a></li>
-            </ul>
-          </nav> --}}
+          
           
         </div>
     </section>

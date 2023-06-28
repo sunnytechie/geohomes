@@ -39,8 +39,9 @@ class PagesController extends Controller
         $bathrooms = $request->bathrooms;
         $city = $request->city;
         $keyword = $request->key_word;
-        $properties = Property::orderBy('id', 'desc')->paginate(4);
-        $slideproperties = Property::orderBy('id', 'desc')->get();
+        $properties = Property::orderBy('id', 'desc')->get();
+        $slideproperties = Property::orderBy('id', 'desc')->paginate(4);
+        
         return view('pages.buyrent', compact('properties', 'slideproperties',
         'status',
         'type',

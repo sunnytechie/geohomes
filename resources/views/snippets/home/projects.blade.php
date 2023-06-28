@@ -29,7 +29,7 @@
               <h2 class="my-0 mt-1"><span class="fs-16 text-dark hover-primary lh-2">{{ $project->title }}</span>
               </h2>
               <p class="text-gray-light font-weight-500 mb-1">Location: {{ $project->address }}, {{ $project->state }}</p>
-              <p class="fs-17 font-weight-bold text-heading mb-0">{{ $project->price }}</p>
+              <p class="fs-17 font-weight-bold text-heading mb-0">#{{ $project->price }}</p>
             </div>
           </div>
           {{-- <div class="d-flex justify-content-between">

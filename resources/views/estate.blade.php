@@ -14,13 +14,36 @@
   }
 
   /* override GoogleMap settings */
-.MapPlaceHolder {
-    max-height: 200px;
+  .map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* Adjust this value to control the aspect ratio of the map */
+  height: 0;
+  overflow: hidden;
 }
 
-  .map {
-    margin-bottom: 20px; /* Adjust the margin as needed */
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  /* Adjust the breakpoint value as needed */
+  .map-container {
+    padding-bottom: 100%; /* Increase the aspect ratio for mobile */
   }
+}
+
+@media only screen and (min-width: 601px) {
+  /* Adjust the breakpoint value as needed */
+  .map-container {
+    padding-bottom: 75%; /* Restore the aspect ratio for desktop */
+  }
+}
+
 
   @media only screen and (max-width: 1024px) {
     .hide-from-mobile {
@@ -104,12 +127,18 @@
               <p class="mb-0"><i class="fal fa-map-marker-alt mr-2"></i>{{ $project->address }}, {{ $project->state }}, {{ $project->country }}</p>
             </div>
             <div class="mt-2 text-lg-right">
-              <p class="fs-22 text-heading font-weight-bold mb-0">{{ $project->price }}</p>
+              <p class="fs-22 text-heading font-weight-bold mb-0">#{{ $project->price }}</p>
               {{-- <p class="mb-0">$9350/SqFt</p> --}}
             </div>
           </div>
           <h4 class="fs-22 text-heading mt-6 mb-2">Description</h4>
           <p class="mb-0 lh-214">{{ $project->description }}</p>
+        </section>
+
+        <section>
+          <div class="map-container">
+            {!! $project->map_embed_code !!}
+          </div>
         </section>
       </article>
 

@@ -10,6 +10,13 @@ use Intervention\Image\Facades\Image;
 
 class AgentController extends Controller
 {
+    public function index() {
+        $agents = Agent::orderBy('id', 'asc')
+                        ->get();
+
+        return view('dashboard.agent.index', compact('agents'));
+    }
+    
     public function profile() {
         return view('account.agent.profile');
     }
@@ -160,10 +167,6 @@ class AgentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.

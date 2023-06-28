@@ -52,6 +52,7 @@ Route::resource('agents', 'App\Http\Controllers\AgentController')->middleware('a
 Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middleware('auth', 'verified');
 Route::resource('admins', 'App\Http\Controllers\AdminController')->middleware('auth', 'verified', 'isAdmin');
 Route::get('registered-users', [App\Http\Controllers\UserController::class, 'index'])->name('registered.users')->middleware('auth', 'verified', 'isAuditorAccountant');
+Route::get('registered-agents', [App\Http\Controllers\AgentController::class, 'index'])->name('registered.agents')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::resource('plots', 'App\Http\Controllers\PlotController')->middleware('auth', 'verified', 'isAdmin');
 
 //account
