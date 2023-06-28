@@ -32,14 +32,20 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        $properties = Property::where('user_id', Auth::user()->id)->count();
+        
         #$properties->count();
         $exists = Agent::where('user_id', Auth::user()->id)->exists();
         if ($exists) {
             //dd($properties);
-        if (Auth::user()->agent->subscribed == 0 && $properties == 3) {
-            return redirect()->route('agentupgrade');
-        }
+            if (Auth::user()->is_admin == 0) {
+                if (Auth::user()->manager == 0) {
+                    $properties = Property::where('user_id', Auth::user()->id)->count();
+                    if (Auth::user()->agent->subscribed == 0 && $properties >= 3) {
+                        //redirect to notice page
+                        return redirect()->route('agentupgrade');
+                    }
+                }
+            }
         
         return view('dashboard.property.new');
         } else {
@@ -54,10 +60,14 @@ class PropertyController extends Controller
     public function store(Request $request)
     {
         
-        $properties = Property::where('user_id', Auth::user()->id)->count();
-        if (Auth::user()->agent->subscribed == 0 && $properties >= 3) {
-            //redirect to notice page
-            return redirect()->route('agentupgrade');
+        if (Auth::user()->is_admin == 0) {
+            if (Auth::user()->manager == 0) {
+                $properties = Property::where('user_id', Auth::user()->id)->count();
+                if (Auth::user()->agent->subscribed == 0 && $properties >= 3) {
+                    //redirect to notice page
+                    return redirect()->route('agentupgrade');
+                }
+            }
         }
 
         //validate

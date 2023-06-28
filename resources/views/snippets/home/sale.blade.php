@@ -1,3 +1,10 @@
+<style>
+  .card-img-top img {
+    height: 350px; /* Adjust the height as per your requirements */
+    width: 100%;
+    object-fit: cover;
+  }
+</style>
 
 <section class="pt-lg-12 pb-lg-10 pb-3" style="padding-top: 50px;">
     <div class="container container-xxl">
@@ -23,7 +30,7 @@
           <div class="card shadow-hover-2" data-animate="zoomIn">
             <a href="{{ route('properties.show', $property->id) }}">
               <div class="hover-change-image bg-hover-overlay rounded-lg card-img-top">
-                <img src="/storage/{{ $property->image }}" alt="{{ $property->title }}">
+                <img src="/storage/{{ $property->image }}" alt="{{ $property->title }}" >
                 <div class="card-img-overlay p-2 d-flex flex-column">
                   <div>
                     <span class="badge mr-2 badge-orange">featured</span>
