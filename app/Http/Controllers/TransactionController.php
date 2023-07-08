@@ -69,6 +69,7 @@ class TransactionController extends Controller
         $plotName = $plot->title;
         $plotNumber = $plot->id;
         $projectAddress = $plot->project->address;
+        $projectState = $plot->project->state;
         $projectName = $plot->project->title;
 
         $compose = [
@@ -79,11 +80,12 @@ class TransactionController extends Controller
             'plotName' =>$plotName,
             'plotNumber' =>$plotNumber,
             'projectAddress' =>$projectAddress,
+            'projectState' =>$projectState,
             'projectName' =>$projectName,
         ];
 
         //send email
-        Mail::to($clientEmail)->send(new PlotEmail($clientName, $clientAddress, $clientCity, $clientZip, $plotName, $plotNumber, $projectAddress, $projectName));
+        Mail::to($clientEmail)->send(new PlotEmail($clientName, $clientAddress, $clientCity, $clientZip, $plotName, $plotNumber, $projectAddress, $projectState, $projectName));
         
         return redirect()->route('transaction')->with('message', "Plot allocation has just been made successfully, and email sent to user.");
     }

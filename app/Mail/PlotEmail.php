@@ -16,7 +16,7 @@ class PlotEmail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($clientName, $clientAddress, $clientCity, $clientZip, $plotName, $plotNumber, $projectAddress, $projectName)
+    public function __construct($clientName, $clientAddress, $clientCity, $clientZip, $plotName, $plotNumber, $projectAddress, $projectState, $projectName)
     {
         $this->compose = [
             'clientName' => $clientName,
@@ -26,6 +26,7 @@ class PlotEmail extends Mailable
             'plotName' =>$plotName,
             'plotNumber' =>$plotNumber,
             'projectAddress' =>$projectAddress,
+            'projectState' =>$projectState,
             'projectName' =>$projectName,
         ];
     }
