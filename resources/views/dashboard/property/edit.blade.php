@@ -139,7 +139,7 @@
                                                                 <div class="form-group mb-0">
                                                                     <label for="category" class="text-heading">Category</label>
                                                                     @php
-                                                                    $categories = ['Apartment', 'House', 'Office', 'Villa'];
+                                                                    $categories = ['Apartment', 'House', 'Office', 'Land'];
                                                                     @endphp
                                                                     <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" id="category" name="category">
 
@@ -631,7 +631,7 @@
                                                         <div class="form-group">
                                                             <label for="house_type" class="text-heading">House Type</label>
                                                             @php
-                                                                $types = ['detached duplex', 'semi detached duplex', 'bungalow', 'terraces', 'Apartments', 'land'];
+                                                                $types = ['Detached duplex', 'Semi detached duplex', 'Bungalow', 'Terraces', 'Apartments', 'Land'];
                                                             @endphp
                                                             <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" value="{{ old('house_type') }}" id="house_type" name="house_type">
                                                                 @foreach ($types as $type)

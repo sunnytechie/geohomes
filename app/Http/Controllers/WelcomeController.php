@@ -25,9 +25,9 @@ class WelcomeController extends Controller
         $apertmentUrl = route('page.sorted', ['parameter_name' => "Apartment"]);
         $houseUrl = route('page.sorted', ['parameter_name' => "House"]);
         $officeUrl = route('page.sorted', ['parameter_name' => "Office"]);
-        $villaUrl = route('page.sorted', ['parameter_name' => "Villa"]);
+        $landUrl = route('page.sorted', ['parameter_name' => "Land"]);
 
-        return view('welcome', compact('projects', 'apertmentUrl', 'houseUrl', 'officeUrl', 'villaUrl', 'destinations', 'propertiesForSale', 'propertiesForRent'));
+        return view('welcome', compact('projects', 'apertmentUrl', 'houseUrl', 'officeUrl', 'landUrl', 'destinations', 'propertiesForSale', 'propertiesForRent'));
     }
 
     public function estate($id) {

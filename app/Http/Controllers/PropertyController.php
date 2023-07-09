@@ -259,7 +259,7 @@ class PropertyController extends Controller
             'structure_type' => '',
             'floors_no' => '',
             'house_type' => '',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'file1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'file2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'file3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',

@@ -50,12 +50,12 @@
               </div>
 
               <div class="box px-0 py-6">
-                <a href="{{ $villaUrl }}"
+                <a href="{{ $landUrl }}"
                            class="card border-0 align-items-center justify-content-center pt-7 pb-5 px-3 shadow-hover-3 bg-transparent bg-hover-white text-decoration-none">
                   <img src="{{ asset('assets/images/eco-house.png') }}" class="card-img-top"
-                                 alt="Villa">
+                                 alt="Land">
                   <div class="card-body px-0 pt-5 pb-0">
-                    <h4 class="card-title fs-16 lh-2 text-dark mb-0">Villa</h4>
+                    <h4 class="card-title fs-16 lh-2 text-dark mb-0">Land</h4>
                   </div>
                 </a>
               </div>

@@ -129,7 +129,7 @@
                                                                 <div class="form-group mb-0">
                                                                     <label for="category" class="text-heading">Category</label>
                                                                     @php
-                                                                        $categories = ['Apartment', 'House', 'Office', 'Villa'];
+                                                                        $categories = ['Apartment', 'House', 'Office', 'Land'];
                                                                     @endphp
                                                                     <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" id="category" name="category">
                                                                         @foreach ($categories as $item)
