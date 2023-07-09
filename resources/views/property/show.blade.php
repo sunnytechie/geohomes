@@ -33,8 +33,8 @@
 <main id="content">
     <section>
       <div class="spacer mt-15 hide-from-mobile"></div>
-      <div class="container">
-        {{-- <nav aria-label="breadcrumb">
+      {{--<div class="container">
+         <nav aria-label="breadcrumb">
           <ol class="breadcrumb pt-lg-0 pb-3">
             <li class="breadcrumb-item fs-12 letter-spacing-087">
               <a href=".">Home</a>
@@ -49,45 +49,46 @@
      
       <div class="container-fluid">
         <div class="position-relative" data-animate="zoomIn">
-          
-        <div class="row galleries m-n1">
-          <div class="col-lg-6 p-1">
-            <div class="item item-size-4-3">
-              <div class="card p-0">
-                {{-- <div class="card p-0 hover-zoom-in"> --}}
-                <a href="/storage/{{ $property->image }}" class="card-img"
-                      data-gtf-mfp="true"
-                      data-gallery-id="01"
-                      style="background-image:url('/storage/{{ $property->image }}')">
-                </a>
+            
+            <div class="row galleries m-n1">
+              <div class="col-lg-6 p-1">
+                <div class="item item-size-4-3">
+                  <div class="card p-0">
+                    {{-- <div class="card p-0 hover-zoom-in"> --}}
+                    <a href="/storage/{{ $property->image }}" class="card-img"
+                          data-gtf-mfp="true"
+                          data-gallery-id="01"
+                          style="background-image:url('/storage/{{ $property->image }}')">
+                    </a>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-6 p-1">
-            <div class="row m-n1">
-              @php
-                  $images = ["$property->file1", "$property->file2", "$property->file3", "$property->file4"];
-              @endphp
-              @foreach ($images as $image)
-              @if ($image)
-                  <div class="col-md-6 p-1">
-                      <div class="item item-size-4-3">
-                          <div class="card p-0 hover-zoom-in">
-                              <a href="/storage/{{ $image }}" class="card-img"
-                                data-gtf-mfp="true"
-                                data-gallery-id="01"
-                                style="background-image:url('/storage/{{ $image }}')">
-                              </a>
+              <div class="col-lg-6 p-1">
+                <div class="row m-n1">
+                  @php
+                      $images = ["$property->file1", "$property->file2", "$property->file3", "$property->file4"];
+                  @endphp
+                  @foreach ($images as $image)
+                  @if ($image)
+                      <div class="col-md-6 p-1">
+                          <div class="item item-size-4-3">
+                              <div class="card p-0 hover-zoom-in">
+                                  <a href="/storage/{{ $image }}" class="card-img"
+                                    data-gtf-mfp="true"
+                                    data-gallery-id="01"
+                                    style="background-image:url('/storage/{{ $image }}')">
+                                  </a>
+                              </div>
                           </div>
                       </div>
-                  </div>
-              @endif
-              @endforeach
+                  @endif
+                  @endforeach
+                </div>
+              </div>
+              </div>
             </div>
-          </div>
         </div>
       </div>
-    </div>
   </section>
   
   <div class="primary-content pt-8">
@@ -117,22 +118,22 @@
           </section>
 
           <section class="pt-6 border-bottom">
-            <h4 class="fs-22 text-heading mb-6">Facts and Features</h4>
+            <h4 class="fs-22 text-heading mb-6">Features</h4>
             <div class="row">
               <div class="col-lg-3 col-sm-4 mb-6">
                 <div class="media">
-                  <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
+                  {{-- <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
                     <svg class="icon icon-family fs-32 text-primary">
                       <use xlink:href="#icon-family"></use>
                     </svg>
-                  </div>
+                  </div> --}}
                   <div class="media-body">
                     <h5 class="my-1 fs-14 text-uppercase letter-spacing-093 font-weight-normal">Type</h5>
                     <p class="mb-0 fs-13 font-weight-bold text-heading">{{ $property->house_type }}</p>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-sm-4 mb-6">
+              {{-- <div class="col-lg-3 col-sm-4 mb-6">
                 <div class="media">
                   <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
                     <svg class="icon icon-year fs-32 text-primary">
@@ -183,8 +184,8 @@
                     <p class="mb-0 fs-13 font-weight-bold text-heading">{{ $property->bedrooms }}</p>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-3 col-sm-4 mb-6">
+              </div> --}}
+              {{-- <div class="col-lg-3 col-sm-4 mb-6">
                 <div class="media">
                   <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
                     <svg class="icon icon-sofa fs-32 text-primary">
@@ -196,8 +197,8 @@
                     <p class="mb-0 fs-13 font-weight-bold text-heading">{{ $property->bathrooms }}</p>
                   </div>
                 </div>
-              </div>
-              <div class="col-lg-3 col-sm-4 mb-6">
+              </div> --}}
+              {{-- <div class="col-lg-3 col-sm-4 mb-6">
                 <div class="media">
                   <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
                     <svg class="icon icon-Garage fs-32 text-primary">
@@ -209,14 +210,14 @@
                     <p class="mb-0 fs-13 font-weight-bold text-heading">{{ $property->garages }}</p>
                   </div>
                 </div>
-              </div>
+              </div> --}}
               <div class="col-lg-3 col-sm-4 mb-6">
                 <div class="media">
-                  <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
+                  {{-- <div class="p-2 shadow-xxs-1 rounded-lg mr-2">
                     <svg class="icon icon-status fs-32 text-primary">
                       <use xlink:href="#icon-status"></use>
                     </svg>
-                  </div>
+                  </div> --}}
                   <div class="media-body">
                     <h5 class="my-1 fs-14 text-uppercase letter-spacing-093 font-weight-normal">Status</h5>
                     <p class="mb-0 fs-13 font-weight-bold text-heading">Active</p>
@@ -246,7 +247,7 @@
                 <dt class="w-110px fs-14 font-weight-500 text-heading pr-2">Property status</dt>
                 <dd>For Sale</dd>
               </dl>
-              <dl class="col-sm-6 mb-0 d-flex">
+              {{-- <dl class="col-sm-6 mb-0 d-flex">
                 <dt class="w-110px fs-14 font-weight-500 text-heading pr-2">Rooms</dt>
                 <dd>{{ $property->rooms }}</dd>
               </dl>
@@ -277,7 +278,7 @@
               <dl class="col-sm-6 mb-0 d-flex">
                 <dt class="w-110px fs-14 font-weight-500 text-heading pr-2">Year build</dt>
                 <dd>{{ $property->year_built }}</dd>
-              </dl>
+              </dl> --}}
               <dl class="offset-sm-6 col-sm-6 mb-0 d-flex">
                 <dt class="w-110px fs-14 font-weight-500 text-heading pr-2">Label</dt>
                 <dd>{{ $property->lint_in }}</dd>

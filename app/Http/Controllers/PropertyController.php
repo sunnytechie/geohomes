@@ -82,21 +82,7 @@ class PropertyController extends Controller
             'city' => 'required',
             'zip' => 'required',
             'country' => 'required',
-            'size_in_fit' => '',
-            'lot_size_in_fit' => '',
-            'rooms' => '',
-            'bedrooms' => '',
-            'bathrooms' => '',
-            'garages' => '',
-            'garage_size' => '',
-            'year_built' => '',
-            'available_from' => 'nullable|date',
-            'basement' => '',
             'extra_details' => '',
-            'roofing' => '',
-            'exterior_material' => '',
-            'structure_type' => '',
-            'floors_no' => '',
             'house_type' => '',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'file1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
@@ -154,7 +140,7 @@ class PropertyController extends Controller
                     });
                 $file4->save();
             }
-       
+
 
         $property = new Property();
         $property->user_id = Auth()->user()->id;
@@ -168,21 +154,7 @@ class PropertyController extends Controller
         $property->city = $request->city;
         $property->zip = $request->zip;
         $property->country = $request->country;
-        $property->size_in_fit = $request->size_in_fit;
-        $property->lot_size_in_fit = $request->lot_size_in_fit;
-        $property->rooms = $request->rooms;
-        $property->bedrooms = $request->bedrooms;
-        $property->bathrooms = $request->bathrooms;
-        $property->garages = $request->garages;
-        $property->garage_size = $request->garage_size;
-        $property->year_built = $request->year_built;
-        $property->available_from = $request->available_from;
-        $property->basement = $request->basement;
         $property->extra_details = $request->extra_details;
-        $property->roofing = $request->roofing;
-        $property->exterior_material = $request->exterior_material;
-        $property->structure_type = $request->structure_type;
-        $property->floors_no = $request->floors_no;
         $property->house_type = $request->house_type;
         $property->image = $imagePath;
         if ($request->hasFile('file1')) {
@@ -243,21 +215,7 @@ class PropertyController extends Controller
             'city' => 'required',
             'zip' => 'required',
             'country' => 'required',
-            'size_in_fit' => '',
-            'lot_size_in_fit' => '',
-            'rooms' => '',
-            'bedrooms' => '',
-            'bathrooms' => '',
-            'garages' => '',
-            'garage_size' => '',
-            'year_built' => '',
-            'available_from' => 'nullable|date',
-            'basement' => '',
             'extra_details' => '',
-            'roofing' => '',
-            'exterior_material' => '',
-            'structure_type' => '',
-            'floors_no' => '',
             'house_type' => '',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'file1' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
@@ -311,21 +269,7 @@ class PropertyController extends Controller
         $property->city = $request->city;
         $property->zip = $request->zip;
         $property->country = $request->country;
-        $property->size_in_fit = $request->size_in_fit;
-        $property->lot_size_in_fit = $request->lot_size_in_fit;
-        $property->rooms = $request->rooms;
-        $property->bedrooms = $request->bedrooms;
-        $property->bathrooms = $request->bathrooms;
-        $property->garages = $request->garages;
-        $property->garage_size = $request->garage_size;
-        $property->year_built = $request->year_built;
-        $property->available_from = $request->available_from;
-        $property->basement = $request->basement;
         $property->extra_details = $request->extra_details;
-        $property->roofing = $request->roofing;
-        $property->exterior_material = $request->exterior_material;
-        $property->structure_type = $request->structure_type;
-        $property->floors_no = $request->floors_no;
         $property->house_type = $request->house_type;
         if ($request->hasFile('image')) {
         $property->image = $imagePath;

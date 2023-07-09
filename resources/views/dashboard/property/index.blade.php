@@ -86,8 +86,8 @@
               </td>
               <td class="align-middle">
                 <div class="d-flex align-items-center">
-                  <div class="usr-img-frame mr-2 rounded-circle">
-                    <img alt="avatar" class="img-fluid rounded-circle w-30px"
+                  <div class="usr-img-frame mr-2">
+                    <img alt="avatar" class="img-fluid w-30px"
                              src="/storage/{{ $property->image }}">
                   </div>
                   <p class="align-self-center mb-0 user-name">{{ $property->title }}</p>

@@ -68,7 +68,7 @@
                                 <div id="description-collapse" class="collapse show collapsible" aria-labelledby="heading-description" data-parent="#collapse-tabs-accordion">
                                     <div class="card-body py-4 py-md-0 px-0">
                                         <div class="row">
-                                            <div class="col-lg-8 offset-md-2">
+                                            <div class="col-md-12">
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
                                                         <h3 class="card-title mb-0 text-heading fs-22 lh-15">Property
@@ -201,7 +201,7 @@
                                     <div class="card-body py-4 py-md-0 px-0">
                                         <div class="row">
 
-                                            <div class="col-lg-8 offset-md-2">
+                                            <div class="col-md-12">
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
                                                         <h3 class="card-title mb-0 text-heading fs-22 lh-15">Upload
@@ -334,7 +334,7 @@
                                 <div id="location-collapse" class="collapse collapsible" aria-labelledby="heading-location" data-parent="#collapse-tabs-accordion">
                                     <div class="card-body py-4 py-md-0 px-0">
                                         <div class="row">
-                                            <div class="col-lg-8 offset-md-2">
+                                            <div class="col-md-12">
                                                 <div class="card mb-6">
                                                     <div class="card-body p-6">
                                                         <h3 class="card-title mb-0 text-heading fs-22 lh-15">Listing
@@ -439,146 +439,16 @@
                                                 </h3>
                                                 <p class="card-text mb-5">comprehensive and captivating property
                                                     details.</p>
+                                                    
+                                               
+
                                                 <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="size-in-ft" class="text-heading">Size in ft
-                                                                <span class="text-muted">(only numbers)</span></label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="size_in_fit" value="{{ $property->size_in_fit ?? old('size_in_fit') }}" name="size_in_fit">
 
-                                                            @if ($errors->has('size_in_fit'))
-                                                            <div id="size_in_fitHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('size_in_fit') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="lot_size_in_fit" class="text-heading">Lot size
-                                                                in ft <span class="text-muted">(only
-                                                                    numbers)</span></label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="lot_size_in_fit" value="{{ $property->lot_size_in_fit ?? old('lot_size_in_fit') }}" name="lot_size_in_fit">
-
-                                                            @if ($errors->has('lot_size_in_fit'))
-                                                            <div id="lot_size_in_fitHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('lot_size_in_fit') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="room" class="text-heading">Rooms</label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="room" name="rooms" value="{{ $property->rooms ?? old('rooms') }}">
-
-                                                            @if ($errors->has('rooms'))
-                                                            <div id="roomsHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('rooms') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="bedrooms" class="text-heading">Bedrooms</label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="bedrooms" name="bedrooms" value="{{ $property->bedrooms ?? old('bedrooms') }}">
-
-                                                            @if ($errors->has('bedrooms'))
-                                                            <div id="size_in_fitHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('size_in_fit') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="bathrooms" class="text-heading">Bathrooms</label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="bathrooms" name="bathrooms" value="{{ $property->bathrooms ?? old('bathrooms') }}">
-
-                                                            @if ($errors->has('bathrooms'))
-                                                            <div id="bathroomsHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('bathrooms') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="garages" class="text-heading">Garages</label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="garages" name="garages" value="{{ $property->garages ?? old('garages') }}">
-
-                                                            @if ($errors->has('garages'))
-                                                            <div id="garagesHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('garages') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="garage-size" class="text-heading">Garage
-                                                                size</label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="garage_size" name="garage_size" value="{{ $property->garage_size ?? old('garage_size') }}">
-
-                                                            @if ($errors->has('garage_size'))
-                                                            <div id="garage_sizeHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('garage_size') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="year-built" class="text-heading">Year built
-                                                                <span class="text-muted">(numeric)</span></label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="year_built" name="year_built" value="{{ $property->year_built ?? old('year_built') }}">
-
-                                                            @if ($errors->has('year_built'))
-                                                            <div id="year_builtHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('year_built') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="available_from" class="text-heading">Available
-                                                                from
-                                                                <span class="text-muted">(date)</span></label>
-                                                            <input type="date" class="form-control form-control-lg border-0" id="available_from" name="available_from" value="{{ $property->available_from ?? old('available_from') }}">
-
-                                                            @if ($errors->has('available_from'))
-                                                            <div id="available_fromHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('available_from') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="basement" class="text-heading">Basement</label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="basement" name="basement" value="{{ $property->basement ?? old('basement') }}">
-
-                                                            @if ($errors->has('basement'))
-                                                            <div id="basementHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('basement') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
+                                                    <div class="col-lg-12">
                                                         <div class="form-group">
                                                             <label for="extra_details" class="text-heading">Extra
                                                                 details</label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="extra_details" name="extra_details" value="{{ $property->extra_details ?? old('extra_details') }}">
+                                                            <textarea class="form-control form-control-lg border-0" id="extra_details" name="extra_details" value="{{ $property->extra_details ?? old('extra_details') }}">{{ $property->extra_details ?? old('extra_details') }}</textarea>
 
                                                             @if ($errors->has('extra_details'))
                                                             <div id="extra_detailsHelp" class="form-text text-danger">
@@ -587,47 +457,8 @@
                                                             @endif
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-4">
-                                                        <div class="form-group">
-                                                            <label for="roofing" class="text-heading">Roofing</label>
-                                                            <input type="text" class="form-control form-control-lg border-0" id="roofing" name="roofing" value="{{ $property->roofing ?? old('roofing') }}">
 
-                                                            @if ($errors->has('roofing'))
-                                                            <div id="roofingHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('roofing') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="form-group">
-                                                            <label for="floors_no" class="text-heading">Floors
-                                                                no</label>
-                                                            @php
-                                                            $floors = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-                                                            @endphp
-                                                            <select class="form-control border-0 shadow-none form-control-lg selectpicker" title="Select" data-style="btn-lg py-2 h-52" value="{{ old('floors_no') }}" id="floors_no" name="floors_no">
-                                                                @foreach ($floors as $floor)
-                                                                <option value="{{ $floor }}" {{ $floor == $property->floors_no ? 'selected' : '' }}>
-                                                                    {{ $floor }}
-                                                                </option>
-                                                                @endforeach
-                                                            </select>
-
-                                                            @if ($errors->has('floors_no'))
-                                                            <div id="floors_noHelp" class="form-text text-danger">
-                                                                <div>{{ $errors->first('floors_no') }}</div>
-                                                            </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-12">
                                                         <div class="form-group">
                                                             <label for="house_type" class="text-heading">House Type</label>
                                                             @php
@@ -658,7 +489,7 @@
                                             <a href="#" class="btn btn-lg bg-hover-white border rounded-lg mb-3 mr-auto prev-button">
                                                 <span class="d-inline-block text-primary mr-2 fs-16"><i class="fal fa-long-arrow-left"></i></span>Prev step
                                             </a>
-                                            <button class="btn btn-lg btn-primary mb-3" type="submit">Submit property
+                                            <button class="btn btn-lg btn-primary mb-3" type="submit">Update property details
                                             </button>
                                         </div>
                                     </div>
