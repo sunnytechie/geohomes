@@ -27,7 +27,7 @@
         </a>
         <div class="mxw-751">
           <h1 class="text-white fs-30 fs-md-42 lh-15 font-weight-normal mt-4 mb-10" data-animate="fadeInRight">We
-            A home of innovative solutions.</h1>
+            We are a home of innovative solutions.</h1>
         </div>
       </div>
     </section>
@@ -39,17 +39,22 @@
           <div class="card-body p-6 px-lg-14 py-lg-13">
             <p class="letter-spacing-263 text-uppercase text-primary mb-6 font-weight-500 text-center">welcome to
               Geohome</p>
-            <h2 class="text-heading mb-4 fs-22 fs-md-32 text-center lh-16 px-6">We see change as opportunity, not a
-              threat and
-              start
-              with the
-              belief that
-              there is
-              a better way. </h2>
-            <p class="text-center px-lg-11 fs-15 lh-17 mb-11">
-              Geohomes Services Limited is a leading real estate development and consulting firm. We take the position of a customer-focused, and solution-driven company eager to provide what our clients need to achieve their dreams.
-            </p>
-            <p class="letter-spacing-263 text-uppercase mb-4 font-weight-500 text-center">Jump to</p>
+            <h2 class="text-heading mb-4 fs-22 fs-md-32 text-center lh-16 px-6">
+              {{-- We see change as opportunity, not a threat and start with the belief that there is a better way. --}}
+              Geohomes Services Limited is a private limited liability company duly registered under the Companies and Allied Matters Act of 1990 on 12th August, 2020 with RC. No. 1696212.
+            </h2>
+              
+              
+        
+          {{-- Geohomes Services Limited is a leading real estate development and consulting firm. We take the position of a customer-focused, and solution-driven company eager to provide what our clients need to achieve their dreams. --}}
+          <p class="text-center px-lg-11 fs-15">We are a leading real estate development and consulting firm with qualified, experienced Estate Developer, Managers and Civil Engineers etc. We take the position of a customer-focused and solution driven company eager to provide what is needed by our clientele to achieving their dream.
+          </p class="text-center px-lg-11 fs-15">
+          <p class="text-center px-lg-11 fs-15">We major on constructions, supply of Raw Materials, General Merchandise and General Contracts.
+          </p class="text-center px-lg-11 fs-15">
+          <p class="text-center px-lg-11 fs-15">Geohomes has national Affiliation with production Companies in Nigeria and International which is a distinct advantage over Competitors. We have grown successfully executing and completing high profile jobs for Public Agencies which is attributed to our team of professionals.
+          </p>
+          <p class="text-center px-lg-11 fs-15">Our quality control policies are superior and we are committed to swift delivery of any kind of construction, real estate, trading excellence, clients and funding as major drivers.</p>
+            <p class="letter-spacing-263 text-uppercase mb-4 mt-10 font-weight-500 text-center">Jump to</p>
             <div class="d-flex flex-wrap justify-content-center">
               <a href="#service" class="btn btn-lg bg-gray-01 text-body mr-4 mb-4 hover-primary">Services</a>
               <a href="#leadership" class="btn btn-lg bg-gray-01 text-body mr-4 mb-4 hover-primary">Leadership</a>
@@ -60,8 +65,8 @@
           </div>
         </div>
         <h2 class="text-dark lh-1625 text-center mb-2 fs-22 fs-md-32">Our services</h2>
-        <p class="mxw-751 text-center mb-1 px-8">Our work and services pass every global standard and are championed by experts and experienced professionals who are trained to give you the best. 
-          With over 25 years on the scene and serving more than 2113 satisfied clients, We have built a reputation that is based on professional service delivery, customer satisfaction, integrity, and quality.
+        <p class="mxw-751 text-center mb-1 px-8">
+          Our work and services pass every global standard and we are championed...
           </p>
         <div class="row mt-8">
           <div class="col-md-4 mb-6 mb-lg-0">
@@ -71,7 +76,7 @@
                     <img width="70" height="70" src="{{ asset('assets/images/gh1.png') }}" alt="">
                 </span>
               </div>
-              <div class="card-body px-0 pt-6 pb-0 text-center">
+              <div class="card-body px-0 pt-6 pb-0 text-left">
                 <h4 class="card-title fs-18 lh-17 text-dark mb-2">Property Management</h4>
                 <p class="card-text px-2">
                   From the planning and design phase through closeout and occupancy, a Geohomes project manager is in charge of all phases of a building's development. 
@@ -86,10 +91,12 @@
                     <img width="70" height="70" src="{{ asset('assets/images/gh2.png') }}" alt="">
                 </span>
               </div>
-              <div class="card-body px-0 pt-6 pb-0 text-center">
+              <div class="card-body px-0 pt-6 pb-0 text-left">
                 <h4 class="card-title fs-18 lh-17 text-dark mb-2">Mortgage Service</h4>
                 <p class="card-text px-2">
-                  Our work and services pass every global standard and are championed by experts and experienced professionals who are trained to give you the best. 
+                  Our Mortgage Services providers give you the right mortgage terms, rates and payment options that suits the needs of our clientele. Here, we assist and encourage our client to own homes through mortgage payment. 
+We have a tailor-made plans that are prerequisite to mortgage properties because we understand the benefit that comes with home ownership.
+
                 </p>
               </div>
             </div>
@@ -101,10 +108,13 @@
                     <img width="70" height="70" src="{{ asset('assets/images/gh3.png') }}" alt="">
                 </span>
               </div>
-              <div class="card-body px-0 pt-6 text-center pb-0">
+              <div class="card-body px-0 pt-6 text-left pb-0">
                 <h4 class="card-title fs-18 lh-17 text-dark mb-2">Consulting Service</h4>
                 <p class="card-text px-2">
-                  At Geohomes, we provide clarity, direction, and simplicity to your real estate dreams. 
+                  At Geohomes, we provide clarity, direction and simplicity to client on their most critical issues and opportunities to actualize their dream. We implement the best kept strategies to solving all real estate challenges. 
+Geohomesgroup.com/about-us#services (After the map/office location)
+Geohomes is an estate agency with cutting edge innovative solutions in property development, property listing and consultancy. Our services passes every global standard and are championed by experts and experienced professionals who are trained to give you the best.
+
                 </p>
               </div>
             </div>
