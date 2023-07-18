@@ -90,18 +90,15 @@ class PaymentController extends Controller
     public function subscription(Request $request) {
         //dd($request->all());
         $tx_ref = Paystack::genTranxRef();
-        $transaction = new Transaction();
-        $transaction->project_id = $request->project_id;
-        $transaction->user_id = Auth::user()->id;
-        $transaction->tx_ref = $tx_ref;
-        $transaction->save();
+        $project = $request->project_id;
+        $plots = $request->plots;
 
         $data = array(
             "amount" => 20000 * 100,
             "reference" => $tx_ref,
             "email" => Auth::user()->email,
             "currency" => "NGN",
-            "orderID" => now(),
+            "callback_url" => "https://geohomesgroup.com/payment/subscriber/callback/$project/$plots",
         );
     
         return Paystack::getAuthorizationUrl($data)->redirectNow();

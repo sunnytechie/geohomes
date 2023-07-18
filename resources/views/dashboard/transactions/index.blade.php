@@ -61,10 +61,11 @@
         <table id="invoice-list" class="table table-hover bg-white border rounded-lg">
           <thead>
             <tr role="row">
-              <th class="py-2">Subscriber Info</th>
+              <th class="py-2">@if (Auth::user()->is_admin)Subscriber Info @else Reference @endif</th>
               <th class="py-2">Project Name</th>
               <th class="py-2">Paid on</th>
-              <th class="no-sort py-2">Plot</th>
+              <th class="no-sort py-2">Allocations</th>
+              <th class="no-sort py-2">Number of Plots</th>
             </tr>
           </thead>
           <tbody>
@@ -113,6 +114,8 @@
                   @endif
                 @endif
               </td>
+
+              <td class="align-middle">{{ $transaction->plots }}</td>
             </tr>
             @endforeach
           </tbody>

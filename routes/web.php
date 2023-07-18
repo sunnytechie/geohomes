@@ -72,6 +72,9 @@ Route::post('/payment/inspection', [App\Http\Controllers\PaymentController::clas
 Route::get('/payment/agent', [App\Http\Controllers\PaymentController::class, 'agent'])->name('agent')->middleware('auth', 'verified');
 Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('handleGatewayCallback')->middleware('auth', 'verified');
 
+//Callback route
+Route::get('/payment/subscriber/callback/{project}/{plot}', [App\Http\Controllers\CallbackController::class, 'subscribe'])->name('subscribe.handleGatewayCallback')->middleware('auth', 'verified');
+
 //Error page
 Route::get('/not-found', [App\Http\Controllers\WelcomeController::class, 'error'])->name('error404');
 Route::get('/agent-limit', [App\Http\Controllers\AgentController::class, 'agentupgrade'])->name('agentupgrade')->middleware('auth', 'isAgent');
