@@ -64,8 +64,9 @@
               <th class="py-2">@if (Auth::user()->is_admin)Subscriber Info @else Reference @endif</th>
               <th class="py-2">Project Name</th>
               <th class="py-2">Paid on</th>
-              <th class="no-sort py-2">Allocations</th>
               <th class="no-sort py-2">Number of Plots</th>
+              <th class="no-sort py-2">Allocation Status</th>
+              <th class="no-sort py-2">Expiry Date</th>
             </tr>
           </thead>
           <tbody>
@@ -73,14 +74,18 @@
             @foreach ($transactions as $transaction)
             <tr role="row">
               <td class="align-middle">
-                <div class="d-flex align-items-left">
+                <div class="align-items-left">
                   @if (Auth::user()->is_admin)
-                  <p class="align-self-center mb-0 user-name" style="font-size: 14px">{{ $transaction->user->name }}<br>
+                  <span style="font-size: 10px">{{ $transaction->user->email }}</span><br>
+                  {{-- <p class="align-self-center mb-0 user-name" style="font-size: 14px">{{ $transaction->user->name }}<br>
                     <span style="font-size: 10px">{{ $transaction->user->email }}</span><br>
-                  <span style="font-size: 10px">{{ $transaction->user->phone }}</span><br>
+                  <span style="font-size: 10px">{{ $transaction->user->phone }}</span><br> --}}
                   @endif
-                  <span style="font-size: 12px">Transaction Ref: {{ $transaction->tx_ref }}</span>
-                </p>
+                  <span style="font-size: 12px">TX.Ref: {{ $transaction->tx_ref }}</span><br>
+                  @if ($transaction->status != "Pending")
+                      <a style="background: #00A75A; color: #fff" class="btn btn-sm" href="/pdfs/{{ $transaction->pdf }}" download>Download Allocation Paper</a>
+                  @endif
+               
                   
                 </div>
               </td>
@@ -93,29 +98,52 @@
 
               <td class="align-middle"><span style="font-size: 14px" class="text-success pr-1"></span>{{ \Carbon\Carbon::parse($transaction->created_at)->format('d M Y') }}</td>
               
+              <td class="align-middle">{{ $transaction->plots }}</td>
+
               <td class="align-middle">
                 @if (Auth::user()->is_admin)
                   <form class="p-0 m-0" method="GET" action="{{ route('allocate') }}">
                       @csrf
                       <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
                       <button type="submit" class="btn btn-sm badge badge-green" style="border-top-left-radius: 0; border-bottom-left-radius: 0">
-                        @if ($transaction->plot_id == null)
+                        @if ($transaction->allocation_status == "Pending")
                           Allocate Plot
                             @else
-                           {{ $transaction->plot->title }}
+                           {{ $transaction->allocation_status }}
                         @endif
                       </button>
                   </form> 
                 @else
-                  @if ($transaction->plot_id == null)
+                  @if ($transaction->allocation_status == "Pending")
                     Not Allocated
                     @else
-                    {{ $transaction->plot->title }}
+                    {{ $transaction->allocation_status }}
                   @endif
                 @endif
               </td>
 
-              <td class="align-middle">{{ $transaction->plots }}</td>
+              <td class="align-middle">
+                @if ($transaction->allocation_status == "Pending")
+                    @if (Auth::user()->is_admin || Auth::user()->manager)
+                    <form class="p-0 m-0" method="GET" action="{{ route('allocate') }}">
+                      @csrf
+                      <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
+                        <button type="submit" class="btn btn-sm badge badge-green" style="border-top-left-radius: 0; border-bottom-left-radius: 0">
+                          @if ($transaction->allocation_status == "Pending")
+                            Allocate Plot
+                              @else
+                            Expires: {{ $transaction->expiry_date }}
+                          @endif
+                        </button>
+                    </form> 
+                        @else
+                        Allocation in Review.
+                    @endif
+                @else
+                Expires: {{ $transaction->expiry_date }}
+                @endif
+              </td>
+            
             </tr>
             @endforeach
           </tbody>

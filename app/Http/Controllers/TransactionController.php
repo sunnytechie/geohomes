@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Plot;
 use App\Mail\PlotEmail;
+use App\Models\Project;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -44,16 +46,58 @@ class TransactionController extends Controller
 
     public function allocatePost(Request $request) {
         //dd($request->all());
-        $transaction = Transaction::find($request->transaction_id);
-        $transaction->plot_id = $request->plot;
-        $transaction->save();
+        // Validate the request
+        $request->validate([
+            'pdf' => 'nullable|mimes:pdf',
+        ]);
+
+        // Check if a file was uploaded
+        if ($request->hasFile('pdf')) {
+            // Get the uploaded file
+            $uploadedFile = $request->file('pdf');
+
+            // Generate a unique name for the file using a combination of timestamp and a random string
+            $uniqueFileName = time() . '_' . uniqid() . '.' . $uploadedFile->getClientOriginalExtension();
+
+            // Move the uploaded file to the public folder with the unique name
+            $uploadedFile->move(public_path('pdfs'), $uniqueFileName);
+
+            // Optionally, you may also want to store the unique name in the database for later reference
+            // For example, if you have a 'pdfs' table with a 'filename' column, you can save it like this:
+            // DB::table('pdfs')->insert(['filename' => $uniqueFileName]);
+
+            // Now you can use $uniqueFileName to access the file later if needed
+        }
+        //end
         
-        //dd($transaction);
-        $plot = Plot::find($request->plot);
-        //dd($plot);
-        $plot->user_id = $transaction->user_id;
-        $plot->allocation_status = 1;
-        $plot->save();
+        $plots = $request->input('plots', []);
+        $countPlotSelected = count($plots);
+
+        $transaction = Transaction::find($request->transaction_id);
+
+        if ($countPlotSelected > $transaction->plots) {
+            return back()->withInput()->with('message', "Your selections are more than the plots the user subscribed for, Please review and and submit again.");
+        }
+
+        //Update transaction info
+        $expiry_date = Carbon::now()->addDays(15);
+        $transaction = Transaction::find($request->transaction_id);
+        //count allocation and make sure plots are not above the the number
+        $transaction->allocation_status = "Allocated";
+        $transaction->expiry_date = $expiry_date->toDateString();
+        $transaction->pdf = $uniqueFileName;
+        $transaction->save();
+
+        $plots = $request->input('plots', []);
+            
+        foreach ($plots as $plot) {
+            $plot = Plot::find($plot);
+            $plot->user_id = $transaction->user_id;
+            $plot->allocation_status = 1;
+            $plot->transaction_id = $transaction->id;
+            $plot->available_after = $expiry_date->toDateString();
+            $plot->save();
+        }
 
         //send email
         ####
@@ -65,12 +109,16 @@ class TransactionController extends Controller
         $clientCity = $transaction->user->city;
         $clientZip = $transaction->user->zip;
 
+        //find the project details
+        $project = Project::find($transaction->project_id);
+
         //plot info
-        $plotName = $plot->title;
-        $plotNumber = $plot->id;
-        $projectAddress = $plot->project->address;
-        $projectState = $plot->project->state;
-        $projectName = $plot->project->title;
+        //Assign Plot infomation
+        $plotName = $request->plot_names;
+        $plotNumber = $request->plot_id;
+        $projectAddress = $project->address;
+        $projectState = $project->state;
+        $projectName = $project->title;
 
         $compose = [
             'clientName' => $clientName,

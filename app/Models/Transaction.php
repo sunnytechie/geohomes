@@ -15,9 +15,9 @@ class Transaction extends Model
         return $this->belongsTo('App\Models\User');
     }
 
-    public function plot()
+    public function plots()
     {
-        return $this->belongsTo('App\Models\Plot');
+        return $this->hasMany('App\Models\Plot');
     }
 
     public function project()

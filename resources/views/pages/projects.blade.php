@@ -100,7 +100,8 @@
                       <a href="{{ route('estate.show', $project->id) }}" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $project->title }}</a>
                     </h2>
                     <p class="mb-2 font-weight-500 text-gray-light">{{ $project->address }}</p>
-                    <p class="mb-6 mxw-571 ml-0"><p>{{ Str::limit($project->description, 150) }}</p>
+                    <p class="mb-2 mxw-571 ml-0"><p>{{ Str::limit($project->description, 150) }}</p>
+                    <p class="mb-6">₦{{ $project->price }}</p>
                   </div>
 
                   <div class="d-flex mb-3">
@@ -141,20 +142,15 @@
                       @csrf
                       <input type="hidden" name="project_id" value="{{ $project->id }}">
                       <div class="modal-body">
-                        <div class="form-group">
+                        <div class="input-group input-group-lg">
                           <label for="plots">Select the Number of plots you want.</label>
-                          <select name="plots" class="form-control" id="plots">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                          </select>
+                          <input class="shadow-none fs-13 form-control" value="2" name="plots" id="plots" type="number">
+              
+                          @error('plots')
+                                  <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                  </span>
+                              @enderror
                         </div>
                       </div>
                       <div class="modal-footer">

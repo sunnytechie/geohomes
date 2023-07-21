@@ -134,7 +134,7 @@
               <p class="mb-0"><i class="fal fa-map-marker-alt mr-2"></i>{{ $project->address }}, {{ $project->state }}, {{ $project->country }}</p>
             </div>
             <div class="mt-2 text-lg-right">
-              <p class="fs-22 text-heading font-weight-bold mb-0"># {{ $project->price }}</p>
+              <p class="fs-22 text-heading font-weight-bold mb-0">₦{{ $project->price }}</p>
               {{-- <p class="mb-0">$9350/SqFt</p> --}}
             </div>
           </div>
@@ -187,20 +187,15 @@
         @csrf
         <input type="hidden" name="project_id" value="{{ $project->id }}">
         <div class="modal-body">
-          <div class="form-group">
+          <div class="input-group input-group-lg">
             <label for="plots">Select the Number of plots you want.</label>
-            <select name="plots" class="form-control" id="plots">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-            </select>
+            <input class="shadow-none fs-13 form-control" value="2" name="plots" id="plots" type="number">
+
+            @error('plots')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
           </div>
         </div>
         <div class="modal-footer">
