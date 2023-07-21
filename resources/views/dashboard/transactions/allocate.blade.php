@@ -29,7 +29,7 @@
             <div class="col-md-7 shadow offset-md-2">
               @if ($transaction->allocation_status == "Pending")
                 <div style="padding: 15px; background: #fff">
-                    <div style="font-size: 18px; color: #000000; font-weight:700">Allocate Plot.</div>
+                    <div style="font-size: 18px; color: #00A75A; font-weight:700">Allocate Plot.</div>
                     <form action="{{ route('allocatePost') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">

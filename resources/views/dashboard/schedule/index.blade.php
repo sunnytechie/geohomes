@@ -24,39 +24,7 @@
   @endif
 
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 invoice-listing">
-      <div class="mb-6">
-        <div class="row">
-          <div class="col-sm-12 col-md-6 d-flex justify-content-md-start justify-content-center">
-            <div class="d-flex form-group mb-0 align-items-center">
-              <label for="invoice-list_length" class="d-block mr-2 mb-0">Results:</label>
-              <select
-                    name="invoice-list_length" id="invoice-list_length"
-                    aria-controls="invoice-list" class="form-control form-control-lg mr-2 selectpicker"
-                    data-style="bg-white btn-lg h-52 py-2 border">
-                <option value="7">7</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
-              </select>
-            </div>
-            <div class="align-self-center">
-                Schedule
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-6 d-flex justify-content-md-end justify-content-center mt-md-0 mt-3">
-            <div class="input-group input-group-lg bg-white mb-0 position-relative mr-2">
-              <input type="text" class="form-control bg-transparent border-1x" placeholder="Search..." aria-label="" aria-describedby="basic-addon1">
-              <div class="input-group-append position-absolute pos-fixed-right-center">
-                <button class="btn bg-transparent border-0 text-gray lh-1" type="button"><i class="fal fa-search"></i></button>
-              </div>
-            </div>
-            {{-- <div class="align-self-center">
-              <button class="btn btn-danger btn-lg" tabindex="0"
-                    aria-controls="invoice-list"><span>Delete</span></button>
-            </div> --}}
-          </div>
-        </div>
-      </div>
+     <h3 style="color: #00A75A">Schedules</h3>
       <div class="table-responsive">
         <table id="invoice-list" class="table table-hover bg-white border rounded-lg">
           <thead>

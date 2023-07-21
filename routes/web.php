@@ -85,6 +85,9 @@ Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 
 Route::get('/allocate', [App\Http\Controllers\TransactionController::class, 'allocate'])->name('allocate')->middleware('auth', 'verified', 'isAdmin');
 Route::post('/allocate/post', [App\Http\Controllers\TransactionController::class, 'allocatePost'])->name('allocatePost')->middleware('auth', 'verified', 'isAdmin');
 
+//customers details
+Route::get('/customers/details/{user_id}', [App\Http\Controllers\UserController::class, 'show'])->name('show.customer.details')->middleware('auth', 'verified', 'isAdmin');
+
 //Inspections
 Route::get('/schedules', [App\Http\Controllers\ScheduleController::class, 'index'])->name('schedule')->middleware('auth', 'verified');
 Route::get('/schedules/post', [App\Http\Controllers\ScheduleController::class, 'schedulePost'])->name('schedulePost')->middleware('auth', 'verified');
