@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Building;
 use App\Models\Project;
 use App\Models\Property;
 use App\Models\Destination;
@@ -20,14 +21,14 @@ class WelcomeController extends Controller
         $propertiesForRent = Property::orderBy('id', 'desc')
                             ->where('lint_in', "For Rent")->paginate(12);
 
-        $destinations = Destination::orderBy('id', 'desc')->paginate(12); 
+        $buildings = Building::orderBy('id', 'desc')->paginate(12); 
         
         $apertmentUrl = route('page.sorted', ['parameter_name' => "Apartment"]);
         $houseUrl = route('page.sorted', ['parameter_name' => "House"]);
         $officeUrl = route('page.sorted', ['parameter_name' => "Office"]);
         $landUrl = route('page.sorted', ['parameter_name' => "Land"]);
 
-        return view('welcome', compact('projects', 'apertmentUrl', 'houseUrl', 'officeUrl', 'landUrl', 'destinations', 'propertiesForSale', 'propertiesForRent'));
+        return view('welcome', compact('projects', 'apertmentUrl', 'houseUrl', 'officeUrl', 'landUrl', 'buildings', 'propertiesForSale', 'propertiesForRent'));
     }
 
     public function estate($id) {

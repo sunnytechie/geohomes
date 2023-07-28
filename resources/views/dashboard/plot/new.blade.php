@@ -20,8 +20,8 @@
                   <p class="card-text mb-5">Create New Plot</p>
 
                   <div class="form-group">
-                      <label for="title" class="text-heading">User title <span class="text-muted">(mandatory)</span></label>
-                      <input type="text" class="form-control form-control-lg border-0 @error('title') is-invalid @enderror" placeholder="Plot 1" id="title" value="{{ old('title') }}" name="title">
+                      <label for="title" class="text-heading">Title <span class="text-muted">(mandatory)</span></label>
+                      <input type="text" class="form-control form-control-lg @error('title') is-invalid @enderror" placeholder="Plot 1" id="title" value="{{ old('title') }}" name="title">
                       
                       @if ($errors->has('title'))
                           <div id="titleHelp" class="form-text text-danger">
@@ -33,7 +33,7 @@
 
                   <div class="form-group">
                     <label for="project_id" class="text-heading">Estate it belongs: <span class="text-muted">(mandatory)</span></label>
-                    <select class="form-control-lg form-control border-0" name="project_id" id="project_id">
+                    <select class="form-control-lg form-control" name="project_id" id="project_id">
                         @foreach ($projects as $project)
                         <option value="{{ $project->id }}">{{ $project->title }}</option>
                         @endforeach
@@ -48,7 +48,7 @@
 
                   <div class="form-group">
                     <label for="description" class="text-heading">Description <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control form-control-lg border-0 @error('description') is-invalid @enderror" placeholder="Description..." id="description" value="{{ old('description') }}" name="description">
+                    <input type="text" class="form-control form-control-lg @error('description') is-invalid @enderror" placeholder="Description..." id="description" value="{{ old('description') }}" name="description">
                     
                     @if ($errors->has('description'))
                         <div id="descriptionHelp" class="form-text text-danger">

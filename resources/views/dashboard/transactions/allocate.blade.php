@@ -29,7 +29,7 @@
             <div class="col-md-7 shadow offset-md-2">
               @if ($transaction->allocation_status == "Pending")
                 <div style="padding: 15px; background: #fff">
-                    <div style="font-size: 18px; color: #00A75A; font-weight:700">Allocate Plot.</div>
+                    <div class="text-center mt-2 mb-3" style="font-size: 20px; color: #00A75A; font-weight:700">Allocate Plot.</div>
                     <form action="{{ route('allocatePost') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
@@ -55,7 +55,7 @@
                         <div class="form-group">
                           
                           <label for="plot_id">Plot ID:</label>
-                          <input class="form-control form-control-lg" type="text" id="plot_id" value="{{ old('plot_id') }}" name="plot_id" placeholder="005 (Will be sent to the customer)">
+                          <input class="form-control form-control-lg" type="text" id="plot_id" value="{{ old('plot_id') }}" name="plot_id" placeholder="005 (Assign an ID for this plots)">
                       
                           @error('plot_id')
                               <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
                       <div class="form-group">
                           
                         <label for="plot_names">Plot Names:</label>
-                        <input class="form-control form-control-lg" type="text" id="plot_names" value="{{ old('plot_names') }}" name="plot_names" placeholder="Ex. 2-10 (Will be sent to the customer)">
+                        <input class="form-control form-control-lg" type="text" id="plot_names" value="{{ old('plot_names') }}" name="plot_names" placeholder="Ex. 2-10 or plot 1 - 3 (Will appear on the paper.)">
                     
                         @error('plot_names')
                             <span class="invalid-feedback" role="alert">
@@ -78,10 +78,21 @@
 
                       <div class="form-group">
                           
-                        <label for="pdf">Upload downlable allocation file (Most be PDF):</label>
-                        <input class="form-control form-control-lg" type="file" id="pdf" value="{{ old('pdf') }}" name="pdf">
+                        <label for="pdf">Upload downlable allocation file (Must be PDF)</label>
+                        <input class="form-control form-control-lg" type="file" id="pdf" name="pdf">
                     
                         @error('pdf')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                      </div>
+
+                      <div class="form-group">
+                        <label for="finalpdf">Upload downlable Final allocation file that will be available to the user to download after they must have paid for the land. (Must be PDF)</label>
+                        <input class="form-control form-control-lg" type="file" id="finalpdf" name="finalpdf">
+                    
+                        @error('finalpdf')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

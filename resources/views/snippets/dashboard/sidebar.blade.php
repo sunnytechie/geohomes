@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="collapse navbar-collapse bg-white" id="primaryMenuSidebar">
-          <form class="d-block d-xl-none pt-5 px-3">
+          {{-- <form class="d-block d-xl-none pt-5 px-3">
             <div class="input-group">
               <div class="input-group-prepend mr-0 bg-input">
                 <button class="btn border-0 shadow-none fs-20 text-muted pr-0" type="submit"><i
@@ -59,7 +59,7 @@
               <input type="text" class="form-control border-0 form-control-lg shadow-none"
                      placeholder="Search for..." name="search">
             </div>
-          </form>
+          </form> --}}
           <ul class="list-group list-group-flush w-100">
             <li class="list-group-item pt-6 pb-4">
               <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Main</h5>
@@ -91,6 +91,14 @@
                 </li>
 
                 @if (Auth::user()->auditor == 1 || Auth::user()->accountant == 1 || Auth::user()->is_admin == 1 || Auth::user()->manager == 1)
+                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                  <a href="{{ route('bookings') }}" class="text-heading lh-1 sidebar-link">
+                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-tasks" style="color: #ababab"></i></span>
+                    <span class="sidebar-item-text">Bookings</span>
+                  </a>
+                </li>
+
+                
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="{{ route('registered.users') }}" class="text-heading lh-1 sidebar-link">
                     <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-users" style="color: #ababab"></i></span>
@@ -227,6 +235,33 @@
                 </div>
                 @endif
 
+                @if (Auth::user()->is_admin || Auth::user()->manager)
+                {{-- Destinations --}}
+                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                  <a href="#building_materials" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
+                    <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
+                      <i class="fal fa-tools"></i>
+                    </span>
+                    <span class="sidebar-item-text">Building Materials</span>
+                    <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
+                  </a>
+                </li>
+
+                {{-- Materials --}}
+                <div class="collapse" id="building_materials">
+                  <div class="card card-body border-0 bg-transparent py-0 pl-6">
+                    <ul class="list-group list-group-flush list-group-no-border">
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('buildings.index') }}">Listing Materials</a>
+                      </li>
+                      <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a class="text-heading lh-1 sidebar-link" href="{{ route('buildings.create') }}">Add New Materials</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                @endif
+
                @if (Auth::user()->is_admin)
                 {{-- Destinations --}}
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
@@ -254,7 +289,6 @@
                 </div>
                 @endif
 
-               
 
 
 

@@ -2,6 +2,36 @@
 
 @section('content')
 
+<div class="container">
+  <div class="row">
+    @foreach ($pendingPayments as $alert)
+      <div class="col-md-12">
+          <div class="hide-from-mobile mt-2"></div>
+              {{-- alert --}}
+              <div class="alert alert-info alert-dismissible fade show" role="alert">
+                  <p>Hi {{ Auth::user()->name }},</p>
+                  <p>Sequel to your subscription to purchase land(s) in {{ $alert->project->title }} at {{ $alert->project->address }}</p>
+                  <p>We are deligted to inform you that we have allocated your plots and requesting that you pay for the land with an addition fee of ₦ 100,000 (one hundred naira) for legal fee.</p>
+                  @php
+                      $totalFee = $alert->project->price * $alert->plots;
+                      $totalFee = $totalFee + 100000;
+                  @endphp
+                  <p>Total fee: ₦ {{ $totalFee }}</p>
+                  <p style="color: red">Please note that this transaction will <b>expire on {{ \Carbon\Carbon::parse($alert->expiry_date)->format('d M Y') }}</b> and will be available to another customer if you don't pay.</p>
+
+                  <form action="{{ route('finalLandPayment', $alert->id) }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="amount" value="{{ $totalFee }}">
+                    <button type="submit" class="btn btn-default" style="background: #00A75A; color: #fff"">
+                      Pay now ₦ {{ $totalFee }}
+                    </button>
+                  </form>
+              </div>
+      </div>
+    @endforeach
+  </div>
+</div>
+
 <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10">
   {{-- session --}}
   @if (session('message'))
@@ -20,6 +50,9 @@
       </div>
   </div>
   @endif
+
+  
+
     <div class="d-flex flex-wrap flex-md-nowrap mb-6">
       <div class="mr-0 mr-md-auto">
         <h2 class="mb-0 text-heading fs-22 lh-15">Hi, {{ Auth::user()->name }}</h2>

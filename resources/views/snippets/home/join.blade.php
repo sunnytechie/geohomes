@@ -1,4 +1,4 @@
-<section>
+{{-- <section>
     <div class="bg-single-image pt-lg-13 pb-lg-12 py-11 bg-secondary">
       <div class="container container-xxl">
         <div class="row align-items-center">
@@ -13,16 +13,24 @@
               neighborhood</h2>
             <span class="heading-divider"></span>
             <p class="mb-6 text-white">It takes much effort and consideration to find a conducive neighborhood that interest one’s taste. So, we resort on bringing to your door step list of properties that will interest you and meet your needs.</p>
-            {{-- <div class="input-group input-group-lg pr-sm-17">
-              <input type="text"
-                           class="form-control fs-13 font-weight-500 text-gray-light rounded-lg rounded-right-0 border-0 shadow-none h-52 bg-white"
-                           name="search" placeholder="Enter an address, neighbourhood">
-              <button type="submit" class="btn btn-primary fs-18 rounded-left-0 rounded-lg px-6 border-0">
-                <i class="far fa-search"></i>
-              </button>
-            </div> --}}
+            
           </div>
         </div>
+      </div>
+    </div>
+  </section> --}}
+
+  <section class="pb-lg-10 bg-gray-02">
+    <div class="container">
+      <div class="p-6 mxw-670 pl-md-9 d-sm-flex align-items-sm-center position-relative mt-10 rounded-lg" style="background-color: #eaeff7" data-animate="fadeInUp">
+        <div class="mt-md-0 mt-6">
+          <h4 class="fs-20 font-weight-normal" style="color: #00A75A">Become a<span class="font-weight-600"> Real Estate Agent</span></h4>
+          <p class="mb-0">You can earn from been a Corporate Agent or an Individual Agent.</p>
+        </div>
+        <div class="ml-auto">
+          <a href="#" class="btn btn-lg btn-primary rounded-lg mt-sm-0 mt-6">Register</a>
+        </div>
+        <i style="background-color: #00A75A;" class="far fa-users h-64 w-64px d-flex justify-content-center align-items-center text-white rounded-circle fs-24 position-absolute custom-pos-icon"></i>
       </div>
     </div>
   </section>

@@ -38,22 +38,40 @@ Route::get('/filtered-search', [App\Http\Controllers\PagesController::class, 'so
 
 //Route::get('/gh-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
 
+//Building Material Booking
+Route::get('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'show'])->name('booking.building.material.show')->middleware('auth', 'verified');
+Route::post('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'store'])->name('booking.building.material')->middleware('auth', 'verified');
+
 //dashboard
 Route::get('/geohome-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified', 'checkIfAgentAndIsSet');
 Route::get('/estate/{id}', [App\Http\Controllers\WelcomeController::class, 'estate'])->name('estate.show');
 Route::get('/listing/property/{id}', [App\Http\Controllers\WelcomeController::class, 'property'])->name('gh.property.show');
 
 //listings Resources
+Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
+    Route::resource('buildings', 'App\Http\Controllers\BuildingController');
+    Route::resource('projects', 'App\Http\Controllers\ProjectController');
+    Route::resource('destinations', 'App\Http\Controllers\DestinationController');
+    Route::resource('admins', 'App\Http\Controllers\AdminController');
+    Route::resource('plots', 'App\Http\Controllers\PlotController');
+    //Allocate
+    Route::get('/allocate', [App\Http\Controllers\TransactionController::class, 'allocate'])->name('allocate');
+    Route::post('/allocate/post', [App\Http\Controllers\TransactionController::class, 'allocatePost'])->name('allocatePost');
+    //customers details
+    Route::get('/customers/details/{user_id}', [App\Http\Controllers\UserController::class, 'show'])->name('show.customer.details');
+    Route::get('/bookings', [App\Http\Controllers\BookingController::class, 'bookings'])->name('bookings');
+});
+
 Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth', 'verified', 'hasAdminButNotAgent', 'isAgent');
-Route::resource('projects', 'App\Http\Controllers\ProjectController')->middleware('auth', 'verified', 'isAdmin');
+
 Route::get('/geo-projects-image', [App\Http\Controllers\PagesController::class, 'projectImage'])->name('project.image.upload');
-Route::resource('destinations', 'App\Http\Controllers\DestinationController')->middleware('auth', 'verified', 'isAdmin');
+
 Route::resource('agents', 'App\Http\Controllers\AgentController')->middleware('auth', 'verified');
 Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middleware('auth', 'verified');
-Route::resource('admins', 'App\Http\Controllers\AdminController')->middleware('auth', 'verified', 'isAdmin');
+
 Route::get('registered-users', [App\Http\Controllers\UserController::class, 'index'])->name('registered.users')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::get('registered-agents', [App\Http\Controllers\AgentController::class, 'index'])->name('registered.agents')->middleware('auth', 'verified', 'isAuditorAccountant');
-Route::resource('plots', 'App\Http\Controllers\PlotController')->middleware('auth', 'verified', 'isAdmin');
+
 
 //account
 Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show')->middleware('auth', 'verified');
@@ -75,18 +93,17 @@ Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 
 //Callback route
 Route::get('/payment/subscriber/callback/{project}/{plot}', [App\Http\Controllers\CallbackController::class, 'subscribe'])->name('subscribe.handleGatewayCallback')->middleware('auth', 'verified');
 
+//Final Payment on land
+Route::post('/final/land/payment/{id}', [App\Http\Controllers\TransactionController::class, 'finalLandPayment'])->name('finalLandPayment')->middleware('auth', 'verified');
+Route::get('/payment/land/callback/{id}', [App\Http\Controllers\CallbackController::class, 'finalLandCallback'])->name('finalLandCallback')->middleware('auth', 'verified');
+
 //Error page
 Route::get('/not-found', [App\Http\Controllers\WelcomeController::class, 'error'])->name('error404');
 Route::get('/agent-limit', [App\Http\Controllers\AgentController::class, 'agentupgrade'])->name('agentupgrade')->middleware('auth', 'isAgent');
 
 //transactions
 Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction')->middleware('auth', 'verified');
-//Allocate
-Route::get('/allocate', [App\Http\Controllers\TransactionController::class, 'allocate'])->name('allocate')->middleware('auth', 'verified', 'isAdmin');
-Route::post('/allocate/post', [App\Http\Controllers\TransactionController::class, 'allocatePost'])->name('allocatePost')->middleware('auth', 'verified', 'isAdmin');
 
-//customers details
-Route::get('/customers/details/{user_id}', [App\Http\Controllers\UserController::class, 'show'])->name('show.customer.details')->middleware('auth', 'verified', 'isAdmin');
 
 //Inspections
 Route::get('/schedules', [App\Http\Controllers\ScheduleController::class, 'index'])->name('schedule')->middleware('auth', 'verified');

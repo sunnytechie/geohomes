@@ -8,13 +8,11 @@
         @include('snippets.home.sale')
         @include('snippets.home.explore')
         @include('snippets.home.rent')
-        @include('snippets.home.find')
-        @include('snippets.home.destinations')
+        @include('snippets.home.join')
+        @include('snippets.home.building')
         @include('snippets.home.listings')
+        @include('snippets.home.contact')
    {{--  @include('snippets.home.partners')  --}}
-   
-
-
     {{-- <div id="compare" class="compare">
       <button class="btn shadow btn-open bg-white bg-hover-accent text-secondary rounded-right-0 d-flex justify-content-center align-items-center w-30px h-140 p-0">
       </button>

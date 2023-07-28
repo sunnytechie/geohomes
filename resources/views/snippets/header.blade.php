@@ -61,28 +61,28 @@
                             <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link p-0" href="{{ route('page.projects') }}">
-                                    Our Estate
+                                    Estate
                                 </a>
                             </li>
 
                             <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link p-0" href="{{ route('page.buy.rent') }}">
-                                    Buy or Rent {{-- should be Listings --}}
+                                    Buy/Rent {{-- should be Listings --}}
                                 </a>
                             </li>
 
                             <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link p-0" href="{{ route('page.about') }}">
-                                    About Us
+                                    About
                                 </a>
                             </li>
 
                             <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link p-0" href="{{ route('page.contact') }}">
-                                    Contact Us
+                                    Contact
                                 </a>
                             </li>
 

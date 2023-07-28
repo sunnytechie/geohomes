@@ -48,7 +48,13 @@ class DashboardController extends Controller
 
         $labels = json_encode(array_keys($data));
         $values = json_encode(array_values($data));
+
+        $pendingPayments = Transaction::orderBy('id', 'desc')
+                            ->where('user_id', Auth::user()->id)
+                            ->where('expiry_date', '>', now())
+                            ->where('final_status', 0)
+                            ->get();
         
-        return view('dashboard.index', compact('properties', 'labels', 'values', 'transactions', 'inspections', 'projects', 'agents', 'destinations'));
+        return view('dashboard.index', compact('properties', 'pendingPayments', 'labels', 'values', 'transactions', 'inspections', 'projects', 'agents', 'destinations'));
     }
 }

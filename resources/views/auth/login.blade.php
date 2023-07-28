@@ -18,7 +18,7 @@
                 
                 <div class="form-group mb-4">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control @error('email') is-invalid @enderror form-control-lg border-0" id="email" name="email" value="{{ old('email') }}" placeholder="Your email">
+                  <input type="email" class="form-control @error('email') is-invalid @enderror form-control-lg" id="email" name="email" value="{{ old('email') }}" placeholder="Your email">
                     
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -30,7 +30,7 @@
                 <div class="form-group mb-4">
                   <label for="password-2">Password</label>
                   <div class="input-group input-group-lg">
-                    <input type="password" class="form-control password-input @error('password') is-invalid @enderror border-0 shadow-none fs-13" id="password" name="password" placeholder="Password">
+                    <input type="password" class="form-control password-input @error('password') is-invalid @enderror shadow-none fs-13" id="password" name="password" placeholder="Password">
                     
                     <div class="input-group-append show-password" style="cursor: pointer; position:absolute; right: 0; z-index: 999; background: transparent; margin-top: 8px">
                         <span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye"></i></span>

@@ -75,7 +75,7 @@
     <div id="content">
         <div class="text-1">New Message - Geohomes Contact form</div>
         <div class="text-3">
-            You have a new message from Geohomes contact form. Kindy respond as soon as possible.  
+            You have a new message from Geohomes contact form. Kindly respond as soon as possible.  
         </div>
         <div class="text-4">
           <div><strong>Details of message</strong></div>
