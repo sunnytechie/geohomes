@@ -82,7 +82,7 @@
                             <a href="{{ route('gh.property.show', $property->id) }}" class="text-white"><h5 class="card-title fs-16 lh-2 mb-0">{{ $property->title }}</h5>
                             </a>
                             <p class="card-text text-gray-light mb-0 font-weight-500">{{ $property->address }}</p>
-                            <p class="text-white mb-0"><span class="fs-17 font-weight-bold">{{ $property->price }} </span>
+                            <p class="text-white mb-0"><span class="fs-17 font-weight-bold">₦ {{ $property->price }} </span>
                             </p>
                           </div>
                         </div>

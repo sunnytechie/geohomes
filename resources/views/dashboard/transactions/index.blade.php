@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -17,7 +17,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -69,6 +69,10 @@
               <th class="no-sort py-2">Number of Plots</th>
               <th class="no-sort py-2">Allocation Status</th>
               <th class="no-sort py-2">Expiry Date</th>
+              @if (Auth::user()->is_admin || Auth::user->manager)
+              <th class="py-2">Send Notification</th>
+              @endif
+
             </tr>
           </thead>
           <tbody>
@@ -91,8 +95,8 @@
                   @if ($transaction->final_status == 1)
                       <a style="background: #00A75A; color: #fff" class="btn btn-sm" href="/pdfs/{{ $transaction->finalpdf }}" download>Final Paper</a>
                   @endif
-               
-                  
+
+
                 </div>
               </td>
 
@@ -103,20 +107,22 @@
               </td>
 
               <td class="align-middle"><span style="font-size: 14px" class="text-success pr-1"></span>{{ \Carbon\Carbon::parse($transaction->created_at)->format('d M Y') }}</td>
-              
+
               @if (Auth::user()->manager || Auth::user()->is_admin)
-              <td class="align-middle"><button style="background: #00A75A; color: #fff"" class="btn btn-sm">@if ($transaction->final_status == 0)
+              <td class="align-middle">
+                <button style="background: #00A75A; color: #fff"" class="btn btn-sm">@if ($transaction->final_status == 0)
                   Pending
-              @else
-                  Paid
-              @endif</button>
+                @else
+                    Paid
+                @endif
+                </button>
               </td>
               @else
               <td class="align-middle">@if ($transaction->final_status == 0)
                 <a href="#" style="background: #00A75A; color: #fff" class="btn btn-sm">Pending</a>
                 @else
                 <button href="#" style="background: #00A75A; color: #fff"" class="btn btn-sm">Paid</button>
-              @endif
+                @endif
               </td>
               @endif
 
@@ -134,7 +140,7 @@
                            {{ $transaction->allocation_status }}
                         @endif
                       </button>
-                  </form> 
+                  </form>
                 @else
                   @if ($transaction->allocation_status == "Pending")
                     Not Allocated
@@ -157,7 +163,7 @@
                             {{ \Carbon\Carbon::parse($transaction->expiry_date)->format('d M Y') }}
                           @endif
                         </button>
-                    </form> 
+                    </form>
                         @else
                         Allocation in Review.
                     @endif
@@ -165,12 +171,22 @@
                 {{ \Carbon\Carbon::parse($transaction->expiry_date)->format('d M Y') }}
                 @endif
               </td>
-            
+
+              @if (Auth::user()->is_admin || Auth::user->manager)
+                <td class="align-middle">
+                    <form action="{{ route('survey', $transaction->id) }}" method="POST">
+                        @csrf
+                        <button class="btn btn-sm" onclick="return confirm('Are you sure you want the user to apply for survey?')" style="color: #fff; background: #00A75A">NotifyCustomer</button>
+                    </form>
+                </td>
+              @endif
+
+
             </tr>
             @endforeach
           </tbody>
         </table>
       </div>
-      
+
     </div>
 @endsection

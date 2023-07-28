@@ -109,7 +109,7 @@
                 <p class="mb-0"><i class="fal fa-map-marker-alt mr-2"></i>{{ $property->address }}, {{ $property->state }}, {{ $property->country }}</p>
               </div>
               <div class="mt-2 text-lg-right">
-                <p class="fs-22 text-heading font-weight-bold mb-0">#{{ $property->price }}</p>
+                <p class="fs-22 text-heading font-weight-bold mb-0">₦ {{ $property->price }}</p>
                 {{-- <p class="mb-0">$9350/SqFt</p> --}}
               </div>
             </div>

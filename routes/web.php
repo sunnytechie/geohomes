@@ -60,6 +60,9 @@ Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
     //customers details
     Route::get('/customers/details/{user_id}', [App\Http\Controllers\UserController::class, 'show'])->name('show.customer.details');
     Route::get('/bookings', [App\Http\Controllers\BookingController::class, 'bookings'])->name('bookings');
+    //send survey email with link
+    Route::post('/notify/user/survey/{id}', [App\Http\Controllers\SurveyController::class, 'survey'])->name('survey');
+
 });
 
 Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth', 'verified', 'hasAdminButNotAgent', 'isAgent');
@@ -103,7 +106,6 @@ Route::get('/agent-limit', [App\Http\Controllers\AgentController::class, 'agentu
 
 //transactions
 Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction')->middleware('auth', 'verified');
-
 
 //Inspections
 Route::get('/schedules', [App\Http\Controllers\ScheduleController::class, 'index'])->name('schedule')->middleware('auth', 'verified');

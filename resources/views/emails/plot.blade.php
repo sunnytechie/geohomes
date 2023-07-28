@@ -70,8 +70,7 @@
 </p>
 <p>Again, congratulations on your initial plot allocation! We ardently anticipate your continued collaboration as we work together to make your land ownership aspirations a reality.
 </p>
-<p>Best wishes,
-</p>
+<p>Best wishes,</p>
 <p>GeoHomes</p>
 
 </body>

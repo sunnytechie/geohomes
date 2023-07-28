@@ -131,7 +131,7 @@
               <p class="mb-0"><i class="fal fa-map-marker-alt mr-2"></i>{{ $project->address }}, {{ $project->state }}, {{ $project->country }}</p>
             </div>
             <div class="mt-2 text-lg-right">
-              <p class="fs-22 text-heading font-weight-bold mb-0">{{ $project->price }}</p>
+              <p class="fs-22 text-heading font-weight-bold mb-0">₦ {{ $project->price }}</p>
               {{-- <p class="mb-0">$9350/SqFt</p> --}}
             </div>
           </div>
