@@ -54,7 +54,8 @@
 
               <td class="align-middle">
                 <div class="d-flex align-items-left">
-                    <p style="font-size: 14px">{{ Str::limit($inspect->project->title, $limit = 19, $end = '...') ?? "Not found" }}</p>
+                    <p style="font-size: 14px">{{ Str::limit($inspect->project->title ?? "Not found", $limit = 19, $end = '...') }}
+                    </p>
                 </div>
               </td>
 
