@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -17,7 +17,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -48,18 +48,18 @@
                   @endif
                   <span style="font-size: 12px">inspect Ref: {{ $inspect->tx_ref }}</span>
                 </p>
-                  
+
                 </div>
               </td>
 
               <td class="align-middle">
                 <div class="d-flex align-items-left">
-                    <p style="font-size: 14px">{{ Str::limit($inspect->project->title, $limit = 19, $end = '...') }}</p>
+                    <p style="font-size: 14px">{{ Str::limit($inspect->project->title, $limit = 19, $end = '...') ?? "Not found" }}</p>
                 </div>
               </td>
 
               <td class="align-middle"><span style="font-size: 14px" class="text-success pr-1"></span>{{ \Carbon\Carbon::parse($inspect->created_at)->format('d M Y') }}</td>
-              
+
               <td class="align-middle">
                 @if (Auth::user()->is_admin)
                   <form class="p-0 m-0" method="GET" action="{{ route('schedulePost') }}">
@@ -72,7 +72,7 @@
                            Date: {{ \Carbon\Carbon::parse($inspect->schedule_date)->format('d M Y') }}, Time: {{ \Carbon\Carbon::createFromFormat('H:i:s', $inspect->schedule_time)->format('h:i A') }}
                         @endif
                       </button>
-                  </form> 
+                  </form>
                 @else
                   @if ($inspect->schedule_status == 0)
                         Not Scheduled
@@ -86,6 +86,6 @@
           </tbody>
         </table>
       </div>
-      
+
     </div>
 @endsection

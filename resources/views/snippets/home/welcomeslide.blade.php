@@ -21,6 +21,7 @@
                 </div>
             </div>
         </div> --}}
+        
         <div class="box px-0 d-flex flex-column">
           <div class="bg-cover d-flex align-items-center custom-vh-02"
              style="background-image: url('assets/images/bg-slider-02.jpg')">
@@ -42,6 +43,7 @@
               </div>
             </div>
         </div>
+
         <div class="box px-0 d-flex flex-column">
             <div class="bg-cover d-flex align-items-center custom-vh-02"
              style="background-image: url('assets/images/bg-slider-03.jpg')">
@@ -63,5 +65,6 @@
                 </div>
               </div>
         </div>
+
     </div>
 </section>
