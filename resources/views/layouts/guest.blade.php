@@ -35,7 +35,7 @@
     <meta name="twitter:title" content="Geohomes Group">
     <meta name="twitter:description" content="We Are A Leading Real Estate Company In Nigeria That Has Been Building Prosperity For Our Clients By Executing Innovative Real Estate Solutions.">
     <meta name="twitter:image" content="{{ asset("assets/images/logo/geohomeslogo.png") }}">
-    
+
     <!-- Facebook -->
     <meta property="og:url" content="geohomes">
     <meta property="og:title" content="Geohomes Group">
@@ -50,7 +50,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <title>GeoHomes estate agnecy plattform.</title>
+    <title>Geohomes Services Limited - Real Estate Development Company</title>
     <style>
         @media screen and (max-width: 1024px) {
             .hide-from-1024 {
@@ -76,7 +76,7 @@
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>
 <body>
-       
+
         {{-- @include('snippets.header') --}}
 
         <main id="content">
@@ -100,7 +100,7 @@
     <script src="{{ asset("assets/vendors/jparallax/TweenMax.min.j") }}s"></script>
     <script src="{{ asset("assets/vendors/mapbox-gl/mapbox-gl.js") }}"></script>
     <script src="{{ asset("assets/vendors/dataTables/jquery.dataTables.min.js") }}"></script>
-    
+
     <!-- Theme scripts -->
     <script src="{{ asset("assets/js/theme.js") }}"></script>
 
@@ -117,10 +117,10 @@
     <script>
         // Get the header element
         const header = document.querySelector('header');
-    
+
         // Remove the navbar-dark class
         header.classList.remove('navbar-dark');
-    
+
         // Add the navbar-light class
         header.classList.add('navbar-light');
     </script>

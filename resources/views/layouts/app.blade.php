@@ -35,7 +35,7 @@
     <meta name="twitter:title" content="Geohomes Group">
     <meta name="twitter:description" content="We Are A Leading Real Estate Company In Nigeria That Has Been Building Prosperity For Our Clients By Executing Innovative Real Estate Solutions.">
     <meta name="twitter:image" content="{{ asset("assets/images/logo/geohomeslogo.png") }}">
-    
+
     <!-- Facebook -->
     <meta property="og:url" content="geohomes">
     <meta property="og:title" content="Geohomes Group">
@@ -50,7 +50,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <title>GeoHomes estate agnecy plattform.</title>
+    <title>Geohomes Services Limited - Real Estate Development Company</title>
 
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
@@ -134,17 +134,17 @@
     <script src="{{ asset("assets/vendors/jparallax/TweenMax.min.j") }}s"></script>
     <script src="{{ asset("assets/vendors/mapbox-gl/mapbox-gl.js") }}"></script>
     <script src="{{ asset("assets/vendors/dataTables/jquery.dataTables.min.js") }}"></script>
-    
+
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script>
       $(document).ready(function () {
           $('#newsletter-form').submit(function (e) {
               e.preventDefault(); // Prevent the default form submission
-  
+
               var form = $(this);
               var url = form.attr('action');
               var data = form.serialize();
-  
+
               $.ajax({
                   type: 'POST',
                   url: url,
