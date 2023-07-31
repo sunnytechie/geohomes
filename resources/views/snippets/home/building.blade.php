@@ -1,4 +1,4 @@
-<section class="pt-lg-12 pb-lg-15 py-11">
+<section class="pt-lg-5 pb-lg-15 py-5">
     <div class="container container-xxl">
       <h2 class="text-heading">Building Materials</h2>
       <span class="heading-divider"></span>
@@ -20,5 +20,5 @@
     </div>
 
 
-    
+
   </section>

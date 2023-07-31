@@ -27,26 +27,26 @@
         <img height="50" width="150" src="https://geohomesgroup.com/assets/images/logo/geohomeslogo.png" alt="Geohomes">
     </div>
     <div style="margin: 30px; auto"></div>
-    <div>{{ $compose['clientName'] }}</div>
-    <div>{{ $compose['clientAddress'] }}</div>
-    <div>{{ $compose['clientCity'] }}, {{ $compose['clientZip'] }}</div>
+    <div>{{ Auth::user()->name }}</div>
+    <div>{{ Auth::user()->address }}</div>
+    <div>{{ Auth::user()->city }}, {{ Auth::user()->zip }}</div>
     <div>Initial Plot Assignment Letter</div>
     <div style="margin: 30px; auto"></div>
 
-    <p>Dear {{ $compose['clientName'] }},</p>
+    <p>Dear {{ Auth::user()->name }},</p>
 
-<p>We are delighted to inform you that your request to purchase property within our prestigious <strong>{{ $compose['projectName'] }}</strong> has been approved. We genuinely appreciate your interest in our endeavor and cordially invite you to join our rapidly expanding community.
+<p>We are delighted to inform you that your request to purchase property within our prestigious <strong>{{ $transaction->project->title }}</strong> has been approved. We genuinely appreciate your interest in our endeavor and cordially invite you to join our rapidly expanding community.
 </p>
-<p>Subject to the conclusion of the payment procedure, we are delighted to temporarily assign plot - <strong>{{ $compose['plotName'] }}</strong> within the <strong>{{ $compose['projectAddress'] }}</strong> to you. This letter functions as your initial plot allocation, allowing you to proceed with the processes necessary to secure your desired plot.
+<p>Subject to the conclusion of the payment procedure, we are delighted to temporarily assign plot - <strong>{{ $transaction->plotnames }}</strong> within the <strong>{{ $transaction->project->address }}</strong> to you. This letter functions as your initial plot allocation, allowing you to proceed with the processes necessary to secure your desired plot.
 </p>
 <p>After careful consideration and based on your preference, the following plot details have been provisionally designated to you:
 </p>
 
-<p><strong>Your Plot Number(s) - {{ $compose['plotName'] }}</strong></p>
+<p><strong>Your Plot Number(s) - {{ $transaction->plotnames }}</strong></p>
 
 <p><strong>Plot Size: Approximately *558.150* SQ. M.</strong></p>
 
-<p><strong>Location</strong>: {{ $compose['projectAddress'] }}, {{ $compose['projectState'] }} Nigeria</p>
+<p><strong>Location</strong>: {{ $transaction->project->address }}, {{ $transaction->project->state }} Nigeria</p>
 
 <p><strong>Dimensions: Approximately 18.3m * 30.5m.</strong></p>
 

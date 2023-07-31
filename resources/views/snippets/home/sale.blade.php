@@ -6,7 +6,7 @@
   }
 </style>
 
-<section class="pt-lg-12 pb-lg-10 pb-3" style="padding-top: 50px;">
+<section class="pt-lg-5 pb-lg-10 pb-3" style="padding-top: 50px;">
     <div class="container container-xxl">
       <div class="row">
         <div class="col-md-6">
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      
+
       <div class="slick-slider slick-dots-mt-0 custom-arrow-spacing-30"
          data-slick-options='{"slidesToShow": 4, "autoplay":true,"dots":true,"responsive":[{"breakpoint": 1600,"settings": {"slidesToShow":3,"arrows":false}},{"breakpoint": 992,"settings": {"slidesToShow":2,"arrows":false}},{"breakpoint": 768,"settings": {"slidesToShow": 2,"arrows":false,"dots":true,"autoplay":true}},{"breakpoint": 576,"settings": {"slidesToShow": 1,"arrows":false,"dots":true,"autoplay":true}}]}'>
         @foreach ($propertiesForSale as $property)
@@ -36,7 +36,7 @@
                     <span class="badge mr-2 badge-orange">featured</span>
                     <span class="badge mr-2 badge-primary">for Sale</span>
                   </div>
-                  
+
                 </div>
               </div>
             </a>
@@ -79,7 +79,7 @@
               <p class="fs-17 font-weight-bold text-heading text-center mb-0">₦ {{ $property->price }}</p>
               {{-- <ul class="list-inline mb-0">
                 <li class="list-inline-item">
-                  <a href="#" 
+                  <a href="#"
                   class="w-40px h-40 border rounded-circle d-inline-flex align-items-center justify-content-center text-secondary bg-accent border-accent"
                   data-toggle="tooltip" title="Wishlist"><i class="fas fa-heart"></i></a>
                 </li>

@@ -52,6 +52,16 @@
 
     <title>Geohomes Services Limited - Real Estate Development Company</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("https://cdn.pixabay.com/photo/2016/11/13/18/22/room-1821636_1280.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh; /* Set the height of the body to full viewport height */
+        }
         @media screen and (max-width: 1024px) {
             .hide-from-1024 {
                 display: none;

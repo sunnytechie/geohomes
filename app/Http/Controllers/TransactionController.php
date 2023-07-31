@@ -21,11 +21,12 @@ class TransactionController extends Controller
     {
         //if isAdmin transaction list of all
         if (Auth::user()->is_admin || Auth::user()->manager) {
-            $transactions = Transaction::orderBy('created_at', 'desc')
-                            ->where('status', 1)->get();
+            $transactions = Transaction::orderBy('created_at', 'asc')
+                            ->where('status', 1)
+                            ->get();
         } else {
             //else transaction list of Auth user
-            $transactions = Transaction::orderBy('id', 'desc')
+            $transactions = Transaction::orderBy('created_at', 'asc')
                             ->where('user_id', Auth::user()->id)
                             ->where('status', 1)
                             ->get();
@@ -44,7 +45,7 @@ class TransactionController extends Controller
         //dd($request->all());
         $transaction = Transaction::find($request->transaction_id);
 
-        $plots = Plot::orderBy('id', 'desc')
+        $plots = Plot::orderBy('id', 'asc')
         ->where('project_id', $transaction->project_id)
         ->where('allocation_status', 0)
         ->where('paid', 0)
@@ -57,47 +58,29 @@ class TransactionController extends Controller
         //dd($request->all());
         // Validate the request
         $request->validate([
-            'pdf' => 'nullable|mimes:pdf',
-            'finalpdf' => 'nullable|mimes:pdf',
+            'plotNames' => 'required',
         ]);
 
         // Check if a file was uploaded
-        if ($request->hasFile('pdf')) {
+        //if ($request->hasFile('pdf')) {
             // Get the uploaded file
-            $uploadedFile = $request->file('pdf');
+            //$uploadedFile = $request->file('pdf');
 
             // Generate a unique name for the file using a combination of timestamp and a random string
-            $uniqueFileName = time() . '_' . uniqid() . '.' . $uploadedFile->getClientOriginalExtension();
+            //$uniqueFileName = time() . '_' . uniqid() . '.' . $uploadedFile->getClientOriginalExtension();
 
             // Move the uploaded file to the public folder with the unique name
-            $uploadedFile->move(public_path('pdfs'), $uniqueFileName);
+            //$uploadedFile->move(public_path('pdfs'), $uniqueFileName);
 
             // Optionally, you may also want to store the unique name in the database for later reference
             // For example, if you have a 'pdfs' table with a 'filename' column, you can save it like this:
             // DB::table('pdfs')->insert(['filename' => $uniqueFileName]);
 
             // Now you can use $uniqueFileName to access the file later if needed
-        }
+        //}
         //end
 
-        if ($request->hasFile('finalpdf')) {
-            // Get the uploaded file
-            $uploadedFile = $request->file('finalpdf');
 
-            // Generate a unique name for the file using a combination of timestamp and a random string
-            $uniqueFinalFileName = time() . '_' . uniqid() . '.' . $uploadedFile->getClientOriginalExtension();
-
-            // Move the uploaded file to the public folder with the unique name
-            $uploadedFile->move(public_path('pdfs'), $uniqueFileName);
-
-            // Optionally, you may also want to store the unique name in the database for later reference
-            // For example, if you have a 'pdfs' table with a 'filename' column, you can save it like this:
-            // DB::table('pdfs')->insert(['filename' => $uniqueFileName]);
-
-            // Now you can use $uniqueFileName to access the file later if needed
-        }
-        //end
-        
         $plots = $request->input('plots', []);
         $countPlotSelected = count($plots);
 
@@ -113,12 +96,12 @@ class TransactionController extends Controller
         //count allocation and make sure plots are not above the the number
         $transaction->allocation_status = "Allocated";
         $transaction->expiry_date = $expiry_date->toDateString();
-        $transaction->pdf = $uniqueFileName;
-        $transaction->finalpdf = $uniqueFinalFileName;
+        $transaction->plotnames = $request->plotNames;
+        $transaction->plot_id = $request->plot_id;
         $transaction->save();
 
         $plots = $request->input('plots', []);
-            
+
         foreach ($plots as $plot) {
             $plot = Plot::find($plot);
             $plot->user_id = $transaction->user_id;
@@ -143,7 +126,7 @@ class TransactionController extends Controller
 
         //plot info
         //Assign Plot infomation
-        $plotName = $request->plot_names;
+        $plotName = $request->plotNames;
         $plotNumber = $request->plot_id;
         $projectAddress = $project->address;
         $projectState = $project->state;
@@ -163,7 +146,7 @@ class TransactionController extends Controller
 
         //send email
         Mail::to($clientEmail)->send(new PlotEmail($clientName, $clientAddress, $clientCity, $clientZip, $plotName, $plotNumber, $projectAddress, $projectState, $projectName));
-        
+
         return redirect()->route('transaction')->with('message', "Plot allocation has just been made successfully, and email sent to user.");
     }
 
@@ -227,7 +210,7 @@ class TransactionController extends Controller
             "callback_url" => "https://geohomesgroup.com/payment/land/callback/$id",
             //"callback_url" => "http://127.0.0.1:8000/payment/land/callback/$id",
         );
-    
+
         return Paystack::getAuthorizationUrl($data)->redirectNow();
     }
 }

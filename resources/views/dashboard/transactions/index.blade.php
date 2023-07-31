@@ -47,7 +47,6 @@
                       <button type="submit" class="btn btn-default" style="background: #00A75A; color: #fff"">
                         Pay now ₦ {{ $totalFee }}
                       </button>
-
                     </form>
                 </div>
         </div>
@@ -59,19 +58,21 @@
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 invoice-listing">
       <h3 style="color: #00A75A">Transaction / Subscriptions</h3>
       <div class="table-responsive">
-        <table id="invoice-list" class="table table-hover bg-white border rounded-lg">
+        <table id="invoice-list" class="table table-striped table-sm table-hover bg-white border rounded-lg">
           <thead>
             <tr role="row">
-              <th class="py-2">@if (Auth::user()->is_admin)Subscriber Info @else Reference @endif</th>
-              <th class="py-2">Project Name</th>
-              <th class="py-2">Subscribed on</th>
-              <th class="py-2">Final Payment</th>
-              <th class="no-sort py-2">Number of Plots</th>
-              <th class="no-sort py-2">Allocation Status</th>
-              <th class="no-sort py-2">Expiry Date</th>
-              @if (Auth::user()->is_admin || Auth::user->manager)
-              <th class="py-2">Send Notification</th>
-              @endif
+              <th>@if (Auth::user()->is_admin)Subscriber Info @else Reference @endif</th>
+              <th>Project<span class="ml-1">Name</span></th>
+              <th>Subscribed:</th>
+              <th>Final<span class="ml-1">Payment</span></th>
+              <th class="no-sort">No.<span class="ml-1">Plots</span></th>
+              <th class="no-sort">Allocation<span class="ml-1">Status</span></th>
+              <th class="no-sort">Expiry<span class="mr-1">Date</span></th>
+                @if (auth()->user()->is_admin || auth()->user()->manager)
+                    <th>Send<span class="ml-1">Notification</span></th>
+                @endif
+
+
 
             </tr>
           </thead>
@@ -80,29 +81,20 @@
             @foreach ($transactions as $transaction)
             <tr role="row">
               <td class="align-middle">
-                <div class="align-items-left">
-                  @if (Auth::user()->is_admin)
-                  <span style="font-size: 10px">{{ $transaction->user->email }}</span><br>
-                  {{-- <p class="align-self-center mb-0 user-name" style="font-size: 14px">{{ $transaction->user->name }}<br>
-                    <span style="font-size: 10px">{{ $transaction->user->email }}</span><br>
-                  <span style="font-size: 10px">{{ $transaction->user->phone }}</span><br> --}}
-                  @endif
-                  <span style="font-size: 12px">TX.Ref: {{ $transaction->tx_ref }}</span><br>
-                  @if ($transaction->pdf != null)
-                      <a style="background: #00A75A; color: #fff" class="btn btn-sm" href="/pdfs/{{ $transaction->pdf }}" download>Paper 1</a>
-                  @endif
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    @if ($transaction->allocation_status = "Allocated")
+                        <a style="background: #00A75A; color: #fff" class="btn btn-sm mr-1" href="{{ route('generateInitialPdf', $transaction->id) }}">Initital<span class="ml-1">Paper</span></a>
+                    @endif
 
-                  @if ($transaction->final_status == 1)
-                      <a style="background: #00A75A; color: #fff" class="btn btn-sm" href="/pdfs/{{ $transaction->finalpdf }}" download>Final Paper</a>
-                  @endif
-
-
-                </div>
+                    @if ($transaction->final_status == 1)
+                        <a style="background: #00A75A; color: #fff" class="btn btn-sm" href="{{ route('generateFinalPdf', $transaction->id) }}">Final<span class="ml-1">Paper</span></a>
+                    @endif
+                    </div>
               </td>
 
               <td class="align-middle">
                 <div class="d-flex align-items-left">
-                    <p style="font-size: 14px">{{ Str::limit($transaction->project->title, $limit = 19, $end = '...') }}</p>
+                    <p style="font-size: 14px">{{ Str::limit($transaction->project->title, $limit = 12, $end = '...') }}</p>
                 </div>
               </td>
 
@@ -119,9 +111,19 @@
               </td>
               @else
               <td class="align-middle">@if ($transaction->final_status == 0)
-                <a href="#" style="background: #00A75A; color: #fff" class="btn btn-sm">Pending</a>
+                @php
+                        $totalFee = $transaction->project->price * $transaction->plots;
+                        $totalFee = $totalFee + 100000;
+                    @endphp
+                        <form action="{{ route('finalLandPayment', $transaction->id) }}" method="POST">
+                      @csrf
+                      <input type="hidden" name="amount" value="{{ $totalFee }}">
+                      <button type="submit" class="btn btn-default btn-sm" style="background: #00A75A; color: #fff"">
+                        <span>Pay</span><span class="mx-1">₦</span>{{ $totalFee }}
+                      </button>
+                    </form>
                 @else
-                <button href="#" style="background: #00A75A; color: #fff"" class="btn btn-sm">Paid</button>
+                <button style="background: #00A75A; color: #fff"" class="btn btn-sm">Paid</button>
                 @endif
               </td>
               @endif
@@ -172,16 +174,14 @@
                 @endif
               </td>
 
-              @if (Auth::user()->is_admin || Auth::user->manager)
+              @if (auth()->user()->is_admin || auth()->user()->manager)
                 <td class="align-middle">
                     <form action="{{ route('survey', $transaction->id) }}" method="POST">
                         @csrf
-                        <button class="btn btn-sm" onclick="return confirm('Are you sure you want the user to apply for survey?')" style="color: #fff; background: #00A75A">NotifyCustomer</button>
+                        <button class="btn btn-sm" onclick="return confirm('Are you sure you want the user to apply for survey?')" style="color: #fff; background: #00A75A">Notify<span class="ml-1">Customer</span></button>
                     </form>
                 </td>
               @endif
-
-
             </tr>
             @endforeach
           </tbody>
@@ -189,4 +189,5 @@
       </div>
 
     </div>
+
 @endsection

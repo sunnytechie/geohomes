@@ -27,7 +27,7 @@ class PaymentController extends Controller
             return Paystack::getAuthorizationUrl()->redirectNow();
         }catch(\Exception $e) {
             return Redirect::back()->withMessage(['msg'=>'The paystack token has expired. Please refresh the page and try again.', 'type'=>'error']);
-        }        
+        }
     }
 
     /**
@@ -84,7 +84,7 @@ class PaymentController extends Controller
             return redirect()->route('dashboard.index')->with('message', "Your payment was successful, You can now post more properties in Geohomes, thank you.");
         }
 
-        
+
     }
 
     public function subscription(Request $request) {
@@ -100,7 +100,7 @@ class PaymentController extends Controller
             "currency" => "NGN",
             "callback_url" => "https://geohomesgroup.com/payment/subscriber/callback/$project/$plots",
         );
-    
+
         return Paystack::getAuthorizationUrl($data)->redirectNow();
     }
 
@@ -125,7 +125,7 @@ class PaymentController extends Controller
         $pending->user_id = Auth::user()->id;
         $pending->tx_ref = $tx_ref;
         $pending->save();
-    
+
         return Paystack::getAuthorizationUrl($data)->redirectNow();
     }
 
@@ -145,7 +145,7 @@ class PaymentController extends Controller
             "currency" => "NGN",
             "orderID" => now(),
         );
-    
+
         return Paystack::getAuthorizationUrl($data)->redirectNow();
     }
 }

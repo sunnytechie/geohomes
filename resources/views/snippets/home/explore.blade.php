@@ -1,5 +1,5 @@
 <section>
-    <div class="bg-gray-02 py-lg-13 pt-11 pb-6">
+    <div class="bg-gray-02 py-lg-5 pt-5 pb-6">
       <div class="container container-xxl">
         <div class="row">
           <div class="col-lg-4 pr-xl-13" data-animate="fadeInLeft">
@@ -15,7 +15,7 @@
           <div class="col-lg-8" data-animate="fadeInRight">
             <div class="slick-slider arrow-haft-inner custom-arrow-xxl-hide mx-0"
                      data-slick-options='{"slidesToShow": 4, "autoplay":true,"dots":false,"responsive":[{"breakpoint": 1200,"settings": {"slidesToShow":3,"arrows":false}},{"breakpoint": 992,"settings": {"slidesToShow":3,"arrows":false}},{"breakpoint": 768,"settings": {"slidesToShow": 3,"arrows":false,"autoplay":true}},{"breakpoint": 576,"settings": {"slidesToShow": 2,"arrows":false,"autoplay":true}}]}'>
-              
+
               <div class="box px-0 py-6">
                 <a href="{{ $apertmentUrl }}"
                            class="card border-0 align-items-center justify-content-center pt-7 pb-5 px-3 shadow-hover-3 bg-transparent bg-hover-white text-decoration-none">
