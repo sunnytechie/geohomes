@@ -12,17 +12,17 @@ use Illuminate\Support\Facades\Auth;
 class WelcomeController extends Controller
 {
     public function index() {
-        
-        $projects = Project::orderBy('id', 'desc')->paginate(12);
-        
-        $propertiesForSale = Property::orderBy('id', 'desc')
-                            ->where('lint_in', "For Sale")->paginate(12);
 
-        $propertiesForRent = Property::orderBy('id', 'desc')
-                            ->where('lint_in', "For Rent")->paginate(12);
+        $projects = Project::inRandomOrder()->orderBy('id', 'desc')->paginate(6);
 
-        $buildings = Building::orderBy('id', 'desc')->paginate(12); 
-        
+        $propertiesForSale = Property::inRandomOrder()->orderBy('id', 'desc')
+                            ->where('lint_in', "For Sale")->paginate(6);
+
+        $propertiesForRent = Property::inRandomOrder()->orderBy('id', 'desc')
+                            ->where('lint_in', "For Rent")->paginate(6);
+
+        $buildings = Building::inRandomOrder()->orderBy('id', 'desc')->paginate(6);
+
         $apertmentUrl = route('page.sorted', ['parameter_name' => "Apartment"]);
         $houseUrl = route('page.sorted', ['parameter_name' => "House"]);
         $officeUrl = route('page.sorted', ['parameter_name' => "Office"]);

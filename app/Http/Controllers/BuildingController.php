@@ -33,6 +33,7 @@ class BuildingController extends Controller
         //validate
         $request->validate([
             'title' => 'required',
+            'price' => 'required',
             'description' => '',
             'file' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
@@ -48,6 +49,7 @@ class BuildingController extends Controller
 
         $building = new Building();
         $building->title = $request->title;
+        $building->price = $request->price;
         $building->description = $request->description;
         if ($request->hasFile('file')) {
         $building->file = $imagePath;
@@ -60,6 +62,7 @@ class BuildingController extends Controller
     /**
      * Display the specified resource.
      */
+
     public function show(string $id)
     {
         return view('dashboard.building.show', compact('building'));
@@ -69,7 +72,7 @@ class BuildingController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
-    {   
+    {
         $building = Building::find($id);
         return view('dashboard.building.edit', compact('building'));
     }
@@ -82,6 +85,7 @@ class BuildingController extends Controller
         //validate
         $request->validate([
             'title' => 'required',
+            'price' => 'required',
             'description' => '',
             'file' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
@@ -97,6 +101,7 @@ class BuildingController extends Controller
 
         $building = Building::find($id);
         $building->title = $request->title;
+        $building->price = $request->price;
         $building->description = $request->description;
         if ($request->hasFile('file')) {
         $building->file = $imagePath;

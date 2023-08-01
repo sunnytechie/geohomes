@@ -3,7 +3,7 @@
 @section('content')
 <main id="content" class="bg-gray-01">
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 my-profile">
-      
+
 
       <div class="row justify-content-center">
         <div class="col-md-8">
@@ -17,9 +17,9 @@
 
 
                   <div class="form-group">
-                      <label for="title" class="text-heading">title <span class="text-muted">(mandatory)</span></label>
+                      <label for="title" class="text-heading">Title <span class="text-muted">(mandatory)</span></label>
                       <input type="title" class="form-control form-control-lg @error('title') is-invalid @enderror" placeholder="title" id="title" value="{{ old('title') }}" name="title">
-                      
+
                       @if ($errors->has('title'))
                           <div id="titleHelp" class="form-text text-danger">
                               <div>{{ $errors->first('title') }}</div>
@@ -28,7 +28,18 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="desription" class="text-heading">desription <span class="text-muted">*</span></label>
+                    <label for="price" class="text-heading">Price <span class="text-muted">(mandatory)</span></label>
+                    <input type="price" class="form-control form-control-lg @error('price') is-invalid @enderror" placeholder="price" id="price" value="{{ old('price') }}" name="price">
+
+                    @if ($errors->has('price'))
+                        <div id="priceHelp" class="form-text text-danger">
+                            <div>{{ $errors->first('price') }}</div>
+                        </div>
+                    @endif
+                </div>
+
+                  <div class="form-group">
+                    <label for="desription" class="text-heading">Desription <span class="text-muted">*</span></label>
                     <textarea class="form-control" name="description" id="description" cols="4" placeholder="Write here..." rows="4">{{ old('description') }}</textarea>
 
                     @if ($errors->has('description'))
@@ -38,7 +49,7 @@
                       @endif
                   </div>
 
-                  <div class="form-group">         
+                  <div class="form-group">
                     <input type="file" name="file" id="file" class="dropify" data-allowed-file-extensions="jpg jpeg png">
 
                     @if ($errors->has('file'))

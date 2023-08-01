@@ -47,6 +47,10 @@ Route::get('/geohome-admin', [App\Http\Controllers\DashboardController::class, '
 Route::get('/estate/{id}', [App\Http\Controllers\WelcomeController::class, 'estate'])->name('estate.show');
 Route::get('/listing/property/{id}', [App\Http\Controllers\WelcomeController::class, 'property'])->name('gh.property.show');
 
+//building materials
+Route::get('/listing/building/materials', [App\Http\Controllers\PagesController::class, 'building'])->name('listing.building.index');
+
+
 //listings Resources
 Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
     Route::resource('buildings', 'App\Http\Controllers\BuildingController');
@@ -59,7 +63,9 @@ Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
     Route::post('/allocate/post', [App\Http\Controllers\TransactionController::class, 'allocatePost'])->name('allocatePost');
     //customers details
     Route::get('/customers/details/{user_id}', [App\Http\Controllers\UserController::class, 'show'])->name('show.customer.details');
+    //bookings
     Route::get('/bookings', [App\Http\Controllers\BookingController::class, 'bookings'])->name('bookings');
+    Route::put('/bookings/delete/{id}', [App\Http\Controllers\BookingController::class, 'destroy'])->name('bookings.destroy');
     //send survey email with link
     Route::post('/notify/user/survey/{id}', [App\Http\Controllers\SurveyController::class, 'survey'])->name('survey');
 

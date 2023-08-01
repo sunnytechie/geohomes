@@ -67,6 +67,13 @@
 
                             <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
+                                <a class="nav-link p-0" href="{{ route('listing.building.index') }}">
+                                    Building<span class="ml-1">Material</span>
+                                </a>
+                            </li>
+
+                            <li aria-haspopup="true" aria-expanded="false"
+                                class="nav-item py-2 py-xl-5 px-0 px-xl-4">
                                 <a class="nav-link p-0" href="{{ route('page.buy.rent') }}">
                                     Buy/Rent {{-- should be Listings --}}
                                 </a>
@@ -103,7 +110,7 @@
                                             href="{{ route('page.about') }}">
                                             About Us
                                         </a>
-                                    </li> 
+                                    </li>
                                     <li class="dropdown-item">
                                         <a id="navbar-link-my-properties" class="dropdown-link"
                                             href="{{ route('page.faq') }}">
@@ -116,7 +123,7 @@
 
                         <div class="d-block d-xl-none">
                             <ul class="navbar-nav flex-row ml-auto align-items-center justify-content-lg-end flex-wrap py-2">
-                                
+
                                 <li class="divider"></li>
                                 @guest
                                     <li class="nav-item hide-from-mobile">
@@ -128,14 +135,14 @@
                                         <a class="nav-link pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">To Post Properties Become an Agent</a>
                                     </li>
                                     @endif
-                                    
+
                                     <li class="nav-item ml-auto w-100 w-sm-auto">
                                         <a class="btn btn-primary border-0 btn-lg" href="{{ route('dashboard.index') }}" style="background: #00A75A">
                                             Your Dashboard
                                         </a>
                                     </li>
                                 @endguest
-                                
+
                             </ul>
                         </div>
 
@@ -150,7 +157,7 @@
                         </li>
                         @endif
                        @endauth
-                        
+
                         {{-- <li class="divider"></li> --}}
 
                         <li class="nav-item ">
@@ -159,9 +166,9 @@
                                 {{-- @else
                                 <a class="nav-link pl-3 pr-2" href="{{ route('dashboard.index') }}"> <span><i class="far fa-user"></i></span> <span class="ml-1">Dashboard</span></a> --}}
                             @endguest
-                            
+
                         </li>
-                        
+
                         @auth
                         <li class="nav-item">
                             {{-- <a class="btn btn-outline-light btn-lg text-white rounded-lg bg-hover-primary border-hover-primary hover-white d-none d-lg-block"
@@ -175,7 +182,7 @@
                             <a class="btn btn-primary border-0"
                                 href="{{ route('dashboard.index') }}" style="background: #00A75A">
                                 Your Dashboard
-                                
+
                             </a>
                         </li>
                         @endauth

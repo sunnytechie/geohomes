@@ -65,7 +65,7 @@
   }
 
 </style>
-    
+
 <main id="content">
 
   <section class="mt-12 pb-5 pb-lg-10 page-title bg-overlay bg-img-cover-center" style="background-image: url('assets/images/bg-home-6.jpg');">
@@ -84,7 +84,7 @@
     <section class="pb-9 pb-md-11 mt-10">
         <div class="container">
 
-          
+
             @foreach ($projects as $project)
             <div class="mb-5">
               <div class="row">
@@ -93,7 +93,7 @@
                     <img src="/storage/{{ $project->image }}" class="card-img" alt="{{ $project->title }}">
                   </a>
                 </div>
-  
+
                 <div class="col-md-4">
                   <div>
                     <h2 class="my-0">
@@ -101,12 +101,12 @@
                     </h2>
                     <p class="mb-2 font-weight-500 text-gray-light">{{ $project->address }}</p>
                     <p class="mb-2 mxw-571 ml-0"><p>{{ Str::limit($project->description, 150) }}</p>
-                    <p class="mb-6">₦{{ $project->price }}</p>
+                    <p class="mb-6">₦ {{ $project->price }}</p>
                   </div>
 
                   <div class="d-flex mb-3">
                     <button class="btn btn-primary rounded-0 border-0" data-toggle="modal" data-target="#exampleModal{{ $project->id }}" style="background: #00A75A;">Subscribe</button>
-        
+
                     <form action="{{ route('inspection') }}" method="POST" style="padding: 0; margin-bottom: 0;">
                       @csrf
                       <input type="hidden" name="project_id" value="{{ $project->id }}">
@@ -123,7 +123,7 @@
                     </div>
                     {{-- End map --}}
                   @endif
-                  
+
                 </div>
               </div>
             </div>
@@ -142,10 +142,13 @@
                       @csrf
                       <input type="hidden" name="project_id" value="{{ $project->id }}">
                       <div class="modal-body">
+                        
+                        <div class="my-2" style="color: #00A75A">After selecting the number of plots you want, you will first be prompted to subscribe for an allocation with a fee of ₦ 20,000 (twenty thousand naira). <br> After the allocation is made you have 14days to pay for the land else the plot(s) you subscribed for will be available for purchase to other customers.</div>
+
                         <div class="input-group input-group-lg">
                           <label for="plots">Select the Number of plots you want.</label>
                           <input class="shadow-none fs-13 form-control" value="2" name="plots" id="plots" type="number">
-              
+
                           @error('plots')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
@@ -163,8 +166,8 @@
               </div>
 
             @endforeach
-          
-          
+
+
         </div>
     </section>
 </main>

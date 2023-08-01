@@ -34,7 +34,7 @@ class BookingController extends Controller
             'phone' => 'required',
             'address' => 'required',
             'msg' => '',
-        ]);        
+        ]);
 
         //store
         $booking = new Booking();
@@ -69,4 +69,13 @@ class BookingController extends Controller
         //return
         return redirect()->route('booking.building.material.show', $building->id)->with('message', "Sent successfully. Kindly note that our customer relation officer will reach out to you soon. thank you.");
     }
+
+    public function destroy($id) {
+        $booking = Booking::find($id);
+        $booking->delete();
+
+        return back()->with('message', "Deleted bookings successfully.");
+    }
+
+    
 }

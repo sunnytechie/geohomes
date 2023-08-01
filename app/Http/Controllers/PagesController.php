@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Building;
 use App\Models\Project;
 use App\Models\Property;
 use Illuminate\Http\Request;
@@ -41,7 +42,7 @@ class PagesController extends Controller
         $keyword = $request->key_word;
         $properties = Property::orderBy('id', 'desc')->get();
         $slideproperties = Property::orderBy('id', 'desc')->paginate(4);
-        
+
         return view('pages.buyrent', compact('properties', 'slideproperties',
         'status',
         'type',
@@ -61,7 +62,7 @@ class PagesController extends Controller
         $bathrooms = $request->bathrooms;
         $city = $request->city;
         $keyword = $request->key_word;
-         
+
         $countFilteredProperties = Property::where('category', $request->parameter_name)->get();
 
         $filteredProperties = Property::orderBy('id', 'desc')
@@ -79,8 +80,14 @@ class PagesController extends Controller
     }
 
     public function projects() {
-        $projects = Project::orderBy('id', 'desc')->paginate(12);
+        $projects = Project::orderBy('id', 'desc')->get();
         return view('pages.projects', compact('projects'));
+    }
+
+    public function building() {
+        $buildings = Building::orderBy('id', 'desc')->get();
+
+        return view('pages.building', compact('buildings'));
     }
 
 }

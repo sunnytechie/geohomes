@@ -57,9 +57,9 @@
           margin: 1.75rem auto;
       }
   }
-  
+
 </style>
-    
+
 <main id="content">
   <section>
     <div class="spacer mt-13 hide-from-mobile"></div>
@@ -78,7 +78,7 @@
     </div> --}}
     <div class="container-fluid">
       <div class="position-relative" data-animate="zoomIn">
-        
+
       <div class="row galleries m-n1">
         <div class="col-lg-6 p-1">
           <div class="item item-size-4-3">
@@ -153,10 +153,10 @@
         <div class="primary-sidebar-inner">
           <div class="card border-0 widget-request-tour">
             <div class="d-flex">
-              
+
                 <button class="btn btn-primary rounded-0 border-0" data-toggle="modal" data-target="#estateModal" style="background: #00A75A; color: #ffffff !important; padding-left: 30px;">Subscribe</button>
-              
-  
+
+
               <form class="w-50" action="{{ route('inspection') }}" method="POST" style="padding: 0; margin: 0">
                 @csrf
                 <input type="hidden" name="project_id" value="{{ $project->id }}">
@@ -187,7 +187,10 @@
         @csrf
         <input type="hidden" name="project_id" value="{{ $project->id }}">
         <div class="modal-body">
-          <div class="input-group input-group-lg">
+            
+            <div class="my-2" style="color: #00A75A">After selecting the number of plots you want, you will first be prompted to subscribe for an allocation with a fee of ₦ 20,000 (twenty thousand naira). <br> After the allocation is made you have 14days to pay for the land else the plot(s) you subscribed for will be available for purchase to other customers.</div>
+
+            <div class="input-group input-group-lg">
             <label for="plots">Select the Number of plots you want.</label>
             <input class="shadow-none fs-13 form-control" value="2" name="plots" id="plots" type="number">
 

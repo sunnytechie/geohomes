@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="hide-from-mobile mt-2"></div>
-                    
+
                         {{-- alert --}}
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                             {{ session('message') }}
@@ -16,7 +16,7 @@
                             <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                             </button>
                         </div>
-                    
+
                 </div>
             </div>
             </div>
@@ -34,9 +34,9 @@
 
 
                   <div class="form-group">
-                      <label for="title" class="text-heading">title <span class="text-muted">(mandatory)</span></label>
+                      <label for="title" class="text-heading">Title <span class="text-muted">(mandatory)</span></label>
                       <input type="title" class="form-control form-control-lg @error('title') is-invalid @enderror" placeholder="title" id="title" value="{{ $building->title ?? old('title') }}" name="title">
-                      
+
                       @if ($errors->has('title'))
                           <div id="titleHelp" class="form-text text-danger">
                               <div>{{ $errors->first('title') }}</div>
@@ -45,7 +45,18 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="desription" class="text-heading">desription <span class="text-muted">*</span></label>
+                    <label for="price" class="text-heading">Price <span class="text-muted">(mandatory)</span></label>
+                    <input type="price" class="form-control form-control-lg @error('price') is-invalid @enderror" placeholder="price" id="price" value="{{ $building->price ?? old('price') }}" name="price">
+
+                    @if ($errors->has('price'))
+                        <div id="priceHelp" class="form-text text-danger">
+                            <div>{{ $errors->first('price') }}</div>
+                        </div>
+                    @endif
+                </div>
+
+                  <div class="form-group">
+                    <label for="desription" class="text-heading">Desription <span class="text-muted">*</span></label>
                     <textarea class="form-control" name="description" id="description" cols="4" placeholder="Write here..." rows="4">{{ $building->description ?? old('description') }}</textarea>
 
                     @if ($errors->has('description'))
@@ -55,7 +66,7 @@
                       @endif
                   </div>
 
-                  <div class="form-group">         
+                  <div class="form-group">
                     <input type="file" name="file" id="file" class="dropify" data-default-file="/storage/{{ $building->file }}" data-allowed-file-extensions="jpg jpeg png">
 
                     @if ($errors->has('file'))
