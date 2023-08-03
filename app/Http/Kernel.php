@@ -71,5 +71,6 @@ class Kernel extends HttpKernel
         'UnSubAgentCannot' => \App\Http\Middleware\CountAgentPost::class,
         'hasAdminButNotAgent' => \App\Http\Middleware\HasAdminNoAgent::class,
         'isAuditorAccountant' => \App\Http\Middleware\IsAuditorIsAccountant::class,
+        'agentHasApproval' => \App\Http\Middleware\AgentHasApproval::class,
     ];
 }

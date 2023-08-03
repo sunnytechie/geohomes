@@ -2,16 +2,6 @@
     <div class="container-fluid">
       <nav class="navbar navbar-light py-0 row no-gutters px-3 px-lg-0">
         <div class="col-md-4 px-0 px-md-6 order-1 order-md-0">
-          {{-- <form>
-            <div class="input-group">
-              <div class="input-group-prepend mr-0">
-                <button class="btn border-0 shadow-none fs-20 text-muted p-0" type="submit"><i
-                            class="far fa-search"></i></button>
-              </div>
-              <input type="text" class="form-control border-0 bg-transparent shadow-none"
-                       placeholder="Search for..." name="search">
-            </div>
-          </form> --}}
           GeoDashboard
         </div>
         <div class="col-md-6 d-flex flex-wrap justify-content-md-end order-0 order-md-1">

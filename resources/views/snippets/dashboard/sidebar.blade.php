@@ -86,7 +86,7 @@
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="{{ route('schedule') }}" class="text-heading lh-1 sidebar-link">
                     <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-calendar" style="color: #ababab"></i></span>
-                    <span class="sidebar-item-text">Schedules</span>
+                    <span class="sidebar-item-text">Inspection Schedules</span>
                   </a>
                 </li>
 
@@ -98,11 +98,11 @@
                   </a>
                 </li>
 
-                
+
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="{{ route('registered.users') }}" class="text-heading lh-1 sidebar-link">
                     <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-users" style="color: #ababab"></i></span>
-                    <span class="sidebar-item-text">Users</span>
+                    <span class="sidebar-item-text">Customers</span>
                   </a>
                 </li>
 
@@ -112,51 +112,27 @@
                     <span class="sidebar-item-text">Agents</span>
                   </a>
                 </li>
+
+
+                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                    <a href="{{ route('unapproved.agent') }}" class="text-heading lh-1 sidebar-link">
+                      <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-users" style="color: #ababab"></i></span>
+                      <span class="sidebar-item-text">UnApproved Agents</span>
+                    </a>
+                  </li>
                 @endif
-                
+
               </ul>
             </li>
 
-            
+
           @if (Auth::user()->is_admin || Auth::user()->is_agent)
             <li class="list-group-item pt-6 pb-4">
-              
-              <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Listings</h5>
-              
-              <ul class="list-group list-group-no-border rounded-lg">
-                {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="#"
-                         class="text-heading lh-1 sidebar-link">
-                    <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20 fs-20">
-                      <svg class="icon icon-add-new"><use
-                                      xlink:href="#icon-add-new"></use></svg></span>
-                    <span class="sidebar-item-text">Add new</span>
-                  </a>
-                </li>
 
-                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="#"
-                         class="text-heading lh-1 sidebar-link d-flex align-items-center">
-                    <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
-                      <svg class="icon icon-my-properties"><use
-                                      xlink:href="#icon-my-properties"></use></svg>
-                    </span>
-                    <span class="sidebar-item-text">Our Agents</span>
-                    <span class="sidebar-item-number ml-auto text-primary fs-15 font-weight-bold">29</span>
-                  </a>
-                </li> --}}
-                
-               
-                {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="#"
-                         class="text-heading lh-1 sidebar-link d-flex align-items-center">
-                    <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
-                      <svg class="icon icon-review"><use xlink:href="#icon-review"></use></svg>
-                    </span>
-                    <span class="sidebar-item-text">Reviews</span>
-                    <span class="sidebar-item-number ml-auto text-primary fs-15 font-weight-bold">29</span>
-                  </a>
-                </li> --}}
+              <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Listings</h5>
+
+              <ul class="list-group list-group-no-border rounded-lg">
+
                 @if (Auth::user()->is_admin)
                 {{-- Projects --}}
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
@@ -207,7 +183,7 @@
                   </div>
                 </div>
                 @endif
-                 
+
                 @if (Auth::user()->is_admin || Auth::user()->is_agent)
                 {{-- Property --}}
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
@@ -289,9 +265,6 @@
                 </div>
                 @endif
 
-
-
-
               </ul>
 
             </li>
@@ -299,7 +272,7 @@
             <li class="list-group-item pt-6 pb-4">
               <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Acount</h5>
               <ul class="list-group list-group-no-border rounded-lg">
-                
+
                 @if (Auth::user()->is_admin)
                 {{-- Admins --}}
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
@@ -313,7 +286,7 @@
                 </li>
 
                 {{-- Only Admin --}}
-               
+
                 <div class="collapse" id="admin_collapse">
                   <div class="card card-body border-0 bg-transparent py-0 pl-6">
                     <ul class="list-group list-group-flush list-group-no-border">
@@ -332,9 +305,9 @@
                   @if (Auth::user()->is_agent)
                   <a href="{{ route('agent.profile', Auth::user()->id) }}" class="text-heading lh-1 sidebar-link">
                   @else
-                  <a href="{{ route('profile.show') }}" class="text-heading lh-1 sidebar-link"> 
+                  <a href="{{ route('profile.show') }}" class="text-heading lh-1 sidebar-link">
                   @endif
-                  
+
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
                       <i class="fal fa-user"></i>
                     </span>
@@ -346,16 +319,17 @@
                     @csrf
                   <a href="{{ route('logout') }}" onclick="event.preventDefault();
                   this.closest('form').submit();" class="text-heading lh-1 sidebar-link">
-                    
+
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
                       <i class="fal fa-sign-out"></i>
                     </span>
                     <span class="sidebar-item-text">Log Out</span>
                   </a>
+                </form>
                 </li>
               </ul>
             </li>
-            
+
           </ul>
         </div>
       </div>

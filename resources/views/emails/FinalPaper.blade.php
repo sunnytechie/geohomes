@@ -48,7 +48,7 @@
     <p><strong>Dimensions: Approximately 18.3m * 30.5m.</strong></p>
 
     <p>with the terms and conditions of the sale. Attached for your review and safekeeping are the pertinent land ownership documents, including the deed and lease agreement.</p>
-    
+
     <p>As the delighted proprietor of this allotment, you are entitled to all the privileges and conveniences provided by our prestigious {{ $compose['projectName'] }} layout.</p>
 
     <p>Please peruse the attached documents and verify that all of the information is accurate. If you have any questions or need additional information, our customer service team is promptly available to assist you. Please contact us at <strong>0906 297 2785</strong> or <strong>geohomesng@gmail.com</strong>.</p>
@@ -60,7 +60,11 @@
     <p>Again, thank you for your valued partnership. We look forward to seeing your aspirations materialize and to continuing to serve you.</p>
 
     <p>Sincerely,</p>
-    <p>GeoHomes</p>
+    <br>
+
+    <p>Surveyor</p>
+    <p>Uchechukwu Godwin Nnam</p>
+    <p>CEO Geohomes Group</p>
 
 </body>
 </html>

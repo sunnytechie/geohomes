@@ -5,9 +5,8 @@
 <section class="py-2">
     <div class="container">
       <div class="mt-7 hide-from-1024"></div>
-      <div class="mt-mobile" style="margin-top: 40px;"></div>
-      <div class="row justify-content-center login-register">
-        <div class="col-md-5">
+      <div class="row justify-content-center login-register mt-8">
+        <div class="col-md-4">
           <div class="card border-1 shadow">
             <div class="card-body">
                 <a href="/">
@@ -20,7 +19,7 @@
                 @csrf
 
                 <div class="form-group mb-4">
-                  <label for="email">Email</label>
+                  {{-- <label for="email">Email</label> --}}
                   <input type="email" class="form-control @error('email') is-invalid @enderror form-control-lg" id="email" name="email" value="{{ old('email') }}" placeholder="Your email">
 
                     @error('email')
@@ -31,7 +30,7 @@
                 </div>
 
                 <div class="form-group mb-4">
-                  <label for="password-2">Password</label>
+                  {{-- <label for="password-2">Password</label> --}}
                   <div class="input-group input-group-lg">
                     <input type="password" class="form-control password-input @error('password') is-invalid @enderror shadow-none fs-13" id="password" name="password" placeholder="Password">
 

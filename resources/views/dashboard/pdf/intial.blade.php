@@ -1,59 +1,153 @@
 @extends('layouts.admin')
-
+<title>Initial Allocation Paper</title>
 @section('content')
 <div class="mt-5"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10 shadow">
 
-            <div class="content" id="pdfContent">
-                <h4>Subscription Initial Paper</h4>
-                <div>{{ Auth::user()->address }}</div>
-                <div>{{ Auth::user()->city }}, {{ Auth::user()->zip }}</div>
-                <div>Initial Plot Assignment Letter</div>
-                <div style="margin: 30px; auto"></div>
+            <div class="content" id="pdfContent" style="padding: 10px;">
+                <div style="margin: 20px"></div>
+                <div style="display:flex; width:100%">
+                    <div style="width: 60%">GSL/L/2023/038 (REFERENCE NUMBER) </div>    <div style="text-align: right; width: 35%">{{ date('j M, Y') }}</div>
+                </div>
 
-                <p>Dear {{ Auth::user()->name }},</p>
+                <div style="margin: 20px"></div>
+                <strong>DR. NNAM UCHECHUKWU GODWIN</strong>
+                <div>Plot 94,</div>
+                <div>Green Land RCC Estate,</div>
+                <div>Enugu East Local Government Area,</div>
+                <div>Enugu State.</div>
 
-            <p>We are delighted to inform you that your request to purchase property within our prestigious <strong>{{ $transaction->project->title }}</strong> has been approved. We genuinely appreciate your interest in our endeavor and cordially invite you to join our rapidly expanding community.
-            </p>
-            <p>Subject to the conclusion of the payment procedure, we are delighted to temporarily assign plot - <strong>{{ $transaction->plotnames }}</strong> within the <strong>{{ $transaction->project->address }}</strong> to you. This letter functions as your initial plot allocation, allowing you to proceed with the processes necessary to secure your desired plot.
-            </p>
-            <p>After careful consideration and based on your preference, the following plot details have been provisionally designated to you:
-            </p>
+                <div style="margin: 20px"></div>
+                <div style="text-align: center"><u><strong>OFFER LETTER</strong></u></div>
+                <div style="margin: 20px"></div>
 
-            <p><strong>Your Plot Number(s) - {{ $transaction->plotnames }}</strong></p>
+                <div style="margin: 20px"></div>
+                <p>With reference to your application for a land at Geo–Homes Gardens Estate (LAYOUT NAME), we wish to grant you the following provisional allocation for the property herein described. This serves as a formal acceptance of your application, subject however to <strong>NOTICE:</strong></p>
 
-            <p><strong>Plot Size: Approximately *558.150* SQ. M.</strong></p>
+                <div style="margin: 20px"></div>
+                <strong>PROPERTY</strong>
+                <div style="display:flex; width:100%">
+                    <div style="width: 20%"><i><strong>Location:</strong></i></div>    <div style="width: 80%">Geohomes Gardens Estate, Destiny Layout, Agbogazi Nike, Enugu East Local Government Area, Enugu State. (LAYOUT NAME AND ADRESS)</div>
+                </div>
+                <div style="display:flex; width:100%">
+                    <div style="width: 20%"><i><strong>Plot No:</strong></i></div>    <div style="width: 80%">32 (PLOT NUMBER)</div>
+                </div>
+                <div style="display:flex; width:100%">
+                    <div style="width: 20%"><i><strong>Plot Use:</strong></i></div>    <div style="width: 80%">Residential</div>
+                </div>
+                <div style="display:flex; width:100%">
+                    <div style="width: 20%"><i><strong>Space Size:</strong></i></div>    <div style="width: 80%">500 Sq.m. (Approximately)</div>
+                </div>
+                <div style="display:flex; width:100%">
+                    <div style="width: 20%"><i><strong>Property Worth:</strong></i></div>    <div style="width: 80%">N10,000,000.00 (Land Premium).</div>
+                </div>
 
-            <p><strong>Location</strong>: {{ $transaction->project->address }}, {{ $transaction->project->state }} Nigeria</p>
+                <div style="margin: 20px"></div>
+                <div><u><b>TERMS & CONDITIONS</b></u></div>
+                <div style="margin: 20px"></div>
 
-            <p><strong>Dimensions: Approximately 18.3m * 30.5m.</strong></p>
 
-            <p>Please note that these details are subject to change pending the conclusion of the payment procedure. We have made every effort to ensure the accuracy of this document, but minor variations may still occur.
-            </p>
-            <p>Attached to this letter is an invoice for the total cost for lease of the parcel, which was generated to facilitate the payment and land acquisition procedure. Please peruse the invoice for the payment schedule and instructions in detail.
-            </p>
-            <p>For the next measures to be taken, we respectfully request the following from you:
-            </p>
-            <p>Examine the invoice carefully, including the payment schedule and terms and conditions.
-            </p>
-            <p>Within 14 days, make the essential payment as outlined on the invoice.
-            </p>
-            <p>Notify our sales division when the payment has been initiated.
-            </p>
-            <p>Our team will promptly update the status of your plot allocation and direct you through the subsequent steps required for land registration upon receipt of your payment. Our dedicated customer support team is available to resolve any questions or concerns you may have throughout the process.
-            </p>
-            <p>Please familiarize yourself extensively with the layout plan, rules and regulations, and any other documentation provided. If you require additional information, please contact our sales department at <strong>0906 297 2785</strong> or <strong>geohomesng@gmail.com</strong>
-            </p>
-            <p>We sincerely appreciate your selection of Geohomes as your land developer of choice. We are confident that your choice will prove to be an excellent investment, and we are committed to ensuring your entire contentment.
-            </p>
-            <p>Again, congratulations on your initial plot allocation! We ardently anticipate your continued collaboration as we work together to make your land ownership aspirations a reality.
-            </p>
-            <p>Best wishes,</p>
-            <p>GeoHomes</p>
+                    <ol type="a">
+                        <li>This Offer Letter is only valid for 15 days from the date of this Offer.</li>
+                        <li>This is not a Deed of Conveyance / Deed of Assignment / Deed of Sub–Lease document, but a notification of allocation of Plot/building space indicating our acceptance of your application. The Developer will have to issue a Letter of Allocation after the payment for property have been made and then an execution of a Deed of Sub–Lease or Deed of Assignment afterwards.</li>
+                        <li>This Offer Letter may however be revoked at any time before the Final Allocation, if there is a misrepresentation of facts or default in full payment of the Land Premium or any act calculated to mislead the Developer or put the entire project in jeopardy. </li>
+                        <li>That you have agreed that the premium being paid for the land is not financed from illegal sources or funds derived from money laundering, Drugs or other financial crimes covered by the EFCC, ICPC, NDLEA or other Law Enforcement Bodies Acts.</li>
+                        <li>That you have agreed to bear, pay and discharge all levies, ground rents, documentation fees, which may be imposed on the property by the Management of the Estate, Ministry of Lands and Urban Development in future e.g. Ground Rent, C.of.O charges, etc.</li>
+                        <li>That you have agreed not to sublet, assign, transfer or part with possession of the land wholly or in part without the written consent of the management of <b>Geohomes Services Limited</b> or her Proxy and such consent shall not be unreasonably withheld.</li>
+                        <li>That you have agreed to pay <strong>Geohomes Services Limited</strong> or any company which shall be appointed by Geohomes Services Limited to carry out the duties of the facility management of the Estate, Ten percent (10%) of the valuable consideration in event of a subsequent assignment, subletting, transfer or parting of interest in the said property, as a first charge on the consideration and as a condition precedent to entering, execution and perfection of it.</li>
+                        <li>Offer Letter/Provisional allocation is subject to a final allocation upon full payment of the premium for the land, which must be fully paid within the stipulated period, starting from the date on this allocation or risk revocation and refund of money paid less five percent (10%) handling charge. This refund comes within 90 working days, starting from the date on your request letter.</li>
+                        <li>That you are to seek approval Ministry of Lands and Urban Development  through the Developer and ensure you obtain the Building Approval of your Proposed Building on your Property, which includes the Estate Fence designs, railings and Building. Otherwise, such fence work or building will be removed by the Developer.</li>
+                        <li>Further to clause (g), should you default in payment and keeping to this contract terms, <b>GeoHomes Services Limited</b> reserves the right to terminate the contract of this agreement and make refund of money paid within the same duration payment was made to it less Ten percent (10%) administrative/handling charge, within 90 working days starting from the date on your request letter.</li>
+                        <li>Further to clause (e), you are to complete payment of your allocated plot of land  (N10,000,000.00) within 15 days starting from the date on this allocation or risk revocation and refund of money paid less Ten percent (10%) Administrative/handling charge, within 90 working days starting from the date on your request letter. </li>
+                        <li>Also, you should mobilize to site within (6) months from the date of communication/notification of your final allocation or risk forfeiture and refund made upon demand of the total amount paid less Ten percent (10%) administrative/handling charges, within 90 working days starting from the date on your revocation letter.</li>
+                        <li>More so, Geohomes Services Limited may decide not to revoke a defaulters’ plot or building, however, in other not to obstruct development, you may be considered a reallocation to another plot or building within the estate or the next phase of same estate or to a different estate entirely. But whereby you refuse the newly allocated plot, Geohomes Services Limited shall refund upon a written request of amount paid less Ten percent (10%) administrative/handling charges. This clause is also applicable to the new allotted building or plot if subscriber continues to default.</li>
+                        <li>Note that Geohomes Services Limited reserves the right to readjust Estate Plan to enhance Estate functionality. Therefore, Subscriber’s Proprietary rights within the Estate shall be limited to the Plot/building space bought by each respective Subscriber only. </li>
+                        <li>That you have agreed to enter into a formal agreement with <b>Geohomes Services Limited</b> or any company which shall be appointed by it to carry out the duties of facility management of the Estate and pay all charges for the day to day maintenance of the Estate.</li>
+                        <li>You are to note that payments made is not refundable. However, in the event of an intention to sell, which is applicable to those that have made complete payment, upon a written letter of authority, <b>Geohomes Services Limited</b> will be willing to sell on your behalf at an agreed price as determined by you less ten percent (10%) agency commission. Also, secondary buyers of such properties shall pay Ten percent (10%) of their current purchase cost, as charge for processing and change of allocation letters to <b>Geohomes Services Limited</b> </li>
+                        <li>Should there be any ambiguity in any of the clauses as contained in the terms of this agreement, <b>Geohomes Services Limited</b> reserves the right to interpretations. </li>
+                        <li>Please, note that depending on a preferred payment plan, refund arising from any form of default by subscribers shall only be made payable by <b>Geohomes Services Limited</b> after 90 working days in a case, and within the same period of time such installment payment was made to <b>Geohomes Services Limited</b> in other cases, starting from the date of submission of the letter for request for payment made by such subscriber. </li>
+                        <li>It is hereby agreed that the operation of the exclusive property management agreement of the Estate as between <b>Geohomes Services Limited</b> and all the Subscriber(s) within the Estate does not in any way whatsoever confer on the Subscribers any beneficial ownership of any of the assets and infrastructure mentioned in this agreement.</li>
+                        <li>It is hereby agreed that the Estate’s assets stated in this agreement are not owned jointly with any Subscriber, either individually or collectively and where Subscribers form an association collectively to constitute a body corporate, they shall not individually or collectively lay  any legal right or claim of ownership of same under any circumstances whatsoever and any such right shall not be imputed by reason of the payment of service charge and infrastructure fees/charge by each Subscribers.</li>
+                        <li>Where any material clause relating to the aforementioned proprietary right of <b>Geohomes Services Limited</b> over all infrastructural facilities in the estate is inadvertently omitted in the deed of sublease but contained in the provisional letter of allocation and or in the final letter of allocation such clause(s) shall be deemed to have the same legal effect of forming part of the clause of the deed of sublease as if same were specifically stated in the deed of sublease agreement executed by <b>GeoHomes Services Limited</b> and the Subscriber.</li>
+                        <li>The exclusive management of the estate by <b>Geohomes Services Limited</b> is a continuing binding agreement as between <b>Geohomes Services Limited</b> and the Subscribers as well as Subscribers’ successors-in-title, personal representatives and assigns.</li>
+                        <li>As directed by the Federal Inland Revenue Service (FIRS) or Enugu State Internal Revenue Service (ESIRS), you are to pay 7.5% value added tax (VAT) on the total cost of property (Land/House). </li>
+
+                    </ol>
+
+                    <p>Please, find attached Payment bill and building guidelines.</p>
+
+                    <p>Thank you.</p>
+
+                    <p>Yours faithfully,</p>
+                    <p>For: <strong>Geohomes Services Limited</strong>,</p>
+
+                    <p><strong>Surv. Nnam Uchechukwu Godwin</strong></p>
+                    <p><i><strong>CEO/Managing Director</strong></i></p>
+
+
+
+                    {{-- New Page --}}
+
+                    <div style="margin: 100px 0"></div>
+
+                    <div><strong><u>ACKNOWLEDGEMENT</u></strong></div>
+                    <p>I,___________________________, with <br>
+                        phone number: ______________, having read through the above and <br>
+                        clearly understood it, accept these terms and conditions and hereby undertake to <br>
+                        comply fully with it. <b>SIGNATURE</b>:__________<b>DATE</b>:_________. <br>
+                    </p>
+
+
+
+                    {{-- New Page --}}
+
+                    <div style="margin: 100px 0"></div>
+                    <h4 style="text-align: center"><b>GEOHOMES SERVICES LIMITED</b></h4>
+                    <h5 style="text-align: center">GEO-HOMES GARDENS ESTATE, DESTINY LAYOUT, AGBOGAZI NIKE, ENUGU <br> EAST LOCAL GOVERNMENT AREA, ENUGU STATE. <br> LAND PREMIUM, LEGAL FEES</h5>
+
+                    <div style="border: 1px solid #000; padding: 6px">
+                    
+                        <div style="display:flex; width:100%">
+                            <div style="width: 50%; text-align:center"><i><strong>DR. NNAM UCHECHUKWU GODWIN</strong></i></div>    <div style="width: 50%">PLOT NO.: 32</div>
+                        </div>
+
+                        <div style="margin: 20px 0"></div>
+                        <div style="display:flex; width:100%">
+                            <div><i><strong>Name:</strong></i>_________________</div>
+                        </div>
+                        <div style="margin: 20px 0"></div>
+                        <div style="display:flex; width:100%">
+                            <div><i><strong>LAND PREMIUM</strong></i>________________</div>
+                        </div>
+                        <div style="margin: 20px 0"></div>
+                        <div>
+                            <div><i><strong>PROVIDED BY GEOHOMES SERVICES LIMITED</strong></i>________________</div>
+                            <div>Additional cost Charges </div>
+                            <div>Legal Documentation_____________ ₦ 100,000.00 </div>
+                            <div><b>Total</b>_____________ ₦ 10,100,000.00 </div>
+                            <div>VAT @ 7.5% _____________ ₦ 1,028,250.00 </div>
+                            <div><strong>GRAND TOTAL</strong> _____________ ₦ 14,738,250.00 </div>
+                        </div>
+                        
+                    </div>
+
+                    <div style="margin: 70px 0"></div>
+                        
+                        <p>Please, note that all payments must be made within the duration specified in this bill starting from the date on the allocation or risk revocation and refund made upon demand of the total amount paid less five percent (5%) administrative/handling charges.</p>
+
+                        <p>The    failure   of   <b>GEOHOMES SERVICES LIMITED</b> to   enforce   any   provision   of   this   Terms and Conditions Shall   not   be construed as a waiver or limitation of its right to subsequently enforce and compel strict compliance with every provision of this agreement.</p>
+
+                        <p>Yours faithfully,</p>
+                        <p>For: <b>GeoHomes Services Limited</b>,  </p>  
+                        
+                        <p>Yours faithfully,</p>
+                        <p>For: <strong>Geohomes Services Limited</strong>,</p>
+
+                        <p><strong>Surv. Nnam Uchechukwu Godwin</strong></p>
+                        <p><i><strong>CEO/Managing Director</strong></i></p>
             </div>
-
             <div class="py-4 mb-5">
                 <form action="{{ route('downloadInitialPdf', $transaction->id) }}" method="POST">
                     @csrf

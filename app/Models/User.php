@@ -33,6 +33,9 @@ class User extends Authenticatable
         'zip',
         'password',
         'email_verified_at',
+        'cac',
+        'rc_no',
+        'agent_type',
     ];
 
     //Has one agent

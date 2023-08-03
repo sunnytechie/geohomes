@@ -39,7 +39,7 @@ class BuildingController extends Controller
         ]);
 
         if ($request->has('file')) {
-            $imagePath = request('file')->store('products', 'public');
+            $imagePath = request('file')->store('building', 'public');
             $image = Image::make(public_path("storage/{$imagePath}"))
                 ->resize(800, null, function ($constraint) {
                     $constraint->aspectRatio();

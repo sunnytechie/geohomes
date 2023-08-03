@@ -86,14 +86,18 @@
     <script src="{{ asset('assets/vendors/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/slick/slick.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/waypoints/jquery.waypoints.min.js') }}"></script>
+    
     <script src="{{ asset('assets/vendors/counter/countUp.js') }}"></script>
     <script src="{{ asset('assets/vendors/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/chartjs/Chart.min.js') }}"></script>
+    
     <script src="{{ asset('assets/vendors/dropzone/js/dropzone.min.js') }}"></script>
+    
     <script src="{{ asset('assets/vendors/timepicker/bootstrap-timepicker.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/hc-sticky/hc-sticky.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/jparallax/TweenMax.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/mapbox-gl/mapbox-gl.js') }}"></script>
+    
     <!-- Theme scripts -->
     <script src="{{ asset('assets/js/theme.js') }}"></script>
 

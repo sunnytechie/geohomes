@@ -27,7 +27,7 @@ class DashboardController extends Controller
             ->where('status', 1)
             ->get();
         }
-        
+
         $projects = Project::all();
         $agents = Agent::all();
         $destinations = Destination::all();
@@ -54,7 +54,25 @@ class DashboardController extends Controller
                             ->where('expiry_date', '>', now())
                             ->where('final_status', 0)
                             ->get();
-        
+
         return view('dashboard.index', compact('properties', 'pendingPayments', 'labels', 'values', 'transactions', 'inspections', 'projects', 'agents', 'destinations'));
+    }
+
+    public function status() {
+        return view('dashboard.unapproved');
+    }
+
+    public function unApproved() {
+        $agents = Agent::orderBy('id', 'desc')
+            ->where('approval', 'pending')->get();
+        return view('dashboard.agent.unapproved', compact('agents'));
+    }
+
+    public function approve($id) {
+        $agent = Agent::find($id);
+        $agent->approval = "approved";
+        $agent->save();
+
+        return back()->with('message', "approved successfully.");
     }
 }

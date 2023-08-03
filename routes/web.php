@@ -20,6 +20,9 @@ Route::get('/', [App\Http\Controllers\WelcomeController::class, 'index'])->name(
 //register users
 Route::post('/register/user', [App\Http\Controllers\Auth\RegisterController::class, 'userRegister'])->name('create.new.user');
 
+Route::get('/register/customer', [App\Http\Controllers\Auth\RegisterController::class, 'customer'])->name('auth.customer');
+Route::get('/register/agent', [App\Http\Controllers\Auth\RegisterController::class, 'agent'])->name('auth.agent');
+
 //Pages
 Route::get('/about-us', [App\Http\Controllers\PagesController::class, 'about'])->name('page.about');
 Route::get('/geo-agents', [App\Http\Controllers\PagesController::class, 'agents'])->name('page.agents');
@@ -43,12 +46,15 @@ Route::get('/booking/building/material/{id}', [App\Http\Controllers\BookingContr
 Route::post('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'store'])->name('booking.building.material')->middleware('auth', 'verified');
 
 //dashboard
-Route::get('/geohome-admin', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified', 'checkIfAgentAndIsSet');
+Route::get('/geohomes/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified', 'checkIfAgentAndIsSet', 'agentHasApproval');
 Route::get('/estate/{id}', [App\Http\Controllers\WelcomeController::class, 'estate'])->name('estate.show');
 Route::get('/listing/property/{id}', [App\Http\Controllers\WelcomeController::class, 'property'])->name('gh.property.show');
 
 //building materials
 Route::get('/listing/building/materials', [App\Http\Controllers\PagesController::class, 'building'])->name('listing.building.index');
+
+//UnApproved Agents
+Route::get('/geohomes/approval/status', [App\Http\Controllers\DashboardController::class, 'status'])->name('dashboard.status')->middleware('auth', 'verified');
 
 
 //listings Resources
@@ -68,10 +74,14 @@ Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
     Route::put('/bookings/delete/{id}', [App\Http\Controllers\BookingController::class, 'destroy'])->name('bookings.destroy');
     //send survey email with link
     Route::post('/notify/user/survey/{id}', [App\Http\Controllers\SurveyController::class, 'survey'])->name('survey');
-
+    //Unapproved agents
+    Route::get('/review/agents/reviews', [App\Http\Controllers\DashboardController::class, 'unApproved'])->name('unapproved.agent');
+    Route::post('/review/agents/approval/{id}', [App\Http\Controllers\DashboardController::class, 'approve'])->name('approve.agent');
 });
 
-Route::resource('properties', 'App\Http\Controllers\PropertyController')->middleware('auth', 'verified', 'hasAdminButNotAgent', 'isAgent');
+Route::middleware('auth', 'verified', 'hasAdminButNotAgent', 'isAgent', 'agentHasApproval')->group(function () {
+    Route::resource('properties', 'App\Http\Controllers\PropertyController');
+});
 
 Route::get('/geo-projects-image', [App\Http\Controllers\PagesController::class, 'projectImage'])->name('project.image.upload');
 
