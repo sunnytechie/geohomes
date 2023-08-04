@@ -49,7 +49,10 @@
                 <div class="d-flex align-items-center">
                   @isset($agent->user)
                     <p class="align-self-center mb-0 user-name">{{ $agent->user->name }}</p>
+                    <p class="align-self-center mb-0 user-name">{{ $agent->user->email }}</p>
+                    <p class="align-self-center mb-0 user-name">{{ $agent->user->phone }}</p>
                   @endisset
+
                 </div>
               </td>
               <td class="align-middle">
@@ -59,15 +62,15 @@
               </td>
               <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($agent->created_at)->format('d M Y') }}</td>
               <td class="align-middle">
-                @if ($agent->user->cac != null)
+                @isset($agent->user->cac)
                 <a class="btn btn-sm" style="background: #00A75A; color: #ffffff" href="/storage/{{ $agent->user->cac }}" download>Download<span class="ml-1">CAC</span></a>
                 @else
                     <div class="text-black">Not found</div>
-                @endif
+                @endisset
 
               </td>
               <td class="align-middle">
-                @if ($agent->user->rc_no != null)
+                @isset($agent->user->rc_no)
                 <span class="badge badge-green text-capitalize">
                     {{ $agent->user->rc_no }}
                     </span>
