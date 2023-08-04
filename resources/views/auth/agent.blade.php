@@ -209,6 +209,7 @@
                         <div id="coperate_fields">
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
+                                    <label for="cac">CAC Document</label>
                                     <input type="file" name="cac" id="cac" class="form-control form-control-lg border">
 
                                     @error('cac')

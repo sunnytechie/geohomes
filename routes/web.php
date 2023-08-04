@@ -42,8 +42,8 @@ Route::get('/filtered-search', [App\Http\Controllers\PagesController::class, 'so
 //Route::get('/gh-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
 
 //Building Material Booking
-Route::get('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'show'])->name('booking.building.material.show')->middleware('auth', 'verified');
-Route::post('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'store'])->name('booking.building.material')->middleware('auth', 'verified');
+Route::get('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'show'])->name('booking.building.material.show');
+Route::post('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'store'])->name('booking.building.material');
 
 //dashboard
 Route::get('/geohomes/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified', 'checkIfAgentAndIsSet', 'agentHasApproval');
