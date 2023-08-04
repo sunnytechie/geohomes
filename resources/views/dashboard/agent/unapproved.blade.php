@@ -48,9 +48,9 @@
               <td class="align-middle">
                 <div class="d-flex align-items-center">
                   @isset($agent->user)
-                    <p class="align-self-center mb-0 user-name">{{ $agent->user->name }}</p>
-                    <p class="align-self-center mb-0 user-name">{{ $agent->user->email }}</p>
-                    <p class="align-self-center mb-0 user-name">{{ $agent->user->phone }}</p>
+                    <span class="align-self-center mb-0 user-name">{{ $agent->user->name }}</span> <br>
+                    <span class="align-self-center mb-0 user-name">{{ $agent->user->email }}</span> <br>
+                    <span class="align-self-center mb-0 user-name">{{ $agent->user->phone }}</span> <br>
                   @endisset
 
                 </div>
