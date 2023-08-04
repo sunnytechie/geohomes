@@ -1,3 +1,9 @@
+<style>
+    .imgSize {
+        height: 350px !important;
+        width: 100% !important;
+    }
+</style>
 <section class="pt-lg-5 pb-lg-15 py-5">
     <div class="container container-xxl">
       <div class="row">
@@ -18,9 +24,9 @@
         @foreach ($buildings as $building)
          <div class="box px-2" data-animate="fadeInUp">
             <div class="card text-white bg-overlay-gradient-8 hover-zoom-in">
-              <img src="/storage/{{ $building->file }}" class="card-img" alt="Preview">
+              <img class="imgSize" src="/storage/{{ $building->file }}" class="card-img" alt="Preview">
               <div class="card-img-overlay d-flex justify-content-end flex-column p-4">
-                <a href="{{ route('booking.building.material.show', $building->id) }}" class="btn btn-sm btn-default" style="background: #00A75A">Book</a>
+                <a href="{{ route('booking.building.material.show', $building->id) }}" class="btn btn-sm btn-default" style="color: #fff; background: #00A75A">Book</a>
               </div>
             </div>
             <h2 class="card-title mb-0 fs-14 lh-182"><span class="text-black">{{ Str::limit($building->title, 200) }}</span></h2>
