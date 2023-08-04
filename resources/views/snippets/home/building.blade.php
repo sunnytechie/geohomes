@@ -1,6 +1,6 @@
 <style>
     .imgSize {
-        height: 350px !important;
+        height: 250px !important;
         width: 100% !important;
     }
 </style>
