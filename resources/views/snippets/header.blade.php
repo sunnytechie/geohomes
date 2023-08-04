@@ -67,17 +67,18 @@
 
                             <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="{{ route('listing.building.index') }}">
-                                    Building<span class="ml-1">Material</span>
+                                <a class="nav-link p-0" href="{{ route('page.buy.rent') }}">
+                                    Buy/Rent {{-- should be Listings --}}
                                 </a>
                             </li>
 
                             <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="{{ route('page.buy.rent') }}">
-                                    Buy/Rent {{-- should be Listings --}}
+                                <a class="nav-link p-0" href="{{ route('listing.building.index') }}">
+                                    Building<span class="ml-1">Material</span>
                                 </a>
                             </li>
+
 
                             <li id="navbar-item-listing" aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
