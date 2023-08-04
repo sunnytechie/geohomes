@@ -16,7 +16,7 @@ class AgentController extends Controller
 
         return view('dashboard.agent.index', compact('agents'));
     }
-    
+
     public function profile() {
         return view('account.agent.profile');
     }
@@ -26,14 +26,14 @@ class AgentController extends Controller
     }
 
     public function profileUpdate(Request $request) {
-        
+
 
         //validate
         $request->validate([
             'agent_brand_name' => 'required',
             'address' => 'required',
-            'opening_hours' => 'required',
-            'closing_hours' => 'required',
+            'opening_hours' => '',
+            'closing_hours' => '',
             'tax' => '',
             'about' => 'required',
             'phone' => 'required',
@@ -46,16 +46,18 @@ class AgentController extends Controller
             'office_number' => '',
             'mobile_number' => '',
             'fax_number' => '',
+            'bank_name' => 'required',
+            'bank_account' => 'required',
+            'image' => 'required|image|max:2048',
         ]);
 
         //dd($request->all());
 
-        if ($request->has('image')) {
-            $request->validate([
-            'image' => 'required|image|max:2048',
-        ]);
-
-        }
+        //if ($request->has('image')) {
+        //    $request->validate([
+        //        'image' => 'required|image|max:2048',
+        //]);
+        //}
 
         if ($request->has('image')) {
             $imagePath = request('image')->store('profile', 'public');
@@ -77,6 +79,8 @@ class AgentController extends Controller
         $agent->office_number = $request->office_number;
         $agent->mobile_number = $request->mobile_number;
         $agent->fax_number = $request->fax_number;
+        $agent->bank_name = $request->bank_name;
+        $agent->bank_account = $request->bank_account;
         $agent->save();
 
         $user = User::find(Auth::user()->id);
@@ -100,8 +104,8 @@ class AgentController extends Controller
         $request->validate([
             'agent_brand_name' => 'required',
             'address' => 'required',
-            'opening_hours' => 'required',
-            'closing_hours' => 'required',
+            'opening_hours' => '',
+            'closing_hours' => '',
             'tax' => '',
             'about' => 'required',
             'phone' => 'required',
@@ -113,6 +117,8 @@ class AgentController extends Controller
             'social_ld' => '',
             'office_number' => '',
             'mobile_number' => '',
+            'bank_name' => 'required',
+            'bank_account' => 'required',
             'fax_number' => '',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
@@ -137,6 +143,8 @@ class AgentController extends Controller
         $agent->social_ld = $request->social_ld;
         $agent->office_number = $request->office_number;
         $agent->mobile_number = $request->mobile_number;
+        $agent->bank_name = $request->bank_name;
+        $agent->bank_account = $request->bank_account;
         $agent->fax_number = $request->fax_number;
         if (Auth::user()->is_admin) {
             $agent->subscribed = 1;

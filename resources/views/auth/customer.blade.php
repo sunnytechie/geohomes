@@ -17,7 +17,7 @@
 <section class="py-2">
     <div class="container">
         {{-- <div class="mt-9 hide-from-1024"></div> --}}
-        <div class="row justify-content-center login-register mt-7">
+        <div class="row justify-content-center login-register mt-10">
         <div class="col-md-4">
             <div class="card border-1 shadow">
             <div class="card-body">

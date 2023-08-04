@@ -18,9 +18,6 @@
     margin-top: 45px;
 }
 
-body {
-    background: #fff !important;
-}
 
 </style>
 <section class="py-2">
@@ -30,7 +27,7 @@ body {
                 <a href="/">
                     <img height="100px" width="180px" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="">
                 </a>
-                <p class="mb-4" style="color: #00A75A; font-weight:600">Choose a signup option.</p>
+                <p class="mb-4" style="color: #fff; font-weight:600">Choose a signup option.</p>
             </div>
         </div>
         {{-- <div class="mt-9 hide-from-1024"></div> --}}

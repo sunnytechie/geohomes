@@ -18,7 +18,7 @@
 <section class="py-2">
     <div class="container">
         {{-- <div class="mt-9 hide-from-1024"></div> --}}
-        <div class="row justify-content-center login-register mt-7">
+        <div class="row justify-content-center login-register mt-10">
         <div class="col-md-4">
             <div class="card border-1 shadow">
             <div class="card-body">
@@ -232,6 +232,34 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div class="form-row mx-n2">
+                            <div class="col-sm-12 px-2">
+                                <div class="form-group">
+                                    <input type="text" name="nin_no" class="form-control @error('nin_no') is-invalid @enderror form-control-lg" value="{{ old('nin_no') }}" id="nin_no" placeholder="Your NIN Number">
+
+                                    @error('nin_no')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-sm-12 px-2">
+                                <div class="form-group">
+                                    <label for="nin">Upload your NIN</label>
+                                    <input type="file" name="nin" id="nin" class="form-control form-control-lg border">
+
+                                    @error('nin')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
                     </div>
                 </fieldset>
 

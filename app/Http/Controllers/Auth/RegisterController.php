@@ -95,11 +95,22 @@ class RegisterController extends Controller
             'rc_no' => '',
             'agent_type' => '',
             'cac' => 'nullable|image|max:2048',
+            'nin_no' => 'required',
+            'nin' => 'required|image|max:2048',
         ]);
 
         if ($request->has('cac')) {
             $imagePath = request('cac')->store('agents', 'public');
             $image = Image::make(public_path("storage/{$imagePath}"))
+                ->resize(800, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+            $image->save();
+        }
+
+        if ($request->has('nin')) {
+            $imageNinPath = request('nin')->store('agents', 'public');
+            $image = Image::make(public_path("storage/{$imageNinPath}"))
                 ->resize(800, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
@@ -137,6 +148,10 @@ class RegisterController extends Controller
         if ($request->user_type == "agent") {
             $agent = new Agent();
             $agent->user_id = $user->id;
+            $agent->nin_no = $request->nin_no;
+            if ($request->hasFile('nin')) {
+            $agent->nin = $imageNinPath;
+            }
             $agent->save();
         }
 

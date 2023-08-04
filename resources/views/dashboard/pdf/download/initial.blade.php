@@ -33,7 +33,7 @@
     <div id="header">
         <img height="50" width="150" src="https://geohomesgroup.com/assets/images/logo/geohomeslogo.png" alt="Geohomes">
     </div>
-    
+
     <div class="content" id="pdfContent" style="padding: 10px;">
         <div style="margin: 20px"></div>
         <div style="display:flex; width:100%">
@@ -52,7 +52,7 @@
         <div style="margin: 20px"></div>
 
         <div style="margin: 20px"></div>
-        <p>With reference to your application for a land at Geo–Homes Gardens Estate (LAYOUT NAME), we wish to grant you the following provisional allocation for the property herein described. This serves as a formal acceptance of your application, subject however to <strong>NOTICE:</strong></p>
+        <p>With reference to your application for a land at GeoHomes Gardens Estate (LAYOUT NAME), we wish to grant you the following provisional allocation for the property herein described. This serves as a formal acceptance of your application, subject however to <strong>NOTICE:</strong></p>
 
         <div style="margin: 20px"></div>
         <strong>PROPERTY</strong>
@@ -133,10 +133,10 @@
 
             <div class="page-break"></div>
             <h4 style="text-align: center"><b>GEOHOMES SERVICES LIMITED</b></h4>
-            <h5 style="text-align: center">GEO-HOMES GARDENS ESTATE, DESTINY LAYOUT, AGBOGAZI NIKE, ENUGU <br> EAST LOCAL GOVERNMENT AREA, ENUGU STATE. <br> LAND PREMIUM, LEGAL FEES</h5>
+            <h5 style="text-align: center">GEOHOMES GARDENS ESTATE, DESTINY LAYOUT, AGBOGAZI NIKE, ENUGU <br> EAST LOCAL GOVERNMENT AREA, ENUGU STATE. <br> LAND PREMIUM, LEGAL FEES</h5>
 
             <div style="border: 1px solid #000; padding: 6px">
-            
+
                 <div style="display:flex; width:100%">
                     <div style="width: 50%; text-align:center"><i><strong>DR. NNAM UCHECHUKWU GODWIN</strong></i></div>    <div style="width: 50%">PLOT NO.: 32</div>
                 </div>
@@ -158,18 +158,18 @@
                     <div>VAT @ 7.5% _____________ ₦ 1,028,250.00 </div>
                     <div><strong>GRAND TOTAL</strong> _____________ ₦ 14,738,250.00 </div>
                 </div>
-                
+
             </div>
 
             <div style="margin: 70px 0"></div>
-                
+
                 <p>Please, note that all payments must be made within the duration specified in this bill starting from the date on the allocation or risk revocation and refund made upon demand of the total amount paid less five percent (5%) administrative/handling charges.</p>
 
                 <p>The    failure   of   <b>GEOHOMES SERVICES LIMITED</b> to   enforce   any   provision   of   this   Terms and Conditions Shall   not   be construed as a waiver or limitation of its right to subsequently enforce and compel strict compliance with every provision of this agreement.</p>
 
                 <p>Yours faithfully,</p>
-                <p>For: <b>GeoHomes Services Limited</b>,  </p>  
-                
+                <p>For: <b>GeoHomes Services Limited</b>,  </p>
+
                 <p>Yours faithfully,</p>
                 <p>For: <strong>Geohomes Services Limited</strong>,</p>
 
