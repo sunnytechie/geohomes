@@ -46,7 +46,7 @@
             <tr role="row">
               <td>{{ $id++ }}</td>
               <td class="align-middle">
-                <div class="d-flex align-items-center">
+                <div>
                   @isset($agent->user)
                     <span class="align-self-center mb-0 user-name">{{ $agent->user->name }}</span> <br>
                     <span class="align-self-center mb-0 user-name">{{ $agent->user->email }}</span> <br>
