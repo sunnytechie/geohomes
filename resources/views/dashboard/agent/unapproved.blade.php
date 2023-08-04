@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -17,7 +17,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -44,7 +44,7 @@
                 @endphp
             @foreach ($agents as $agent)
             <tr role="row">
-              <td>{{ $id++ }}</td>    
+              <td>{{ $id++ }}</td>
               <td class="align-middle">
                 <div class="d-flex align-items-center">
                   @isset($agent->user)
@@ -54,7 +54,7 @@
               </td>
               <td class="align-middle">
                 <div class="d-flex align-items-center">
-                  <p class="align-self-center mb-0 user-name">{{ $agent->user->agent_type }}</p>
+                  <p class="align-self-center mb-0 user-name">{{ $agent->user->agent_type ?? "Not found" }}</p>
                 </div>
               </td>
               <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($agent->created_at)->format('d M Y') }}</td>
@@ -64,7 +64,7 @@
                 @else
                     <div class="text-black">Not found</div>
                 @endif
-                
+
               </td>
               <td class="align-middle">
                 @if ($agent->user->rc_no != null)
@@ -80,13 +80,13 @@
                     @csrf
                     <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to approve this agent?')">Approve<span class="ml-1">Agent</span></button>
                 </form>
-                
+
               </td>
             </tr>
             @endforeach
           </tbody>
         </table>
       </div>
-      
+
     </div>
 @endsection
