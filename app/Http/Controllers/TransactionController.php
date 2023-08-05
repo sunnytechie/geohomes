@@ -41,6 +41,15 @@ class TransactionController extends Controller
         return view('dashboard.transactions.index', compact('transactions', 'pendingPayments'));
     }
 
+    public function completed() {
+        $transactions = Transaction::orderBy('created_at', 'asc')
+                            ->where('final_status', 1)
+                            ->get();
+
+        return view('dashboard.transactions.final', compact('transactions'));
+
+    }
+
     public function allocate(Request $request) {
         //dd($request->all());
         $transaction = Transaction::find($request->transaction_id);

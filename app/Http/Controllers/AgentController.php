@@ -260,6 +260,16 @@ class AgentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $agent = Agent::find($id);
+        $user = User::where('id', $agent->user_id)->first();
+        if ($user != null) {
+            $user->is_agent = 0;
+            $user->is_customer = 1;
+            $user->agent_type = null;
+            $user->save();
+        }
+        $agent->delete();
+
+        return back()->with('message', "Deleted Successfully");
     }
 }

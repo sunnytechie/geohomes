@@ -1,4 +1,4 @@
-<title>Geo-Home Admins ~ Admins and Sper admins</title>
+<title>GeoHome Admins Allocation</title>
 @extends('layouts.admin')
 
 @section('content')

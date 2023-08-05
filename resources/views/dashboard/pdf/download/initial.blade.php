@@ -37,30 +37,30 @@
     <div class="content" id="pdfContent" style="padding: 10px;">
         <div style="margin: 20px"></div>
         <div style="display:flex; width:100%">
-            <div style="width: 60%">GSL/L/2023/038 (REFERENCE NUMBER) </div>    <div style="text-align: right; width: 35%">{{ date('j M, Y') }}</div>
+            <div style="width: 60%">GSL/L/{{ date('Y') }}/{{ $transaction->id }} </div>    <div style="text-align: right; width: 35%">{{ date('j M, Y') }}</div>
         </div>
 
         <div style="margin: 20px"></div>
-        <strong>DR. NNAM UCHECHUKWU GODWIN</strong>
-        <div>Plot 94,</div>
-        <div>Green Land RCC Estate,</div>
-        <div>Enugu East Local Government Area,</div>
-        <div>Enugu State.</div>
+        <strong>{{ $transaction->user->name }}</strong>
+        <div>{{ $transaction->user->zip }}</div>
+        <div>{{ $transaction->user->address }}</div>
+        <div>{{ $transaction->user->city }}</div>
+        <div>{{ $transaction->user->country }}</div>
 
         <div style="margin: 20px"></div>
         <div style="text-align: center"><u><strong>OFFER LETTER</strong></u></div>
         <div style="margin: 20px"></div>
 
         <div style="margin: 20px"></div>
-        <p>With reference to your application for a land at GeoHomes Gardens Estate (LAYOUT NAME), we wish to grant you the following provisional allocation for the property herein described. This serves as a formal acceptance of your application, subject however to <strong>NOTICE:</strong></p>
+        <p>With reference to your application for a land at <b>{{ $transaction->project->title }}</b>, we wish to grant you the following provisional allocation for the property herein described. This serves as a formal acceptance of your application, subject however to <strong>NOTICE:</strong></p>
 
         <div style="margin: 20px"></div>
         <strong>PROPERTY</strong>
         <div style="display:flex; width:100%">
-            <div style="width: 20%"><i><strong>Location:</strong></i></div>    <div style="width: 80%">Geohomes Gardens Estate, Destiny Layout, Agbogazi Nike, Enugu East Local Government Area, Enugu State. (LAYOUT NAME AND ADRESS)</div>
+            <div style="width: 20%"><i><strong>Location:</strong></i></div>    <div style="width: 80%">{{ $transaction->project->address }}, {{ $transaction->project->state }}, {{ $transaction->project->country }}</div>
         </div>
         <div style="display:flex; width:100%">
-            <div style="width: 20%"><i><strong>Plot No:</strong></i></div>    <div style="width: 80%">32 (PLOT NUMBER)</div>
+            <div style="width: 20%"><i><strong>Plot No:</strong></i></div>    <div style="width: 80%">{{ $transaction->plotnames }}</div>
         </div>
         <div style="display:flex; width:100%">
             <div style="width: 20%"><i><strong>Plot Use:</strong></i></div>    <div style="width: 80%">Residential</div>
@@ -69,7 +69,7 @@
             <div style="width: 20%"><i><strong>Space Size:</strong></i></div>    <div style="width: 80%">500 Sq.m. (Approximately)</div>
         </div>
         <div style="display:flex; width:100%">
-            <div style="width: 20%"><i><strong>Property Worth:</strong></i></div>    <div style="width: 80%">N10,000,000.00 (Land Premium).</div>
+            <div style="width: 20%"><i><strong>Property Worth:</strong></i></div>    <div style="width: 80%">{{ $transaction->project->price }}</div>
         </div>
 
         <div style="margin: 20px"></div>
@@ -118,45 +118,55 @@
 
             {{-- New Page --}}
 
-            <div class="page-break"></div>
+            <div style="padding: 190px 0"></div>
 
             <div><strong><u>ACKNOWLEDGEMENT</u></strong></div>
-            <p>I,___________________________, with <br>
-                phone number: ______________, having read through the above and <br>
-                clearly understood it, accept these terms and conditions and hereby undertake to <br>
-                comply fully with it. <b>SIGNATURE</b>:__________<b>DATE</b>:_________. <br>
+            <p>I, <b>{{ $transaction->user->name }}</b>, with
+                phone number: <b>{{ $transaction->user->phone }}</b>, having read through the above and
+                clearly understood it, accept these terms and conditions and hereby undertake to
+                comply fully with it. <b>SIGNATURE</b>:__________   <b>DATE</b>: {{ date('Y-m-d') }}
             </p>
 
 
 
             {{-- New Page --}}
 
-            <div class="page-break"></div>
+            <div style="padding: 380px 0"></div>
+
             <h4 style="text-align: center"><b>GEOHOMES SERVICES LIMITED</b></h4>
             <h5 style="text-align: center">GEOHOMES GARDENS ESTATE, DESTINY LAYOUT, AGBOGAZI NIKE, ENUGU <br> EAST LOCAL GOVERNMENT AREA, ENUGU STATE. <br> LAND PREMIUM, LEGAL FEES</h5>
 
             <div style="border: 1px solid #000; padding: 6px">
 
                 <div style="display:flex; width:100%">
-                    <div style="width: 50%; text-align:center"><i><strong>DR. NNAM UCHECHUKWU GODWIN</strong></i></div>    <div style="width: 50%">PLOT NO.: 32</div>
+                    <div style="width: 50%; text-align:center"><i><strong>DR. NNAM UCHECHUKWU GODWIN</strong></i></div>    <div style="width: 50%">PLOT NO: {{ $transaction->plotnames }}</div>
                 </div>
 
                 <div style="margin: 20px 0"></div>
                 <div style="display:flex; width:100%">
-                    <div><i><strong>Name:</strong></i>_________________</div>
+                    <div><i><strong>Name: </strong></i>{{ $transaction->user->name }}</div>
                 </div>
                 <div style="margin: 20px 0"></div>
                 <div style="display:flex; width:100%">
-                    <div><i><strong>LAND PREMIUM</strong></i>________________</div>
+                    <div><i><strong>LAND PREMIUM: </strong></i>{{ $transaction->project->price }}</div>
                 </div>
                 <div style="margin: 20px 0"></div>
+                @php
+                        $price = $transaction->project->price * $transaction->plots;
+                        $price = $price + 100000;
+                    @endphp
                 <div>
-                    <div><i><strong>PROVIDED BY GEOHOMES SERVICES LIMITED</strong></i>________________</div>
+                    <div><i><strong>PROVIDED BY GEOHOMES SERVICES LIMITED</strong></i></div>
                     <div>Additional cost Charges </div>
-                    <div>Legal Documentation_____________ ₦ 100,000.00 </div>
-                    <div><b>Total</b>_____________ ₦ 10,100,000.00 </div>
-                    <div>VAT @ 7.5% _____________ ₦ 1,028,250.00 </div>
-                    <div><strong>GRAND TOTAL</strong> _____________ ₦ 14,738,250.00 </div>
+                    <div>Legal Documentation: N 100,000.00 </div>
+                    <div><b>Total</b>: N {{ $price }} </div>
+                    @php
+                        $vat = $transaction->project->price * $transaction->plots;
+                        $vat = $vat * 0.075;
+                    @endphp
+                    <div><b>VAT @ 7.5%</b>: {{ $vat }} </div>
+
+                    <div><strong>GRAND TOTAL: N {{ $price + $vat }}</strong> </div>
                 </div>
 
             </div>

@@ -90,6 +90,7 @@ Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middlewar
 
 Route::get('registered-users', [App\Http\Controllers\UserController::class, 'index'])->name('registered.users')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::get('registered-agents', [App\Http\Controllers\AgentController::class, 'index'])->name('registered.agents')->middleware('auth', 'verified', 'isAuditorAccountant');
+Route::delete('delete/registered-agents/{id}', [App\Http\Controllers\AgentController::class, 'destroy'])->name('registered.agents.destroy')->middleware('auth', 'verified', 'isAuditorAccountant');
 
 
 //account
@@ -129,6 +130,7 @@ Route::get('/agent-limit', [App\Http\Controllers\AgentController::class, 'agentu
 
 //transactions
 Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction')->middleware('auth', 'verified');
+Route::get('/completed/transactions', [App\Http\Controllers\TransactionController::class, 'completed'])->name('transaction.completed')->middleware('auth', 'verified');
 
 //Inspections
 Route::get('/schedules', [App\Http\Controllers\ScheduleController::class, 'index'])->name('schedule')->middleware('auth', 'verified');

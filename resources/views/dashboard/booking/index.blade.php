@@ -59,7 +59,7 @@
                     <form action="{{ route('bookings.destroy', $booking->id) }}" method="POST">
                         @csrf
                         @method('put')
-                        <button type="submit" onclick="return confirm('Are you sure you want to delete this booking?')" class="btn btn-sm btn-default" style="border-top-left-radius: 0; border-bottom-left-radius: 0"><i class="fa fa-trash"></i></button>
+                        <button type="submit" onclick="return confirm('Are you sure you want to delete this booking?')" class="btn btn-sm btn-danger" style="border-top-left-radius: 0; border-bottom-left-radius: 0"><i class="fa fa-trash"></i></button>
                     </form>
                 </td>
             </tr>

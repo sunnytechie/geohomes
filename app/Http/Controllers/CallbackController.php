@@ -15,7 +15,7 @@ class CallbackController extends Controller
 {
     public function subscribe($project_id, $plot) {
         $paymentDetails = Paystack::getPaymentData();
-        
+
         //dd($paymentDetails);
 
         //Get required details
@@ -39,7 +39,7 @@ class CallbackController extends Controller
 
     public function finalLandCallback($id) {
         $paymentDetails = Paystack::getPaymentData();
-        
+
         //dd($paymentDetails);
 
         //Get required details
@@ -57,6 +57,7 @@ class CallbackController extends Controller
         //find the transaction with the $id and update record
         $transaction = Transaction::find($id);
         $transaction->final_status = 1;
+        $transaction->updated_at = now();
         $transaction->save();
         //dd($transaction);
 

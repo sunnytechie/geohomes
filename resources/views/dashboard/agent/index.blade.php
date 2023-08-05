@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -17,7 +17,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -34,7 +34,7 @@
               <th class="py-6">Brand</th>
               <th class="py-6">Registed On</th>
               <th class="py-6">Subscribe status</th>
-              {{-- <th class="no-sort py-6">Actions</th> --}}
+              <th class="no-sort py-6">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -43,7 +43,7 @@
                 @endphp
             @foreach ($agents as $agent)
             <tr role="row">
-              <td>{{ $id++ }}</td>    
+              <td>{{ $id++ }}</td>
               <td class="align-middle">
                 <div class="d-flex align-items-center">
                   @isset($agent->user)
@@ -60,11 +60,20 @@
               <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($agent->created_at)->format('d M Y') }}</td>
 
               <td class="align-middle"><span class="badge badge-green text-capitalize">@if ($agent->subscribed == 1)
-                  Subscribed
-              @else
-                  Not Subscribed
-              @endif</span></td>
-              
+                    Subscribed
+                    @else
+                        Not Subscribed
+                    @endif</span>
+                </td>
+
+                <td class="align-middle">
+                    <form action="{{ route('registered.agents.destroy', $agent->id) }}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" onclick="return confirm('Are you sure you want to delete this agent?')" class="btn btn-sm btn-danger" style="border-top-left-radius: 0; border-bottom-left-radius: 0"><i class="fa fa-trash"></i> Trash</button>
+                    </form>
+                </td>
+
             </tr>
             @endforeach
           </tbody>

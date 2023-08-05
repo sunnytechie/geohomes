@@ -16,14 +16,18 @@
                       $totalFee = $alert->project->price * $alert->plots;
                       $totalFee = $totalFee + 100000;
                   @endphp
-                  <p>Total fee: ₦ {{ $totalFee }}</p>
+                  @php
+                  $vat = $alert->project->price * $alert->plots;
+                  $vat = $vat * 0.075;
+              @endphp
+                  <p>Total fee: ₦ {{ $totalFee +$vat }}</p>
                   <p style="color: red">Please note that this transaction will <b>expire on {{ \Carbon\Carbon::parse($alert->expiry_date)->format('d M Y') }}</b> and will be available to another customer if you don't pay.</p>
 
                   <form action="{{ route('finalLandPayment', $alert->id) }}" method="POST">
                     @csrf
-                    <input type="hidden" name="amount" value="{{ $totalFee }}">
+                    <input type="hidden" name="amount" value="{{ $totalFee +$vat }}">
                     <button type="submit" class="btn btn-default" style="background: #00A75A; color: #fff"">
-                      Pay now ₦ {{ $totalFee }}
+                      Pay now ₦ {{ $totalFee +$vat }}
                     </button>
                   </form>
               </div>
