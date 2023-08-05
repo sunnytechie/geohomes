@@ -93,9 +93,7 @@
                 <div class="mb-5">
                 <div class="row">
                     <div class="col-md-5">
-                    <a href="{{ route('estate.show', $building->id) }}">
                         <img src="/storage/{{ $building->file }}" class="card-img" alt="{{ $building->title }}">
-                    </a>
                     </div>
 
                     <div class="col-md-5">

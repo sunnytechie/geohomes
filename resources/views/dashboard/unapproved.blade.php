@@ -3,6 +3,28 @@
 @section('content')
 
 <div class="container">
+    
+    {{-- session --}}
+  @if (session('message'))
+  <div class="px-3">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="hide-from-mobile mt-2"></div>
+
+              {{-- alert --}}
+              <div class="alert alert-info alert-dismissible fade show" role="alert">
+                  {{ session('message') }}
+                  kkkkkkkkkkkk
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: 6px">
+                    <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
+                  </button>
+              </div>
+
+      </div>
+  </div>
+  </div>
+@endif
+
     <div class="row justify-content-center">
         <div class="col-md-5">
             <div class="card shadow my-8 text-start">
