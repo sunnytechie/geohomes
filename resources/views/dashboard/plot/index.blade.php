@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -17,7 +17,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -57,9 +57,9 @@
 
               <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($plot->created_at)->format('d M Y') }}</td>
 
-              <td class="align-middle"><span class="badge badge-green text-capitalize">{{ $plot->project->title }}</span></td>
-              
-              
+              <td class="align-middle"><span class="badge badge-green text-capitalize">{{ $plot->project->title ?? "Not found" }}</span></td>
+
+
               <td class="align-middle">
                 @if ($plot->allocation_status == 0)
                   Not Allocated

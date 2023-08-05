@@ -19,21 +19,28 @@
       </div>
     </div>
   </section> --}}
-  @auth
-    @if (Auth::user()->is_agent == 0)
-        <section class="pb-lg-10 bg-gray-02">
-            <div class="container">
-            <div class="p-6 mxw-670 pl-md-9 d-sm-flex align-items-sm-center position-relative mt-10 rounded-lg" style="background-color: #eaeff7" data-animate="fadeInUp">
-                <div class="mt-md-0 mt-6">
-                <h4 class="fs-20 font-weight-normal" style="color: #00A75A">Become a<span class="font-weight-600"> Real Estate Agent</span></h4>
-                <p class="mb-0">You can earn from been a Corporate Agent or an Individual Agent.</p>
-                </div>
-                <div class="ml-auto">
-                <a href="{{ route('agent.profile.join', Auth::user()->id) }}" class="btn btn-lg btn-primary rounded-lg mt-sm-0 mt-6">Register</a>
-                </div>
-                <i style="background-color: #00A75A;" class="far fa-users h-64 w-64px d-flex justify-content-center align-items-center text-white rounded-circle fs-24 position-absolute custom-pos-icon"></i>
+
+    <section class="pb-lg-10 bg-gray-02">
+        <div class="container">
+        <div class="p-6 mxw-670 pl-md-9 d-sm-flex align-items-sm-center position-relative mt-10 rounded-lg" style="background-color: #eaeff7" data-animate="fadeInUp">
+            <div class="mt-md-0 mt-6">
+            <h4 class="fs-20 font-weight-normal" style="color: #00A75A">Become a<span class="font-weight-600"> Real Estate Agent</span></h4>
+            <p class="mb-0 pr-1">You can earn up to 15% commission as a Corporate Agent or 10% commision as an Individual Agent whenever you sale our estate.</p>
             </div>
+
+            @auth
+            <div class="ml-auto">
+                <a style="background-color: #00A75A;" href="{{ route('agent.profile.join', Auth::user()->id) }}" class="btn btn-lg btn-primary rounded-lg mt-sm-0 mt-6">Join</a>
             </div>
-        </section>
-    @endif
-  @endauth
+            @else
+            <div class="ml-auto">
+                <a style="background-color: #00A75A;" href="{{ route('auth.agent') }}" class="btn btn-lg btn-primary rounded-lg mt-sm-0 mt-6">Register</a>
+                </div>
+            @endauth
+
+
+            <i style="background-color: #00A75A;" class="far fa-users h-64 w-64px d-flex justify-content-center align-items-center text-white rounded-circle fs-24 position-absolute custom-pos-icon"></i>
+        </div>
+        </div>
+    </section>
+

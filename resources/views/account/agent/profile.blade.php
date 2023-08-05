@@ -241,7 +241,7 @@
                 </div>
             </div>
 
-            {{-- User social --}}
+            {{-- Agent --}}
             <div class="card mb-6">
                 <div class="card-body px-6 pt-6 pb-5">
                   <h3 class="card-title mb-0 text-heading fs-22 lh-15">Agent</h3>
@@ -249,6 +249,7 @@
                     <div class="col-sm-12 px-2">
                         <div class="form-group">
                             <div class="mb-1"></div>
+                            <label for="agent_type">Choose agent type</label>
                             <select class="form-control border form-control-lg selectpicker" data-style="btn-lg py-2 h-52" id="agent_type" name="agent_type" onchange="toggleAgentFields()">
                                 <!-- Add options for company types here -->
                                 <option @if (Auth::user()->agent_type == "corperate") selected @endif value="corperate">Corporate Agents</option>
@@ -266,7 +267,7 @@
                     <div id="coperate_fields">
                         <div class="col-sm-12 px-2">
                             <div class="form-group">
-                                <label for="cac">CAC Document</label>
+                                <label for="cac">CAC Certificate</label>
                                 <input type="file" name="cac" id="cac" class="form-control form-control-lg border">
 
                                 @error('cac')
@@ -296,7 +297,7 @@
             {{-- Phone --}}
             <div class="card mb-6">
                 <div class="card-body px-6 pt-6 pb-5">
-                  <h3 class="card-title mb-0 text-heading fs-22 lh-15">Nin Details</h3>
+                  <h3 class="card-title mb-0 text-heading fs-22 lh-15">Nin Number</h3>
                   <div class="mb-1"></div>
                   <div class="form-row mx-n2">
                     <div class="col-sm-12 px-2">
@@ -310,7 +311,7 @@
                             @enderror
                         </div>
                     </div>
-                    <div class="col-sm-12 px-2">
+                    {{-- <div class="col-sm-12 px-2">
                         <div class="form-group">
                             <label for="nin">Upload your NIN</label>
                             <input type="file" name="nin" id="nin" class="form-control form-control-lg border">
@@ -321,9 +322,9 @@
                                 </span>
                             @enderror
                         </div>
-                    </div>
+                    </div> --}}
             </div>
-                </div>
+            </div>
             </div>
 
 

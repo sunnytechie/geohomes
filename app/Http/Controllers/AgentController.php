@@ -53,7 +53,7 @@ class AgentController extends Controller
             'agent_type' => '',
             'cac' => 'nullable|image|max:2048',
             'nin_no' => '',
-            'nin' => 'nullable|image|max:2048',
+            //'nin' => 'nullable|image|max:2048',
         ]);
 
 
@@ -61,15 +61,6 @@ class AgentController extends Controller
         if ($request->has('image')) {
             $imagePath = request('image')->store('profile', 'public');
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(500, 500);
-            $image->save();
-        }
-
-        if ($request->has('nin')) {
-            $imageNinPath = request('nin')->store('agents', 'public');
-            $image = Image::make(public_path("storage/{$imageNinPath}"))
-                ->resize(800, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
             $image->save();
         }
 
@@ -99,9 +90,6 @@ class AgentController extends Controller
         $agent->bank_name = $request->bank_name;
         $agent->bank_account = $request->bank_account;
         $agent->nin_no = $request->nin_no;
-        if ($request->hasFile('nin')) {
-        $agent->nin = $imageNinPath;
-        }
         $agent->save();
 
         $user = User::find(Auth::user()->id);
@@ -152,7 +140,7 @@ class AgentController extends Controller
             'agent_type' => '',
             'cac' => 'nullable|image|max:2048',
             'nin_no' => '',
-            'nin' => 'nullable|image|max:2048',
+            //'nin' => 'nullable|image|max:2048',
         ]);
 
         if ($request->has('image')) {
@@ -161,14 +149,7 @@ class AgentController extends Controller
             $image->save();
         }
 
-        if ($request->has('nin')) {
-            $imageNinPath = request('nin')->store('agents', 'public');
-            $image = Image::make(public_path("storage/{$imageNinPath}"))
-                ->resize(800, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-            $image->save();
-        }
+
 
         if ($request->has('cac')) {
             $imageCACPath = request('cac')->store('agents', 'public');
@@ -200,9 +181,6 @@ class AgentController extends Controller
             $agent->subscribed = 1;
         }
         $agent->nin_no = $request->nin_no;
-        if ($request->hasFile('nin')) {
-        $agent->nin = $imageNinPath;
-        }
         $agent->save();
 
         //Update user
