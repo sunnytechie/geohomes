@@ -10,15 +10,16 @@
     <section class="pt-9 pb-10">
       <div class="container">
         <div class="d-flex justify-content-center mt-3">
-            <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="">
+            <a href="/">
+                <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="">
+            </a>
         </div>
 
         <div class="text-center mb-15">
-          <img src="{{ asset('assets/images/page-404.jpg') }}" alt="Page 404" class="mb-5">
-          <h1 class="fs-30 lh-16 text-dark font-weight-600 mb-5">Oops! That page can’t be found.</h1>
-          <p class="mb-8">It looks like nothing was found at this location. Maybe try one of the links below or a
-            search?</p>
-          <form>
+          <img height="350" width="350" src="{{ asset('assets/images/page-404.jpg') }}" alt="Page 404" class="mb-5">
+          <h1 class="fs-22 lh-16 text-dark font-weight-600 mb-5">We can not process this task right now or your session expired.</h1>
+          <p class="mb-8">Kindly try performing the task again.. goto <a href="/">homepage</a>.</p>
+          {{-- <form>
             <div class="input-group mb-6 mxw-670 shadow-xxs-2 custom-input-group mb-2">
               <div class="input-group-prepend">
                 <button class="btn shadow-none text-dark fs-18" type="button"><i class="fal fa-search"></i>
@@ -30,9 +31,9 @@
                 <button class="btn btn-primary" type="submit">Search</button>
               </div>
             </div>
-          </form>
+          </form> --}}
         </div>
-        
+
       </div>
     </section>
   </main>
