@@ -17,8 +17,8 @@
 
         <div class="text-center mb-15">
           <img height="350" width="350" src="{{ asset('assets/images/page-404.jpg') }}" alt="Page 404" class="mb-5">
-          <h1 class="fs-22 lh-16 text-dark font-weight-600 mb-5">We can not process this task right now or your session expired.</h1>
-          <p class="mb-8">Kindly try performing the task again.. goto <a href="/">homepage</a>.</p>
+          <h1 class="fs-22 lh-16 text-dark font-weight-600 mb-5">We are unable to process your task right now please try again.</h1>
+          <p class="mb-8">Try performing the task again.. goto <a href="/">homepage</a>.</p>
           {{-- <form>
             <div class="input-group mb-6 mxw-670 shadow-xxs-2 custom-input-group mb-2">
               <div class="input-group-prepend">
