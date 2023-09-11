@@ -36,7 +36,7 @@
                         <div style="color: #82f60f">No transaction history</div>
                     @endif
                     @foreach ($transactions as $transaction)
-                        <div class="shadow mt-3">
+                        <div class="shadow mt-3 p-4">
                           <div>TxRef: {{ $transaction->tx_ref }}</div>
                           <div>Plots Number: {{ $transaction->plots }}</div>
                           <div>Allocation status: {{ $transaction->allocation_status }}</div>
@@ -44,7 +44,7 @@
                           @if ($transaction->pdf !== null)
                             <a href="/pdfs/{{ $transaction->pdf }}" class="btn btn-sm" download>Download Allocation file</a>
                           @endif
-                          </div>
+                        </div>
                     @endforeach
                 </div>
             </div>

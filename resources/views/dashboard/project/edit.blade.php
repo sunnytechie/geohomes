@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -15,7 +15,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -37,11 +37,11 @@
                 <li class="nav-item col">
                     <a class="nav-link bg-transparent shadow-none py-2 font-weight-500 text-center lh-214 d-block" id="media-tab" data-toggle="pill" data-number="2." href="#media" role="tab" aria-controls="media" aria-selected="false"><span class="number">2.</span> Media</a>
                 </li>
-                
+
             </ul>
 
             <div class="tab-content shadow-none p-0">
-              
+
                 <form method="POST" action="{{ route('projects.update', $project->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -68,7 +68,7 @@
                                                         <div class="form-group">
                                                             <label for="title" class="text-heading">Title <span class="text-muted">(mandatory)</span></label>
                                                             <input type="text" class="form-control form-control-lg border-0 @error('title') is-invalid @enderror" id="title" value="{{ $project->title ?? old('title') }}" name="title" oninput="toggleButton()">
-                                                            
+
                                                             @if ($errors->has('title'))
                                                                 <div id="titleHelp" class="form-text text-danger">
                                                                     <div>{{ $errors->first('title') }}</div>
@@ -79,7 +79,7 @@
                                                         <div class="form-group">
                                                             <label for="price" class="text-heading">Price <span class="text-muted">(mandatory)</span></label>
                                                             <input type="text" class="form-control form-control-lg border-0 @error('price') is-invalid @enderror" id="price" value="{{ $project->price ?? old('price') }}" name="price" placeholder="#2,000,000">
-                                                            
+
                                                             @if ($errors->has('price'))
                                                                 <div id="priceHelp" class="form-text text-danger">
                                                                     <div>{{ $errors->first('price') }}</div>
@@ -90,7 +90,7 @@
                                                         <div class="form-group">
                                                             <label for="address" class="text-heading">Address</label>
                                                             <input type="text" class="form-control form-control-lg border-0 @error('address') is-invalid @enderror" id="address" value="{{ $project->address ?? old('address') }}" name="address" oninput="toggleButton()">
-                                                            
+
                                                             @if ($errors->has('address'))
                                                                 <div id="addressHelp" class="form-text text-danger">
                                                                     <div>{{ $errors->first('address') }}</div>
@@ -101,7 +101,7 @@
                                                         <div class="form-group">
                                                             <label for="state" class="text-heading">State <span class="text-muted">(Optional)</span></label>
                                                             <input type="text" class="form-control form-control-lg border-0 @error('state') is-invalid @enderror" id="state" value="{{ $project->state ?? old('state') }}" name="state" oninput="toggleButton()">
-                                                            
+
                                                             @if ($errors->has('state'))
                                                                 <div id="stateHelp" class="form-text text-danger">
                                                                     <div>{{ $errors->first('state') }}</div>
@@ -112,7 +112,7 @@
                                                         <div class="form-group">
                                                             <label for="map_embed_code" class="text-heading">Map Embed Code <span class="text-muted">(mandatory). Recommended: map height 200, width 100%</span></label>
                                                             <input type="text" class="form-control form-control-lg border-0 @error('map_embed_code') is-invalid @enderror" id="map_embed_code" value="{{ $project->map_embed_code ?? old('map_embed_code') }}" name="map_embed_code" oninput="toggleButton()">
-                                                            
+
                                                             @if ($errors->has('map_embed_code'))
                                                                 <div id="map_embed_codeHelp" class="form-text text-danger">
                                                                     <div>{{ $errors->first('map_embed_code') }}</div>
@@ -132,7 +132,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                         <div class="text-right">
@@ -145,7 +145,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="tab-pane tab-pane-parent fade px-0" id="media" role="tabpanel" aria-labelledby="media-tab">
                             <div class="card bg-transparent border-0">
                                 <div class="card-header d-block d-md-none bg-transparent px-0 py-1 border-bottom-0" id="heading-media">
@@ -164,9 +164,9 @@
                                                         <h3 class="card-title mb-0 text-heading fs-22 lh-15">Upload phot of project</h3>
                                                         <p class="card-text mb-5">Recommended size: 1080x1080 <span class="text-muted">(Mandatory)</span></p>
                                                         <div class="text-center py-5">
-                                                            
+
                                                                 <input type="file" name="image" id="image" class="dropify" data-default-file="/storage/{{ $project->image ?? old('image') }}" data-allowed-file-extensions="jpg jpeg png">
-                                                                
+
                                                         </div>
                                                         @if ($errors->has('image'))
                                                             <div id="imageHelp" class="form-text text-danger">
@@ -269,19 +269,19 @@
                                                 <span class="d-inline-block text-primary mr-2 fs-16"><i class="fal fa-long-arrow-left"></i></span>Prev step
                                             </a>
                                             <button class="btn btn-lg btn-primary mb-3" type="submit">
-                                                Publish Project
+                                                Save Updates
                                             </button>
                                         </div>
 
                                     </div>
 
 
-                                  
+
                                 </div>
                             </div>
                         </div>
 
-                        
+
                     </div>
                 </form>
             </div>
@@ -297,7 +297,7 @@
 </script>
 
 <script>
-    
+
 </script>
 
 @endsection

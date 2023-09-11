@@ -118,8 +118,8 @@ Route::post('/final/land/payment/{id}', [App\Http\Controllers\TransactionControl
 Route::get('/payment/land/callback/{id}', [App\Http\Controllers\CallbackController::class, 'finalLandCallback'])->name('finalLandCallback')->middleware('auth', 'verified');
 
 //pdfs
-Route::get('/generate/initial-transaction/paper{id}', [App\Http\Controllers\PdfController::class, 'generateInitialPdf'])->name('generateInitialPdf')->middleware('auth', 'verified');
-Route::get('/generate/final-transaction/paper{id}', [App\Http\Controllers\PdfController::class, 'generateFinalPdf'])->name('generateFinalPdf')->middleware('auth', 'verified');
+Route::get('/generate/initial-transaction/paper/{id}', [App\Http\Controllers\PdfController::class, 'generateInitialPdf'])->name('generateInitialPdf')->middleware('auth', 'verified');
+Route::get('/generate/final-transaction/paper/{id}', [App\Http\Controllers\PdfController::class, 'generateFinalPdf'])->name('generateFinalPdf')->middleware('auth', 'verified');
 Route::post('/download/initial-pdf/{id}', [App\Http\Controllers\PdfController::class, 'downloadInitialPdf'])->name('downloadInitialPdf')->middleware('auth', 'verified');
 Route::post('/download/final-pdf/{id}', [App\Http\Controllers\PdfController::class, 'downloadFinalPdf'])->name('downloadFinalPdf')->middleware('auth', 'verified');
 
