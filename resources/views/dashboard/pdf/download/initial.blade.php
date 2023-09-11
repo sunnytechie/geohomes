@@ -131,7 +131,7 @@
 
             {{-- New Page --}}
 
-            <div style="padding: 420px 0"></div>
+            <div style="padding: 320px 0"></div>
 
             <h4 style="text-align: center"><b>GEOHOMES SERVICES LIMITED</b></h4>
             <h5 style="text-align: center">GEOHOMES GARDENS ESTATE, DESTINY LAYOUT, AGBOGAZI NIKE, ENUGU <br> EAST LOCAL GOVERNMENT AREA, ENUGU STATE. <br> LAND PREMIUM, LEGAL FEES</h5>
