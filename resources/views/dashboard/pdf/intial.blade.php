@@ -125,8 +125,12 @@
                         @php
                                 $price = $transaction->project->price * $transaction->plots;
                                 $price = $price + 100000;
+                                $price1 = $price + 100000;
                             @endphp
                         <div>
+                            <p>Price:   {{ $price }}</p>
+                            <p> + 100k: {{ $price1 }}</p>
+
                             <div><i><strong>PROVIDED BY GEOHOMES SERVICES LIMITED</strong></i></div>
                             <div>Additional cost Charges </div>
                             <div>Legal Documentation: ₦ 100,000.00 </div>
@@ -134,7 +138,10 @@
                             @php
                                 $vat = $transaction->project->price * $transaction->plots;
                                 $vat = $vat * 0.075;
+                                $vat1 = $vat * 0.075;
                             @endphp
+                            <p>LandPrice: {{ $transaction->project->price * $transaction->plots }}</p>
+                            <p>Vat1{{ $vat1 }}</p>
                             <div><b>VAT @ 7.5%</b>: {{ $vat }} </div>
 
                             @php
