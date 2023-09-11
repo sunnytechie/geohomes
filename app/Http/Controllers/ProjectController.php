@@ -41,7 +41,7 @@ class ProjectController extends Controller
             'map_embed_code' => 'required',
             'address' => '',
             'state' => '',
-            'price' => 'required',
+            'price' => 'required|integer',
             'country' => '',
             'description' => '',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -52,7 +52,7 @@ class ProjectController extends Controller
         ]);
 
         //dd($request->all());
-        
+
         $imagePath = request('image')->store('projects', 'public');
         $image = Image::make(public_path("storage/{$imagePath}"))->fit(1080, 1080);
         $image->save();
@@ -138,7 +138,7 @@ class ProjectController extends Controller
             'map_embed_code' => 'required',
             'address' => '',
             'state' => '',
-            'price' => 'required',
+            'price' => 'required|integer',
             'country' => '',
             'description' => '',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
