@@ -35,21 +35,24 @@
                     <p>Sequel to your subscription to purchase land(s) in {{ $alert->project->title }} at {{ $alert->project->address }}</p>
                     <p>We are deligted to inform you that we have allocated your plots and requesting that you pay for the land with an addition fee of ₦ 100,000 (one hundred naira) for legal fee and a 7.5% vat.</p>
                     @php
-                        $totalFee = $alert->project->price * $alert->plots;
-                        $totalFee = $totalFee + 100000;
+                        $totalFee1 = $alert->project->price * $alert->plots;
+                        $totalFee = $totalFee1 + 100000;
                     @endphp
                     @php
                         $vat = $alert->project->price * $alert->plots;
-                        $vat = $vat * 0.075;
+                        $vat1 = $vat * 0.075;
                     @endphp
-                    <p>Total fee: ₦ {{ $totalFee + $vat }}</p>
+                    @php
+                        $grandTotal = $totalFee + $vat1;
+                    @endphp
+                    <p>Total fee: ₦ {{ $grandTotal }}</p>
                     <p style="color: red">Please note that this transaction will <b>expire on {{ \Carbon\Carbon::parse($alert->expiry_date)->format('d M Y') }}</b> and will be available to another customer if you don't pay.</p>
 
                     <form action="{{ route('finalLandPayment', $alert->id) }}" method="POST">
                       @csrf
-                      <input type="hidden" name="amount" value="{{ $totalFee + $vat }}">
+                      <input type="hidden" name="amount" value="{{ $grandTotal }}">
                       <button type="submit" class="btn btn-default" style="background: #00A75A; color: #fff"">
-                        Pay now ₦ {{ $totalFee + $vat }}
+                        Pay now ₦ {{ $grandTotal }}
                       </button>
                     </form>
                 </div>

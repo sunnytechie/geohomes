@@ -57,10 +57,10 @@
                         <li>That you have agreed to bear, pay and discharge all levies, ground rents, documentation fees, which may be imposed on the property by the Management of the Estate, Ministry of Lands and Urban Development in future e.g. Ground Rent, C.of.O charges, etc.</li>
                         <li>That you have agreed not to sublet, assign, transfer or part with possession of the land wholly or in part without the written consent of the management of <b>Geohomes Services Limited</b> or her Proxy and such consent shall not be unreasonably withheld.</li>
                         <li>That you have agreed to pay <strong>Geohomes Services Limited</strong> or any company which shall be appointed by Geohomes Services Limited to carry out the duties of the facility management of the Estate, Ten percent (10%) of the valuable consideration in event of a subsequent assignment, subletting, transfer or parting of interest in the said property, as a first charge on the consideration and as a condition precedent to entering, execution and perfection of it.</li>
-                        <li>Offer Letter/Provisional allocation is subject to a final allocation upon full payment of the premium for the land, which must be fully paid within the stipulated period, starting from the date on this allocation or risk revocation and refund of money paid less five percent (10%) handling charge. This refund comes within 90 working days, starting from the date on your request letter.</li>
+                        <li>Offer Letter/Provisional allocation is subject to a final allocation upon full payment of the premium for the land, which must be fully paid within the stipulated period, starting from the date on this allocation or risk revocation and refund of money paid less ten percent (10%) handling charge. This refund comes within 90 working days, starting from the date on your request letter.</li>
                         <li>That you are to seek approval Ministry of Lands and Urban Development  through the Developer and ensure you obtain the Building Approval of your Proposed Building on your Property, which includes the Estate Fence designs, railings and Building. Otherwise, such fence work or building will be removed by the Developer.</li>
                         <li>Further to clause (g), should you default in payment and keeping to this contract terms, <b>GeoHomes Services Limited</b> reserves the right to terminate the contract of this agreement and make refund of money paid within the same duration payment was made to it less Ten percent (10%) administrative/handling charge, within 90 working days starting from the date on your request letter.</li>
-                        <li>Further to clause (e), you are to complete payment of your allocated plot of land  (N10,000,000.00) within 15 days starting from the date on this allocation or risk revocation and refund of money paid less Ten percent (10%) Administrative/handling charge, within 90 working days starting from the date on your request letter. </li>
+                        <li>Further to clause (e), you are to complete payment of your allocated plot of land  {{ $transaction->project->price }} within 15 days starting from the date on this allocation or risk revocation and refund of money paid less Ten percent (10%) Administrative/handling charge, within 90 working days starting from the date on your request letter. </li>
                         <li>Also, you should mobilize to site within (6) months from the date of communication/notification of your final allocation or risk forfeiture and refund made upon demand of the total amount paid less Ten percent (10%) administrative/handling charges, within 90 working days starting from the date on your revocation letter.</li>
                         <li>More so, Geohomes Services Limited may decide not to revoke a defaulters’ plot or building, however, in other not to obstruct development, you may be considered a reallocation to another plot or building within the estate or the next phase of same estate or to a different estate entirely. But whereby you refuse the newly allocated plot, Geohomes Services Limited shall refund upon a written request of amount paid less Ten percent (10%) administrative/handling charges. This clause is also applicable to the new allotted building or plot if subscriber continues to default.</li>
                         <li>Note that Geohomes Services Limited reserves the right to readjust Estate Plan to enhance Estate functionality. Therefore, Subscriber’s Proprietary rights within the Estate shall be limited to the Plot/building space bought by each respective Subscriber only. </li>
@@ -90,7 +90,7 @@
 
                     {{-- New Page --}}
 
-                    <div style="margin: 100px 0"></div>
+                    <div style="margin-top: 140px"></div>
 
                     <div><strong><u>ACKNOWLEDGEMENT</u></strong></div>
                     <p>I, <b>{{ $transaction->user->name }}</b>, with
@@ -103,7 +103,7 @@
 
                     {{-- New Page --}}
 
-                    <div style="margin: 100px 0"></div>
+                    <div style="margin-top: 100px"></div>
                     <h4 style="text-align: center"><b>GEOHOMES SERVICES LIMITED</b></h4>
                     <h5 style="text-align: center">GEOHOMES GARDENS ESTATE, DESTINY LAYOUT, AGBOGAZI NIKE, ENUGU <br> EAST LOCAL GOVERNMENT AREA, ENUGU STATE. <br> LAND PREMIUM, LEGAL FEES</h5>
 
@@ -137,7 +137,11 @@
                             @endphp
                             <div><b>VAT @ 7.5%</b>: {{ $vat }} </div>
 
-                            <div><strong>GRAND TOTAL: ₦ {{ $price + $vat }}</strong> </div>
+                            @php
+                                $grandprice = $price + $vat;
+                            @endphp
+
+                            <div><strong>GRAND TOTAL: ₦ {{ $grandprice }}</strong> </div>
                         </div>
 
                     </div>
