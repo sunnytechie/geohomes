@@ -69,7 +69,7 @@
             <div style="width: 20%"><i><strong>Space Size:</strong></i></div>    <div style="width: 80%">500 Sq.m. (Approximately)</div>
         </div>
         <div style="display:flex; width:100%">
-            <div style="width: 20%"><i><strong>Property Worth:</strong></i></div>    <div style="width: 80%">{{ $transaction->project->price }}</div>
+            <div style="width: 20%"><i><strong>Property Worth:</strong></i></div>    <div style="width: 80%">₦ {{ number_format($transaction->project->price, 2) }}</div>
         </div>
 
         <div style="margin: 20px"></div>
@@ -148,7 +148,7 @@
                 </div>
                 <div style="margin: 20px 0"></div>
                 <div style="display:flex; width:100%">
-                    <div><i><strong>LAND PREMIUM: </strong></i>{{ $transaction->project->price }}</div>
+                    <div><i><strong>LAND PREMIUM: </strong></i>₦ {{ number_format($transaction->project->price, 2) }}</div>
                 </div>
                 <div style="margin: 20px 0"></div>
                 @php
@@ -159,18 +159,18 @@
                     <div><i><strong>PROVIDED BY GEOHOMES SERVICES LIMITED</strong></i></div>
                     <div>Additional cost Charges </div>
                     <div>Legal Documentation: N 100,000.00 </div>
-                    <div><b>Total</b>: N {{ $price }} </div>
+                    <div><b>Total</b>: ₦ {{ number_format($price, 2) }} </div>
                     @php
                         $vat = $transaction->project->price * $transaction->plots;
                         $vat = $vat * 0.075;
                     @endphp
-                    <div><b>VAT @ 7.5%</b>: {{ $vat }} </div>
+                    <div><b>VAT @ 7.5%</b>: ₦ {{ number_format($vat, 2) }} </div>
                     @php
                     $grandprice = $price + $vat;
                 @endphp
 
 
-                    <div><strong>GRAND TOTAL: N {{ $grandprice }}</strong> </div>
+                    <div><strong>GRAND TOTAL: ₦ {{ number_format($grandprice, 2) }}</strong> </div>
                 </div>
 
             </div>
