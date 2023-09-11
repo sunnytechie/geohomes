@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -17,7 +17,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -40,7 +40,7 @@
                           <div>TxRef: {{ $transaction->tx_ref }}</div>
                           <div>Plots Number: {{ $transaction->plots }}</div>
                           <div>Allocation status: {{ $transaction->allocation_status }}</div>
-                          <div>Project Name: {{ $transaction->project->title }}</div>
+                          <div>Project Name: {{ $transaction->project->title ?? "deleted" }}</div>
                           @if ($transaction->pdf !== null)
                             <a href="/pdfs/{{ $transaction->pdf }}" class="btn btn-sm" download>Download Allocation file</a>
                           @endif
@@ -50,7 +50,7 @@
             </div>
         </div>
       </div>
-      
-      
+
+
     </div>
 @endsection
