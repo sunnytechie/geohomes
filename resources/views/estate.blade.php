@@ -134,7 +134,7 @@
               <p class="mb-0"><i class="fal fa-map-marker-alt mr-2"></i>{{ $project->address }}, {{ $project->state }}, {{ $project->country }}</p>
             </div>
             <div class="mt-2 text-lg-right">
-              <p class="fs-22 text-heading font-weight-bold mb-0">₦{{ $project->price }}</p>
+              <p class="fs-22 text-heading font-weight-bold mb-0">₦ {{ number_format($project->price, 2) }}</p>
               {{-- <p class="mb-0">$9350/SqFt</p> --}}
             </div>
           </div>
@@ -187,7 +187,7 @@
         @csrf
         <input type="hidden" name="project_id" value="{{ $project->id }}">
         <div class="modal-body">
-            
+
             <div class="my-2" style="color: #00A75A">After selecting the number of plots you want, you will first be prompted to subscribe for an allocation with a fee of ₦ 20,000 (twenty thousand naira). <br> After the allocation is made you have 14days to pay for the land else the plot(s) you subscribed for will be available for purchase to other customers.</div>
 
             <div class="input-group input-group-lg">
