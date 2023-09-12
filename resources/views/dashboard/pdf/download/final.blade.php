@@ -62,8 +62,8 @@
                 <p>Sincerely,</p>
                 <br>
 
-                <p>Surveyor</p>
-                <p>Uchechukwu Godwin Nnam</p>
+
+                <p>Surv. Uchechukwu Godwin Nnam</p>
                 <p>CEO Geohomes Group</p>
 
 </body>
