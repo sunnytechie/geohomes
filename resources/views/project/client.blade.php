@@ -19,7 +19,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card text-start mt-5 mb-9 shadow-sm">
               <div class="card-body">
-                <h4 class="card-title">Esate Subscription form</h4>
+                <h4 class="card-title">Estate Subscription form</h4>
                 <p class="card-text">After selecting the number of plots you want, you will first be prompted to subscribe for an allocation with a fee of ₦ 20,000 (twenty thousand naira). <br> After the allocation is made you have 14days to pay for the land else the plot(s) you subscribed for will be available for purchase to other customers.</p>
 
                 <form action="{{ route('subscription') }}" method="POST" style="padding: 0; margin-bottom: 0; margin-right: 10px">
