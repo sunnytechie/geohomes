@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agent;
+use App\Models\Earning;
+use App\Models\Invoice;
 use App\Models\Project;
 use App\Models\Property;
 use App\Models\Destination;
-use App\Models\Inspectiontransaction;
-use App\Models\Invoice;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Inspectiontransaction;
 
 class DashboardController extends Controller
 {
@@ -55,7 +56,14 @@ class DashboardController extends Controller
                             ->where('final_status', 0)
                             ->get();
 
-        return view('dashboard.index', compact('properties', 'pendingPayments', 'labels', 'values', 'transactions', 'inspections', 'projects', 'agents', 'destinations'));
+        $earning = Earning::where('user_id', Auth::user()->id)->first();
+        if ($earning == NULL) {
+            $earning = 0;
+        } else {
+            $earning = $earning->amount;
+        }
+
+        return view('dashboard.index', compact('properties', 'earning', 'pendingPayments', 'labels', 'values', 'transactions', 'inspections', 'projects', 'agents', 'destinations'));
     }
 
     public function status() {

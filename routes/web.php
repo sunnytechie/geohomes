@@ -96,6 +96,7 @@ Route::delete('delete/registered-agents/{id}', [App\Http\Controllers\AgentContro
 //account
 Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show')->middleware('auth', 'verified');
 Route::put('/my-profile/update', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update')->middleware('auth', 'verified');
+
 //Agent account
 Route::get('/agent-profile/{id}', [App\Http\Controllers\AgentController::class, 'profile'])->name('agent.profile')->middleware('auth', 'verified', 'isAgent');
 Route::put('/agent-profile/{id}/update', [App\Http\Controllers\AgentController::class, 'profileUpdate'])->name('agent.profile.update')->middleware('auth', 'verified', 'isAgent');
@@ -110,8 +111,14 @@ Route::post('/payment/inspection', [App\Http\Controllers\PaymentController::clas
 Route::get('/payment/agent', [App\Http\Controllers\PaymentController::class, 'agent'])->name('agent')->middleware('auth', 'verified');
 Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('handleGatewayCallback')->middleware('auth', 'verified');
 
+//Initiate land subscription for client
+Route::get('/initiate/land/subscription/{id}', [App\Http\Controllers\ClientController::class, 'initiateLandPayment'])->name('initiateLandPayment')->middleware('auth', 'verified');
+//save client details
+Route::post('/initiate/land/subscription/{id}', [App\Http\Controllers\ClientController::class, 'initiateLandPaymentPost'])->name('initiateLandPaymentPost')->middleware('auth', 'verified');
+
 //Callback route
 Route::get('/payment/subscriber/callback/{project}/{plot}', [App\Http\Controllers\CallbackController::class, 'subscribe'])->name('subscribe.handleGatewayCallback')->middleware('auth', 'verified');
+Route::get('/payment/subscriber/callback/agent/{project}/{plot}', [App\Http\Controllers\CallbackController::class, 'subscribeAgent'])->name('agent.subscribe.handleGatewayCallback')->middleware('auth', 'verified');
 
 //Final Payment on land
 Route::post('/final/land/payment/{id}', [App\Http\Controllers\TransactionController::class, 'finalLandPayment'])->name('finalLandPayment')->middleware('auth', 'verified');

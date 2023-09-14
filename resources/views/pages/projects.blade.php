@@ -105,7 +105,7 @@
                   </div>
 
                   <div class="d-flex mb-3">
-                    <button class="btn btn-primary rounded-0 border-0" data-toggle="modal" data-target="#exampleModal{{ $project->id }}" style="background: #00A75A;">Subscribe</button>
+                    <a href="{{ route('initiateLandPayment', $project->id) }}" class="btn btn-primary rounded-0 border-0" style="background: #00A75A;">Subscribe</a>
 
                     <form action="{{ route('inspection') }}" method="POST" style="padding: 0; margin-bottom: 0;">
                       @csrf

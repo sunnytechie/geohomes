@@ -24,4 +24,9 @@ class Transaction extends Model
     {
         return $this->belongsTo('App\Models\Project');
     }
+
+    public function client()
+    {
+        return $this->hasOne('App\Models\Client');
+    }
 }

@@ -27,13 +27,13 @@
         <img height="50" width="150" src="https://geohomesgroup.com/assets/images/logo/geohomeslogo.png" alt="Geohomes">
     </div>
     <div style="margin: 30px; auto"></div>
-                <div>{{ Auth::user()->name }}</div>
-                <div>{{ Auth::user()->address ?? "not found" }}</div>
-                <div>{{ Auth::user()->city ?? "not found" }}, {{ Auth::user()->zip ?? "not found" }}</div>
+                <div>@if($transaction->client) {{ $transaction->client->name }} @else {{ Auth::user()->name }} @endif</div>
+                <div>@if($transaction->client) {{ $transaction->client->address }} @else {{ Auth::user()->address }} @endif</div>
+                <div>@if($transaction->client) {{ $transaction->client->state }} @else {{ Auth::user()->city }} @endif, @if($transaction->client) {{ $transaction->client->zip }} @else {{ Auth::user()->zip }} @endif</div>
                 <div>Initial Plot Assignment Letter</div>
                 <div style="margin: 30px; auto"></div>
 
-                <p>Dear {{ Auth::user()->name ?? "not found" }},</p>
+                <p>Dear @if($transaction->client) {{ $transaction->client->name }} @else {{ Auth::user()->name }} @endif,</p>
 
                 <p>We are pleased to congratulate you on the conclusion of the payment for the 99-year lease of your property in our prestigious <strong>{{ $transaction->project->title }}</strong> layout. Throughout this process, we sincerely appreciate your trust and confidence in our company.</p>
 

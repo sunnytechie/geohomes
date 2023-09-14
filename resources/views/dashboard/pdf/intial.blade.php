@@ -13,11 +13,20 @@
                 </div>
 
                 <div style="margin: 20px"></div>
-                <strong>{{ $transaction->user->name }}</strong>
-                <div>{{ $transaction->user->zip }}</div>
-                <div>{{ $transaction->user->address }}</div>
-                <div>{{ $transaction->user->city }}</div>
-                <div>{{ $transaction->user->country }}</div>
+                @if ($transaction->client)
+                    <strong>{{ $transaction->client->name }}</strong>
+                    <div>{{ $transaction->client->zip }}</div>
+                    <div>{{ $transaction->client->address }}</div>
+                    <div>{{ $transaction->client->city }}</div>
+                    <div>{{ $transaction->client->country }}</div>
+                @else
+                    <strong>{{ $transaction->user->name }}</strong>
+                    <div>{{ $transaction->user->zip }}</div>
+                    <div>{{ $transaction->user->address }}</div>
+                    <div>{{ $transaction->user->city }}</div>
+                    <div>{{ $transaction->user->country }}</div>
+                @endif
+
 
                 <div style="margin: 20px"></div>
                 <div style="text-align: center"><u><strong>OFFER LETTER</strong></u></div>
@@ -93,8 +102,8 @@
                     <div style="margin-top: 140px"></div>
 
                     <div><strong><u>ACKNOWLEDGEMENT</u></strong></div>
-                    <p>I, <b>{{ $transaction->user->name }}</b>, with
-                        phone number: <b>{{ $transaction->user->phone }}</b>, having read through the above and
+                    <p>I, <b>@if ($transaction->client) {{ $transaction->client->name }} @else {{ $transaction->user->name }} @endif</b>, with
+                        phone number: <b>@if ($transaction->client) {{ $transaction->client->phone }} @else {{ $transaction->user->phone }} @endif</b>, having read through the above and
                         clearly understood it, accept these terms and conditions and hereby undertake to
                         comply fully with it. <b>SIGNATURE</b>:__________  <b>DATE</b>: {{ date('Y-m-d') }}
                     </p>
@@ -115,7 +124,7 @@
 
                         <div style="margin: 20px 0"></div>
                         <div style="display:flex; width:100%">
-                            <div><i><strong>Name: </strong></i>{{ $transaction->user->name }}</div>
+                            <div><i><strong>Name: </strong></i>@if($transaction->client) {{ $transaction->client->name }} @else {{ $transaction->user->name }} @endif</div>
                         </div>
                         <div style="margin: 20px 0"></div>
                         <div style="display:flex; width:100%">

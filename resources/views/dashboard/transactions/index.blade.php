@@ -24,7 +24,7 @@
   @endif
 
 
-  <div class="container">
+  <div class="container mt-3">
     <div class="row">
       @foreach ($pendingPayments as $alert)
         <div class="col-md-12">
@@ -89,9 +89,9 @@
             <tr role="row">
               <td class="align-middle">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    @if ($transaction->allocation_status = "Allocated")
+                    {{-- @if ($transaction->allocation == 0) --}}
                         <a style="background: #00A75A; color: #fff" class="btn btn-sm mr-1" href="{{ route('generateInitialPdf', $transaction->id) }}">Initital<span class="ml-1">Paper</span></a>
-                    @endif
+                    {{-- @endif --}}
 
                     @if ($transaction->final_status == 1)
                         <a style="background: #00A75A; color: #fff" class="btn btn-sm" href="{{ route('generateFinalPdf', $transaction->id) }}">Final<span class="ml-1">Paper</span></a>
@@ -138,35 +138,35 @@
               <td class="align-middle">{{ $transaction->plots }}</td>
 
               <td class="align-middle">
-                @if (Auth::user()->is_admin)
+                @if (Auth::user()->is_admin == 1)
                   <form class="p-0 m-0" method="GET" action="{{ route('allocate') }}">
                       @csrf
                       <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
                       <button type="submit" class="btn btn-sm badge badge-green" style="border-top-left-radius: 0; border-bottom-left-radius: 0">
-                        @if ($transaction->allocation_status == "Pending")
-                          Allocate Plot
+                        @if ($transaction->allocation == 0)
+                            Allocate Now
                             @else
-                           {{ $transaction->allocation_status }}
+                            Allocated
                         @endif
                       </button>
                   </form>
                 @else
-                  @if ($transaction->allocation_status == "Pending")
-                    Not Allocated
+                  @if ($transaction->allocation == 0)
+                    Pending allocation
                     @else
-                    {{ $transaction->allocation_status }}
+                    Allocated
                   @endif
                 @endif
               </td>
 
               <td class="align-middle">
-                @if ($transaction->allocation_status == "Pending")
+                @if ($transaction->allocation == 0)
                     @if (Auth::user()->is_admin || Auth::user()->manager)
                     <form class="p-0 m-0" method="GET" action="{{ route('allocate') }}">
                       @csrf
                       <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
                         <button type="submit" class="btn btn-sm badge badge-green" style="border-top-left-radius: 0; border-bottom-left-radius: 0">
-                          @if ($transaction->allocation_status == "Pending")
+                          @if ($transaction->allocation == 0)
                             Allocate Plot
                               @else
                             {{ \Carbon\Carbon::parse($transaction->expiry_date)->format('d M Y') }}

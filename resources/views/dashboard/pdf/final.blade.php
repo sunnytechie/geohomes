@@ -12,7 +12,7 @@
                 <div>Initial Plot Assignment Letter</div>
                 <div style="margin: 30px; auto"></div>
 
-                <p>Dear {{ Auth::user()->name ?? "not found" }},</p>
+                <p>Dear @if($transaction->client) {{ $transaction->client->name }} @else {{ Auth::user()->name }} @endif,</p>
 
                 <p>We are pleased to congratulate you on the conclusion of the payment for the 99-year lease of your property in our prestigious <strong>{{ $transaction->project->title }}</strong> layout. Throughout this process, we sincerely appreciate your trust and confidence in our company.</p>
 

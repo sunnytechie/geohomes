@@ -35,17 +35,26 @@
     </div>
 
     <div class="content" id="pdfContent" style="padding: 10px;">
-        <div style="margin: 20px"></div>
-        <div style="display:flex; width:100%">
-            <div style="width: 60%">GSL/L/{{ date('Y') }}/{{ $transaction->id }} </div>    <div style="text-align: right; width: 35%">{{ date('j M, Y') }}</div>
+        <div style="margin: 10px"></div>
+        <div style="width:100%">
+            <div style="float: right; text-align: right; width: 50%">{{ date('j M, Y') }}</div>
+            <div style="width: 50%">GSL/L/{{ date('Y') }}/{{ $transaction->id }} </div>
         </div>
 
-        <div style="margin: 20px"></div>
-        <strong>{{ $transaction->user->name }}</strong>
-        <div>{{ $transaction->user->zip }}</div>
-        <div>{{ $transaction->user->address }}</div>
-        <div>{{ $transaction->user->city }}</div>
-        <div>{{ $transaction->user->country }}</div>
+
+        @if ($transaction->client)
+                    <strong>{{ $transaction->client->name }}</strong>
+                    <div>{{ $transaction->client->zip }}</div>
+                    <div>{{ $transaction->client->address }}</div>
+                    <div>{{ $transaction->client->city }}</div>
+                    <div>{{ $transaction->client->country }}</div>
+                @else
+                    <strong>{{ $transaction->user->name }}</strong>
+                    <div>{{ $transaction->user->zip }}</div>
+                    <div>{{ $transaction->user->address }}</div>
+                    <div>{{ $transaction->user->city }}</div>
+                    <div>{{ $transaction->user->country }}</div>
+                @endif
 
         <div style="margin: 20px"></div>
         <div style="text-align: center"><u><strong>OFFER LETTER</strong></u></div>
@@ -57,19 +66,19 @@
         <div style="margin: 20px"></div>
         <strong>PROPERTY</strong>
         <div style="display:flex; width:100%">
-            <div style="width: 20%"><i><strong>Location:</strong></i></div>    <div style="width: 80%">{{ $transaction->project->address }}, {{ $transaction->project->state }}, {{ $transaction->project->country }}</div>
+            <div><i><strong>Location:</strong></i> <span>{{ $transaction->project->address }}, {{ $transaction->project->state }}, {{ $transaction->project->country }}</span></div>
         </div>
         <div style="display:flex; width:100%">
-            <div style="width: 20%"><i><strong>Plot No:</strong></i></div>    <div style="width: 80%">{{ $transaction->plotnames }}</div>
+            <div><i><strong>Plot No:</strong></i> <span>{{ $transaction->plotnames }}</span></div>
         </div>
         <div style="display:flex; width:100%">
-            <div style="width: 20%"><i><strong>Plot Use:</strong></i></div>    <div style="width: 80%">Residential</div>
+            <div><i><strong>Plot Use:</strong></i> <span>Residential</span></div>
         </div>
         <div style="display:flex; width:100%">
-            <div style="width: 20%"><i><strong>Space Size:</strong></i></div>    <div style="width: 80%">500 Sq.m. (Approximately)</div>
+            <div><i><strong>Space Size:</strong></i> <span>500 Sq.m. (Approximately)</span></div>
         </div>
         <div style="display:flex; width:100%">
-            <div style="width: 20%"><i><strong>Property Worth:</strong></i></div>    <div style="width: 80%">N {{ number_format($transaction->project->price, 2) }}</div>
+            <div><i><strong>Property Worth:</strong></i> <span>N {{ number_format($transaction->project->price, 2) }}</span></div>
         </div>
 
         <div style="margin: 20px"></div>
@@ -121,11 +130,12 @@
             <div style="padding: 140px 0"></div>
 
             <div><strong><u>ACKNOWLEDGEMENT</u></strong></div>
-            <p>I, <b>{{ $transaction->user->name }}</b>, with
+            <p>I, <b>@if ($transaction->client) {{ $transaction->client->name }} @else {{ $transaction->user->name }} @endif</b>, with
                 phone number: <b>{{ $transaction->user->phone }}</b>, having read through the above and
                 clearly understood it, accept these terms and conditions and hereby undertake to
-                comply fully with it. <b>SIGNATURE</b>:__________   <b>DATE</b>: {{ date('Y-m-d') }}
+                comply fully with it.
             </p>
+            <div style="margin-top: 20px; margin-bottom: 100px"><b>SIGNATURE</b>:__________   <b>DATE</b>: {{ date('Y-m-d') }}</div>
 
 
 
@@ -138,19 +148,19 @@
 
             <div style="border: 1px solid #000; padding: 6px">
 
-                <div style="display:flex; width:100%">
-                    <div style="width: 50%; text-align:center"><i><strong>DR. NNAM UCHECHUKWU GODWIN</strong></i></div>    <div style="width: 50%">PLOT NO: {{ $transaction->plotnames }}</div>
+                <div style="float:right; width:100%">
+                    <div style="width: 100%; text-align:right"><i><strong>DR. NNAM UCHECHUKWU GODWIN</strong></i></div>    <div style="width: 50%"><strong>PLOT NO:</strong> {{ $transaction->plotnames }}</div>
                 </div>
 
-                <div style="margin: 20px 0"></div>
+                <div style="margin: 7px 0"></div>
                 <div style="display:flex; width:100%">
-                    <div><i><strong>Name: </strong></i>{{ $transaction->user->name }}</div>
+                    <div><i><strong>Name: </strong></i>@if($transaction->client) {{ $transaction->client->name }} @else {{ $transaction->user->name }} @endif</div>
                 </div>
-                <div style="margin: 20px 0"></div>
+                <div style="margin: 7px 0"></div>
                 <div style="display:flex; width:100%">
                     <div><i><strong>LAND PREMIUM: </strong></i>N {{ number_format($transaction->project->price, 2) }}</div>
                 </div>
-                <div style="margin: 20px 0"></div>
+                <div style="margin: 7px 0"></div>
                 @php
                         $price = $transaction->project->price * $transaction->plots;
                         $price = $price + 100000;
@@ -174,8 +184,6 @@
                 </div>
 
             </div>
-
-            <div style="margin: 100px 0"></div>
 
                 <p>Please, note that all payments must be made within the duration specified in this bill starting from the date on the allocation or risk revocation and refund made upon demand of the total amount paid less five percent (5%) administrative/handling charges.</p>
 

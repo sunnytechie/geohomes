@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
+use App\Models\Agent;
 
+use App\Http\Requests;
+use App\Models\Client;
+use App\Models\Transaction;
+use App\Models\Pendingagent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Agent;
-use App\Models\Inspectiontransaction;
-use App\Models\Pendingagent;
-use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Inspectiontransaction;
 use Illuminate\Support\Facades\Redirect;
 use Unicodeveloper\Paystack\Facades\Paystack;
 
@@ -90,6 +91,35 @@ class PaymentController extends Controller
     public function subscription(Request $request) {
         //dd($request->all());
         $tx_ref = Paystack::genTranxRef();
+
+        //Save client details if it an agent
+        if (Auth::user()->is_agent == 1) {
+            //validate request
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'address' => 'required',
+                'state' => 'required',
+                'zip' => 'required',
+                'country' => 'required',
+            ]);
+
+            //save client details
+            $client = new Client();
+            $client->name = $request->name;
+            $client->email = $request->email;
+            $client->phone = $request->phone;
+            $client->address = $request->address;
+            $client->state = $request->state;
+            $client->zip = $request->zip;
+            $client->country = $request->country;
+            $client->tx_ref = $tx_ref;
+            $client->project_id = $request->project_id;
+            $client->save();
+        }
+
+
         $project = $request->project_id;
         $plots = $request->plots;
 
@@ -99,6 +129,7 @@ class PaymentController extends Controller
             "email" => Auth::user()->email,
             "currency" => "NGN",
             "callback_url" => "https://geohomesgroup.com/payment/subscriber/callback/$project/$plots",
+
         );
 
         return Paystack::getAuthorizationUrl($data)->redirectNow();

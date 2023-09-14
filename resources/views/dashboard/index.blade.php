@@ -2,7 +2,27 @@
 
 @section('content')
 
-<div class="container">
+
+
+<div class="px-3 px-lg-6 px-xxl-13 pt-3">
+  {{-- session --}}
+  @if (session('message'))
+  <div class="row">
+      <div class="col-md-12">
+          <div class="hide-from-mobile mt-2"></div>
+
+              {{-- alert --}}
+              <div class="alert alert-info alert-dismissible fade show" role="alert">
+                  {{ session('message') }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: 6px">
+                  <span aria-hidden="true" style="font-size: 12px">Close</span>
+                  </button>
+              </div>
+
+      </div>
+  </div>
+  @endif
+
   <div class="row">
     @foreach ($pendingPayments as $alert)
       <div class="col-md-12">
@@ -34,53 +54,31 @@
       </div>
     @endforeach
   </div>
-</div>
 
-<div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10">
-  {{-- session --}}
-  @if (session('message'))
-  <div class="row">
-      <div class="col-md-12">
-          <div class="hide-from-mobile mt-2"></div>
-          
-              {{-- alert --}}
-              <div class="alert alert-info alert-dismissible fade show" role="alert">
-                  {{ session('message') }}
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top: 6px">
-                  <span aria-hidden="true" style="font-size: 12px">Close</span>
-                  </button>
-              </div>
-          
-      </div>
-  </div>
-  @endif
 
-  
 
-    <div class="d-flex flex-wrap flex-md-nowrap mb-6">
+    <div class="d-flex flex-wrap flex-md-nowrap mb-6 mt-6">
       <div class="mr-0 mr-md-auto">
         <h2 class="mb-0 text-heading fs-22 lh-15">Hi, {{ Auth::user()->name }}</h2>
         @if (Auth::user()->is_agent)
           @if (Auth::user()->agent->subscribed != 1)
-              You can only post 3 properties on GeoHomes, <a href="{{ route('agent') }}">You can Upgrade to 10 at #10,000</a>.
+              <p>You can only post 3 properties on GeoHomes, <a href="{{ route('agent') }}">You can Upgrade to 10 at #10,000</a>.</p>
           @else
           <p>You're on a Pro Agent with GeoHomes. Your subscription is active.</p>
           @endif
-           @else 
+           @else
            <p>Your Dashboard gives you a heads-up on your analytics.</p>
         @endif
       </div>
 
-    
+      {{-- Wallet earning section --}}
       @if (Auth::user()->is_admin || Auth::user()->is_agent)
-      <div>
-        <a href="{{ route('properties.create') }}" class="btn btn-primary btn-lg">
-          <span>Add New Property</span>
-        </a>
+      <div class="wallet">
+        <div class="shadow p-4" style="background: #00A75A; cursor: default; color:#fff; font-weight: bold">
+          <span>Earnings: ₦ {{ number_format($earning, 2) }}</span>
+        </div>
       </div>
       @endif
-      
-
     </div>
 
     <div class="row">
@@ -140,7 +138,7 @@
         </div>
       </div>
       @endif
-      
+
 
       @if (Auth::user()->is_admin)
         <div class="col-sm-6 col-xxl-3 mb-6">
@@ -202,7 +200,7 @@
     @if (Auth::user()->is_admin || Auth::user()->manager)
       @include('dashboard.statistics')
     @endif
-    
+
 
   </div>
 

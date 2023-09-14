@@ -83,6 +83,12 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Inspectiontransaction');
     }
 
+    //user has one earning
+    public function earning()
+    {
+        return $this->hasOne('App\Models\Earning');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

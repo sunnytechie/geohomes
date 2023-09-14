@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plot;
+use App\Models\Client;
+use App\Models\Earning;
 use App\Models\Project;
 use App\Models\Transaction;
 use App\Mail\FinalPaperMail;
@@ -17,6 +19,42 @@ class CallbackController extends Controller
         $paymentDetails = Paystack::getPaymentData();
 
         //dd($paymentDetails);
+
+        //Get required details
+        $amount = $paymentDetails['data']['amount'];
+        $status = $paymentDetails['data']['status'];
+        $reference = $paymentDetails['data']['reference'];
+        $email = $paymentDetails['data']['customer']['email']; //Email of Auth user
+        $order_id = $paymentDetails['data']['order_id'];
+        $currency = $paymentDetails['data']['currency'];
+
+        $transaction = new Transaction();
+        $transaction->status = 1;
+        $transaction->project_id = $project_id;
+        $transaction->plots = $plot;
+        $transaction->user_id = Auth::user()->id;
+        $transaction->tx_ref = $reference;
+        $transaction->save();
+
+        if (Auth::user()->is_agent == 1) {
+            //update client table where tx_ref = $reference
+            $client = Client::where('tx_ref', $reference)->first();
+            $client->transaction_id = $transaction->id;
+            $client->save();
+
+            //update transaction table
+            $transaction = Transaction::find($transaction->id);
+            $transaction->agent = 1;
+            $transaction->save();
+        }
+
+        return redirect()->route('transaction')->with('message', "Your payment was successful, Geohomes will allocate a plot to you shortly, thank you.");
+    }
+
+    public function subscribeAgent($project_id, $plot, $client) {
+        $paymentDetails = Paystack::getPaymentData();
+
+        dd($paymentDetails);
 
         //Get required details
         $amount = $paymentDetails['data']['amount'];
@@ -58,6 +96,7 @@ class CallbackController extends Controller
         $transaction = Transaction::find($id);
         $transaction->final_status = 1;
         $transaction->updated_at = now();
+        $transaction->land_tx_ref = $reference;
         $transaction->save();
         //dd($transaction);
 
@@ -90,6 +129,21 @@ class CallbackController extends Controller
 
 
         Mail::to($recipient)->send(new FinalPaperMail($recipient, $clientName, $clientAddress, $clientCity, $clientZip, $projectName, $projectAddress, $projectState));
+
+        //calculate 20% of $project->price
+        $amount = $project->price * 0.2;
+        //make enearings for user or update user earnings
+        $eanning = Earning::where('user_id', Auth::user()->id)->first();
+        if ($eanning == null) {
+            $eanning = new Earning();
+            $eanning->user_id = Auth::user()->id;
+            $eanning->amount = $amount;
+            $eanning->save();
+        } else {
+            $eanning = Earning::find($eanning->id);
+            $eanning->amount = $eanning->amount + $amount;
+            $eanning->save();
+        }
 
         //return redirect
         return redirect()->route('transaction')->with('message', "You have successfully paid for the plot(s) allocated to you.");

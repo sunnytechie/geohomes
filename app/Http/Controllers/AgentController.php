@@ -12,6 +12,7 @@ class AgentController extends Controller
 {
     public function index() {
         $agents = Agent::orderBy('id', 'asc')
+                        ->where('approval', '!=', 'pending')
                         ->get();
 
         return view('dashboard.agent.index', compact('agents'));

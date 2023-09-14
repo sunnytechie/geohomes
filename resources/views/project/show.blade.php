@@ -54,9 +54,9 @@
     margin-top: 10px !important;
   }
 }
-  
+
 </style>
-    
+
 <main id="content">
   <section>
     <div class="spacer mt-13 hide-from-mobile"></div>
@@ -75,7 +75,7 @@
     </div> --}}
     <div class="container-fluid">
       <div class="position-relative" data-animate="zoomIn">
-        
+
       <div class="row galleries m-n1">
         <div class="col-lg-6 p-1">
           <div class="item item-size-4-3">
@@ -144,12 +144,8 @@
         <div class="primary-sidebar-inner">
           <div class="card border-0 widget-request-tour">
             <div class="d-flex">
-              <form class="w-50 mr-1" action="{{ route('subscription') }}" method="POST" style="padding: 0; margin: 0">
-                @csrf
-                <input type="hidden" name="project_id" value="{{ $project->id }}">
-                <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #EAF1F2; color: #3e3e42 !important;">Subscribe</button>
-              </form>
-  
+                <a href="{{ route('initiateLandPayment', $project->id) }}" class="btn btn-primary rounded-0 border-0" style="background: #00A75A;">Subscribe</a>
+
               <form class="w-50" action="{{ route('inspection') }}" method="POST" style="padding: 0; margin: 0">
                 @csrf
                 <input type="hidden" name="project_id" value="{{ $project->id }}">

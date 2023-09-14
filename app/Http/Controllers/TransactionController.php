@@ -104,6 +104,7 @@ class TransactionController extends Controller
         $transaction = Transaction::find($request->transaction_id);
         //count allocation and make sure plots are not above the the number
         $transaction->allocation_status = "Allocated";
+        $transaction->allocation = 1;
         $transaction->expiry_date = $expiry_date->toDateString();
         $transaction->plotnames = $request->plotNames;
         $transaction->plot_id = $request->plot_id;
@@ -217,7 +218,6 @@ class TransactionController extends Controller
             "email" => Auth::user()->email,
             "currency" => "NGN",
             "callback_url" => "https://geohomesgroup.com/payment/land/callback/$id",
-            //"callback_url" => "http://127.0.0.1:8000/payment/land/callback/$id",
         );
 
         return Paystack::getAuthorizationUrl($data)->redirectNow();

@@ -154,8 +154,7 @@
           <div class="card border-0 widget-request-tour">
             <div class="d-flex">
 
-                <button class="btn btn-primary rounded-0 border-0" data-toggle="modal" data-target="#estateModal" style="background: #00A75A; color: #ffffff !important; padding-left: 30px;">Subscribe</button>
-
+                <a href="{{ route('initiateLandPayment', $project->id) }}" class="btn btn-primary pt-2 rounded-0 border-0" style="background: #00A75A;">Subscribe</a>
 
               <form class="w-50" action="{{ route('inspection') }}" method="POST" style="padding: 0; margin: 0">
                 @csrf
