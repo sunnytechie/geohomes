@@ -85,18 +85,20 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone' => 'required',
             'country' => 'required',
-            'user_type' => '',
-            'company_name' => '',
-            'company_type' => '',
-            'website' => '',
+            'user_type' => 'nullable',
+            'company_name' => 'nullable',
+            'company_type' => 'nullable',
+            'website' => 'nullable',
             'address' => 'required',
             'city' => 'required',
-            'zip' => '',
-            'rc_no' => '',
-            'agent_type' => '',
+            'zip' => 'nullable',
+            'rc_no' => 'nullable',
+            'agent_type' => 'nullable',
             'cac' => 'nullable|image|max:2048',
-            'nin_no' => 'required',
+            //'nin_no' => 'required',
         ]);
+
+        //dd('hello world');
 
         if ($request->has('cac')) {
             $imagePath = request('cac')->store('agents', 'public');
@@ -106,7 +108,6 @@ class RegisterController extends Controller
                 });
             $image->save();
         }
-
 
 
         $user = new User();
