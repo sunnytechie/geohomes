@@ -76,7 +76,7 @@
                             <div class="form-group">
                                 {{-- <label for="re-password">Re-Enter Password</label> --}}
                                 <div class="input-group input-group-lg">
-                                <input type="password" class="form-control password-input2 shadow-none" id="password-confirmation" name="password_confirmation" placeholder="Password">
+                                <input type="password" class="form-control password-input2 shadow-none" id="password-confirmation" name="password_confirmation" placeholder="Confirm Password">
 
                                 <div class="input-group-append show-password2" style="cursor: pointer; position:absolute; right: 0; z-index: 999; background: transparent; margin-top: 8px">
                                     <span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye"></i></span>
