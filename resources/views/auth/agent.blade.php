@@ -107,7 +107,7 @@
                         <div class="col-sm-12 px-2">
                             <div class="form-group">
                                 {{-- <label for="phone" class="text-heading">Your Phone</label> --}}
-                                <input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror form-control-lg" value="{{ old('phone') }}" id="phone" placeholder="Full phone">
+                                <input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror form-control-lg" value="{{ old('phone') }}" id="phone" placeholder="Phone Number">
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">

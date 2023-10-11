@@ -79,7 +79,7 @@ class RegisterController extends Controller
     public function userRegister(Request $request) {
         //dd($request->all());
         //validate
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -95,10 +95,13 @@ class RegisterController extends Controller
             'rc_no' => 'nullable',
             'agent_type' => 'nullable',
             'cac' => 'nullable|image|max:2048',
-            //'nin_no' => 'required',
+            'nin_no' => 'nullable',
         ]);
 
-        //dd('hello world');
+        //if validation fails
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         if ($request->has('cac')) {
             $imagePath = request('cac')->store('agents', 'public');
