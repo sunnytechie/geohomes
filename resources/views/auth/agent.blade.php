@@ -57,7 +57,7 @@
                             <div class="form-group">
                                 {{-- <label for="password" class="text-heading">Password</label> --}}
                                 <div class="input-group input-group-lg">
-                                    <input type="password" class="form-control password-input @error('password') is-invalid @enderror shadow-none" id="password-1" name="password" placeholder="Password">
+                                    <input type="password" class="form-control password-input @error('password') is-invalid @enderror shadow-none" id="password" name="password" placeholder="Password">
 
                                     <div class="input-group-append show-password" style="cursor: pointer; position:absolute; right: 0; z-index: 999; background: transparent; margin-top: 8px">
                                         <span class="input-group-text border-0 text-body fs-18"  style="background-color: transparent"><i class="far fa-eye"></i></span>
@@ -210,13 +210,16 @@
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
                                     <label for="cac">CAC Certificate</label>
-                                    <input type="file" name="cac" id="cac" class="form-control form-control-lg border">
+                                    <input type="file" name="cac" id="cac" class="form-control @error('cac') is-invalid @enderror form-control-lg border">
 
-                                    @error('cac')
+                                    @if ($errors->has('cac'))
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>{{ $errors->first('cac') }}</strong>
                                         </span>
-                                    @enderror
+                                        @else
+                                        <small>Max file upload 1mb</small>
+                                    @endif
+                                    
                                 </div>
                             </div>
 
