@@ -94,7 +94,7 @@ class RegisterController extends Controller
             'zip' => 'nullable',
             'rc_no' => 'nullable',
             'agent_type' => 'nullable',
-            'cac' => 'nullable|image|max:2048',
+            'cac' => 'nullable|mimes:jpeg,png,gif,pdf|max:2048',
             'nin_no' => 'nullable',
         ]);
 
@@ -103,14 +103,24 @@ class RegisterController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        if ($request->has('cac')) {
-            $imagePath = request('cac')->store('agents', 'public');
-            $image = Image::make(public_path("storage/{$imagePath}"))
-                ->resize(800, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-            $image->save();
+        if ($request->hasFile('cac')) {
+            // find out if file is pdf
+            $file = $request->file('cac');
+            $extension = $file->getClientOriginalExtension();
+            if ($extension == "pdf") {
+                ////dd("pdf");
+                $filePath = $request->file('cac')->store('public/cac');
+            } else {
+                ////dd("image");
+                //resize image
+                $image = $request->file('cac');
+                $filename = time() . '.' . $image->getClientOriginalExtension();
+                $location = public_path('images/cac/' . $filename);
+                Image::make($image)->resize(800, 400)->save($location);
+                $filePath = 'images/cac/' . $filename;
+            }
         }
+
 
 
         $user = new User();
@@ -128,7 +138,7 @@ class RegisterController extends Controller
         $user->zip = $request->zip;
         $user->email_verified_at = now();
         if ($request->hasFile('cac')) {
-            $user->cac = $imagePath;
+            $user->cac = $filePath;
             }
         if ($request->user_type == "agent") {
             $user->is_agent = 1;
