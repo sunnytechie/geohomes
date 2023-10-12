@@ -21,7 +21,7 @@
 /* @media 425px */
 @media (max-width: 426px) {
     .card {
-        width: 80%;
+        width: 85%;
         margin: 0 auto;
     }
     .regImg {
@@ -56,7 +56,7 @@
             <a href="{{ route('auth.customer') }}">
             <div class="card border-1 shadow">
                 <img class="regImg" src="{{ asset('assets/images/svg/customer.png') }}" alt="">
-                <div class="py-2 text-center" style="border-top: 1px solid #ccc; font-weight:600; color: #00A75A">Customer</div>
+                <div class="py-2 text-center" style="border-top: 1px solid #ccc; font-weight:600; color: #00A75A">Register as a Customer</div>
             </div>
             </a>
         </div>
@@ -65,7 +65,7 @@
             <a href="{{ route('auth.agent') }}">
             <div class="card border-1 shadow">
                 <img class="regImg" src="{{ asset('assets/images/svg/provider.png') }}" alt="">
-                <div class="py-2 text-center" style="border-top: 1px solid #ccc; font-weight:600; color: #00A75A">Agent</div>
+                <div class="py-2 text-center" style="border-top: 1px solid #ccc; font-weight:600; color: #00A75A">Join as an Agent</div>
             </div>
             </a>
         </div>
