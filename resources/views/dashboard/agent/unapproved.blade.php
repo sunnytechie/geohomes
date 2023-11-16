@@ -63,7 +63,11 @@
               <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($agent->created_at)->format('d M Y') }}</td>
               <td class="align-middle">
                 @isset($agent->user->cac)
-                <a class="btn btn-sm" style="background: #00A75A; color: #ffffff" href="/storage/{{ $agent->user->cac }}" download>Download<span class="ml-1">CAC</span></a>
+                @if ($agent->user->cac_extention == "image")
+                    <a class="btn btn-sm" style="background: #00A75A; color: #ffffff" href="/storage/{{ $agent->user->cac }}" download>Download<span class="ml-1">CAC Image</span></a>
+                @else
+                <a class="btn btn-sm" style="background: #00A75A; color: #ffffff" href="/{{ $agent->user->cac }}" download>Download<span class="ml-1">CAC Doc</span></a>
+                @endif
                 @else
                     <div class="text-black">Not found</div>
                 @endisset

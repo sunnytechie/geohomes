@@ -109,7 +109,11 @@ class RegisterController extends Controller
             $extension = $file->getClientOriginalExtension();
             if ($extension == "pdf") {
                 ////dd("pdf");
-                $filePath = $request->file('cac')->store('public/cac');
+                //$filePath = $request->file('cac')->store('public/cac');
+                $pdf = $request->file('cac');
+                $filePath = public_path() . 'pdfs/cac' . $pdf->getClientOriginalName();
+                $pdf->move(public_path('pdfs/cac'), $pdf->getClientOriginalName());
+                $cac_extention = "pdf";
             } else {
                 ////dd("image");
                 //resize image
@@ -118,6 +122,7 @@ class RegisterController extends Controller
                 $location = public_path('images/cac/' . $filename);
                 Image::make($image)->resize(800, 400)->save($location);
                 $filePath = 'images/cac/' . $filename;
+                $cac_extention = "image";
             }
         }
 
@@ -139,7 +144,8 @@ class RegisterController extends Controller
         $user->email_verified_at = now();
         if ($request->hasFile('cac')) {
             $user->cac = $filePath;
-            }
+            $user->cac_extention = $cac_extention;
+        }
         if ($request->user_type == "agent") {
             $user->is_agent = 1;
         }

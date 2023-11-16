@@ -34,6 +34,7 @@ class User extends Authenticatable
         'password',
         'email_verified_at',
         'cac',
+        'cac_extention',
         'rc_no',
         'agent_type',
     ];
