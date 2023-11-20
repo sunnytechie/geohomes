@@ -111,7 +111,7 @@ class RegisterController extends Controller
                 ////dd("pdf");
                 //$filePath = $request->file('cac')->store('public/cac');
                 $pdf = $request->file('cac');
-                $filePath = public_path() . 'pdfs/cac' . $pdf->getClientOriginalName();
+                $filePath = 'pdfs/cac/' . $pdf->getClientOriginalName();
                 $pdf->move(public_path('pdfs/cac'), $pdf->getClientOriginalName());
                 $cac_extention = "pdf";
             } else {
