@@ -1,10 +1,17 @@
 @extends('layouts.admin')
 <title>Initial Allocation Paper</title>
 @section('content')
+<style>
+    .page-content {
+        background-color: #F8F8F8;
+    }
+</style>
+
+
 <div class="mt-5"></div>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10 shadow">
+        <div class="col-md-10 mb-4 shadow">
 
             <div class="content" id="pdfContent" style="padding: 10px;">
                 <div style="margin: 20px"></div>

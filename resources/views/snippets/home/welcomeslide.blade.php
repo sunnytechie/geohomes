@@ -24,7 +24,7 @@
         
         <div class="box px-0 d-flex flex-column">
           <div class="bg-cover d-flex align-items-center custom-vh-02"
-             style="background-image: url('assets/images/bg-slider-02.jpg')">
+             style="background-image: url('https://cdn.pixabay.com/photo/2016/09/04/12/38/living-room-1643855_1280.jpg')">
             <div class="container">
 
                 <div class="spacer mt-8"></div>
@@ -46,7 +46,7 @@
 
         <div class="box px-0 d-flex flex-column">
             <div class="bg-cover d-flex align-items-center custom-vh-02"
-             style="background-image: url('assets/images/bg-slider-03.jpg')">
+             style="background-image: url('https://cdn.pixabay.com/photo/2018/07/15/13/04/living-room-3539586_1280.jpg')">
               <div class="container">
 
                 <div class="spacer mt-8"></div>

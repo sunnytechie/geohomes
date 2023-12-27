@@ -26,16 +26,17 @@
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 invoice-listing">
       <h3 style="color: #00A75A">Agents / Users</h3>
       <div class="table-responsive">
-        <table id="invoice-list" class="table table-hover bg-white border rounded-lg">
+        <table id="invoice-list" class="table table-sm table-hover bg-white border rounded-lg">
           <thead>
             <tr role="row">
-              <th class="py-6">S/N</th>
-              <th class="py-6">Name</th>
-              <th class="py-6">Agent<span class="ml-1">Type</span></th>
-              <th class="py-6">Registed</th>
-              <th class="py-6">CAC</th>
-              <th class="py-6">RC.No</th>
-              <th class="no-sort py-6">Actions</th>
+              <th style="width: 35px;">S/N</th>
+              <th>Name</th>
+              <th>Registed</th>
+              {{-- <th>Agent<span class="ml-1">Type</span></th> --}}
+              {{--
+              <th>CAC</th>
+              <th>RC.No</th> --}}
+              <th class="no-sort">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -45,22 +46,20 @@
             @foreach ($agents as $agent)
             <tr role="row">
               <td>{{ $id++ }}</td>
-              <td class="align-middle">
-                <div>
+              <td>
                   @isset($agent->user)
                     <span class="align-self-center mb-0 user-name">{{ $agent->user->name }}</span> <br>
-                    <span class="align-self-center mb-0 user-name">{{ $agent->user->email }}</span> <br>
-                    <span class="align-self-center mb-0 user-name">{{ $agent->user->phone }}</span> <br>
+                    {{-- <span class="align-self-center mb-0 user-name">{{ $agent->user->email }}</span> <br>
+                    <span class="align-self-center mb-0 user-name">{{ $agent->user->phone }}</span> <br> --}}
                   @endisset
-
-                </div>
               </td>
-              <td class="align-middle">
+              <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($agent->created_at)->format('d M Y') }}</td>
+              {{-- <td class="align-middle">
                 <div class="d-flex align-items-center">
                   <p class="align-self-center mb-0 user-name">{{ $agent->user->agent_type ?? "Not found" }}</p>
                 </div>
               </td>
-              <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($agent->created_at)->format('d M Y') }}</td>
+
               <td class="align-middle">
                 @isset($agent->user->cac)
                 @if ($agent->user->cac_extention == "image")
@@ -81,13 +80,21 @@
                 @else
                 <div class="text-black">Not found</div>
                 @endif
-              </td>
-              <td class="align-middle">
-                <form method="post" action="{{ route('approve.agent', $agent->id) }}">
+              </td> --}}
+              <td class="btn-group">
+                @isset($agent->user)
+                <a class="btn btn-sm rounded-0 btn-primary" href="{{ route('show.partner.details', $agent->user->id) }}">View details</a>
+                @endisset
+                <form class="m-0 p-0" method="post" action="{{ route('approve.agent', $agent->id) }}">
                     @csrf
-                    <button class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to approve this agent?')">Approve<span class="ml-1">Agent</span></button>
-                </form>
 
+                    @if ($agent->approval == "approved")
+                    <button class="btn rounded-0 btn-sm btn-danger" onclick="return confirm('Are you sure you want to revoke this approval?')">Revoke<span class="ml-1">Approval</span></button>
+                    @else
+                    <button class="btn rounded-0 btn-sm btn-danger" onclick="return confirm('Are you sure you want to approve this agent?')">Approve<span class="ml-1">Agent</span></button>
+                    @endif
+
+                </form>
               </td>
             </tr>
             @endforeach

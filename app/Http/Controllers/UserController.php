@@ -46,6 +46,14 @@ class UserController extends Controller
         return view('dashboard.users.customer', compact('user', 'transactions'));
     }
 
+    public function showPartner(string $id)
+    {
+        $user = User::find($id);
+        //$transactions = Transaction::where('user_id', $id)->get();
+
+        return view('dashboard.users.partner', compact('user'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

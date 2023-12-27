@@ -78,9 +78,16 @@ class DashboardController extends Controller
 
     public function approve($id) {
         $agent = Agent::find($id);
+        
+        if ($agent->approval == "approved") {
+            $agent->approval = "pending";
+            $agent->save();
+            return back()->with('message', "Disapproved ✅");
+        }
+
         $agent->approval = "approved";
         $agent->save();
 
-        return back()->with('message', "approved successfully.");
+        return back()->with('message', "Approved ✅");
     }
 }

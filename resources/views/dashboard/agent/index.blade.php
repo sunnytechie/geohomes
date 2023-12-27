@@ -26,15 +26,13 @@
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 invoice-listing">
       <h3 style="color: #00A75A">Agents / Users</h3>
       <div class="table-responsive">
-        <table id="invoice-list" class="table table-hover bg-white border rounded-lg">
+        <table id="invoice-list" class="table table-hover table-sm bg-white border rounded-lg">
           <thead>
             <tr role="row">
-              <th class="py-6">S/N</th>
-              <th class="py-6">Name</th>
-              <th class="py-6">Brand</th>
-              <th class="py-6">Registed On</th>
-              <th class="py-6">Subscribe status</th>
-              <th class="no-sort py-6">Actions</th>
+              <th>S/N</th>
+              <th>Name</th>
+              <th>Subscribe status</th>
+              <th class="no-sort">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -44,30 +42,42 @@
             @foreach ($agents as $agent)
             <tr role="row">
               <td>{{ $id++ }}</td>
-              <td class="align-middle">
+              <td>
                 <div class="d-flex align-items-center">
                   @isset($agent->user)
                     <p class="align-self-center mb-0 user-name">{{ $agent->user->name }}</p>
                   @endisset
                 </div>
               </td>
-              <td class="align-middle">
+              {{-- <td>
                 <div class="d-flex align-items-center">
                   <p class="align-self-center mb-0 user-name">{{ $agent->agent_brand_name }}</p>
                 </div>
               </td>
 
-              <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($agent->created_at)->format('d M Y') }}</td>
+              <td><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($agent->created_at)->format('d M Y') }}</td> --}}
 
-              <td class="align-middle"><span class="badge badge-green text-capitalize">@if ($agent->subscribed == 1)
+              <td><span class="badge badge-green text-capitalize">@if ($agent->subscribed == 1)
                     Subscribed
                     @else
                         Not Subscribed
                     @endif</span>
                 </td>
 
-                <td class="align-middle">
-                    <form action="{{ route('registered.agents.destroy', $agent->id) }}" method="POST">
+                <td class="d-flex items-align-center">
+                    @isset($agent->user)
+                    <a class="btn btn-sm rounded-0 btn-primary" href="{{ route('show.partner.details', $agent->user->id) }}">View details</a>
+                    @endisset
+                    <form class="m-0 p-0" method="post" action="{{ route('approve.agent', $agent->id) }}">
+                        @csrf
+                    @if ($agent->approval == "approved")
+                    <button class="btn rounded-0 btn-sm btn-success" onclick="return confirm('Are you sure you want to revoke this approval?')">Revoke<span class="ml-1">Approval</span></button>
+                    @else
+                    <button class="btn rounded-0 btn-sm btn-success" onclick="return confirm('Are you sure you want to approve this agent?')">Approve<span class="ml-1">Agent</span></button>
+                    @endif
+                    </form>
+
+                    <form class="m-0 p-0" action="{{ route('registered.agents.destroy', $agent->id) }}" method="POST">
                         @csrf
                         @method('delete')
                         <button type="submit" onclick="return confirm('Are you sure you want to delete this agent?')" class="btn btn-sm btn-danger" style="border-top-left-radius: 0; border-bottom-left-radius: 0"><i class="fa fa-trash"></i> Trash</button>

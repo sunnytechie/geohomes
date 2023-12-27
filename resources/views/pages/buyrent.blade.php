@@ -20,7 +20,7 @@
       </div>
     </section>
 
-    <section class="page-title shadow">
+    {{-- <section class="page-title shadow">
       <div class="container">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb pt-6 pt-lg-2 lh-15 pb-5">
@@ -31,7 +31,7 @@
           
         </nav>
       </div>
-    </section>
+    </section> --}}
     <section class="pt-8 pb-11 bg-gray-01">
       <div class="container">
         <div class="row">
@@ -103,7 +103,7 @@
                     {{ $property->year_built }}
                   </li>
                 </ul>
-                <span class="badge badge-primary mr-xl-2 mt-3 mt-sm-0">{{ $property->lint_in }}</span>
+                <span class="badge badge-default">{{ $property->lint_in }}</span>
               </div>
             </div>
             @endforeach

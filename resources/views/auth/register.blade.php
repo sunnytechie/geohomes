@@ -1,44 +1,8 @@
-@extends('layouts.guest')
+@extends('layouts.auth')
 
 @section('content')
-<style>
-    /* Style the options */
-.custom-select option {
-  background-color: #f8f9fa;
-  color: #343a40;
-}
 
-/* Style the selected option */
-.custom-select option:checked {
-  background-color: #007bff;
-  color: #fff;
-}
-
-.login-register {
-    margin-top: 45px;
-}
-
-/* @media 425px */
-@media (max-width: 426px) {
-    .card {
-        width: 85%;
-        margin: 0 auto;
-    }
-    .regImg {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    margin: 0 auto;
-}
-
-.sm-mb-4 {
-    margin-bottom: 1.5rem!important;
-}
-}
-
-
-</style>
-<section class="py-2">
+{{-- <section class="py-2">
     <div class="container">
         <div class="row justify-content-center login-register">
             <div class="col-md-12">
@@ -49,7 +13,7 @@
             </div>
         </div>
 
-        {{-- <div class="mt-9 hide-from-1024"></div> --}}
+
         <div class="row justify-content-center mb-7">
 
         <div class="col-sm-3 col-12 sm-mb-4">
@@ -72,7 +36,25 @@
 
         </div>
     </div>
-</section>
+</section> --}}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="mb-4">
+        <h3><strong>GeoHomes</strong> SignUp</h3>
+        <p class="mb-4">Have an account? <a href="{{ route('login') }}">Login</a></p>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <a style="height: auto; text-decoration: none;" href="{{ route('auth.customer') }}" type="button" class="btn btn-primary btn-lg btn-block rounded geo-btn-bg w-100 mb-4">Client</a>
+        <a style="height: auto; text-decoration: none;" href="{{ route('auth.agent') }}" type="button" class="btn btn-primary btn-lg btn-block rounded geo-btn-bg w-100 my-4">Partner</a>
+        <a style="height: auto; text-decoration: none;" href="{{ route('auth.agent.coperate') }}" type="button" class="btn btn-primary btn-lg btn-block rounded geo-btn-bg w-100 my-4">Corperate Partner</a>
+
+        <a href="/" class="text-left my-1"> Not ready?</a>
+    </div>
+
+</div>
 
 
 @endsection

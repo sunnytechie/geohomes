@@ -2,15 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Building;
+use App\Models\Post;
+use App\Models\Team;
+use App\Models\About;
+use App\Models\Gallery;
 use App\Models\Project;
+use App\Models\Service;
+use App\Models\Building;
 use App\Models\Property;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function about() {
-        return view('pages.about');
+        $about = About::first();
+        $services = Service::orderBy('id', 'desc')->get();
+        $teams = Team::orderBy('id', 'desc')->get();
+        $galleries = Gallery::orderBy('id', 'desc')->paginate(8);
+        return view('pages.about', compact('about', 'services', 'teams', 'galleries'));
     }
 
     public function agents() {
@@ -80,8 +89,31 @@ class PagesController extends Controller
     }
 
     public function projects() {
-        $projects = Project::orderBy('id', 'desc')->get();
-        return view('pages.projects', compact('projects'));
+        $order = "Default";
+        $projects = Project::orderBy('id', 'desc')->paginate(10);
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        return view('pages.projects', compact('projects', 'posts', 'order'));
+    }
+
+    public function projectAsc() {
+        $order = "Ascending";
+        $projects = Project::orderBy('id', 'asc')->paginate(10);
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        return view('pages.projects', compact('projects', 'posts', 'order'));
+    }
+
+    public function projectDesc() {
+        $order = "Descending";
+        $projects = Project::orderBy('id', 'desc')->paginate(10);
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        return view('pages.projects', compact('projects', 'posts', 'order'));
+    }
+
+    public function projectRadom() {
+        $order = "Random";
+        $projects = Project::inRandomOrder()->paginate(10);
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        return view('pages.projects', compact('projects', 'posts', 'order'));
     }
 
     public function building() {

@@ -49,6 +49,7 @@ class ProjectController extends Controller
             'file2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'video' => 'nullable',
         ]);
 
         //dd($request->all());
@@ -87,6 +88,7 @@ class ProjectController extends Controller
         $project->map_embed_code = $request->map_embed_code;
         $project->description = $request->description;
         $project->price = $request->price;
+        $project->video = $request->video;
         $project->image = $imagePath;
         if ($request->hasFile('file1')) {
             $project->file1 = $file1Path;
@@ -103,7 +105,7 @@ class ProjectController extends Controller
         $project->save();
 
         //redirect
-        return redirect()->route('projects.index')->with('message', 'Project created successfully.');
+        return redirect()->route('projects.index')->with('message', 'Estate created successfully.');
     }
 
     /**
@@ -146,6 +148,7 @@ class ProjectController extends Controller
             'file2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'video' => 'nullable',
         ]);
 
         //dd($request->all());
@@ -185,6 +188,7 @@ class ProjectController extends Controller
         $project->price = $request->price;
         $project->map_embed_code = $request->map_embed_code;
         $project->description = $request->description;
+        $project->video = $request->video;
         if ($request->hasFile('image')) {
         $project->image = $imagePath;
         }
@@ -203,7 +207,7 @@ class ProjectController extends Controller
         $project->save();
 
         //redirect
-        return redirect()->back()->with('message', 'Project Updated successfully.');
+        return redirect()->back()->with('message', 'Estate Updated successfully.');
     }
 
     /**
@@ -213,7 +217,7 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $project->delete();
-        return redirect()->back()->with('message', 'Project deleted successfully.');
+        return redirect()->back()->with('message', 'Estate deleted successfully.');
 
     }
 }

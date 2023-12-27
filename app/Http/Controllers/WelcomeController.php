@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Building;
+use App\Models\Advert;
+use App\Models\Post;
 use App\Models\Project;
+use App\Models\Building;
 use App\Models\Property;
 use App\Models\Destination;
 use Illuminate\Http\Request;
@@ -28,15 +30,21 @@ class WelcomeController extends Controller
         $officeUrl = route('page.sorted', ['parameter_name' => "Office"]);
         $landUrl = route('page.sorted', ['parameter_name' => "Land"]);
 
-        return view('welcome', compact('projects', 'apertmentUrl', 'houseUrl', 'officeUrl', 'landUrl', 'buildings', 'propertiesForSale', 'propertiesForRent'));
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        //randomize the posts
+        $posts = $posts->shuffle();
+
+        $adverts = Advert::inRandomOrder()->orderBy('id', 'desc')->paginate(5);
+
+        return view('welcome', compact('projects', 'adverts', 'posts', 'apertmentUrl', 'houseUrl', 'officeUrl', 'landUrl', 'buildings', 'propertiesForSale', 'propertiesForRent'));
     }
 
     public function estate($id) {
         $project = Project::find($id);
-        $project->views += 1;
-        $project->save();
-
-        return view('estate', compact('project'));
+        //increment the views
+        $project->increment('views');
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        return view('estate', compact('project', 'posts'));
     }
 
     public function error() {

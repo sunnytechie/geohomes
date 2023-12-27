@@ -36,7 +36,7 @@
     <meta name="twitter:title" content="Geohomes Group">
     <meta name="twitter:description" content="We Are A Leading Real Estate Company In Nigeria That Has Been Building Prosperity For Our Clients By Executing Innovative Real Estate Solutions.">
     <meta name="twitter:image" content="{{ asset("assets/images/logo/geohomeslogo.png") }}">
-    
+
     <!-- Facebook -->
     <meta property="og:url" content="geohomes">
     <meta property="og:title" content="Geohomes Group">
@@ -50,17 +50,39 @@
     {{-- Dropify css --}}
     <link rel="stylesheet" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-      .alert-dismissible .close {
-        padding: 0.5rem 1.25rem !important;
-      }
 
-      .invoice-listing .form-control-sm {
-          padding: 1.25rem 0.5rem;
-          outline: none !important;
-          box-shadow: none !important;
-      }
-    </style>
+    {{-- Tiny MCE --}}
+    <script src="https://cdn.tiny.cloud/1/ifprekyziwmwbff5pm4lgrqgmsm0x5yaew0tctgdk95r94ae/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    {{-- Ckeditor --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+
+    {{-- Dropify css --}}
+    <link rel="stylesheet" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
+    <style>
+        .alert-dismissible .close {
+            padding: 0.5rem 1.25rem !important;
+        }
+
+        .invoice-listing .form-control-sm {
+            padding: 1.25rem 0.5rem;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        .ck-editor__editable[role="textbox"] {
+            /* editing area */
+            min-height: 200px;
+        }
+        .ck-content .image {
+            /* block images */
+            max-width: 80%;
+            margin: 20px auto;
+        }
+
+        input, select, option {
+            border-radius: 0px !important;
+        }
+  </style>
   </head>
   <body>
     <div class="wrapper dashboard-wrapper">
@@ -86,18 +108,18 @@
     <script src="{{ asset('assets/vendors/bootstrap-select/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/slick/slick.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/waypoints/jquery.waypoints.min.js') }}"></script>
-    
+
     <script src="{{ asset('assets/vendors/counter/countUp.js') }}"></script>
     <script src="{{ asset('assets/vendors/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/chartjs/Chart.min.js') }}"></script>
-    
+
     <script src="{{ asset('assets/vendors/dropzone/js/dropzone.min.js') }}"></script>
-    
+
     <script src="{{ asset('assets/vendors/timepicker/bootstrap-timepicker.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/hc-sticky/hc-sticky.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/jparallax/TweenMax.min.js') }}"></script>
     <script src="{{ asset('assets/vendors/mapbox-gl/mapbox-gl.js') }}"></script>
-    
+
     <!-- Theme scripts -->
     <script src="{{ asset('assets/js/theme.js') }}"></script>
 
@@ -105,7 +127,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
-  
+
      {{-- Dropify --}}
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
      <script src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
@@ -158,6 +180,15 @@
           })
       });
     </script>
-    
+
+    {{-- Tiny MCE --}}
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+
   </body>
 </html>

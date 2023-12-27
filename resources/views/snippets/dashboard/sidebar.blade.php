@@ -1,3 +1,22 @@
+<style>
+    .list-group-item.sidebar-item {
+      cursor: pointer;
+    }
+
+    .list-group-item.sidebar-item:hover {
+      background-color: #f8f9fa; /* Change the background color on hover if desired */
+    }
+
+    .list-group-item.sidebar-item a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+    }
+</style>
+
+
 <div class="db-sidebar bg-white">
     <nav class="navbar navbar-expand-xl navbar-light d-block px-0 header-sticky dashboard-nav py-0">
       <div class="sticky-area shadow-xs-1 py-3">
@@ -64,75 +83,148 @@
             <li class="list-group-item pt-6 pb-4">
               <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Main</h5>
               <ul class="list-group list-group-no-border rounded-lg">
-                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="{{ route('dashboard.index') }}" class="text-heading lh-1 sidebar-link">
+                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item sidebar-link">
+                  <a href="{{ route('dashboard.index') }}" class="text-heading lh-1">
                     <span class="sidebar-item-icon d-inline-block mr-3 fs-20"><i class="fal fa-cog"></i></span>
                     <span class="sidebar-item-text">Dashboard</span>
                   </a>
                 </li>
+
+                @if (Auth::user()->is_admin == 1 || Auth::user()->manager == 1)
+                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item sidebar-link">
+                        <a href="{{ route('blog.posts') }}" class="text-heading lh-1">
+                            <span class="sidebar-item-icon d-inline-block mr-4 fs-20"><i class="fal fa-file-alt"></i></span>
+                            <span class="sidebar-item-text">Blog</span>
+                        </a>
+                    </li>
+
+                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item sidebar-link">
+                        <a href="{{ route('advert.index') }}" class="text-heading lh-1">
+                            <span class="sidebar-item-icon d-inline-block mr-4 fs-20"><i class="fal fa-file-alt"></i></span>
+                            <span class="sidebar-item-text">Adverts</span>
+                        </a>
+                    </li>
+
+                    <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a href="{{ route('gh.about.index') }}" class="text-heading lh-1 sidebar-link">
+                            <span class="sidebar-item-icon d-inline-block mr-5 fs-18"><i class="fal fa-info" style="color: #ababab"></i></span>
+                            <span class="sidebar-item-text">About.Us</span>
+                        </a>
+                    </li>
+
+                @endif
               </ul>
+
             </li>
+
 
             <li class="list-group-item pt-6 pb-4">
-              <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Task</h5>
-              <ul class="list-group list-group-no-border rounded-lg">
-                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="{{ route('transaction') }}" class="text-heading lh-1 sidebar-link">
-                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-dollar-sign" style="color: #ababab"></i></span>
-                    <span class="sidebar-item-text">Subscription/Transaction</span>
-                  </a>
-                </li>
-
-                @if (Auth::user()->auditor == 1 || Auth::user()->accountant == 1 || Auth::user()->is_admin == 1 || Auth::user()->manager == 1)
-                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                    <a href="{{ route('transaction.completed') }}" class="text-heading lh-1 sidebar-link">
-                      <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-dollar-sign" style="color: #ababab"></i></span>
-                      <span class="sidebar-item-text">Completed Transactions</span>
+                <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Transactions</h5>
+                <ul class="list-group list-group-no-border rounded-lg">
+                  {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                    <a href="{{ route('transaction') }}" class="text-heading lh-1 sidebar-link">
+                      <span class="sidebar-item-icon d-inline-block mr-4 fs-18"><i class="fal fa-dollar-sign" style="color: #ababab"></i></span>
+                      <span class="sidebar-item-text">Subscription</span>
                     </a>
-                </li>
-                @endif
+                  </li> --}}
 
-                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="{{ route('schedule') }}" class="text-heading lh-1 sidebar-link">
-                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-calendar" style="color: #ababab"></i></span>
-                    <span class="sidebar-item-text">Inspection Schedules</span>
-                  </a>
-                </li>
+                  @if (Auth::user()->is_admin == 1 || Auth::user()->manager == 1)
+                  <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                        <a href="{{ route('bookings') }}" class="text-heading lh-1 sidebar-link">
+                            <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-tasks" style="color: #ababab"></i></span>
+                            <span class="sidebar-item-text">Bookings</span>
+                        </a>
+                    </li>
+                    @endif
 
-                @if (Auth::user()->auditor == 1 || Auth::user()->accountant == 1 || Auth::user()->is_admin == 1 || Auth::user()->manager == 1)
-                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="{{ route('bookings') }}" class="text-heading lh-1 sidebar-link">
-                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-tasks" style="color: #ababab"></i></span>
-                    <span class="sidebar-item-text">Bookings</span>
-                  </a>
-                </li>
-
-
-                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="{{ route('registered.users') }}" class="text-heading lh-1 sidebar-link">
-                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-users" style="color: #ababab"></i></span>
-                    <span class="sidebar-item-text">Customers</span>
-                  </a>
-                </li>
-
-                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                  <a href="{{ route('registered.agents') }}" class="text-heading lh-1 sidebar-link">
-                    <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-users" style="color: #ababab"></i></span>
-                    <span class="sidebar-item-text">Agents</span>
-                  </a>
-                </li>
-
-
-                <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                    <a href="{{ route('unapproved.agent') }}" class="text-heading lh-1 sidebar-link">
-                      <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-users" style="color: #ababab"></i></span>
-                      <span class="sidebar-item-text">UnApproved Agents</span>
+                  <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                    <a href="#transaction_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
+                      <span class="sidebar-item-icon d-inline-block mr-5 text-muted fs-20">
+                        <i class="fal fa-dollar-sign"></i>
+                      </span>
+                      <span class="sidebar-item-text">Transactions</span>
+                      <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
                     </a>
                   </li>
-                @endif
 
-              </ul>
+                  {{-- Only Admin --}}
+
+                  <div class="collapse" id="transaction_collapse">
+                    <div class="card card-body border-0 bg-transparent py-0 pl-6">
+                      <ul class="list-group list-group-flush list-group-no-border">
+                        <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                          <a class="text-heading lh-1 sidebar-link" href="{{ route('transaction') }}">Subscription</a>
+                        </li>
+                        <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                          <a class="text-heading lh-1 sidebar-link" href="{{ route('unapproved.agent') }}">Completed</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+
+                  {{-- <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                      <a href="{{ route('transaction.completed') }}" class="text-heading lh-1 sidebar-link">
+                        <span class="sidebar-item-icon d-inline-block mr-4 fs-18"><i class="fal fa-dollar-sign" style="color: #ababab"></i></span>
+                        <span class="sidebar-item-text">Completed</span>
+                      </a>
+                  </li> --}}
+
+                  <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                    <a href="{{ route('schedule') }}" class="text-heading lh-1 sidebar-link">
+                      <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-calendar" style="color: #ababab"></i></span>
+                      <span class="sidebar-item-text">Inspections</span>
+                    </a>
+                  </li>
+
+                </ul>
             </li>
+
+
+
+            @if (Auth::user()->auditor == 1 || Auth::user()->accountant == 1 || Auth::user()->is_admin == 1 || Auth::user()->manager == 1)
+            <li class="list-group-item pt-6 pb-4">
+                <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Users</h5>
+                <ul class="list-group list-group-no-border rounded-lg">
+
+
+
+                  <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                    <a href="{{ route('registered.users') }}" class="text-heading lh-1 sidebar-link">
+                      <span class="sidebar-item-icon d-inline-block mr-3 fs-18"><i class="fal fa-users" style="color: #ababab"></i></span>
+                      <span class="sidebar-item-text">Customers</span>
+                    </a>
+                  </li>
+
+
+                  <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                    <a href="#partner_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
+                      <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
+                        <i class="fal fa-users"></i>
+                      </span>
+                      <span class="sidebar-item-text">Partners</span>
+                      <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
+                    </a>
+                  </li>
+
+                  {{-- Only Admin --}}
+
+                  <div class="collapse" id="partner_collapse">
+                    <div class="card card-body border-0 bg-transparent py-0 pl-6">
+                      <ul class="list-group list-group-flush list-group-no-border">
+                        <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                          <a class="text-heading lh-1 sidebar-link" href="{{ route('registered.agents') }}">Registered Partners</a>
+                        </li>
+                        <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                          <a class="text-heading lh-1 sidebar-link" href="{{ route('unapproved.agent') }}">UnApproved Partners</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                </ul>
+            </li>
+            @endif
 
 
           @if (Auth::user()->is_admin || Auth::user()->is_agent)
@@ -227,7 +319,7 @@
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
                       <i class="fal fa-tools"></i>
                     </span>
-                    <span class="sidebar-item-text">Building Materials</span>
+                    <span class="sidebar-item-text">Materials</span>
                     <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
                   </a>
                 </li>
@@ -278,6 +370,7 @@
 
             </li>
           @endif
+
             <li class="list-group-item pt-6 pb-4">
               <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Acount</h5>
               <ul class="list-group list-group-no-border rounded-lg">
@@ -289,7 +382,7 @@
                     <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
                       <i class="fal fa-users"></i>
                     </span>
-                    <span class="sidebar-item-text">GeoHomes Admins</span>
+                    <span class="sidebar-item-text">Admins</span>
                     <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
                   </a>
                 </li>
@@ -317,7 +410,7 @@
                   <a href="{{ route('profile.show') }}" class="text-heading lh-1 sidebar-link">
                   @endif
 
-                    <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
+                    <span class="sidebar-item-icon d-inline-block mr-4 text-muted fs-20">
                       <i class="fal fa-user"></i>
                     </span>
                     <span class="sidebar-item-text">My Profile</span>

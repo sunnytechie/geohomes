@@ -84,18 +84,19 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'phone' => 'required',
-            'country' => 'required',
+            'country' => 'nullable',
             'user_type' => 'nullable',
             'company_name' => 'nullable',
             'company_type' => 'nullable',
             'website' => 'nullable',
-            'address' => 'required',
-            'city' => 'required',
+            'address' => 'nullable',
+            'city' => 'nullable',
             'zip' => 'nullable',
             'rc_no' => 'nullable',
             'agent_type' => 'nullable',
             'cac' => 'nullable|mimes:jpeg,png,gif,pdf|max:2048',
             'nin_no' => 'nullable',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
 
         //if validation fails
@@ -110,10 +111,18 @@ class RegisterController extends Controller
             if ($extension == "pdf") {
                 ////dd("pdf");
                 //$filePath = $request->file('cac')->store('public/cac');
-                $pdf = $request->file('cac');
-                $filePath = 'pdfs/cac/' . $pdf->getClientOriginalName();
-                $pdf->move(public_path('pdfs/cac'), $pdf->getClientOriginalName());
+                //$pdf = $request->file('cac');
+                //$filePath = 'pdfs/cac/' . $pdf->getClientOriginalName();
+                //$pdf->move(public_path('pdfs/cac'), $pdf->getClientOriginalName());
                 $cac_extention = "pdf";
+                // Get the file from the request
+                $pdf = $request->file('cac');
+                // Use hashName() to generate a unique filename
+                $fileName = $pdf->hashName();
+                // Combine the random string and the unique filename
+                $filePath = 'pdf/uploads/' . $fileName;
+                // Move the file to the specified path
+                $pdf->move(public_path('pdfs/cac'), $fileName);
             } else {
                 ////dd("image");
                 //resize image
@@ -127,13 +136,12 @@ class RegisterController extends Controller
         }
 
 
-
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->password = Hash::make($request->password);
-        $user->country = $request->country;
+        $user->country = "Nigeria";
         $user->user_type = $request->user_type;
         $user->company_name = $request->company_name;
         $user->company_type = $request->company_type;
@@ -184,6 +192,10 @@ class RegisterController extends Controller
 
     public function agent() {
         return view('auth.agent');
+    }
+
+    public function coperate() {
+        return view('auth.coperate');
     }
 
 }

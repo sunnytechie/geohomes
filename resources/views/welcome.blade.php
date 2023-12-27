@@ -5,12 +5,14 @@
         @include('snippets.home.welcomeslide')
 
         @include('snippets.home.projects')
-        @include('snippets.home.join')
+        @include('snippets.home.advert')
+        {{-- @include('snippets.home.join') --}}
         @include('snippets.home.sale')
         @include('snippets.home.explore')
         @include('snippets.home.rent')
         @include('snippets.home.building')
         @include('snippets.home.listings')
+        @include('snippets.home.blogs')
         @include('snippets.home.contact')
 
    {{--  @include('snippets.home.partners')  --}}

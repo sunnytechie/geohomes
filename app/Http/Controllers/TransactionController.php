@@ -42,9 +42,23 @@ class TransactionController extends Controller
     }
 
     public function completed() {
-        $transactions = Transaction::orderBy('created_at', 'asc')
+        //if isAdmin transaction list of all
+        if (Auth::user()->is_admin || Auth::user()->manager) {
+            $transactions = Transaction::orderBy('created_at', 'asc')
+                            ->where('status', 1)
                             ->where('final_status', 1)
                             ->get();
+        } else {
+            //else transaction list of Auth user
+            $transactions = Transaction::orderBy('created_at', 'asc')
+                            ->where('user_id', Auth::user()->id)
+                            ->where('status', 1)
+                            ->where('final_status', 1)
+                            ->get();
+        }
+        //$transactions = Transaction::orderBy('created_at', 'asc')
+        //                    ->where('final_status', 1)
+        //                    ->get();
 
         return view('dashboard.transactions.final', compact('transactions'));
 

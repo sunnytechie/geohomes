@@ -1,7 +1,7 @@
-@extends('layouts.guest')
+@extends('layouts.auth')
 
 @section('content')
-<section class="py-2">
+{{-- <section class="py-2">
     <div class="container">
       <div class="mt-12 hide-from-1024"></div>
       <div class="row justify-content-center login-register">
@@ -10,7 +10,7 @@
             <div class="card-body">
               <h2 class="card-title fs-30 font-weight-600 text-dark lh-16 mb-2">Reset Password</h2>
               <p class="mb-4">Remember your credentials? <a href="{{ route('login') }}" class="text-heading hover-primary"><u>Sign In</u></a></p>
-              
+
               @if (session('status'))
                   <div class="alert alert-success" role="alert">
                       {{ session('status') }}
@@ -42,13 +42,52 @@
                     </form>
                 </div>
             </div>
-  
+
           </div>
-  
-  
+
+
         </div>
       </div>
-    </section>
+</section> --}}
 
-  @endsection
-  
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="mb-4">
+      <h3>Reset Password</h3>
+      @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+            @else
+            <p class="mb-4">Don't have account with us? <a href="{{ route('register') }}">Join today!</a></p>
+        @endif
+
+    </div>
+    <form action="{{ route('password.email') }}" method="post">
+        @csrf
+
+      <div class="form-group first mb-4">
+        <label for="email">Email</label>
+        <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" id="email" required>
+
+        @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+      </div>
+
+
+      <input type="submit" value="Send Reset link" class="btn text-white btn-block btn-primary">
+
+      <a href="/" class="text-right my-4"> Not ready?</a>
+
+
+    </form>
+    </div>
+  </div>
+
+@endsection
+
+

@@ -1,37 +1,24 @@
-@extends('layouts.guest')
+@extends('layouts.auth')
 
 @section('content')
-    <style>
-        /* Style the options */
-        .custom-select option {
-        background-color: #f8f9fa;
-        color: #343a40;
-        }
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="mb-4">
+                    <h3>Join us as a <strong>Partner</strong></h3>
+                    <p class="mb-4">Have account with us? <a href="{{ route('login') }}">Login here!</a></p>
+                    
+                    @if ($errors->has('g-recaptcha-response'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                        </span>
+                    @endif
 
-        /* Style the selected option */
-        .custom-select option:checked {
-        background-color: #007bff;
-        color: #fff;
-        }
-
-    </style>
-<section class="py-2">
-    <div class="container">
-        {{-- <div class="mt-9 hide-from-1024"></div> --}}
-        <div class="row justify-content-center login-register mt-10">
-        <div class="col-md-4">
-            <div class="card border-1 shadow">
-            <div class="card-body">
-                <a href="/">
-                    <img height="100px" width="180px" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="">
-                </a>
-                {{-- <h2 class="card-title fs-30 font-weight-600 text-dark lh-16 mb-2">Sign Up</h2> --}}
-                <p class="mb-4">Have an account? <a href="{{ route('login') }}" class="text-heading hover-primary"><u>Sign In</u></a></p>
-
+                </div>
                 <form class="form" method="POST" action="{{ route('create.new.user') }}" enctype="multipart/form-data">
                 @csrf
 
                 <input type="hidden" name="user_type" id="user_type" value="agent">
+                <input type="hidden" name="agent_type" value="individual">
 
                 <fieldset>
                     {{-- Email and phone --}}
@@ -39,7 +26,7 @@
                         <div class="col-sm-12 px-2">
                             <div class="form-group">
                                 {{-- <label for="email" class="text-heading">Email</label> --}}
-                                <input type="email" class="form-control @error('email') is-invalid @enderror form-control-lg" value="{{ old('email') }}" id="email" placeholder="Your Email" name="email">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror form-control-lg" value="{{ old('email') }}" id="email" placeholder="Your Email" name="email" required>
 
                                 @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -57,7 +44,7 @@
                             <div class="form-group">
                                 {{-- <label for="password" class="text-heading">Password</label> --}}
                                 <div class="input-group input-group-lg">
-                                    <input type="password" class="form-control password-input @error('password') is-invalid @enderror shadow-none" id="password" name="password" placeholder="Password">
+                                    <input type="password" class="form-control password-input @error('password') is-invalid @enderror shadow-none" id="password" name="password" placeholder="Password" required>
 
                                     <div class="input-group-append show-password" style="cursor: pointer; position:absolute; right: 0; z-index: 999; background: transparent; margin-top: 8px">
                                         <span class="input-group-text border-0 text-body fs-18"  style="background-color: transparent"><i class="far fa-eye"></i></span>
@@ -76,7 +63,7 @@
                             <div class="form-group">
                                 {{-- <label for="re-password">Re-Enter Password</label> --}}
                                 <div class="input-group input-group-lg">
-                                <input type="password" class="form-control password-input2 shadow-none" id="password-confirmation" name="password_confirmation" placeholder="Confirm Password">
+                                <input type="password" class="form-control password-input2 shadow-none" id="password-confirmation" name="password_confirmation" placeholder="Confirm Password" required>
 
                                 <div class="input-group-append show-password2" style="cursor: pointer; position:absolute; right: 0; z-index: 999; background: transparent; margin-top: 8px">
                                     <span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye"></i></span>
@@ -94,7 +81,7 @@
                         <div class="col-sm-12 px-2">
                             <div class="form-group">
                                 {{-- <label for="name" class="text-heading">Legal Name</label> --}}
-                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror form-control-lg" value="{{ old('name') }}" id="name" placeholder="Full Name">
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror form-control-lg" value="{{ old('name') }}" id="name" placeholder="Full Name" required>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -107,7 +94,7 @@
                         <div class="col-sm-12 px-2">
                             <div class="form-group">
                                 {{-- <label for="phone" class="text-heading">Your Phone</label> --}}
-                                <input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror form-control-lg" value="{{ old('phone') }}" id="phone" placeholder="Phone Number">
+                                <input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror form-control-lg" value="{{ old('phone') }}" id="phone" placeholder="Phone Number" required>
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -117,15 +104,13 @@
                             </div>
                         </div>
 
+
+
                         <div class="col-sm-12 px-2">
                             <div class="form-group">
-                                {{-- <label for="country" class="text-heading">Country</label> --}}
-                                <select name="country" class="form-control border shadow-none form-control-lg selectpicker" data-style="btn-lg py-2 h-52" id="country">
-                                    <option>Nigeria</option>
-                                    <option>Ghana</option>
-                                </select>
+                                <input type="text" name="nin_no" maxlength="10" pattern="[0-9]{10}" class="form-control @error('nin_no') is-invalid @enderror form-control-lg" value="{{ old('nin_no') }}" id="nin_no" placeholder="Your NIN Number" required>
 
-                                @error('country')
+                                @error('nin_no')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -154,7 +139,7 @@
                             <div class="form-group">
                                 <select class="form-control border shadow-none form-control-lg selectpicker" data-style="btn-lg py-2 h-52" id="company_type" name="company_type">
                                     <!-- Add options for company types here -->
-                                    <option disabled selected>Choose Company type (optional)</option>
+                                    <option disabled selected>Company type</option>
                                     <option>Private</option>
                                     <option>Public</option>
                                 </select>
@@ -173,7 +158,7 @@
                             <div class="form-row mx-n2">
                                 <div class="col-sm-12 px-2">
                                     <div class="form-group">
-                                        <input type="text" name="website" class="form-control @error('website') is-invalid @enderror form-control-lg" value="{{ old('website') }}" id="website" placeholder="your.website.com (optional)">
+                                        <input type="text" name="website" class="form-control @error('website') is-invalid @enderror form-control-lg" value="{{ old('website') }}" id="website" placeholder="www.xyz.com">
 
                                         @error('website')
                                             <span class="invalid-feedback" role="alert">
@@ -184,85 +169,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <div class="form-row mx-n2">
-                        <div class="col-sm-12 px-2">
-                            <div class="form-group">
-                                <label for="agent_type">Choose Agent type</label>
-                                <select class="form-control border form-control-lg selectpicker" data-style="btn-lg py-2 h-52" id="agent_type" name="agent_type" onchange="toggleAgentFields()">
-                                    <!-- Add options for company types here -->
-                                    <option value="corperate">Corporate Agents</option>
-                                    <option value="individual">Individual Agents</option>
-                                </select>
-
-                                @error('agent_type')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div id="coperate_fields">
-                            <div class="col-sm-12 px-2">
-                                <div class="form-group">
-                                    <label for="cac">CAC Certificate</label>
-                                    <input type="file" name="cac" id="cac" class="form-control @error('cac') is-invalid @enderror form-control-lg border">
-
-                                    @if ($errors->has('cac'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('cac') }}</strong>
-                                        </span>
-                                        @else
-                                        <small>Max file upload 1mb</small>
-                                    @endif
-                                    
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 px-2">
-                                <div class="form-group">
-                                    <input type="text" name="rc_no" class="form-control @error('rc_no') is-invalid @enderror form-control-lg" value="{{ old('rc_no') }}" id="rc_no" placeholder="RC Number">
-
-                                    @error('rc_no')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <div class="form-row mx-n2">
-                            <div class="col-sm-12 px-2">
-                                <div class="form-group">
-                                    <input type="text" name="nin_no" class="form-control @error('nin_no') is-invalid @enderror form-control-lg" value="{{ old('nin_no') }}" id="nin_no" placeholder="Your NIN Number">
-
-                                    @error('nin_no')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-                            {{-- <div class="col-sm-12 px-2">
-                                <div class="form-group">
-                                    <label for="nin">Upload your NIN</label>
-                                    <input type="file" name="nin" id="nin" class="form-control form-control-lg border">
-
-                                    @error('nin')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div> --}}
                     </div>
                 </fieldset>
 
@@ -311,29 +217,26 @@
                             </div>
                         </div>
 
+                        <div class="col-sm-12 px-2">
+                            {!! app('captcha')->display() !!}
+                        </div>
+
                     </div>
                 </fieldset>
 
                 <!-- Form navigation buttons -->
-                <div class="form-navigation  my-3">
+                <div class="form-navigation d-flex my-3">
                     <button type="button" class="btn px-4 py-2 w-50 rounded-0" id="prev-btn" disabled style="background: #CCC; margin-right: 4px; border-radius: 0; font-family: 'Poppins'">Previous</button>
-                    <button type="button" class="btn px-4 py-2 rounded-0 bb-bg-btn w-50 text-white geo-btn-bg" id="next-btn">Proceed</button>
-                    <button type="submit" class="btn px-4 py-2 rounded-0 bb-bg-btn w-50 text-white geo-btn-bg" id="submit-btn" style="display: none;">Submit</button>
+                    <button type="button" class="btn px-4 py-2 rounded-0 bb-bg-btn w-50 text-dark geo-btn-bg" id="next-btn" style="background: #38D39F">Proceed</button>
+                    <button type="submit" class="btn px-4 py-2 rounded-0 bb-bg-btn w-50 text-dark geo-btn-bg" id="submit-btn" style="display: none; background: #38D39F">Submit</button>
                 </div>
 
 
                 {{-- <button type="submit" class="btn mt-4 btn-primary geo-btn-bg btn-lg btn-block rounded">Register</button> --}}
                 </form>
-
             </div>
-            </div>
-
         </div>
 
-
-        </div>
-    </div>
-</section>
 
 <script>
     const passwordInput = document.querySelector(".password-input");

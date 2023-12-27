@@ -88,10 +88,21 @@
                                                             @endif
                                                         </div>
 
+                                                        <div class="form-group">
+                                                            <label for="video" class="text-heading">Video link</label>
+                                                            <input type="text" class="form-control form-control-lg border-0 @error('video') is-invalid @enderror" id="video" value="{{ old('video') }}" placeholder="Cd8QIG9vipQ" name="video" oninput="toggleButton()">
+
+                                                            @if ($errors->has('video'))
+                                                                <div id="videoHelp" class="form-text text-danger">
+                                                                    <div>{{ $errors->first('video') }}</div>
+                                                                </div>
+                                                            @endif
+                                                        </div>
+
 
                                                         <div class="form-group">
-                                                            <label for="map_embed_code" class="text-heading">Map Embed Code <span class="text-muted">(mandatory) Recommended map height 200, width 100%</span></label>
-                                                            <input type="text" class="form-control form-control-lg border-0 @error('map_embed_code') is-invalid @enderror" id="map_embed_code" value="{{ old('map_embed_code') }}" name="map_embed_code" oninput="toggleButton()">
+                                                            <label for="map_embed_code" class="text-heading">Map Embed Code</label>
+                                                            <input type="url" class="form-control form-control-lg border-0 @error('map_embed_code') is-invalid @enderror" id="map_embed_code" value="{{ old('map_embed_code') }}" name="map_embed_code" placeholder="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2809172241614!2d7.582259024183124!3d6.611976372130524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1044b98c052a36dd%3A0x3da41f1807279f9d!2s400103%2C%20Agbogazi%20Nike%2C%20Enugu!5e0!3m2!1sen!2sng!4v1684045877063!5m2!1sen!2sng" oninput="toggleButton()">
 
                                                             @if ($errors->has('map_embed_code'))
                                                                 <div id="map_embed_codeHelp" class="form-text text-danger">

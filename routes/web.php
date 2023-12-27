@@ -22,6 +22,7 @@ Route::post('/register/user', [App\Http\Controllers\Auth\RegisterController::cla
 
 Route::get('/register/customer', [App\Http\Controllers\Auth\RegisterController::class, 'customer'])->name('auth.customer');
 Route::get('/register/agent', [App\Http\Controllers\Auth\RegisterController::class, 'agent'])->name('auth.agent');
+Route::get('/register/coperate', [App\Http\Controllers\Auth\RegisterController::class, 'coperate'])->name('auth.agent.coperate');
 
 //Pages
 Route::get('/about-us', [App\Http\Controllers\PagesController::class, 'about'])->name('page.about');
@@ -31,9 +32,18 @@ Route::get('/faq', [App\Http\Controllers\PagesController::class, 'faq'])->name('
 Route::get('/listings', [App\Http\Controllers\PagesController::class, 'listings'])->name('page.listings');
 Route::get('/news', [App\Http\Controllers\PagesController::class, 'news'])->name('page.news');
 Route::get('/buy-rent', [App\Http\Controllers\PagesController::class, 'buyRent'])->name('page.buy.rent');
+//Estate
 Route::get('/geohome-estates', [App\Http\Controllers\PagesController::class, 'projects'])->name('page.projects');
+Route::get('/geohome-estates/asc-order', [App\Http\Controllers\PagesController::class, 'projectAsc'])->name('project.asc.order');
+Route::get('/geohome-estates/desc-order', [App\Http\Controllers\PagesController::class, 'projectDesc'])->name('project.desc.order');
+Route::get('/geohome-estates/random-order', [App\Http\Controllers\PagesController::class, 'projectRadom'])->name('project.desc.random');
+
 Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'])->name('page.services');
 Route::get('/filtered-search', [App\Http\Controllers\PagesController::class, 'sorted'])->name('page.sorted');
+
+//blog posts
+//Route::get('/blog', [App\Http\Controllers\Blog\PostController::class, 'index'])->name('blog.index');
+Route::get('/blog/{id}', [App\Http\Controllers\Blog\PostController::class, 'show'])->name('blog.show');
 
 //post request
 //Route::get('/request-properties', [App\Http\Controllers\RequestPropertyController::class, 'new'])->name('new.request');
@@ -56,6 +66,10 @@ Route::get('/listing/building/materials', [App\Http\Controllers\PagesController:
 //UnApproved Agents
 Route::get('/geohomes/approval/status', [App\Http\Controllers\DashboardController::class, 'status'])->name('dashboard.status')->middleware('auth', 'verified');
 
+//Share button
+Route::get('/share/facebook/{title}', [App\Http\Controllers\ShareController::class, 'facebook'])->name('share.facebook');
+Route::get('/share/whatsapp/{title}', [App\Http\Controllers\ShareController::class, 'whatsapp'])->name('share.whatsapp');
+Route::get('/share/twitter/{title}', [App\Http\Controllers\ShareController::class, 'twitter'])->name('share.twitter');
 
 //listings Resources
 Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
@@ -64,19 +78,70 @@ Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
     Route::resource('destinations', 'App\Http\Controllers\DestinationController');
     Route::resource('admins', 'App\Http\Controllers\AdminController');
     Route::resource('plots', 'App\Http\Controllers\PlotController');
+
     //Allocate
     Route::get('/allocate', [App\Http\Controllers\TransactionController::class, 'allocate'])->name('allocate');
     Route::post('/allocate/post', [App\Http\Controllers\TransactionController::class, 'allocatePost'])->name('allocatePost');
+
     //customers details
     Route::get('/customers/details/{user_id}', [App\Http\Controllers\UserController::class, 'show'])->name('show.customer.details');
+
+    //agents
+    Route::get('/partners/details/{user_id}', [App\Http\Controllers\UserController::class, 'showPartner'])->name('show.partner.details');
+
     //bookings
     Route::get('/bookings', [App\Http\Controllers\BookingController::class, 'bookings'])->name('bookings');
     Route::put('/bookings/delete/{id}', [App\Http\Controllers\BookingController::class, 'destroy'])->name('bookings.destroy');
+
     //send survey email with link
     Route::post('/notify/user/survey/{id}', [App\Http\Controllers\SurveyController::class, 'survey'])->name('survey');
+
     //Unapproved agents
     Route::get('/review/agents/reviews', [App\Http\Controllers\DashboardController::class, 'unApproved'])->name('unapproved.agent');
     Route::post('/review/agents/approval/{id}', [App\Http\Controllers\DashboardController::class, 'approve'])->name('approve.agent');
+
+    //blog post
+    Route::get('/gh-blog/posts', [App\Http\Controllers\Blog\PostController::class, 'index'])->name('blog.posts');
+    Route::get('/gh-blog/posts/create', [App\Http\Controllers\Blog\PostController::class, 'create'])->name('blog.posts.create');
+    Route::post('/gh-blog/posts/create', [App\Http\Controllers\Blog\PostController::class, 'store'])->name('blog.posts.store');
+    Route::get('/gh-blog/posts/edit/{id}', [App\Http\Controllers\Blog\PostController::class, 'edit'])->name('blog.posts.edit');
+    Route::put('/gh-blog/posts/update/{id}', [App\Http\Controllers\Blog\PostController::class, 'update'])->name('blog.posts.update');
+    Route::delete('/gh-blog/posts/delete/{id}', [App\Http\Controllers\Blog\PostController::class, 'destroy'])->name('blog.posts.destroy');
+
+    //advert
+    Route::get('/gh-blog/adverts', [App\Http\Controllers\AdvertController::class, 'index'])->name('advert.index');
+    Route::get('/gh-blog/adverts/create', [App\Http\Controllers\AdvertController::class, 'create'])->name('advert.create');
+    Route::post('/gh-blog/adverts/create', [App\Http\Controllers\AdvertController::class, 'store'])->name('advert.store');
+    Route::get('/gh-blog/adverts/edit/{id}', [App\Http\Controllers\AdvertController::class, 'edit'])->name('advert.edit');
+    Route::put('/gh-blog/adverts/update/{id}', [App\Http\Controllers\AdvertController::class, 'update'])->name('advert.update');
+    Route::delete('/gh-blog/adverts/delete/{id}', [App\Http\Controllers\AdvertController::class, 'destroy'])->name('advert.destroy');
+
+    //gh about
+    Route::get('/gh-about/info', [App\Http\Controllers\Dashboard\AboutController::class, 'index'])->name('gh.about.index');
+    Route::get('/gh-about/services', [App\Http\Controllers\Dashboard\AboutController::class, 'services'])->name('gh.services');
+    Route::get('/gh-about/teams', [App\Http\Controllers\Dashboard\AboutController::class, 'teams'])->name('gh.teams');
+
+    //gh about update
+    Route::put('/gh-about/update/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'update'])->name('gh.about.update');
+
+    //post services and teams
+    Route::post('/gh-about/services', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceStore'])->name('gh.services.store');
+    Route::post('/gh-about/teams', [App\Http\Controllers\Dashboard\AboutController::class, 'teamStore'])->name('gh.teams.store');
+    //update services and teams
+    Route::get('/gh-about/services/edit/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceEdit'])->name('gh.services.edit');
+    Route::put('/gh-about/services/update/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceUpdate'])->name('gh.services.update');
+    Route::get('/gh-about/teams/edit/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'teamEdit'])->name('gh.teams.edit');
+    Route::put('/gh-about/teams/update/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'teamUpdate'])->name('gh.teams.update');
+    //delete services and teams
+    Route::delete('/gh-about/services/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceDelete'])->name('gh.services.delete');
+    Route::delete('/gh-about/teams/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'teamDelete'])->name('gh.teams.delete');
+
+    //gh gallery
+    Route::get('/gh-gallery', [App\Http\Controllers\Dashboard\AboutController::class, 'gallery'])->name('gh.gallery');
+    //post gallery
+    Route::post('/gh-gallery', [App\Http\Controllers\Dashboard\AboutController::class, 'galleryStore'])->name('gh.gallery.store');
+    //delete gallery
+    Route::delete('/gh-image/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'imageDelete'])->name('gh.image.delete');
 });
 
 Route::middleware('auth', 'verified', 'hasAdminButNotAgent', 'isAgent', 'agentHasApproval')->group(function () {
