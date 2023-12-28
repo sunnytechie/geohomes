@@ -95,8 +95,8 @@ class RegisterController extends Controller
             'rc_no' => 'nullable',
             'agent_type' => 'nullable',
             'cac' => 'nullable|mimes:jpeg,png,gif,pdf|max:2048',
-            'nin_no' => 'nullable',
-            'g-recaptcha-response' => 'required|captcha',
+            'nin_no' => 'nullable|numeric|digits:10',
+            'g-recaptcha-response' => 'nullable|captcha',
         ]);
 
         //if validation fails
@@ -126,11 +126,18 @@ class RegisterController extends Controller
             } else {
                 ////dd("image");
                 //resize image
-                $image = $request->file('cac');
-                $filename = time() . '.' . $image->getClientOriginalExtension();
-                $location = public_path('images/cac/' . $filename);
-                Image::make($image)->resize(800, 400)->save($location);
-                $filePath = 'images/cac/' . $filename;
+                //$image = $request->file('cac');
+                //$filename = time() . '.' . $image->getClientOriginalExtension();
+                //$location = public_path('images/cac/' . $filename);
+                //Image::make($image)->resize(800, 400)->save($location);
+                //$filePath = 'images/cac/' . $filename;
+
+                $filePath = request('cac')->store('images/cac/', 'public');
+                $image = Image::make(public_path("storage/{$filePath}"))
+                    ->resize(800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                    });
+                $image->save();
                 $cac_extention = "image";
             }
         }

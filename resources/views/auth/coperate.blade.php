@@ -14,6 +14,16 @@
                     </span>
                 @endif
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form class="form" method="POST" action="{{ route('create.new.user') }}" enctype="multipart/form-data">
                     @csrf
 
@@ -25,8 +35,8 @@
                         <div class="form-row mx-n2">
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
-                                    {{-- <label for="email" class="text-heading">Email</label> --}}
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror form-control-lg" value="{{ old('email') }}" id="email" placeholder="Your Email" name="email" required>
+                                    <label for="email" class="text-heading">Email</label>
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror form-control-lg" value="{{ old('email') }}" id="email" name="email" required>
 
                                     @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -42,9 +52,9 @@
                         <div class="form-row mx-n2">
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
-                                    {{-- <label for="password" class="text-heading">Password</label> --}}
+                                    <label for="password" class="text-heading">Password</label>
                                     <div class="input-group input-group-lg">
-                                        <input type="password" class="form-control password-input @error('password') is-invalid @enderror shadow-none" id="password" name="password" placeholder="Password" required>
+                                        <input type="password" class="form-control password-input @error('password') is-invalid @enderror shadow-none" id="password" name="password" required>
 
                                         <div class="input-group-append show-password" style="cursor: pointer; position:absolute; right: 0; z-index: 999; background: transparent; margin-top: 8px">
                                             <span class="input-group-text border-0 text-body fs-18"  style="background-color: transparent"><i class="far fa-eye"></i></span>
@@ -61,9 +71,9 @@
 
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
-                                    {{-- <label for="re-password">Re-Enter Password</label> --}}
+                                    <label for="re-password">Re-Enter Password</label>
                                     <div class="input-group input-group-lg">
-                                    <input type="password" class="form-control password-input2 shadow-none" id="password-confirmation" name="password_confirmation" placeholder="Confirm Password" required>
+                                    <input type="password" class="form-control password-input2 shadow-none" id="password-confirmation" name="password_confirmation" required>
 
                                     <div class="input-group-append show-password2" style="cursor: pointer; position:absolute; right: 0; z-index: 999; background: transparent; margin-top: 8px">
                                         <span class="input-group-text border-0 text-body fs-18" style="background-color: transparent"><i class="far fa-eye"></i></span>
@@ -80,8 +90,8 @@
                         <div class="form-row mx-n2">
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
-                                    {{-- <label for="name" class="text-heading">Legal Name</label> --}}
-                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror form-control-lg" value="{{ old('name') }}" id="name" placeholder="Full Name" required>
+                                    <label for="name" class="text-heading">Legal Name</label>
+                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror form-control-lg" value="{{ old('name') }}" id="name" required>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -93,8 +103,8 @@
 
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
-                                    {{-- <label for="phone" class="text-heading">Your Phone</label> --}}
-                                    <input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror form-control-lg" value="{{ old('phone') }}" id="phone" placeholder="Phone Number" required>
+                                    <label for="phone" class="text-heading">Your Phone</label>
+                                    <input type="tel" name="phone" class="form-control @error('phone') is-invalid @enderror form-control-lg" value="{{ old('phone') }}" id="phone" required>
 
                                     @error('phone')
                                         <span class="invalid-feedback" role="alert">
@@ -106,7 +116,8 @@
 
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
-                                    <input type="text" name="nin_no" maxlength="10" pattern="[0-9]{10}" class="form-control @error('nin_no') is-invalid @enderror form-control-lg" value="{{ old('nin_no') }}" id="nin_no" placeholder="Your NIN Number" required>
+                                    <label for="nin_no">Your NIN</label>
+                                    <input type="text" name="nin_no" class="form-control @error('nin_no') is-invalid @enderror form-control-lg" value="{{ old('nin_no') }}" id="nin_no" required>
 
                                     @error('nin_no')
                                         <span class="invalid-feedback" role="alert">
@@ -123,7 +134,8 @@
 
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
-                                    <input class="form-control form-control-lg" type="text" id="company_name" name="company_name" placeholder="Your company name" required>
+                                    <label for="company_name">Company Name</label>
+                                    <input class="form-control form-control-lg" type="text" id="company_name" value="{{ old('company_name') }}" name="company_name" required>
 
                                     @error('company_name')
                                         <span class="invalid-feedback" role="alert">
@@ -138,7 +150,7 @@
                                     <select class="form-control border shadow-none form-control-lg selectpicker" data-style="btn-lg py-2 h-52" id="company_type" name="company_type" required>
                                         <!-- Add options for company types here -->
                                         <option disabled selected>Choose Company type (optional)</option>
-                                        <option>Private</option>
+                                        <option selected>Private</option>
                                         <option>Public</option>
                                     </select>
 
@@ -151,12 +163,12 @@
                             </div>
 
 
-                            {{-- Website --}}
                             <div class="col-sm-12 px-2">
                                 <div class="form-row mx-n2">
                                     <div class="col-sm-12 px-2">
                                         <div class="form-group">
-                                            <input type="text" name="website" class="form-control @error('website') is-invalid @enderror form-control-lg" value="{{ old('website') }}" id="website" placeholder="www.xyz.com">
+                                            <label for="website">Website</label>
+                                            <input type="text" name="website" class="form-control @error('website') is-invalid @enderror form-control-lg" value="{{ old('website') }}" id="website">
 
                                             @error('website')
                                                 <span class="invalid-feedback" role="alert">
@@ -174,7 +186,7 @@
                         <div class="form-row mx-n2">
                                 <div class="col-sm-12 px-2">
                                     <div class="form-group">
-                                        {{-- <label for="cac">CAC Certificate</label> --}}
+                                        <span for="cac">CAC Certificate</span>
                                         <input type="file" name="cac" id="cac" class="form-control @error('cac') is-invalid @enderror form-control-lg border" required>
 
                                         @if ($errors->has('cac'))
@@ -190,7 +202,8 @@
 
                                 <div class="col-sm-12 px-2">
                                     <div class="form-group">
-                                        <input type="text" name="rc_no" class="form-control @error('rc_no') is-invalid @enderror form-control-lg" value="{{ old('rc_no') }}" id="rc_no" placeholder="RC Number" required>
+                                        <label for="rc_no">CAC RC Number</label>
+                                        <input type="text" name="rc_no" class="form-control @error('rc_no') is-invalid @enderror form-control-lg" value="{{ old('rc_no') }}" id="rc_no" required>
 
                                         @error('rc_no')
                                             <span class="invalid-feedback" role="alert">
@@ -204,12 +217,11 @@
 
 
                     <fieldset>
-                        {{-- Address --}}
                         <div class="form-row mx-n2">
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
-                                    {{-- <label for="address" class="text-heading">Address</label> --}}
-                                    <input type="text" name="address" class="form-control @error('address') is-invalid @enderror form-control-lg" value="{{ old('address') }}" id="address" placeholder="Home address">
+                                    <label for="address" class="text-heading">Address</label>
+                                    <input type="text" name="address" class="form-control @error('address') is-invalid @enderror form-control-lg" value="{{ old('address') }}" id="address">
 
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
@@ -220,11 +232,11 @@
                             </div>
 
 
-                        {{-- City and zip --}}
+
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
-                                    {{-- <label for="city" class="text-heading">city</label> --}}
-                                    <input type="text" name="city" class="form-control @error('city') is-invalid @enderror form-control-lg" value="{{ old('city') }}" id="city" placeholder="City">
+                                    <label for="city" class="text-heading">city</label>
+                                    <input type="text" name="city" class="form-control @error('city') is-invalid @enderror form-control-lg" value="{{ old('city') }}" id="city">
 
                                     @error('city')
                                         <span class="invalid-feedback" role="alert">
@@ -237,8 +249,8 @@
 
                             <div class="col-sm-12 px-2">
                                 <div class="form-group">
-                                    {{-- <label for="zip" class="text-heading">zip</label> --}}
-                                    <input type="text" name="zip" class="form-control @error('zip') is-invalid @enderror form-control-lg" value="{{ old('zip') }}" id="zip" placeholder="Zip Code">
+                                    <label for="zip" class="text-heading">zip</label>
+                                    <input type="text" name="zip" class="form-control @error('zip') is-invalid @enderror form-control-lg" value="{{ old('zip') }}" id="zip">
 
                                     @error('zip')
                                         <span class="invalid-feedback" role="alert">
