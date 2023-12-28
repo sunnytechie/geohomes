@@ -47,9 +47,9 @@
     </div>
 
     <div class="col-md-8">
-        <a style="height: auto; text-decoration: none;" href="{{ route('auth.customer') }}" type="button" class="btn btn-primary btn-lg btn-block rounded geo-btn-bg w-100 mb-4">Client</a>
-        <a style="height: auto; text-decoration: none;" href="{{ route('auth.agent') }}" type="button" class="btn btn-primary btn-lg btn-block rounded geo-btn-bg w-100 my-4">Partner</a>
-        <a style="height: auto; text-decoration: none;" href="{{ route('auth.agent.coperate') }}" type="button" class="btn btn-primary btn-lg btn-block rounded geo-btn-bg w-100 my-4">Corperate Partner</a>
+        <a style="height: auto; text-decoration: none;" href="{{ route('auth.customer') }}" type="button" class="btn btn-primary btn-lg btn-block rounded-0 geo-btn-bg w-100 mb-4">Client</a>
+        <a style="height: auto; text-decoration: none;" href="{{ route('auth.agent') }}" type="button" class="btn btn-primary btn-lg btn-block rounded-0 geo-btn-bg w-100 my-4">Partner</a>
+        <a style="height: auto; text-decoration: none;" href="{{ route('auth.agent.coperate') }}" type="button" class="btn btn-primary btn-lg btn-block rounded-0 geo-btn-bg w-100 my-4">Corperate Partner</a>
 
         <a href="/" class="text-left my-1"> Not ready?</a>
     </div>

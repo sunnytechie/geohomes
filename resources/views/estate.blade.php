@@ -133,7 +133,7 @@
             </div>
             <div class="mt-2 text-lg-right">
               <p class="fs-22 text-heading font-weight-bold mb-0">₦ {{ number_format($project->price, 2) }}</p>
-              
+
             </div>
           </div>
           <h4 class="fs-22 text-heading mt-6 mb-2">Description</h4>
@@ -180,7 +180,7 @@
 
           <div class="container-fluid">
             <div class="position-relative" data-animate="zoomIn">
-      
+
             <div class="row galleries m-n1">
               <div class="col-lg-6 p-1">
                 <div class="item item-size-4-3">
@@ -219,7 +219,7 @@
           </div>
         </div>
 
-          
+
 
           <ul class="list-inline mt-4">
             {{-- <li class="list-inline-item mr-4"><img class="mr-1 rounded-circle" src="https://via.placeholder.com/40" alt="D. Warren"> D. Warren
@@ -234,7 +234,7 @@
             </div>
             <div class="mt-2 text-lg-right">
               <p class="fs-22 text-heading font-weight-bold mb-0">₦ {{ number_format($project->price, 2) }}</p>
-              
+
             </div>
           </div>
 
@@ -287,7 +287,7 @@
                             class="btn btn-primary rounded-circle w-52px h-52 fs-20 d-inline-flex align-items-center justify-content-center"
                             data-container="body"
                             data-toggle="popover" data-placement="top" data-html="true" data-content=' <ul class="list-inline mb-0">
-                        
+
                         <li class="list-inline-item">
                             <a href="{{ route('share.twitter', $project->title) }}" target="_blank" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-twitter"></i></a>
                         </li>
@@ -317,9 +317,9 @@
             <div class="card mb-4">
                 <div class="card-body text-center pt-7 pb-6 px-0">
                   <img src="{{ asset('assets/images/contact-widget.jpg') }}"
-                               alt="Want to become an Estate Agent ?">
+                               alt="Want to become an Estate Partner ?">
                   <div class="text-dark mb-6 mt-n2 font-weight-500">Want to become an
-                    <p class="mb-0 fs-18">Estate Agent?</p>
+                    <p class="mb-0 fs-18">Estate Partner?</p>
                   </div>
                   <a href="{{ route('auth.agent') }}" class="btn btn-primary" style="background: #00A75A;">Register</a>
                 </div>

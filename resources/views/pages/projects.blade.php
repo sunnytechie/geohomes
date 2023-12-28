@@ -240,10 +240,10 @@
                         <h6 class="card-title text-dark lh-213 mb-0 hover-primary">{{ $project->title }}</h6>
                       </a>
                       <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ $project->address }}</p>
-                      <p class="card-text"><i class="fas fa-pencil"></i> {{ Str::limit($project->description, 150) }}</p>
+                      <p class="card-text"><i class="fas fa-pencil"></i> {{ Str::limit($project->description, 70) }}</p>
                       <p class="card-text"><b>₦ {{ number_format($project->price, 2) }}</b></p>
                       <ul class="list-group list-group-no-border">
-                       
+
                         <li class="list-group-item d-flex align-items-sm-center lh-114 row m-0 px-0 pt-4 pb-0">
                           <span class="col-sm-3 p-0 fs-13 mb-1 mb-sm-0">Share</span>
                           <ul class="col-sm-9 list-inline text-gray-lighter m-0 p-0 z-index-2">
@@ -297,9 +297,9 @@
                 <div class="card mb-4">
                   <div class="card-body text-center pt-7 pb-6 px-0">
                     <img src="{{ asset('assets/images/contact-widget.jpg') }}"
-                                 alt="Want to become an Estate Agent ?">
+                                 alt="Want to become an Estate Partner ?">
                     <div class="text-dark mb-6 mt-n2 font-weight-500">Want to become an
-                      <p class="mb-0 fs-18">Estate Agent?</p>
+                      <p class="mb-0 fs-18">Estate Partner?</p>
                     </div>
                     <a href="{{ route('auth.agent') }}" class="btn btn-primary" style="background: #00A75A;">Register</a>
                   </div>

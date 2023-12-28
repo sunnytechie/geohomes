@@ -28,10 +28,12 @@
         <div class="row">
             <div class="col-md-7 shadow offset-md-2">
                 <div style="padding: 15px; background: #fff">
-                    <div style="font-size: 18px; color: #00A75A; font-weight:700">Transaction History</div>
-                    <div>{{ $user->name }}</div>
+                    <div style="font-size: 18px; color: #00A75A; font-weight:700">Customer details and histories</div>
+                    <div>Name: {{ $user->name }}</div>
+                    <div>Email: {{ $user->email }}</div>
+                    <div>Phone: {{ $user->phone }}</div>
                     <div class="my-3"></div>
-                    <div><b>Transactions (Subscription on Estates)</b></div>
+                    <div><b>Transactions (Subscription on Estates) History</b></div>
                     @if ($transactions->count() == 0)
                         <div style="color: #82f60f">No transaction history</div>
                     @endif

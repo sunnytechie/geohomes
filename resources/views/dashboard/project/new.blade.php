@@ -112,8 +112,8 @@
                                                         </div>
 
                                                         <div class="form-group mb-0">
-                                                            <label for="description-01" class="text-heading">Description <span class="text-muted">(Optional)</span></label>
-                                                            <textarea class="form-control border-0 @error('description') is-invalid @enderror" rows="5" name="description" id="description-01">{{ old('description') }}</textarea>
+                                                            <label for="description" class="text-heading">Description <span class="text-muted">(Optional)</span></label>
+                                                            <textarea class="form-control border-0 @error('description') is-invalid @enderror" rows="5" name="description" id="editor">{{ old('description') }}</textarea>
 
                                                             @if ($errors->has('description'))
                                                                 <div id="descriptionHelp" class="form-text text-danger">
