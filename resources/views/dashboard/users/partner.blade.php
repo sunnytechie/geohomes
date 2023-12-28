@@ -42,6 +42,10 @@
                     </div>
                 </div>
 
+                @isset($user->image)
+                        <img src="/storage/{{ $user->image }}" style="width: 80px; height: 80px; border-radius: 50%; margin: 10px auto; display: block" alt="avatar">
+                @endisset
+
                 <div class="d-flex">
                     <div class="mr-5">Name:</div>
                     <div>{{ $user->name }}</div>
@@ -58,7 +62,7 @@
 
                 <div class="d-flex">
                     <div class="mr-5">Phone:</div>
-                    <div>{{ $user->agent->office_number }} {{ $user->agent->mobile_number }}</div>
+                    <div>{{ $user->agent->office_number }} {{ $user->agent->mobile_number }} {{ $user->phone }}</div>
                 </div>
 
                 <div class="d-flex">
