@@ -1,4 +1,4 @@
-<section class="py-lg-12 my-lg-1 py-7">
+<section class="py-lg-12 my-lg-1">
     <div class="container container-xxl">
       <div class="row">
         <div class="col-md-6">

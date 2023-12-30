@@ -14,7 +14,21 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = User::where('is_admin', 1)->get();
+        //admin
+        //manager
+        //staff
+        //auditor
+        //accountant
+        //marketer
+        //secretary
+        $admins = User::where('is_admin', 1)
+        ->orWhere('manager', 1)
+        ->orWhere('is_staff', 1)
+        ->orWhere('auditor', 1)
+        ->orWhere('accountant', 1)
+        ->orWhere('marketer', 1)
+        ->orWhere('secretary', 1)
+        ->get();
 
         return view('dashboard.admin.index', compact('admins'));
     }

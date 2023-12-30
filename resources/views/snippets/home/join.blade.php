@@ -20,12 +20,12 @@
     </div>
   </section> --}}
 
-    <section class="pb-lg-10 bg-gray-02">
+    <section class="pb-lg-10">
         <div class="container">
         <div class="p-6 mxw-670 pl-md-9 d-sm-flex align-items-sm-center position-relative mt-10 rounded-lg" style="background-color: #eaeff7" data-animate="fadeInUp">
             <div class="mt-md-0 mt-6">
-            <h4 class="fs-20 font-weight-normal" style="color: #00A75A">Become a<span class="font-weight-600"> Real Estate Agent</span></h4>
-            <p class="mb-0 pr-1">You can earn up to 15% commission as a Corporate Agent or 10% commision as an Individual Agent whenever you sale our estate.</p>
+            <h4 class="fs-20 font-weight-normal" style="color: #00A75A">Become a<span class="font-weight-600"> Real Estate Partner</span></h4>
+            <p class="mb-0 pr-1">You can earn up to 15% commission as a Corporate Partner or 10% commision as an Individual Partner whenever you sale our estate.</p>
             </div>
 
             @auth

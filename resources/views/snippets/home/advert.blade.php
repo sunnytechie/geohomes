@@ -10,14 +10,15 @@
       height: auto; /* Maintain aspect ratio */
       object-fit: cover; /* Cover the entire container while maintaining aspect ratio */
     }
-  </style>
+</style>
+
 <section class="mb-10 advert-slider">
 
     <div class="container">
         <p class="text-primary letter-spacing-263 text-uppercase lh-186 mb-0">Newest Events</p>
-      <h2 class="lh-1625 text-dark pb-1">
+      {{-- <h2 class="lh-1625 text-dark pb-1">
         Advertise!
-      </h2>
+      </h2> --}}
 
       <div class="slick-slider" data-slick-options='{"slidesToShow": 1, "autoplay":true, "autoplaySpeed": 15000, "dots":true, "arrows":true}'>
 
