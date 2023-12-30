@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subscriber;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,6 +18,13 @@ class UserController extends Controller
         $users = User::orderBy('id', 'asc')->get();
 
         return view('dashboard.users.index', compact('users'));
+    }
+
+    public function subscribers()
+    {
+        $subscribers = Subscriber::orderBy('id', 'asc')->get();
+
+        return view('dashboard.users.subscribers', compact('subscribers'));
     }
 
     /**

@@ -74,7 +74,7 @@
 
                             <li aria-haspopup="true" aria-expanded="false"
                                 class="nav-item py-2 py-xl-5 px-0 px-xl-4">
-                                <a class="nav-link p-0" href="#">
+                                <a class="nav-link p-0" href="{{ route('blog.index') }}">
                                     Blog
                                 </a>
                             </li>

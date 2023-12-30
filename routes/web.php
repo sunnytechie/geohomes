@@ -42,7 +42,7 @@ Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'
 Route::get('/filtered-search', [App\Http\Controllers\PagesController::class, 'sorted'])->name('page.sorted');
 
 //blog posts
-//Route::get('/blog', [App\Http\Controllers\Blog\PostController::class, 'index'])->name('blog.index');
+Route::get('/blog', [App\Http\Controllers\Blog\PostController::class, 'blog'])->name('blog.index');
 Route::get('/blog/{id}', [App\Http\Controllers\Blog\PostController::class, 'show'])->name('blog.show');
 
 //post request
@@ -153,6 +153,7 @@ Route::get('/geo-projects-image', [App\Http\Controllers\PagesController::class, 
 Route::resource('agents', 'App\Http\Controllers\AgentController')->middleware('auth', 'verified');
 Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middleware('auth', 'verified');
 
+Route::get('email-subscribers', [App\Http\Controllers\UserController::class, 'subscribers'])->name('subscribed.users')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::get('registered-users', [App\Http\Controllers\UserController::class, 'index'])->name('registered.users')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::get('registered-agents', [App\Http\Controllers\AgentController::class, 'index'])->name('registered.agents')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::delete('delete/registered-agents/{id}', [App\Http\Controllers\AgentController::class, 'destroy'])->name('registered.agents.destroy')->middleware('auth', 'verified', 'isAuditorAccountant');

@@ -13,6 +13,13 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function blog()
+     {
+        $posts = Post::orderBy('id', 'desc')->paginate(9);
+        return view('blog.index', compact('posts'));
+     }
+
     public function index()
     {
         $posts = Post::orderBy('id', 'desc')->get();
@@ -92,7 +99,7 @@ class PostController extends Controller
 
         //increment the views
         $post->increment('views');
-        
+
         return view('blog.show', compact('post', 'categories', 'posts'));
     }
 

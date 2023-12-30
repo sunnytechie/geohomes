@@ -7,12 +7,24 @@
     }
 
     @media only screen and (max-width: 1024px) {
-    .mt-12 {
-      margin-top: 0 !important;
+        .mt-12 {
+        margin-top: 0 !important;
+        }
     }
-}
+
+    .img-fluid-responsive {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .img-fluid-responsive-2 {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
 </style>
-    
+
 <main id="content">
     <section class="mt-12" style="background: #00A75A">
       <div class="container">
@@ -28,7 +40,7 @@
             <li class="breadcrumb-item active" aria-current="page">Listing</li>
           </ol>
           <h1 class="fs-20 lh-1 mb-0 text-heading font-weight-600">Find properties to rent or buy </h1>
-          
+
         </nav>
       </div>
     </section> --}}
@@ -36,7 +48,7 @@
       <div class="container">
         <div class="row">
 
-          
+
           <div class="col-lg-8 mb-8 mb-lg-0 order-1 order-lg-1">
             @if ($properties->count() == 0)
               <div>No properties are posted yet.</div>
@@ -46,19 +58,19 @@
             @foreach ($properties as $property)
             <div class="py-5 px-4 border rounded-lg shadow-hover-1 bg-white mb-4" data-animate="fadeInUp">
               <div class="media flex-column flex-sm-row no-gutters">
-                
+
                 <div class="col-sm-3 mr-sm-5 card border-0 hover-change-image bg-hover-overlay mb-sm-5">
                   <a href="{{ route('gh.property.show', $property->id) }}">
-                    <img src="/storage/{{ $property->image }}" class="card-img" alt="{{ $property->title }}">
-                  
+                    <img class="img-fluid-responsive" src="/storage/{{ $property->image }}" class="card-img" alt="{{ $property->title }}">
+
                  <div class="card-img-overlay p-2">
                     <ul class="list-inline mb-0 d-flex justify-content-center align-items-center h-100 hover-image">
-                     
+
                     </ul>
-                  </div> 
+                  </div>
                 </a>
                 </div>
-           
+
                 <div class="media-body mt-3 mt-sm-0">
                   <h2 class="my-0">
                     <a href="{{ route('gh.property.show', $property->id) }}" class="fs-16 lh-2 text-dark hover-primary d-block">{{ $property->title }}</a>
@@ -108,20 +120,10 @@
             </div>
             @endforeach
 
-            
-            {{-- <nav class="pt-6">
-              <ul class="pagination rounded-active justify-content-center mb-0">
-                <li class="page-item"><a class="page-link" href="#"><i class="far fa-angle-double-left"></i></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                <li class="page-item d-none d-sm-block"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">...</li>
-                <li class="page-item"><a class="page-link" href="#">6</a></li>
-                <li class="page-item"><a class="page-link" href="#"><i
-                              class="far fa-angle-double-right"></i></a></li>
-              </ul>
-            </nav> --}}
+
+            <nav class="pt-6">
+                {{ $properties->links('vendor.pagination.bootstrap-4') }}
+            </nav>
 
           </div>
 
@@ -156,12 +158,12 @@
                 <div class="card-body px-6 pt-5 pb-6">
                   <h4 class="card-title fs-16 lh-2 text-dark mb-3">Recent Properties</h4>
                   <div class="slick-slider mx-0" data-slick-options='{"slidesToShow": 1, "autoplay":true}'>
-                    
+
                     {{-- Loop only 4 latest properties here --}}
                     @foreach ($slideproperties as $property)
                     <div class="box px-0">
                       <div class="card border-0">
-                        <img src="/storage/{{ $property->image }}" class="card-img" alt="{{ $property->title }}">
+                        <img src="/storage/{{ $property->image }}" class="card-img img-fluid-responsive-2" alt="{{ $property->title }}">
                         <div class="card-img-overlay d-flex flex-column bg-gradient-3 rounded-lg">
                           <div class="d-flex mb-auto">
                             <a href="#" class="mr-1 badge badge-orange">featured</a>
@@ -179,7 +181,7 @@
                     </div>
                     @endforeach
 
-                    
+
                   </div>
                 </div>
               </div>
@@ -190,7 +192,7 @@
         </div>
       </div>
     </section>
-    
+
 
 
 

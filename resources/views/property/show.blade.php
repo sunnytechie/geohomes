@@ -27,9 +27,9 @@
     margin-top: 10px !important;
   }
 }
-  
+
 </style>
-    
+
 <main id="content">
     <section>
       <div class="spacer mt-15 hide-from-mobile"></div>
@@ -46,10 +46,10 @@
           </ol>
         </nav>
       </div> --}}
-     
+
       <div class="container-fluid">
         <div class="position-relative" data-animate="zoomIn">
-            
+
             <div class="row galleries m-n1">
               <div class="col-lg-6 p-1">
                 <div class="item item-size-4-3">
@@ -90,7 +90,7 @@
         </div>
       </div>
   </section>
-  
+
   <div class="primary-content pt-8">
     <div class="container">
       <div class="row">
@@ -286,8 +286,38 @@
             </div>
           </section>
 
+          <section class="pt-6">
+            <div class="row">
+                <div class="col-sm-6 text-left">
+                    <span class="d-inline-block text-heading font-weight-500 lh-17 mr-1">Share this post</span>
+                      <button type="button"
+                                  class="btn btn-primary rounded-circle w-52px h-52 fs-20 d-inline-flex align-items-center justify-content-center"
+                                  data-container="body"
+                                  data-toggle="popover" data-placement="top" data-html="true" data-content=' <ul class="list-inline mb-0">
+
+                              <li class="list-inline-item">
+                                  <a href="#" target="_blank" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-twitter"></i></a>
+                              </li>
+                              <li class="list-inline-item ">
+                                  <a href="#" target="_blank" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-facebook-f"></i></a>
+                              </li>
+                              {{-- <li class="list-inline-item">
+                                  <a href="#" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-instagram"></i></a>
+                              </li> --}}
+                              <li class="list-inline-item">
+                                  <a href="#" target="_blank" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-whatsapp"></i></a>
+                              </li>
+
+                          </ul>
+                          '>
+                          <i class="fad fa-share-alt"></i>
+                      </button>
+                  </div>
+            </div>
+          </section>
+
         </article>
-  
+
         <aside class="col-lg-4 pl-xl-4 primary-sidebar sidebar-sticky" id="sidebar">
             <div class="primary-sidebar-inner">
                 <div class="card border-0 widget-request-tour">
@@ -298,10 +328,10 @@
                   </ul>
                   <div class=" spacer p-2"></div>
                   <div class="card-body px-sm-6 shadow-xxs-2 pb-5 pt-0">
-                    
+
                       <div class="pt-1 pb-0 px-0 shadow-none">
                         <div class="d-flex align-items-center">
-                          
+
                           @if ($property->user && $property->user->image)
                           <a href="#" class="d-block w-60px h-60 mr-3">
                             <img src="/storage/{{ $property->user->image }}" class="rounded-circle" alt="{{ $property->user->name }}">
@@ -315,15 +345,15 @@
                               @endif
                               @if ($property->user && $property->user->phone)
                                 <p class="mb-0 fs-13 mb-0 lh-17"><span class="text-heading d-inline-block ml-2">{{ $property->user->phone }}</span>
-                                  @endif 
+                                  @endif
                                 @if ($property->user && $property->user->address)
-                                <p class="mb-0 fs-13 mb-0 lh-17"><span class="text-heading d-inline-block ml-2">{{ $property->user->address }}</span> 
-                                  @endif          
+                                <p class="mb-0 fs-13 mb-0 lh-17"><span class="text-heading d-inline-block ml-2">{{ $property->user->address }}</span>
+                                  @endif
                               </p>
                             </div>
                           </div>
                       </div>
-                   
+
                   </div>
                 </div>
               </div>
@@ -331,7 +361,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="mt-10"></div>
   </main>
 
