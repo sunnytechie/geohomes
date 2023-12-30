@@ -3,10 +3,9 @@
 @section('content')
 <main id="content">
         @include('snippets.home.welcomeslide')
-
+        @include('snippets.home.projects')
         @include('snippets.home.join')
         @include('snippets.home.advert')
-        @include('snippets.home.projects')
         @include('snippets.home.sale')
         @include('snippets.home.explore')
         @include('snippets.home.rent')
