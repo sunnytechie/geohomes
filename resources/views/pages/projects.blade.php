@@ -240,7 +240,7 @@
                         <h6 class="card-title text-dark lh-213 mb-0 hover-primary">{{ $project->title }}</h6>
                       </a>
                       <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ $project->address }}</p>
-                      <p class="card-text"><i class="fas fa-pencil"></i> {{ Str::limit($project->description, 70) }}</p>
+                      {{-- <p class="card-text"><i class="fas fa-pencil"></i> {{ Str::limit($project->description, 70) }}</p> --}}
                       <p class="card-text"><b>₦ {{ number_format($project->price, 2) }}</b></p>
                       <ul class="list-group list-group-no-border">
 

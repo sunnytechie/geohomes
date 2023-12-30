@@ -135,8 +135,8 @@
               {{-- <p class="mb-0">$9350/SqFt</p> --}}
             </div>
           </div>
-          {{-- <h4 class="fs-22 text-heading mt-6 mb-2">Description</h4>
-          <p class="mb-0 lh-214">{{ $project->description }}</p> --}}
+          <h4 class="fs-22 text-heading mt-6 mb-2">Description</h4>
+          <p class="mb-0 lh-214">{{ $project->description }}</p>
         </section>
       </article>
 
