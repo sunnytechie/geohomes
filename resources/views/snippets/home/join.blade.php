@@ -22,7 +22,7 @@
   <style>
     @media (min-width: 425px) {
         .pd-bt-only {
-            padding-bottom: 35px;
+            padding-bottom: 55px;
         }
     }
   </style>
