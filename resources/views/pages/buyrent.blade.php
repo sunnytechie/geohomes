@@ -79,7 +79,7 @@
                   <p class="fs-17 font-weight-bold text-heading mb-1">
                     #{{ $property->price }}
                   </p>
-                  <p class="mb-2 ml-0">{{ $property->description }}</p>
+                  <p class="mb-2 ml-0">{{ Str::limit($property->description, 50) }}</p>
                 </div>
               </div>
               <div class="d-sm-flex justify-content-sm-between">
