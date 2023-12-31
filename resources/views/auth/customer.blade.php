@@ -192,7 +192,8 @@
                                 </div>
 
                                 <div class="col-sm-12 px-2">
-                                    {!! app('captcha')->display() !!}
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
                                 </div>
                             </div>
                         </fieldset>

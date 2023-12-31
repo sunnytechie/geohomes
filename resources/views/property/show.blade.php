@@ -287,33 +287,11 @@
           </section>
 
           <section class="pt-6">
-            <div class="row">
-                <div class="col-sm-6 text-left">
-                    <span class="d-inline-block text-heading font-weight-500 lh-17 mr-1">Share this post</span>
-                      <button type="button"
-                                  class="btn btn-primary rounded-circle w-52px h-52 fs-20 d-inline-flex align-items-center justify-content-center"
-                                  data-container="body"
-                                  data-toggle="popover" data-placement="top" data-html="true" data-content=' <ul class="list-inline mb-0">
-
-                              <li class="list-inline-item">
-                                  <a href="#" target="_blank" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-twitter"></i></a>
-                              </li>
-                              <li class="list-inline-item ">
-                                  <a href="#" target="_blank" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-facebook-f"></i></a>
-                              </li>
-                              {{-- <li class="list-inline-item">
-                                  <a href="#" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-instagram"></i></a>
-                              </li> --}}
-                              <li class="list-inline-item">
-                                  <a href="#" target="_blank" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-whatsapp"></i></a>
-                              </li>
-
-                          </ul>
-                          '>
-                          <i class="fad fa-share-alt"></i>
-                      </button>
-                  </div>
-            </div>
+                @php
+                    $id = "$property->id";
+                    $pamaLink = "listing/property/$id";
+                @endphp
+                @include('snippets.share')
           </section>
 
         </article>

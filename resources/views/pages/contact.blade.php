@@ -12,9 +12,9 @@
       }
     }
 </style>
-    
+
 <main id="content">
-    
+
     <div class="mt-10"></div>
 
 
@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="hide-from-mobile mt-2"></div>
-                    
+
                         {{-- alert --}}
                         <div class="alert text-center alert-info alert-dismissible fade show" role="alert">
                             {{ session('message') }}
@@ -55,7 +55,7 @@
                             <span aria-hidden="true"><ion-icon name="close-circle-outline"></ion-icon></span>
                             </button>
                         </div>
-                    
+
                 </div>
             </div>
             @endif
@@ -90,7 +90,8 @@
               </div>
 
               <div class="form-group mb-6">
-                {!! app('captcha')->display() !!}
+                {!! NoCaptcha::renderJs() !!}
+                {!! NoCaptcha::display() !!}
               </div>
 
               <div class="text-center">
@@ -99,11 +100,11 @@
             </form>
           </div>
         </div>
-        
+
       </div>
     </section>
 
-    
+
     <section>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.6468249970967!2d7.492525573327757!3d6.439381724138578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1044a3d8f51f6071%3A0x6b07f5ee68d7e660!2s26%20Moorehouse%20St%2C%20Ogui%20400001%2C%20Enugu!5e0!3m2!1sen!2sng!4v1685829579897!5m2!1sen!2sng" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>

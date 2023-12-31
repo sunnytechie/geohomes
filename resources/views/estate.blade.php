@@ -271,7 +271,7 @@
 
 
 
-        <div class="row pb-7 pt-5 mb-10 border-bottom">
+        <div class="row pb-7 pt-5 mb-10 align-items-center border-bottom">
             <div class="col-sm-6 d-flex">
               <span class="d-inline-block mr-2"><i class="fal fa-tags"></i></span>
               <ul class="list-inline">
@@ -281,31 +281,12 @@
               </ul>
             </div>
 
-            <div class="col-sm-6 text-left text-sm-right">
-              <span class="d-inline-block text-heading font-weight-500 lh-17 mr-1">Share this post</span>
-                <button type="button"
-                            class="btn btn-primary rounded-circle w-52px h-52 fs-20 d-inline-flex align-items-center justify-content-center"
-                            data-container="body"
-                            data-toggle="popover" data-placement="top" data-html="true" data-content=' <ul class="list-inline mb-0">
+                @php
+                    $id = "$project->id";
+                    $pamaLink = "estate/$id";
+                @endphp
 
-                        <li class="list-inline-item">
-                            <a href="{{ route('share.twitter', $project->title) }}" target="_blank" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li class="list-inline-item ">
-                            <a href="{{ route('share.facebook', $project->title) }}" target="_blank" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        {{-- <li class="list-inline-item">
-                            <a href="#" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-instagram"></i></a>
-                        </li> --}}
-                        <li class="list-inline-item">
-                            <a href="{{ route('share.whatsapp', $project->title) }}" target="_blank" class="text-muted fs-15 hover-dark lh-1 px-2"><i class="fab fa-whatsapp"></i></a>
-                        </li>
-
-                    </ul>
-                    '>
-                    <i class="fad fa-share-alt"></i>
-                </button>
-            </div>
+                @include('snippets.share')
         </div>
 
 

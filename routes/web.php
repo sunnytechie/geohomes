@@ -66,10 +66,12 @@ Route::get('/listing/building/materials', [App\Http\Controllers\PagesController:
 //UnApproved Agents
 Route::get('/geohomes/approval/status', [App\Http\Controllers\DashboardController::class, 'status'])->name('dashboard.status')->middleware('auth', 'verified');
 
-//Share button
-Route::get('/share/facebook/{title}', [App\Http\Controllers\ShareController::class, 'facebook'])->name('share.facebook');
-Route::get('/share/whatsapp/{title}', [App\Http\Controllers\ShareController::class, 'whatsapp'])->name('share.whatsapp');
-Route::get('/share/twitter/{title}', [App\Http\Controllers\ShareController::class, 'twitter'])->name('share.twitter');
+//Share post button
+Route::post('/share/facebook', [App\Http\Controllers\ShareController::class, 'facebook'])->name('share.facebook');
+Route::post('/share/whatsapp', [App\Http\Controllers\ShareController::class, 'whatsapp'])->name('share.whatsapp');
+Route::post('/share/twitter', [App\Http\Controllers\ShareController::class, 'twitter'])->name('share.twitter');
+//Social Share
+Route::get('/social/share', [App\Http\Controllers\ShareController::class, 'index'])->name('share.index');
 
 //listings Resources
 Route::middleware('auth', 'isAdmin', 'verified')->group(function () {

@@ -28,9 +28,11 @@
               <a href="{{ route('blog.show', $post->id) }}" class="hover-shine">
                 <img class="img-fluid-responsive" src="/storage/{{ $post->image }}" alt="{{ $post->title }}">
               </a>
+              @isset($post->category->title)
               <a href="{{ route('blog.show', $post->id) }}" class="badge text-white bg-dark-opacity-04 fs-13 font-weight-500 bg-hover-primary hover-white mx-2 my-4 position-absolute pos-fixed-bottom">
-                creative
+                {{ $post->category->title ?? '' }}
               </a>
+              @endisset
             </div>
             <div class="card-body px-5 pt-3 pb-5">
             <p class="mb-1 fs-13">{{ $post->created_at->format('M d, Y') }}</p>

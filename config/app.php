@@ -171,6 +171,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Unicodeveloper\Paystack\PaystackServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -189,6 +190,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
     ])->toArray(),
 
 ];

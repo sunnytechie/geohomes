@@ -11,10 +11,10 @@ class ContactController extends Controller
     public function contact(Request $request) {
         //dd($request->all());
         //validate capcha
-        $$request->validate([
+        $request->validate([
             'g-recaptcha-response' => 'required|captcha'
         ]);
-        
+
         //gather data
         $fName = $request->first_name;
         $lName = $request->last_name;

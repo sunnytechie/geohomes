@@ -96,7 +96,7 @@ class RegisterController extends Controller
             'agent_type' => 'nullable',
             'cac' => 'nullable|mimes:jpeg,png,gif,pdf|max:2048',
             'nin_no' => 'nullable|numeric|digits:10',
-            'g-recaptcha-response' => 'nullable|captcha',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
 
         //if validation fails
