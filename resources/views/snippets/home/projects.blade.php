@@ -1,13 +1,13 @@
-<section class="py-lg-12 my-lg-1">
+<section class="py-lg-8 my-lg-1">
     <div class="container container-xxl">
       <div class="row">
         <div class="col-md-6">
           <h2 class="text-heading">Our Estate</h2>
           <span class="heading-divider"></span>
-          <p class="mb-7">Contact us today.</p>
+          <p class="mb-6">Browse though our estate.</p>
         </div>
         <div class="col-md-6 text-md-right">
-          <a href="{{ route('page.projects') }}" class="btn btn-lg text-secondary btn-accent rounded-lg mb-8">See all Our Estates
+          <a href="{{ route('page.projects') }}" class="btn fs-14 text-secondary btn-accent py-3 lh-15 px-7 mb-6 mb-lg-0"">See all Our Estates
             <i class="far fa-long-arrow-right ml-1"></i>
           </a>
         </div>

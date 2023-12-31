@@ -10,15 +10,25 @@
       height: auto; /* Maintain aspect ratio */
       object-fit: cover; /* Cover the entire container while maintaining aspect ratio */
     }
+    .advert-slider  {
+        margin-top: 40px
+      }
+
+    @media (min-width: 425px) {
+      .advert-slider  {
+        margin-top: 60px
+      }
+    }
 </style>
 
-<section class="mb-10 advert-slider">
+<section class="mb-8 advert-slider">
 
     <div class="container">
-        <p class="text-primary letter-spacing-263 text-uppercase lh-186 mb-0">Newest Events</p>
-      {{-- <h2 class="lh-1625 text-dark pb-1">
-        Advertise!
-      </h2> --}}
+        <div class="col-md-6">
+            <h2 class="text-heading">Newest Events</h2>
+            <span class="heading-divider"></span>
+            <p class="mb-7">Most interesting events</p>
+          </div>
 
       <div class="slick-slider" data-slick-options='{"slidesToShow": 1, "autoplay":true, "autoplaySpeed": 15000, "dots":true, "arrows":true}'>
 
