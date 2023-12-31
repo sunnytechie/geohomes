@@ -19,8 +19,15 @@
       </div>
     </div>
   </section> --}}
+  <style>
+    @media (min-width: 425px) {
+        .pd-bt-only {
+            padding-bottom: 35px;
+        }
+    }
+  </style>
 
-    <section class="pb-lg-10">
+    <section class="pd-bt-only py-md-10 py-sm-10">
         <div class="container">
         <div class="p-6 mxw-670 pl-md-9 d-sm-flex align-items-sm-center position-relative mt-10 rounded-lg" style="background-color: #eaeff7" data-animate="fadeInUp">
             <div class="mt-md-0 mt-6">

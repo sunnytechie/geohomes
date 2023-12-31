@@ -126,7 +126,9 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <small>NIN must be 10 digits.</small>
                             </div>
+                            
                         </div>
                     </div>
                 </fieldset>
