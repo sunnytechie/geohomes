@@ -131,7 +131,7 @@
                     </div>
                 </fieldset>
 
-                <fieldset>
+                {{-- <fieldset>
                     <div class="form-row mx-n2">
 
                         <div class="col-sm-12 px-2">
@@ -149,7 +149,7 @@
                         <div class="col-sm-12 px-2">
                             <div class="form-group">
                                 <select class="form-control border shadow-none form-control-lg selectpicker" data-style="btn-lg py-2 h-52" id="company_type" name="company_type">
-                                    <!-- Add options for company types here -->
+                                    
                                     <option disabled selected>Company type</option>
                                     <option>Private</option>
                                     <option>Public</option>
@@ -164,7 +164,6 @@
                         </div>
 
 
-                        {{-- Website --}}
                         <div class="col-sm-12 px-2">
                             <div class="form-row mx-n2">
                                 <div class="col-sm-12 px-2">
@@ -182,7 +181,7 @@
                             </div>
                         </div>
                     </div>
-                </fieldset>
+                </fieldset> --}}
 
                 <fieldset>
                     {{-- Address --}}
