@@ -17,12 +17,11 @@
 
     <div class="mt-10"></div>
 
-
-    <section class="py-14 py-lg-17 page-title bg-overlay-opacity-02"
-       style="background-image: url('assets/images/BG4.jpg');background-size: cover;background-position: center">
+    <section class="py-4 page-title bg-overlay-opacity-02"
+       style="background-image: url('https://cdn.pixabay.com/photo/2016/09/22/11/55/kitchen-1687121_1280.jpg');background-size: cover;background-position: center">
       <div class="container">
-        <h1 class="fs-22 fs-md-42 lh-15 mb-8 mb-lg-13 font-weight-normal text-center mxw-774 pt-2 text-white position-relative z-index-3" data-animate="fadeInDown">
-          For more information about our services, get in touch with our expert consultants</h1>
+        <h4 class="py-8 mb-8 mb-lg-13 font-weight-normal text-center mxw-774 pt-2 text-white position-relative z-index-3" data-animate="fadeInDown">
+          For more information about our services, get in touch with our expert consultants</h4>
 
           @if ($errors->has('g-recaptcha-response'))
                 <span class="invalid-feedback" role="alert">
@@ -40,7 +39,13 @@
             <h2 class="text-heading mb-2 fs-22 fs-md-32 text-center lh-16">We're always eager to hear from
               you!</h2>
             <p class="text-center mxw-670 mb-8">
-              At Geohomes, we create values by building outstanding artistry edifice with modern technology and seamless services to our customers.
+                @if (session('error'))
+                    <span class="help-block text-danger">
+                        <strong>{{ session('error') }}</strong>
+                    </span>
+                    @else
+                       At Geohomes, we create values by building outstanding artistry edifice with modern technology and seamless services to our customers.
+                @endif
             </p>
             {{-- session --}}
             @if (session('message'))

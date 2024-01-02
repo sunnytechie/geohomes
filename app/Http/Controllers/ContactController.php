@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Mail\ContactEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
     public function contact(Request $request) {
         //dd($request->all());
-        //validate capcha
-        $request->validate([
+
+        $validate = Validator::make(request()->all(), [
             'g-recaptcha-response' => 'required|captcha'
         ]);
+
+        if ($validate->fails()) {
+            return redirect()->back()->with('error', "Please verify that you are not a robot.");
+        }
 
         //gather data
         $fName = $request->first_name;
