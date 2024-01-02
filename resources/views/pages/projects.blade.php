@@ -242,6 +242,42 @@
                       <p class="card-text"><i class="fas fa-map-marker-alt"></i> {{ $project->address }}</p>
                       {{-- <p class="card-text"><i class="fas fa-pencil"></i> {{ Str::limit($project->description, 30) }}</p> --}}
                       <p class="card-text"><b>₦ {{ number_format($project->price, 2) }}</b></p>
+
+                    {{-- Share Estate --}}
+                     @php
+                        $id = "$project->id";
+                        $pamaLink = "estate/$id";
+                    @endphp
+                    <div class="text-left text-sm-left">
+                        <span class="d-inline-block text-heading font-weight-500 lh-17 mr-1">Share this estate</span>
+                        <ul class="p-0 m-0">
+                          <li class="list-inline-item">
+                              <form action="{{ route('share.twitter') }}" method="post" target="_blank">
+                                @csrf
+                                <input type="hidden" name="url" value="{{ $pamaLink }}">
+                                <button type="submit" class="text-muted fs-15 hover-dark lh-1 px-2" style="border: none; padding: 10px"><i class="fab fa-twitter"></i></button>
+                              </form>
+                            </li>
+
+                            <li class="list-inline-item">
+                              <form action="{{ route('share.facebook') }}" method="post" target="_blank">
+                                @csrf
+                                <input type="hidden" name="url" value="{{ $pamaLink }}">
+                                <button type="submit" class="text-muted fs-15 hover-dark lh-1 px-2" style="border: none; padding: 10px"><i class="fab fa-facebook-f"></i></button>
+                              </form>
+                            </li>
+
+                            <li class="list-inline-item">
+                              <form action="{{ route('share.whatsapp') }}" method="post" target="_blank">
+                                @csrf
+                                <input type="hidden" name="url" value="{{ $pamaLink }}">
+                                <button type="submit" class="text-muted fs-15 hover-dark lh-1 px-2" style="border: none; padding: 10px"><i class="fab fa-whatsapp"></i></button>
+                              </form>
+                            </li>
+
+                        </ul>
+                    </div>
+
                       {{-- <ul class="list-group list-group-no-border">
 
                         <li class="list-group-item d-flex align-items-sm-center lh-114 row m-0 px-0 pt-4 pb-0">
@@ -261,7 +297,7 @@
                               <a href="#" class="w-32px h-32 rounded bg-hover-primary bg-white hover-white text-body d-flex align-items-center justify-content-center border border-hover-primary">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            </li> 
+                            </li>
                             <li class="list-inline-item mr-0 ml-2">
                                 <a href="{{ route('share.whatsapp', $project->title) }}" target="_blank" class="w-32px h-32 rounded bg-hover-primary bg-white hover-white text-body d-flex align-items-center justify-content-center border border-hover-primary">
                                     <i class="fab fa-whatsapp"></i>
@@ -277,7 +313,7 @@
                         <form action="{{ route('inspection') }}" method="POST" style="padding: 0; margin-bottom: 0;">
                           @csrf
                           <input type="hidden" name="project_id" value="{{ $project->id }}">
-                          <button type="submit" class="btn btn-primary rounded-0 border-0" style="background: #00A75A">Book Inspection</button>
+                          <button type="submit" class="btn btn-primary rounded-0 border-0" style="background: #00A75A">Inspection</button>
                         </form>
                       </div>
                     </div>

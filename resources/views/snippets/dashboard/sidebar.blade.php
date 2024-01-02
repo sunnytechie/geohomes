@@ -292,7 +292,7 @@
                 </div>
                 @endif
 
-                @if (Auth::user()->is_admin || Auth::user()->is_agent)
+                @if (Auth::user()->is_admin)
                 {{-- Property --}}
                 <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                   <a href="#property_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">

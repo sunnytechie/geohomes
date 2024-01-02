@@ -251,7 +251,7 @@
           <form action="{{ route('inspection') }}" method="POST" style="padding: 0; margin: 0">
             @csrf
             <input type="hidden" name="project_id" value="{{ $project->id }}">
-            <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #00A75A">Book Inspection</button>
+            <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #00A75A">Inspection</button>
           </form>
         </div>
 

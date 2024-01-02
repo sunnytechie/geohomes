@@ -80,6 +80,7 @@ Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
     Route::resource('destinations', 'App\Http\Controllers\DestinationController');
     Route::resource('admins', 'App\Http\Controllers\AdminController');
     Route::resource('plots', 'App\Http\Controllers\PlotController');
+    Route::resource('properties', 'App\Http\Controllers\PropertyController');
 
     //Allocate
     Route::get('/allocate', [App\Http\Controllers\TransactionController::class, 'allocate'])->name('allocate');
@@ -147,7 +148,7 @@ Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
 });
 
 Route::middleware('auth', 'verified', 'hasAdminButNotAgent', 'isAgent', 'agentHasApproval')->group(function () {
-    Route::resource('properties', 'App\Http\Controllers\PropertyController');
+    //Route::resource('properties', 'App\Http\Controllers\PropertyController');
 });
 
 Route::get('/geo-projects-image', [App\Http\Controllers\PagesController::class, 'projectImage'])->name('project.image.upload');
