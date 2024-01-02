@@ -37,7 +37,9 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-12">
-                <img src="/storage/{{ $advert->thumbnail }}" alt="">
+                <a href="{{ $advert->link }}" target="_blank">
+                    <img src="/storage/{{ $advert->thumbnail }}" alt="">
+                </a>
               </div>
             </div>
           </div>

@@ -36,6 +36,10 @@
                             <input type="text" name="title" id="title" class="form-control" placeholder="Identify the advert">
                         </div>
                         <div class="form-group">
+                            <label for="title">Link</label>
+                            <input type="url" name="link" id="link" class="form-control" placeholder="Link the advert page">
+                        </div>
+                        <div class="form-group">
                             <label for="image">Thumbnail</label>
                             <input type="file" name="image" id="image" class="form-control dropify" required>
                         </div>
