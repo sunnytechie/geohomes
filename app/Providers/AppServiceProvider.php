@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Schema::defaultStringLength(191);
-        
+
         // Fetch the about information from the database
         $aboutInfo = About::first(['phone', 'email']);
 

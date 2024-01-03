@@ -18,6 +18,8 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->text('office_heading')->nullable();
             $table->text('office_location')->nullable();
+            $table->string('phone')->nullable()->default('08067772804');
+            $table->string('email')->nullable()->default('contact@geohomesgroup.com');
 
             $table->timestamps();
         });
