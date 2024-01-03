@@ -14,6 +14,8 @@ class About extends Model
         'office_heading',
         'office_location',
         'office_map',
+        'phone',
+        'email',
     ];
 
     use HasFactory;

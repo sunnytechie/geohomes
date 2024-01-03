@@ -41,7 +41,7 @@
 <div class="btn-group">
     <a class="btn btn-md btn-primary @if(request()->routeIs('gh.about.index')) active @endif" href="{{ route('gh.about.index') }}">General</a>
     <a class="btn btn-md btn-primary @if(request()->routeIs('gh.services')) active @endif" href="{{ route('gh.services') }}">Services</a>
-    <a class="btn btn-md btn-primary @if(request()->routeIs('gh.teams')) active @endif" href="{{ route('gh.teams') }}">Terms and Staff</a>
+    <a class="btn btn-md btn-primary @if(request()->routeIs('gh.teams')) active @endif" href="{{ route('gh.teams') }}">Team and Staff</a>
     <a class="btn btn-md btn-primary @if(request()->routeIs('gh.gallery')) active @endif" href="{{ route('gh.gallery') }}">Gallery/Images</a>
 </div>
 </div>
@@ -49,7 +49,7 @@
 
 <div class="col-md-10 offset-md-1">
     <div class="px-3 px-lg-6 px-xxl-13 py-4 shadow-sm my-4">
-        
+
         <div class="mb-3 d-flex justify-content-between align-items-center">
             <h4 style="color: #00A75A">Gallery</h4>
         </div>
@@ -61,7 +61,7 @@
                 <label for="image">Image</label>
                 <input type="file" accept="image/*" class="form-control dropify" id="image" name="image" value="{{ old('image') }}" required>
             </div>
-        
+
             <button type="submit" class="btn btn-primary">Publish</button>
         </form>
     </div>
@@ -86,7 +86,7 @@
                 <td class="align-middle">
                     <div class="btn-group">
                     {{-- <a href="{{ route('gh.teams.edit', $team->id) }}" class="btn btn-sm btn-primary" style="border-top-right-radius: 0; border-bottom-right-radius: 0"><i class="fa fa-edit"></i></a> --}}
-                    
+
                     <form class="m-0 p-0" action="{{ route('gh.image.delete', $gallery->id) }}" method="POST">
                         @csrf
                         @method('delete')

@@ -41,7 +41,7 @@
 <div class="btn-group">
     <a class="btn btn-md btn-primary @if(request()->routeIs('gh.about.index')) active @endif" href="{{ route('gh.about.index') }}">General</a>
     <a class="btn btn-md btn-primary @if(request()->routeIs('gh.services')) active @endif" href="{{ route('gh.services') }}">Services</a>
-    <a class="btn btn-md btn-primary @if(request()->routeIs('gh.teams')) active @endif" href="{{ route('gh.teams') }}">Terms and Staff</a>
+    <a class="btn btn-md btn-primary @if(request()->routeIs('gh.teams')) active @endif" href="{{ route('gh.teams') }}">Team and Staff</a>
     <a class="btn btn-md btn-primary @if(request()->routeIs('gh.gallery')) active @endif" href="{{ route('gh.gallery') }}">Gallery/Images</a>
 </div>
 </div>
@@ -49,14 +49,14 @@
 
 <div class="col-md-10 offset-md-1">
     <div class="px-3 px-lg-6 px-xxl-13 py-4 shadow-sm my-4">
-        
+
         <div class="mb-3 d-flex justify-content-between align-items-center">
             <h4 style="color: #00A75A">Services</h4>
         </div>
 
         <form action="{{ route('gh.services.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-        
+
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" required>
@@ -66,7 +66,7 @@
                 <label for="description">Content</label>
                 <textarea class="form-control" id="editor" name="description" rows="5">{{ old('description')}}</textarea>
             </div>
-        
+
             <button type="submit" class="btn btn-primary">Publish</button>
         </form>
     </div>
@@ -89,7 +89,7 @@
                 <td class="align-middle d-flex align-items-center">
                     <div class="btn-group">
                     <a href="{{ route('gh.services.edit', $service->id) }}" class="btn btn-sm btn-primary" style="border-top-right-radius: 0; border-bottom-right-radius: 0"><i class="fa fa-edit"></i></a>
-                    
+
                     <form class="m-0 p-0" action="{{ route('gh.services.delete', $service->id) }}" method="POST">
                         @csrf
                         @method('delete')

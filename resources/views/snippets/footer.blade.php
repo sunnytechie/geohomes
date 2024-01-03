@@ -7,9 +7,9 @@
           </a>
           <div class="lh-26 font-weight-500">
             <p class="mb-0">26 Moorehouse street Ogui Enugu</p>
-            <a class="d-block text-muted hover-white" href="mailto:contact@geohomesgroup.co">contact@geohomesgroup.com</a>
+            <a class="d-block text-muted hover-white" href="mailto:contact@geohomesgroup.co">{{ $aboutInfo['email'] }}</a>
             <a class="d-block text-lighter font-weight-bold fs-15 hover-white"
-                     href="tel:09062972785">09062972785</a>
+                     href="tel:{{ $aboutInfo['phone'] }}">{{ $aboutInfo['phone'] }}</a>
             <a class="d-block text-muted hover-white" href="{{ route('index.welcome') }}">www.geohomesgroup.com</a>
           </div>
         </div>

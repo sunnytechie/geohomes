@@ -53,7 +53,7 @@ class AdvertController extends Controller
             // Save the modified image
             //$image->save(public_path("storage/{$imagePath}"));
             $imagePath = request('image')->store('profile', 'public');
-            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1920, 350);
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1920, 1000);
             $image->save();
         }
 

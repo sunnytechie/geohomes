@@ -32,7 +32,7 @@ class AboutController extends Controller
 
     public function services()
     {
-        
+
         $services = Service::orderBy('id', 'desc')->get();
 
         return view('dashboard.about.service', compact('services'));
@@ -72,6 +72,9 @@ class AboutController extends Controller
             'office_heading' => 'required',
             'office_location' => 'required',
             'office_map' => 'required',
+            'video' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
         ]);
 
         $about = About::find($about);
@@ -80,9 +83,12 @@ class AboutController extends Controller
         $about->office_heading = $request->office_heading;
         $about->office_location = $request->office_location;
         $about->video = $request->video;
+        $about->office_map = $request->office_map;
+        $about->phone = $request->phone;
+        $about->email = $request->email;
         $about->save();
 
-        return redirect()->back()->with('message', 'About info updated successfully');
+        return redirect()->back()->with('message', 'About us page info updated successfully');
     }
 
     public function serviceStore(Request $request)

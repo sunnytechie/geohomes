@@ -41,7 +41,7 @@
         <div class="btn-group">
             <a class="btn btn-md btn-primary @if(request()->routeIs('gh.about.index')) active @endif" href="{{ route('gh.about.index') }}">General</a>
             <a class="btn btn-md btn-primary @if(request()->routeIs('gh.services')) active @endif" href="{{ route('gh.services') }}">Services</a>
-            <a class="btn btn-md btn-primary @if(request()->routeIs('gh.teams')) active @endif" href="{{ route('gh.teams') }}">Terms and Staff</a>
+            <a class="btn btn-md btn-primary @if(request()->routeIs('gh.teams')) active @endif" href="{{ route('gh.teams') }}">Team and Staff</a>
             <a class="btn btn-md btn-primary @if(request()->routeIs('gh.gallery')) active @endif" href="{{ route('gh.gallery') }}">Gallery/Images</a>
         </div>
       </div>
@@ -49,7 +49,7 @@
 
         <div class="col-md-8 offset-md-1">
             <div class="px-3 px-lg-6 px-xxl-13 py-4 shadow-sm my-4">
-                
+
                 <div class="mb-3 d-flex justify-content-between align-items-center">
                     <h4 style="color: #00A75A">Modify the about page</h4>
                 </div>
@@ -66,6 +66,16 @@
                     <div class="form-group">
                         <label for="title">Title</label>
                         <input type="text" class="form-control" id="title" name="title" value="{{ old('title') ?? $about->title }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" value="{{ old('email') ?? $about->email }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') ?? $about->phone }}" required>
                     </div>
 
                     <div class="form-group">
@@ -87,7 +97,7 @@
                         <label for="description">Content</label>
                         <textarea class="form-control" id="editor" name="description" rows="5">{{ old('description') ?? $about->description }}</textarea>
                     </div>
-                
+
                     <button type="submit" class="btn btn-primary">Publish Update</button>
                 </form>
             </div>
