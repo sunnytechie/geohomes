@@ -28,12 +28,19 @@
     <!-- Favicons -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logo/logo.png') }}">
 
+    
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    <title>{{ $ogTitle }}</title>
 
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 </head>
 <body>
-        {{-- @include('snippets.header') --}}
+        @include('snippets.header')
 
         <main>
             @yield('post')
