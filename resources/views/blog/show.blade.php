@@ -1,5 +1,5 @@
-@extends('layouts.share')
-@section('content')
+@extends('layouts.post')
+@section('post')
     {{-- <section class="pt-2 pb-13 page-title bg-img-cover-center bg-white-overlay"
         style="background-image: url('https://cdn.pixabay.com/photo/2014/08/03/23/41/house-409451_1280.jpg');">
         <div class="container">
