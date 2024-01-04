@@ -1,3 +1,5 @@
+@extends('layouts.share')
+@section('content')
 
     <section class="pt-2 pb-13 page-title bg-img-cover-center bg-white-overlay"
          style="background-image: url('https://cdn.pixabay.com/photo/2014/08/03/23/41/house-409451_1280.jpg');">
@@ -52,7 +54,7 @@
                 </div>
 
 
-            </div>
+          </div>
           <div class="col-lg-4 pl-xl-6 pr-xl-0 primary-sidebar sidebar-sticky" id="sidebar">
             <div class="primary-sidebar-inner">
 
@@ -115,4 +117,4 @@
       </div>
     </section>
 
-
+@endsection
