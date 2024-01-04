@@ -28,7 +28,14 @@
     <!-- Favicons -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logo/logo.png') }}">
 
-    
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $ogTitle }}">
+    <meta property="og:description" content="{!! $ogDescription !!}">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="/storage/{{ $ogImage }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

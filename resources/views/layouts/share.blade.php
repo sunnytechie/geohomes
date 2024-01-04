@@ -28,14 +28,6 @@
     <!-- Favicons -->
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logo/logo.png') }}">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@">
-    <meta name="twitter:creator" content="@">
-    <meta name="twitter:title" content="{{ $ogTitle }}">
-    <meta name="twitter:description" content="{!! $ogDescription !!}">
-    <meta name="twitter:image" content="/storage/{{ $ogImage }}">
-
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $ogTitle }}">
     <meta property="og:description" content="{!! $ogDescription !!}">
