@@ -1,6 +1,13 @@
-<title>{{ $project->title }}</title>
 @extends('layouts.app')
-
+<title>{{ $project->title }}</title>
+<!-- Additional meta tags -->
+<meta property="og:title" content="{{ $project->title }}">
+<meta property="og:description" content="{{ $project->description }}">
+<meta property="og:image" content="/storage/{{ $project->image }}">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:site_name" content="Geohomesgroup">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
 @section('content')
 <style>
   .remove-this-item {
