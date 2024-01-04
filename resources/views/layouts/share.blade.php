@@ -30,7 +30,8 @@
 
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $ogTitle }}">
-    <meta property="og:description" content="{{ htmlspecialchars($ogDescription, ENT_QUOTES, 'UTF-8') }}">
+    <meta property="og:description" content="{!! strip_tags($ogDescription) !!}">
+    {{-- <meta property="og:description" content="{{ htmlspecialchars($ogDescription, ENT_QUOTES, 'UTF-8') }}"> --}}
     <meta property="og:type" content="website">
     <meta property="og:image" content="/storage/{{ $ogImage }}">
     <meta property="og:image:type" content="image/png">
