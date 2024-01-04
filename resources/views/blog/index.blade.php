@@ -24,7 +24,7 @@
         @foreach ($posts as $post)
         <div class="col-md-4 mb-6">
           <div class="card border-0 shadow-xxs-3">
-            <div class="position-relative d-flex align-items-end card-img-top">
+            <div class="position-relative align-items-end card-img-top">
               <a href="{{ route('blog.show', $post->id) }}" class="hover-shine">
                 <img class="img-fluid-responsive" src="/storage/{{ $post->image }}" alt="{{ $post->title }}">
               </a>
