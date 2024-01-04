@@ -8,9 +8,17 @@
         width: 100% !important;
         object-fit: cover;
     }
+
+    @media (max-width: 1024px) {
+        #py-md {
+            padding: 30px !important;
+        }
+    }
+
+
 </style>
 
-  <section class="py-17 bg-gray-01">
+  <section id="py-md" class="py-17 bg-gray-01">
     <div class="container">
       <h2 class="fs-30 lh-16 mb-10 text-dark font-weight-600 text-center">
         @if ($posts->count() < 1)
