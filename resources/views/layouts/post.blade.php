@@ -1,61 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet">
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{ asset("assets/vendors/fontawesome-pro-5/css/all.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendors/bootstrap-select/css/bootstrap-select.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendors/slick/slick.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendors/magnific-popup/magnific-popup.min.cs") }}s">
-    <link rel="stylesheet" href="{{ asset("assets/vendors/jquery-ui/jquery-ui.min.cs") }}s">
-    <link rel="stylesheet" href="{{ asset("assets/vendors/chartjs/Chart.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendors/dropzone/css/dropzone.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendors/animate.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendors/timepicker/bootstrap-timepicker.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendors/mapbox-gl/mapbox-gl.min.css") }}">
-    <link rel="stylesheet" href="{{ asset("assets/vendors/dataTables/jquery.dataTables.min.css") }}">
-    <!-- Themes core CSS -->
-    <link rel="stylesheet" href="{{ asset("assets/css/themes.css") }}">
-
-    <!-- Favicons -->
-    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logo/logo.png') }}">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@">
-    <meta name="twitter:creator" content="@">
-    <meta name="twitter:title" content="{{ $ogTitle }}">
-    <meta name="twitter:description" content="{!! $ogDescription !!}">
-    <meta name="twitter:image" content="/storage/{{ $ogImage }}">
-
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="{{ $ogTitle }}">
-    <meta property="og:description" content="{!! $ogDescription !!}">
-    <meta property="og:type" content="article">
-    <meta property="og:image" content="/storage/{{ $ogImage }}">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    <title>{{ $ogTitle }}</title>
-
-    <!-- Scripts -->
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-</head>
 <body>
-        @include('snippets.header')
+        {{-- @include('snippets.header') --}}
 
         <main>
             @yield('post')
