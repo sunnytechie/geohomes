@@ -90,6 +90,10 @@ class PostController extends Controller
     public function show(string $id)
     {
         $post = Post::find($id);
+        $ogTitle = $post->title;
+        $ogDescription = $post->body;
+        $ogImage = $post->image;
+
         $categories = Category::orderBy('id', 'desc')->get();
         $posts = Post::orderBy('id', 'desc')->paginate(5);
         //randomize the posts and remove the current post
@@ -100,7 +104,7 @@ class PostController extends Controller
         //increment the views
         $post->increment('views');
 
-        return view('blog.show', compact('post', 'categories', 'posts'));
+        return view('blog.show', compact('post', 'categories', 'posts', 'ogTitle', 'ogDescription', 'ogImage'));
     }
 
     /**

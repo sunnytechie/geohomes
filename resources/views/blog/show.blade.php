@@ -1,17 +1,4 @@
-@extends('layouts.app')
-{{-- <title>{{ $post->title }}</title> --}}
-    <title>{{ $post->title }}</title>
-
-    <!-- Additional meta tags -->
-    <meta property="og:title" content="{{ $post->title }}">
-    <meta property="og:description" content="{{ $post->body }}">
-    <meta property="og:image" content="/storage/{{ $post->image }}">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:site_name" content="Geohomesgroup">
-    <meta property="og:type" content="article">
-    <meta property="og:locale" content="en_US">
-
-
+@extends('layouts.share')
 @section('content')
 
     <section class="pt-2 pb-13 page-title bg-img-cover-center bg-white-overlay"
@@ -135,4 +122,4 @@
       </div>
     </section>
 
-    @endsection
+@endsection

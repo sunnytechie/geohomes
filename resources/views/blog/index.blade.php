@@ -5,7 +5,7 @@
 <style>
     .img-fluid-responsive {
         height: 200px;
-        width: 100%;
+        width: 100% !important;
         object-fit: cover;
     }
 </style>

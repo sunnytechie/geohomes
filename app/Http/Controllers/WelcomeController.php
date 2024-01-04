@@ -41,10 +41,13 @@ class WelcomeController extends Controller
 
     public function estate($id) {
         $project = Project::find($id);
+        $ogTitle = $project->title;
+        $ogDescription = $project->description;
+        $ogImage = $project->image;
         //increment the views
         $project->increment('views');
         $posts = Post::orderBy('id', 'desc')->paginate(5);
-        return view('estate', compact('project', 'posts'));
+        return view('estate', compact('project', 'posts', 'ogTitle', 'ogDescription', 'ogImage'));
     }
 
     public function error() {
@@ -53,6 +56,9 @@ class WelcomeController extends Controller
 
     public function property($id) {
         $property = Property::find($id);
-        return view('property.show', compact('property'));
+        $ogTitle = $property->title;
+        $ogDescription = $property->description;
+        $ogImage = $property->image;
+        return view('property.show', compact('property', 'ogTitle', 'ogDescription', 'ogImage'));
     }
 }
