@@ -1,6 +1,6 @@
 @extends('layouts.post')
 @section('post')
-    {{-- <section class="pt-2 pb-13 page-title bg-img-cover-center bg-white-overlay"
+    <section class="pt-2 pb-13 page-title bg-img-cover-center bg-white-overlay"
         style="background-image: url('https://cdn.pixabay.com/photo/2014/08/03/23/41/house-409451_1280.jpg');">
         <div class="container">
 
@@ -8,9 +8,9 @@
                 {{ $post->title }}
             </h1>
         </div>
-    </section> --}}
+    </section>
 
-    {{-- <section class="pt-13 pb-12">
+    <section class="pt-13 pb-12">
         <div class="container">
             <div class="row ml-xl-0 mr-xl-n6">
                 <div class="col-lg-8 mb-6 mb-lg-0 pr-xl-6 pl-xl-0">
@@ -116,5 +116,5 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 @endsection
