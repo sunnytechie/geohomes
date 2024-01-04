@@ -1,6 +1,6 @@
 @extends('layouts.share')
 @section('content')
-    <section class="pt-2 pb-13 page-title bg-img-cover-center bg-white-overlay"
+    {{-- <section class="pt-2 pb-13 page-title bg-img-cover-center bg-white-overlay"
         style="background-image: url('https://cdn.pixabay.com/photo/2014/08/03/23/41/house-409451_1280.jpg');">
         <div class="container">
 
@@ -8,7 +8,7 @@
                 {{ $post->title }}
             </h1>
         </div>
-    </section>
+    </section> --}}
 
     {{-- <section class="pt-13 pb-12">
         <div class="container">
