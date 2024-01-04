@@ -152,7 +152,7 @@
                 <div class="ml-auto d-none d-xl-block">
                     <ul class="navbar-nav flex-row ml-auto align-items-center justify-content-lg-end flex-wrap py-2">
                        @auth
-                       @if (Auth::user()->is_agent == 0)
+                       @if (Auth::user()->is_agent == 0 || Auth::user()->is_admin == 0 || Auth::user()->manager == 0 || Auth::user()->auditor == 0 || Auth::user()->accountant == 0 || Auth::user()->marketer == 0 || Auth::user()->secretary == 0)
                        <li class="nav-item ">
                            <a class="nav-link pl-3 pr-2" href="{{ route('agent.profile.join', Auth::user()->id) }}">To Post Properties Become an Agent</a>
                         </li>
