@@ -1,15 +1,10 @@
-@extends('layouts.share')
+{{-- @extends('layouts.share')
 @section('content')
 
     <section class="pt-2 pb-13 page-title bg-img-cover-center bg-white-overlay"
          style="background-image: url('https://cdn.pixabay.com/photo/2014/08/03/23/41/house-409451_1280.jpg');">
         <div class="container">
-          {{-- <nav aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0 p-0">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Pages</li>
-            </ol>
-          </nav> --}}
+
             <h1 class="fs-30 lh-15 mb-0 text-heading font-weight-500 text-center pt-12" data-animate="fadeInDown">
                 {{ $post->title }}
             </h1>
@@ -20,46 +15,46 @@
         <div class="container">
           <div class="row ml-xl-0 mr-xl-n6">
             <div class="col-lg-8 mb-6 mb-lg-0 pr-xl-6 pl-xl-0">
-              <div class="position-relative">
-                <img class="rounded-lg d-block" src="/storage/{{ $post->image }}" alt="Placeholder Image">
-                <a href="#" class="badge text-white bg-dark-opacity-04 fs-13 font-weight-500 bg-hover-primary hover-white m-2 position-absolute letter-spacing-1 pos-fixed-bottom">
-                  {{ $post->category->title ?? "No tag" }}
-                </a>
-              </div>
-              <ul class="list-inline mt-4">
-                <li class="list-inline-item mr-4"><i class="far fa-calendar mr-1"></i> {{ \Carbon\Carbon::parse($post->created_at)->format('d M Y') }}</li>
-                <li class="list-inline-item mr-4"><i class="far fa-eye mr-1"></i> {{ $post->views }} views</li>
-              </ul>
-              <h3 class="fs-md-32 text-heading lh-141 mb-2">
-                {{ $post->title }}
-              </h3>
+                <div class="position-relative">
+                    <img class="rounded-lg d-block" src="/storage/{{ $post->image }}" alt="Placeholder Image">
+                    <a href="#" class="badge text-white bg-dark-opacity-04 fs-13 font-weight-500 bg-hover-primary hover-white m-2 position-absolute letter-spacing-1 pos-fixed-bottom">
+                    {{ $post->category->title ?? "No tag" }}
+                    </a>
+                </div>
+                <ul class="list-inline mt-4">
+                    <li class="list-inline-item mr-4"><i class="far fa-calendar mr-1"></i> {{ \Carbon\Carbon::parse($post->created_at)->format('d M Y') }}</li>
+                    <li class="list-inline-item mr-4"><i class="far fa-eye mr-1"></i> {{ $post->views }} views</li>
+                </ul>
+                <h3 class="fs-md-32 text-heading lh-141 mb-2">
+                    {{ $post->title }}
+                </h3>
 
-              <div class="lh-214 mb-4 pb-2" style="border-bottom: 0.1rem solid #f9f9f9">
-                <p>
-                    {!! $post->body !!}
-                </p>
-              </div>
-
-              <div class="row pb-7 mb-6 border-bottom align-items-center">
-                <div class="col-sm-6 d-flex">
-                  <span class="d-inline-block mr-2"><i class="fal fa-tags"></i></span>
-                  <ul class="list-inline">
-
-                    <li class="list-inline-item mr-0"><a href="#" class="text-muted hover-dark">{{ $post->category->title ?? "No tag" }}</a>
-                    </li>
-                  </ul>
+                <div class="lh-214 mb-4 pb-2" style="border-bottom: 0.1rem solid #f9f9f9">
+                    <p>
+                        {!! $post->body !!}
+                    </p>
                 </div>
 
-                @php
-                    $id = "$post->id";
-                    $pamaLink = "blog/$id";
-                @endphp
+                <div class="row pb-7 mb-6 border-bottom align-items-center">
+                    <div class="col-sm-6 d-flex">
+                    <span class="d-inline-block mr-2"><i class="fal fa-tags"></i></span>
+                    <ul class="list-inline">
 
-                @include('snippets.share')
+                        <li class="list-inline-item mr-0"><a href="#" class="text-muted hover-dark">{{ $post->category->title ?? "No tag" }}</a>
+                        </li>
+                    </ul>
+                    </div>
+
+                    @php
+                        $id = "$post->id";
+                        $pamaLink = "blog/$id";
+                    @endphp
+
+                    @include('snippets.share')
+                </div>
+
+
             </div>
-
-
-          </div>
           <div class="col-lg-4 pl-xl-6 pr-xl-0 primary-sidebar sidebar-sticky" id="sidebar">
             <div class="primary-sidebar-inner">
 
@@ -122,4 +117,4 @@
       </div>
     </section>
 
-@endsection
+@endsection --}}
