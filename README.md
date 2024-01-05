@@ -1,5 +1,5 @@
 # FBILTD
-This application is real estate application developed for FBDLimited.
+This application is real estate application developed for FBILimited.
 
 ## Teck stack used on this project
 * Laravel 10
