@@ -40,7 +40,7 @@
                             <input type="url" name="link" id="link" class="form-control" placeholder="Link the advert page">
                         </div>
                         <div class="form-group">
-                            <label for="image">Thumbnail</label>
+                            <label for="image">Thumbnail (Picture size: 1920x1000)</label>
                             <input type="file" name="image" id="image" class="form-control dropify" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Create</button>

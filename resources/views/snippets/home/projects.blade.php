@@ -2,9 +2,9 @@
     <div class="container container-xxl">
       <div class="row">
         <div class="col-md-6">
-          <h2 class="text-heading">Our Estate</h2>
+          <h2 class="text-heading">Our Estates</h2>
           <span class="heading-divider"></span>
-          <p class="mb-6">Browse though our estate.</p>
+          <p class="mb-6">Browse though our estates.</p>
         </div>
         <div class="col-md-6 text-md-right">
           <a href="{{ route('page.projects') }}" class="btn fs-14 text-secondary btn-accent py-3 lh-15 px-7 mb-6 mb-lg-0"">See all Our Estates

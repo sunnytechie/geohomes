@@ -1,6 +1,6 @@
 <section class="bg-gray-02 pt-10 pb-10">
     <div class="container">
-      <p class="text-primary letter-spacing-263 text-uppercase lh-186 text-center mb-0">new & articles</p>
+      <p class="text-primary letter-spacing-263 text-uppercase lh-186 text-center mb-0">news & articles</p>
       <h2 class="text-center lh-1625 text-dark pb-1">
         Check Out Recent News & Articles
       </h2>

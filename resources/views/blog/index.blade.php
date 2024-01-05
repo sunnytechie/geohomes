@@ -18,7 +18,7 @@
 
 </style>
 
-  <section id="py-md" class="py-17 bg-gray-01">
+  <section id="py-md" class="py-17 bg-gray-01" style="background-image: url('images/bg-title-04.jpg');">
     <div class="container">
       <h2 class="fs-30 lh-16 mb-10 text-dark font-weight-600 text-center">
         @if ($posts->count() < 1)
