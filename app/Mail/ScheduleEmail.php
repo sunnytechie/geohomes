@@ -33,7 +33,7 @@ class ScheduleEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Scheduled for Inpection with Geohomes',
+            subject: 'Scheduled for Inpection with FBILTD',
         );
     }
 

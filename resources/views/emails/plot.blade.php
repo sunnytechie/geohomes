@@ -50,7 +50,7 @@
         <div style="margin: 20px"></div>
         <strong>PROPERTY</strong>
         <div style="display:flex; width:100%">
-            <div style="width: 20%"><i><strong>Location:</strong></i></div>    <div style="width: 80%">Geohomes Gardens Estate, Destiny Layout, Agbogazi Nike, Enugu East Local Government Area, Enugu State. (LAYOUT NAME AND ADRESS)</div>
+            <div style="width: 20%"><i><strong>Location:</strong></i></div>    <div style="width: 80%">FBILTD Gardens Estate, Destiny Layout, Agbogazi Nike, Enugu East Local Government Area, Enugu State. (LAYOUT NAME AND ADRESS)</div>
         </div>
         <div style="display:flex; width:100%">
             <div style="width: 20%"><i><strong>Plot No:</strong></i></div>    <div style="width: 80%">32 (PLOT NUMBER)</div>

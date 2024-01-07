@@ -231,7 +231,7 @@ class TransactionController extends Controller
             "reference" => $tx_ref,
             "email" => Auth::user()->email,
             "currency" => "NGN",
-            "callback_url" => "https://geohomesgroup.com/payment/land/callback/$id",
+            "callback_url" => "https://FBILTDgroup.com/payment/land/callback/$id",
         );
 
         return Paystack::getAuthorizationUrl($data)->redirectNow();

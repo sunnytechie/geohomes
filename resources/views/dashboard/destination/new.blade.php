@@ -1,4 +1,4 @@
-<title>GeoHomes Admin - Add new destination</title>
+<title>FBILTD Admin - Add new destination</title>
 @extends('layouts.admin')
 @section('content')
 

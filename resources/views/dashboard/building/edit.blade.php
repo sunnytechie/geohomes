@@ -1,4 +1,4 @@
-<title>GeoHomes - Admin management</title>
+<title>FBILTD - Admin management</title>
 @extends('layouts.admin')
 @section('content')
 <main id="content" class="bg-gray-01">

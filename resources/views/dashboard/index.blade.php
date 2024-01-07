@@ -62,9 +62,9 @@
         <h2 class="mb-0 text-heading fs-22 lh-15">Hi, {{ Auth::user()->name }}</h2>
         @if (Auth::user()->is_agent)
           @if (Auth::user()->agent->subscribed != 1)
-              <p>You can only post 3 properties on GeoHomes, <a href="{{ route('agent') }}">You can Upgrade to 10 at #10,000</a>.</p>
+              <p>You can only post 3 properties on FBILTD, <a href="{{ route('agent') }}">You can Upgrade to 10 at #10,000</a>.</p>
           @else
-          <p>You're on a Pro Agent with GeoHomes. Your subscription is active.</p>
+          <p>You're on a Pro Agent with FBILTD. Your subscription is active.</p>
           @endif
            @else
            <p>Your Dashboard gives you a heads-up on your analytics.</p>

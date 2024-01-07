@@ -26,22 +26,13 @@
     <link rel="stylesheet" href="{{ asset("assets/css/themes.css") }}">
 
     <!-- Favicons -->
-    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logo/logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/fbi/fbilogo-removebg-preview.png') }}">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@">
-    <meta name="twitter:creator" content="@">
-    <meta name="twitter:title" content="Geohomes Group">
-    <meta name="twitter:description" content="We Are A Leading Real Estate Company In Nigeria That Has Been Building Prosperity For Our Clients By Executing Innovative Real Estate Solutions.">
-    <meta name="twitter:image" content="{{ asset("assets/images/logo/geohomeslogo.png") }}">
-
-    <!-- Facebook -->
-    <meta property="og:url" content="geohomes">
-    <meta property="og:title" content="Geohomes Group">
+    <meta property="og:url" content="FBILTD">
+    <meta property="og:title" content="FBILTD">
     <meta property="og:description" content="With over 25 years of experience, we have consciously established trust in our dealings and consistently provided real estate and housing solutions for over 2,000 satisfied clients both in Nigeria and abroad.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ asset("assets/images/logo/geohomeslogo.png") }}">
+    <meta property="og:image" content="{{ asset("assets/images/fbi/fbilogo-removebg-preview.png") }}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -50,7 +41,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <title>Geohomes Services Limited - Real Estate Development Company</title>
+    <title>Frontier Building Infrastructure limited</title>
 
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}

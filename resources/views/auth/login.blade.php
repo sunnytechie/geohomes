@@ -10,7 +10,7 @@
           <div class="card border-1 shadow">
             <div class="card-body">
                 <a href="/">
-                    <img height="100px" width="180px" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="">
+                    <img height="100px" width="180px" src="{{ asset('assets/images/logo/FBILTDlogo.png') }}" alt="">
                 </a>
 
               <p class="mb-4">Don't have an account? <a href="{{ route('register') }}" class="text-heading hover-primary"><u>Sign Up</u></a></p>
@@ -73,7 +73,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="mb-4">
-      <h3>Sign In to <strong>GeoHomes</strong></h3>
+      <h3>Sign In to <strong>FBILTD</strong></h3>
       <p class="mb-4">Don't have account with us? <a href="{{ route('register') }}">Join today!</a></p>
     </div>
     <form action="{{ route('login') }}" method="post">

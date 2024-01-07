@@ -1,4 +1,4 @@
-<title>GeoHomes - Edit Plot {{ $plot->title }}</title>
+<title>FBILTD - Edit Plot {{ $plot->title }}</title>
 @extends('layouts.admin')
 @section('content')
 <main id="content" class="bg-gray-01">

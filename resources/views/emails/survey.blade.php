@@ -75,7 +75,7 @@
 
     <div class="content">
         Hello {{ $compose['name'] }}, <br>
-        <p>Your legal documents for land payment from Geohomes are ready.</p>
+        <p>Your legal documents for land payment from FBILTD are ready.</p>
         <p>Kindly apply for survey here: <a href="https://geoprecisegroup.com/login">www.geoprecisegroup.com/login</a></p>
 
         <br>

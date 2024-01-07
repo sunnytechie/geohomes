@@ -1,4 +1,4 @@
-<title>Email Verification - Veriy your account with GeoHomes</title>
+<title>Email Verification - Veriy your account with FBILTD</title>
 @extends('layouts.guest')
 @section('content')
 <section class="py-2">

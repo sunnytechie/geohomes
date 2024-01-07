@@ -44,7 +44,7 @@
                         <strong>{{ session('error') }}</strong>
                     </span>
                     @else
-                       At Geohomes, we create values by building outstanding artistry edifice with modern technology and seamless services to our customers.
+                       At FBILTD, we create values by building outstanding artistry edifice with modern technology and seamless services to our customers.
                 @endif
             </p>
             {{-- session --}}

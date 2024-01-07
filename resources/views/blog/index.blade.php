@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>Blog Posts - Geohomes</title>
+<title>Blog Posts - FBILTD</title>
 @section('content')
 
 <style>

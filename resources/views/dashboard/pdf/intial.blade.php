@@ -121,7 +121,7 @@
 
                     <div style="margin-top: 100px"></div>
                     <h4 style="text-align: center"><b>FBI LIMITED</b></h4>
-                    <h5 style="text-align: center">GEOHOMES GARDENS ESTATE, DESTINY LAYOUT, AGBOGAZI NIKE, ENUGU <br> EAST LOCAL GOVERNMENT AREA, ENUGU STATE. <br> LAND PREMIUM, LEGAL FEES</h5>
+                    <h5 style="text-align: center">FBILTD GARDENS ESTATE, DESTINY LAYOUT, AGBOGAZI NIKE, ENUGU <br> EAST LOCAL GOVERNMENT AREA, ENUGU STATE. <br> LAND PREMIUM, LEGAL FEES</h5>
 
                     <div style="border: 1px solid #000; padding: 6px">
 

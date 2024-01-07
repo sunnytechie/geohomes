@@ -35,7 +35,7 @@
 
                 <p>As the delighted proprietor of this allotment, you are entitled to all the privileges and conveniences provided by our prestigious <strong>{{ $transaction->project->title }}</strong> layout.</p>
 
-                <p>Please peruse the attached documents and verify that all of the information is accurate. If you have any questions or need additional information, our customer service team is promptly available to assist you. Please contact us at <strong>0906 297 2785</strong> or <strong>geohomesng@gmail.com</strong>.</p>
+                <p>Please peruse the attached documents and verify that all of the information is accurate. If you have any questions or need additional information, our customer service team is promptly available to assist you. Please contact us at <strong>0906 297 2785</strong> or <strong>FBILTDng@gmail.com</strong>.</p>
 
                 <p>We would like to express our sincere appreciation for selecting [Your Company] as your preferred land developer. It has been a privilege to be a part of your path to land ownership. We are confident that your investment will provide a solid foundation for your future endeavors and generate substantial returns.</p>
 
@@ -49,7 +49,7 @@
 
 
                 {{-- <p>Surv. Uchechukwu Godwin Nnam</p>
-                <p>CEO Geohomes Group</p> --}}
+                <p>CEO FBILTD</p> --}}
             </div>
             <div class="py-4">
                 <form action="{{ route('downloadFinalPdf', $transaction->id) }}" method="POST">

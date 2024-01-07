@@ -88,7 +88,7 @@
     <section class="py-6" id="leadership">
       <div class="container">
         <h2 class="text-dark lh-1625 text-center mb-2 fs-22 fs-md-32">Leadership</h2>
-        <p class="mxw-751 text-center mb-1 px-8">Meet the great minds making GeoHomes a place of great possibilities and service delivery.</p>
+        <p class="mxw-751 text-center mb-1 px-8">Meet the great minds making FBILTD a place of great possibilities and service delivery.</p>
         <div class="row justify-content-center mx-lg-n6 mt-8">
 
         @foreach ($teams as $team)
@@ -164,7 +164,7 @@
     <section class="pt-12" id="work">
       <div class="container">
         <h2 class="text-heading mb-4 fs-22 fs-md-32 text-center lh-16 px-md-13">
-          GeoHomes is an estate agency that helps people live in more thoughtful and beautiful ways.
+          FBILTD is an estate agency that helps people live in more thoughtful and beautiful ways.
         </h2>
         <p class="text-center px-md-17 fs-15 lh-17 mb-8">
           Our home is at the heart of the design, allowing us to engage with our community through talks and events,

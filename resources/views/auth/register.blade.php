@@ -7,7 +7,7 @@
         <div class="row justify-content-center login-register">
             <div class="col-md-12">
                 <a href="/">
-                    <img height="100px" width="180px" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="">
+                    <img height="100px" width="180px" src="{{ asset('assets/images/logo/FBILTDlogo.png') }}" alt="">
                 </a>
                 <p class="mb-4" style="color: #fff; font-weight:600">Choose a signup option.</p>
             </div>
@@ -41,7 +41,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="mb-4">
-        <h3><strong>GeoHomes</strong> SignUp</h3>
+        <h3><strong>FBILTD</strong> SignUp</h3>
         <p class="mb-4">Have an account? <a href="{{ route('login') }}">Login</a></p>
         </div>
     </div>

@@ -10,7 +10,7 @@
         <div class="col-md-6">
           <h2 class="text-heading">Building Materials</h2>
           <span class="heading-divider"></span>
-          <p class="mb-6">Book(Purchase) GeoHomes building materials.</p>
+          <p class="mb-6">Book(Purchase) FBILTD building materials.</p>
         </div>
         <div class="col-md-6 text-md-right">
           <a href="{{ route('listing.building.index') }}"

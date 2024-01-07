@@ -11,7 +11,7 @@
       <div class="container">
         <div class="d-flex justify-content-center mt-3">
             <a href="/">
-                <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="">
+                <img width="150" height="50" src="{{ asset('assets/images/logo/FBILTDlogo.png') }}" alt="">
             </a>
         </div>
 

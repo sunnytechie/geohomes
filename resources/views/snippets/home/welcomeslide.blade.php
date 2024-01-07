@@ -13,8 +13,8 @@
                     </div>
 
                     <div class="col-lg-7 col-md-6">
-                    <h2 class="lh-12 mb-4 mt-8"><a href="#" class="text-white fs-md-60 fs-48">The GeoHomes <br> Masterpiece.</a></h2>
-                    <p class="text-white fs-18 font-weight-500">Geohomes Services Limited is a leading real estate development and consulting firm. </p>
+                    <h2 class="lh-12 mb-4 mt-8"><a href="#" class="text-white fs-md-60 fs-48">The FBILTD <br> Masterpiece.</a></h2>
+                    <p class="text-white fs-18 font-weight-500">Frontier Building Infrastructure limited is a leading real estate development and consulting firm. </p>
                     </div>
 
                 </div>

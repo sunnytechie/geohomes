@@ -1,4 +1,4 @@
-<title>GeoHomes Subscribers list</title>
+<title>FBILTD Subscribers list</title>
 @extends('layouts.admin')
 
 @section('content')

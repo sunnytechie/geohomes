@@ -1,4 +1,4 @@
-<title>Properties for sale or rent with geohomes</title>
+<title>Properties for sale or rent with FBILTD</title>
 @extends('layouts.admin')
 
 @section('content')

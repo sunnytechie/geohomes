@@ -52,7 +52,7 @@ class CallbackController extends Controller
             // send email auth user
         }
 
-        return redirect()->route('transaction')->with('message', "Your payment was successful, Geohomes will allocate a plot to you shortly, thank you.");
+        return redirect()->route('transaction')->with('message', "Your payment was successful, FBILTD will allocate a plot to you shortly, thank you.");
     }
 
     public function subscribeAgent($project_id, $plot, $client) {
@@ -75,7 +75,7 @@ class CallbackController extends Controller
         $transaction->tx_ref = $reference;
         $transaction->save();
 
-        return redirect()->route('transaction')->with('message', "Your payment was successful, Geohomes will allocate a plot to you shortly, thank you.");
+        return redirect()->route('transaction')->with('message', "Your payment was successful, FBILTD will allocate a plot to you shortly, thank you.");
     }
 
     public function finalLandCallback($id) {

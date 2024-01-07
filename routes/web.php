@@ -56,7 +56,7 @@ Route::get('/booking/building/material/{id}', [App\Http\Controllers\BookingContr
 Route::post('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'store'])->name('booking.building.material');
 
 //dashboard
-Route::get('/geohomes/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'isActiveUser', 'verified', 'checkIfAgentAndIsSet', 'agentHasApproval');
+Route::get('/FBILTD/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'isActiveUser', 'verified', 'checkIfAgentAndIsSet', 'agentHasApproval');
 Route::get('/estate/{id}', [App\Http\Controllers\WelcomeController::class, 'estate'])->name('estate.show');
 Route::get('/listing/property/{id}', [App\Http\Controllers\WelcomeController::class, 'property'])->name('gh.property.show');
 
@@ -64,7 +64,7 @@ Route::get('/listing/property/{id}', [App\Http\Controllers\WelcomeController::cl
 Route::get('/listing/building/materials', [App\Http\Controllers\PagesController::class, 'building'])->name('listing.building.index');
 
 //UnApproved Agents
-Route::get('/geohomes/approval/status', [App\Http\Controllers\DashboardController::class, 'status'])->name('dashboard.status')->middleware('auth', 'isActiveUser', 'verified');
+Route::get('/FBILTD/approval/status', [App\Http\Controllers\DashboardController::class, 'status'])->name('dashboard.status')->middleware('auth', 'isActiveUser', 'verified');
 
 //Share post button
 Route::post('/share/facebook', [App\Http\Controllers\ShareController::class, 'facebook'])->name('share.facebook');

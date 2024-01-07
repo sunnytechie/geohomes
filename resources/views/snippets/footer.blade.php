@@ -7,10 +7,10 @@
           </a>
           <div class="lh-26 font-weight-500">
             <p class="mb-0">{{ $aboutInfo['office_location'] }}</p>
-            <a class="d-block text-muted hover-white" href="mailto:contact@geohomesgroup.co">{{ $aboutInfo['email'] }}</a>
+            <a class="d-block text-muted hover-white" href="mailto:contact@FBILTDgroup.co">{{ $aboutInfo['email'] }}</a>
             <a class="d-block text-lighter font-weight-bold fs-15 hover-white"
                      href="tel:{{ $aboutInfo['phone'] }}">{{ $aboutInfo['phone'] }}</a>
-            <a class="d-block text-muted hover-white" href="{{ route('index.welcome') }}">www.geohomesgroup.com</a>
+            <a class="d-block text-muted hover-white" href="{{ route('index.welcome') }}">www.fbiltd.org</a>
           </div>
         </div>
         <div class="col-md-6 col-lg-2 mb-6 mb-md-0">

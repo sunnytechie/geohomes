@@ -28,7 +28,7 @@ class ShareController extends Controller
     public function facebook(Request $request)
     {
         //dd($request->all());
-        $facebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=https://geohomesgroup.com/$request->url";
+        $facebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=https://FBILTDgroup.com/$request->url";
 
         return redirect($facebookShareUrl);
     }
@@ -36,7 +36,7 @@ class ShareController extends Controller
     public function whatsapp(Request $request)
     {
         //dd($request->all());
-        $whatsappShareUrl = "https://wa.me/?text=https://geohomesgroup.com/$request->url";
+        $whatsappShareUrl = "https://wa.me/?text=https://FBILTDgroup.com/$request->url";
 
         return redirect($whatsappShareUrl);
     }
@@ -44,7 +44,7 @@ class ShareController extends Controller
     public function twitter(Request $request)
     {
         //dd($request->all());
-        $twitterShareUrl = "https://twitter.com/intent/tweet?text=Share+title&url=https://geohomesgroup.com/$request->url";
+        $twitterShareUrl = "https://twitter.com/intent/tweet?text=Share+title&url=https://FBILTDgroup.com/$request->url";
 
         return redirect($twitterShareUrl);
     }

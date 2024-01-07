@@ -60,7 +60,7 @@ class PaymentController extends Controller
 
             //return to escrow dashboard
             //dd('completed');
-            return redirect()->route('transaction')->with('message', "Your payment was successful, Geohomes will allocate a plot to you shortly, thank you.");
+            return redirect()->route('transaction')->with('message', "Your payment was successful, FBILTD will allocate a plot to you shortly, thank you.");
         }
 
         if ($checkInspectiontransactionTable != NULL) {
@@ -69,7 +69,7 @@ class PaymentController extends Controller
             $transaction->status = 1;
             $transaction->save();
 
-            return redirect()->route('schedule')->with('message', "Your payment was successful, Geohomes will schedule inspection date with you shortly, thank you.");
+            return redirect()->route('schedule')->with('message', "Your payment was successful, FBILTD will schedule inspection date with you shortly, thank you.");
         }
 
         if ($checkPendingAgent != NULL) {
@@ -82,7 +82,7 @@ class PaymentController extends Controller
             $pending = Pendingagent::find($checkPendingAgent->id);
             $pending->delete();
 
-            return redirect()->route('dashboard.index')->with('message', "Your payment was successful, You can now post more properties in Geohomes, thank you.");
+            return redirect()->route('dashboard.index')->with('message', "Your payment was successful, You can now post more properties in FBILTD, thank you.");
         }
 
 
@@ -127,7 +127,7 @@ class PaymentController extends Controller
             "reference" => $tx_ref,
             "email" => Auth::user()->email,
             "currency" => "NGN",
-            "callback_url" => "https://geohomesgroup.com/payment/subscriber/callback/$project/$plots",
+            "callback_url" => "https://FBILTDgroup.com/payment/subscriber/callback/$project/$plots",
         );
 
         return Paystack::getAuthorizationUrl($data)->redirectNow();

@@ -10,14 +10,14 @@
             <div class="card border-1 shadow">
             <div class="card-body">
                 <a href="/">
-                    <img height="100px" width="180px" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="">
+                    <img height="100px" width="180px" src="{{ asset('assets/images/logo/FBILTDlogo.png') }}" alt="">
                 </a>
 
                 <p class="mb-4">Have an account? <a href="{{ route('login') }}" class="text-heading hover-primary"><u>Sign In</u></a></p> --}}
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="mb-4">
-                        <h3>Sign Up with <strong>GeoHomes</strong></h3>
+                        <h3>Sign Up with <strong>FBILTD</strong></h3>
                         <p class="mb-4">Have account with us? <a href="{{ route('login') }}">Login here!</a></p>
 
                         @if ($errors->has('g-recaptcha-response'))

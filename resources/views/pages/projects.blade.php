@@ -95,7 +95,7 @@
             </ol>
           </nav>
           <h1 class="fs-18 fs-md-30 mb-0 text-white font-weight-normal text-center pt-8 pb-13 lh-15 px-lg-16" data-animate="fadeInDown">
-            GeoHomes is an estate agency that helps people live in more thoughtful and beautiful ways.
+            FBILTD is an estate agency that helps people live in more thoughtful and beautiful ways.
           </h1>
         </div>
   </section> --}}

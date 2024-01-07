@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="GeoHomes Real Estate.">
+    <meta name="description" content="FBILTD Real Estate.">
     <meta name="author" content="">
     <meta name="generator" content="">
-    <title>Dashboard - GeoHomes.</title>
+    <title>Dashboard - FBILTD.</title>
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet">
@@ -33,16 +33,16 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@">
     <meta name="twitter:creator" content="@">
-    <meta name="twitter:title" content="Geohomes Group">
+    <meta name="twitter:title" content="FBILTD">
     <meta name="twitter:description" content="We Are A Leading Real Estate Company In Nigeria That Has Been Building Prosperity For Our Clients By Executing Innovative Real Estate Solutions.">
-    <meta name="twitter:image" content="{{ asset("assets/images/logo/geohomeslogo.png") }}">
+    <meta name="twitter:image" content="{{ asset("assets/images/logo/FBILTDlogo.png") }}">
 
     <!-- Facebook -->
-    <meta property="og:url" content="geohomes">
-    <meta property="og:title" content="Geohomes Group">
+    <meta property="og:url" content="FBILTD">
+    <meta property="og:title" content="FBILTD">
     <meta property="og:description" content="With over 25 years of experience, we have consciously established trust in our dealings and consistently provided real estate and housing solutions for over 2,000 satisfied clients both in Nigeria and abroad.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="{{ asset("assets/images/logo/geohomeslogo.png") }}">
+    <meta property="og:image" content="{{ asset("assets/images/logo/FBILTDlogo.png") }}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">

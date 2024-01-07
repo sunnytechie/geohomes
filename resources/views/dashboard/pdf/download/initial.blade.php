@@ -31,7 +31,7 @@
 </head>
 <body style="padding: 50px 25px;">
     <div id="header">
-        <img height="50" width="150" src="https://geohomesgroup.com/assets/images/logo/geohomeslogo.png" alt="Geohomes">
+        <img height="50" width="150" src="https://FBILTDgroup.com/assets/images/logo/FBILTDlogo.png" alt="FBILTD">
     </div>
 
     <div class="content" id="pdfContent" style="padding: 10px;">
@@ -144,7 +144,7 @@
             <div style="padding: 20px 0"></div>
 
             <h4 style="text-align: center"><b>FBI LIMITED</b></h4>
-            <h5 style="text-align: center">GEOHOMES GARDENS ESTATE, DESTINY LAYOUT, AGBOGAZI NIKE, ENUGU <br> EAST LOCAL GOVERNMENT AREA, ENUGU STATE. <br> LAND PREMIUM, LEGAL FEES</h5>
+            <h5 style="text-align: center">FBILTD GARDENS ESTATE, DESTINY LAYOUT, AGBOGAZI NIKE, ENUGU <br> EAST LOCAL GOVERNMENT AREA, ENUGU STATE. <br> LAND PREMIUM, LEGAL FEES</h5>
 
             <div style="border: 1px solid #000; padding: 6px">
 

@@ -12,7 +12,7 @@
         <div class="col-md-6">
           <h2 class="text-heading">Best Properties For Sale</h2>
           <span class="heading-divider"></span>
-          <p class="mb-6">Find the best properties for sale on Geohomes</p>
+          <p class="mb-6">Find the best properties for sale on FBILTD</p>
         </div>
         <div class="col-md-6 text-md-right">
           <a href="{{ route('page.buy.rent') }}"

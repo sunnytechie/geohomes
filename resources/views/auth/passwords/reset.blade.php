@@ -4,7 +4,7 @@
 <div class="row justify-content-center">
     <div class="col-md-8">
         <div class="mb-4">
-            <h3>Sign In to <strong>GeoHomes</strong></h3>
+            <h3>Sign In to <strong>FBILTD</strong></h3>
             <p class="mb-4">Remember your credentials? <a href="{{ route('login') }}">Login here!</a></p>
         </div>
             <form method="POST" action="{{ route('password.update') }}">

@@ -190,7 +190,7 @@ class RegisterController extends Controller
             return redirect()->route('agent.profile', $user->id)->with('message', "Kindly complete your agent profile registration.");
         }
 
-        return redirect()->route('dashboard.index')->with('message', "welcome to Geohomes.");
+        return redirect()->route('dashboard.index')->with('message', "welcome to FBILTD.");
     }
 
     public function customer() {

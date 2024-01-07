@@ -34,7 +34,7 @@ class ContactEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Message from contact form - Geohomes',
+            subject: 'New Message from contact form - FBILTD',
         );
     }
 

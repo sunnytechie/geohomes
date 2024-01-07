@@ -108,7 +108,7 @@ class AdminController extends Controller
         $agent = new Agent();
         $agent->user_id = $admin->id;
         $agent->subscribed = 1;
-        $agent->agent_brand_name = "Geohomes";
+        $agent->agent_brand_name = "FBILTD";
         $agent->save();
 
         return redirect()->route('admins.index')->with('message', "New Admin Authorization.");

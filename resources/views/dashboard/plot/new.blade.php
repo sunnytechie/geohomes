@@ -1,4 +1,4 @@
-<title>GeoHomes - New Plot</title>
+<title>FBILTD - New Plot</title>
 @extends('layouts.admin')
 @section('content')
 <main id="content" class="bg-gray-01">

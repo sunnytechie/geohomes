@@ -75,7 +75,7 @@
     <div id="content">
         <div class="text-1">Invitation for Inspection</div>
         <div class="text-3">
-            You have been scheduled for inspection with GeoHomes Estate, Kindly call our customer care for more information.
+            You have been scheduled for inspection with FBILTD Estate, Kindly call our customer care for more information.
           </div>
         <div class="text-4">
           Inspection date: {{ $compose['date'] }}<br>

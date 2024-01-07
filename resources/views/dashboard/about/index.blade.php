@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-<title>Modify About Geohomes Information</title>
+<title>Modify About FBILTD Information</title>
 @section('content')
 <style>
     .page-content {

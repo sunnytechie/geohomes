@@ -235,7 +235,7 @@
                     </div>
                 </a> --}}
 
-                <div class="mt-2">By creating an account, you agree to Geohomes Group
+                <div class="mt-2">By creating an account, you agree to FBILTD
                   <a class="text-heading" href="#"><u>Terms of Use</u> </a> and
                   <a class="text-heading" href="#"><u>Privacy Policy</u></a>.
                 </div>

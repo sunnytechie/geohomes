@@ -27,7 +27,7 @@
     <div class="mb-6">
       <h2 class="mb-0 text-heading fs-22 lh-15">My Profile
       </h2>
-      <p class="mb-1">GeoHomes will never share your personal details with anyone.</p>
+      <p class="mb-1">FBILTD will never share your personal details with anyone.</p>
     </div>
     <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
         @csrf
