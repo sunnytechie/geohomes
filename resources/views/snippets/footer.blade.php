@@ -3,10 +3,10 @@
       <div class="row">
         <div class="col-md-6 col-lg-4 mb-6 mb-md-0">
           <a class="d-block mb-2" href="#">
-            <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="Geohomes">
+            <img width="80" height="80" src="{{ asset('assets/images/fbi/fbilogo-removebg-preview.png') }}" alt="FBILTD">
           </a>
           <div class="lh-26 font-weight-500">
-            <p class="mb-0">26 Moorehouse street Ogui Enugu</p>
+            <p class="mb-0">{{ $aboutInfo['office_location'] }}</p>
             <a class="d-block text-muted hover-white" href="mailto:contact@geohomesgroup.co">{{ $aboutInfo['email'] }}</a>
             <a class="d-block text-lighter font-weight-bold fs-15 hover-white"
                      href="tel:{{ $aboutInfo['phone'] }}">{{ $aboutInfo['phone'] }}</a>
@@ -87,7 +87,7 @@
           </li>
         </ul> --}}
         <p class="col-md-12 mb-0 text-muted text-center">
-          &copy; {{ now()->year }} GeoHomes. All Rights Reserved
+          &copy; {{ now()->year }} FBI limited. All Rights Reserved
         </p>
       </div>
     </div>

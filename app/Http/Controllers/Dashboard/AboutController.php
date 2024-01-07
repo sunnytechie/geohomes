@@ -19,10 +19,10 @@ class AboutController extends Controller
             // Create about
             $about = About::create([
                 'video' => 'https://www.youtube.com/watch?v=JGwWNGJdvx8',
-                'title' => 'We are a home of innovative solutions.',
-                'description' => 'Geohomes Services Limited is a private limited liability company duly registered under the Companies and Allied Matters Act of 1990 on 12th August, 2020 with RC. No. 1696212.',
+                'title' => 'Frontier Building Infrastructure limited.',
+                'description' => 'Frontier Building Infrastructure Limited is a dynamic and innovative company specializing in the construction and development of cutting-edge infrastructure projects. Committed to excellence, we leverage advanced technologies and a skilled workforce to deliver high-quality solutions in the realms of commercial, residential, and industrial construction. With a focus on sustainability and client satisfaction, Frontier Building Infrastructure Limited is dedicated to shaping a future where infrastructure meets the highest standards of efficiency, durability, and aesthetic appeal.',
                 'office_heading' => 'We are devoted to offering you properties that stand the test of time and market changes. ',
-                'office_location' => '26 Moorehouse street Ogui Enugu.',
+                'office_location' => 'Enugu, Nigeria',
                 'office_map' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.6468249970967!2d7.492525573327757!3d6.439381724138578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1044a3d8f51f6071%3A0x6b07f5ee68d7e660!2s26%20Moorehouse%20St%2C%20Ogui%20400001%2C%20Enugu!5e0!3m2!1sen!2sng!4v1685829579897!5m2!1sen!2sng',
             ]);
         }

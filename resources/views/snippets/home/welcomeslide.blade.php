@@ -24,14 +24,14 @@
 
         <div class="box px-0 d-flex flex-column">
           <div class="bg-cover d-flex align-items-center custom-vh-02"
-             style="background-image: url('assets/images/bg-slider-02.jpg')">
+             style="background-image: url('https://cdn.pixabay.com/photo/2016/11/13/18/22/room-1821636_1280.jpg')">
             <div class="container">
 
                 <div class="spacer mt-8"></div>
 
               <div class="row py-8" data-animate="zoomIn">
                 <div class="col-lg-5 col-md-6 d-md-block d-none">
-                  <a href="#" class="d-inline-block"><img src="{{ asset('assets/images/single-image-06.jpg') }}" class="rounded-lg" alt="Villa on Hollywood Boulevard"></a>
+                  <a href="#" class="d-inline-block"><img src="{{ asset('assets/images/single-image-07.jpg') }}" class="rounded-lg" alt="Villa on Hollywood Boulevard"></a>
                   </div>
 
                   <div class="col-lg-7 col-md-6">
@@ -46,14 +46,14 @@
 
         <div class="box px-0 d-flex flex-column">
             <div class="bg-cover d-flex align-items-center custom-vh-02"
-             style="background-image: url('assets/images/bg-slider-03.jpg')">
+             style="background-image: url('https://cdn.pixabay.com/photo/2018/07/15/13/04/living-room-3539586_1280.jpg')">
               <div class="container">
 
                 <div class="spacer mt-8"></div>
 
                 <div class="row py-8" data-animate="zoomIn">
                   <div class="col-lg-5 col-md-6 d-md-block d-none">
-                    <a href="#" class="d-inline-block"><img src="{{ asset('assets/images/single-image-07.jpg') }}" class="rounded-lg" alt="Villa on Hollywood Boulevard"></a>
+                    <a href="#" class="d-inline-block"><img src="{{ asset('assets/images/single-image-06.jpg') }}" class="rounded-lg" alt="Villa on Hollywood Boulevard"></a>
                   </div>
 
                   <div class="col-lg-7 col-md-6">

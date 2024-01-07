@@ -22,7 +22,7 @@
       <div class="sticky-area shadow-xs-1 py-3">
         <div class="d-flex px-3 px-xl-6 w-100">
           <a class="navbar-brand" href="/">
-            <img height="40" width="120" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="GeoHomes">
+            <img height="50" width="50" src="{{ asset('assets/images/fbi/fbilogo.jpg') }}" alt="GeoHomes">
           </a>
           <div class="ml-auto d-flex align-items-center ">
             <div class="d-flex align-items-center d-xl-none">

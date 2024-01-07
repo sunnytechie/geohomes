@@ -24,7 +24,7 @@
 </head>
 <body style="padding: 50px 25px;">
     <div id="header">
-        <img height="50" width="150" src="https://geohomesgroup.com/assets/images/logo/geohomeslogo.png" alt="Geohomes">
+        <img height="50" width="50" src="https://fbiltd.org/assets/images/fbi/fbilogo.jpg" alt="FBGILTD">
     </div>
     <div style="margin: 30px; auto"></div>
     <div>{{ $compose['clientName'] ?? "not found" }}</div>
@@ -61,10 +61,10 @@
 
     <p>Sincerely,</p>
     <br>
-
-    <p>Surveyor</p>
+    <p>FBILTD</p>
+    {{-- <p>Surveyor</p>
     <p>Uchechukwu Godwin Nnam</p>
-    <p>CEO Geohomes Group</p>
+    <p>CEO Geohomes Group</p> --}}
 
 </body>
 </html>

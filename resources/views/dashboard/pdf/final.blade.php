@@ -45,10 +45,11 @@
 
                 <p>Sincerely,</p>
                 <br>
+                <p>FBI Limited</p>
 
 
-                <p>Surv. Uchechukwu Godwin Nnam</p>
-                <p>CEO Geohomes Group</p>
+                {{-- <p>Surv. Uchechukwu Godwin Nnam</p>
+                <p>CEO Geohomes Group</p> --}}
             </div>
             <div class="py-4">
                 <form action="{{ route('downloadFinalPdf', $transaction->id) }}" method="POST">

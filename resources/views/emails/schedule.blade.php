@@ -70,7 +70,7 @@
   </head>
   <body>
     <div id="header">
-      <img height="50" width="150" src="https://geohomesgroup.com/assets/images/logo/geohomeslogo.png" alt="Geohomes">
+        <img height="50" width="50" src="https://fbiltd.org/assets/images/fbi/fbilogo.jpg" alt="FBGILTD">
     </div>
     <div id="content">
         <div class="text-1">Invitation for Inspection</div>
@@ -97,7 +97,7 @@
           </div>
 
         <div class="link">
-          <a href="https://www.geohomes.com">geohomes.com</a>
+            <a href="https://www.fbiltd.org">www.fbiltd.org</a>
         </div>
     </div>
 

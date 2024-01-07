@@ -10,8 +10,8 @@
         <div class="col-ld-6 col-sm-5 text-center mt-sm-0 mt-8" data-animate="fadeInRight">
           <i class="fal fa-phone fs-40 text-primary"></i>
           <p class="fs-13 font-weight-500 letter-spacing-173 text-uppercase lh-2 mt-3">Call for help now!</p>
-          <p class="fs-md-42 fs-32 font-weight-600 text-secondary lh-1">09062972785</p>
-          <a href="tel:09062972785" class="btn btn-lg btn-primary mt-2 px-10">Contact us</a>
+          <p class="fs-md-42 fs-32 font-weight-600 text-secondary lh-1">{{ $aboutInfo['phone'] }}</p>
+          <a href="tel:{{ $aboutInfo['phone'] }}" class="btn btn-lg btn-primary mt-2 px-10">Contact us</a>
         </div>
       </div>
     </div>

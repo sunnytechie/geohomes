@@ -70,25 +70,25 @@
   </head>
   <body>
     <div id="header">
-      <img height="50" width="150" src="https://geohomesgroup.com/assets/images/logo/geohomeslogo.png" alt="Geohomes">
+        <img height="50" width="50" src="https://fbiltd.org/assets/images/fbi/fbilogo.jpg" alt="FBGILTD">
     </div>
     <div id="content">
-        <div class="text-1">New Message - Geohomes Contact form</div>
+        <div class="text-1">New Message - FBILTD Contact form</div>
         <div class="text-3">
-            You have a new message from Geohomes contact form. Kindly respond as soon as possible.  
+            You have a new message from FBILTD contact form. Kindly respond as soon as possible.
         </div>
         <div class="text-4">
           <div><strong>Details of message</strong></div>
           <div>Name: {{ $compose['fName'] }} {{ $compose['lName'] }}</div>
           <div>Email: {{ $compose['email'] }}</div>
           <div>Phone: {{ $compose['phone'] }}</div>
-          <div>Messege: {{ $compose['message'] }}</div>          
+          <div>Messege: {{ $compose['message'] }}</div>
         </div>
 
     </div>
     <div id="footer">
         <div class="link">
-          <a href="https://www.geohomes.com">www.geohomes.com</a>
+            <a href="https://www.fbiltd.org">www.fbiltd.org</a>
         </div>
     </div>
 

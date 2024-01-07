@@ -26,8 +26,8 @@
             <div class="d-flex align-items-center">
                 <nav class="navbar navbar-expand-xl bg-transparent px-0 w-100 w-xl-auto">
                     <a class="navbar-brand mr-7" href="/">
-                        <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="HomeID" class="normal-logo">
-                        <img width="150" height="50" src="{{ asset('assets/images/logo/geohomeslogo.png') }}" alt="HomeID" class="sticky-logo">
+                        <img width="50" height="50" src="{{ asset('assets/images/fbi/fbilogo.jpg') }}" alt="HomeID" class="normal-logo">
+                        <img width="50" height="50" src="{{ asset('assets/images/fbi/fbilogo.jpg') }}" alt="HomeID" class="sticky-logo">
                     </a>
 
                     @auth

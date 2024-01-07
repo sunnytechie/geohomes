@@ -24,8 +24,7 @@
 </head>
 <body style="padding: 50px 25px;">
     <div id="header">
-        <img height="50" width="150" src="https://geohomesgroup.com/assets/images/logo/geohomeslogo.png" alt="Geohomes">
-    </div>
+        <img height="50" width="50" src="https://fbiltd.org/assets/images/fbi/fbilogo.jpg" alt="FBGILTD">    </div>
     <div style="margin: 30px; auto"></div>
                 <div>@if($transaction->client) {{ $transaction->client->name }} @else {{ Auth::user()->name }} @endif</div>
                 <div>@if($transaction->client) {{ $transaction->client->address }} @else {{ Auth::user()->address }} @endif</div>
@@ -61,10 +60,11 @@
 
                 <p>Sincerely,</p>
                 <br>
+                <p>FBILTD</p>
 
 
-                <p>Surv. Uchechukwu Godwin Nnam</p>
-                <p>CEO Geohomes Group</p>
+                {{-- <p>Surv. Uchechukwu Godwin Nnam</p>
+                <p>CEO Geohomes Group</p> --}}
 
 </body>
 </html>

@@ -70,7 +70,7 @@
   </head>
   <body>
     <div id="header">
-      <img height="50" width="150" src="https://geohomesgroup.com/assets/images/logo/geohomeslogo.png" alt="Geohomes">
+        <img height="50" width="50" src="https://fbiltd.org/assets/images/fbi/fbilogo.jpg" alt="FBGILTD">
     </div>
 
     <div class="content">
@@ -80,7 +80,7 @@
 
         <br>
         <p>Best wishes,</p>
-        <p>GeoHomes</p>
+        <p>FBILTD</p>
     </div>
 
 
