@@ -1,5 +1,5 @@
-# Church Of Nigeria Anglican Admin Control Dashboard
-This application is real estate application developed for Geohomes Group.
+# Web Application
+This application is real estate application
 
 ## Teck stack used on this project
 * Laravel 10
