@@ -56,7 +56,7 @@ Route::get('/booking/building/material/{id}', [App\Http\Controllers\BookingContr
 Route::post('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'store'])->name('booking.building.material');
 
 //dashboard
-Route::get('/geohomes/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'verified', 'checkIfAgentAndIsSet', 'agentHasApproval');
+Route::get('/geohomes/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'isActiveUser', 'verified', 'checkIfAgentAndIsSet', 'agentHasApproval');
 Route::get('/estate/{id}', [App\Http\Controllers\WelcomeController::class, 'estate'])->name('estate.show');
 Route::get('/listing/property/{id}', [App\Http\Controllers\WelcomeController::class, 'property'])->name('gh.property.show');
 
@@ -64,7 +64,7 @@ Route::get('/listing/property/{id}', [App\Http\Controllers\WelcomeController::cl
 Route::get('/listing/building/materials', [App\Http\Controllers\PagesController::class, 'building'])->name('listing.building.index');
 
 //UnApproved Agents
-Route::get('/geohomes/approval/status', [App\Http\Controllers\DashboardController::class, 'status'])->name('dashboard.status')->middleware('auth', 'verified');
+Route::get('/geohomes/approval/status', [App\Http\Controllers\DashboardController::class, 'status'])->name('dashboard.status')->middleware('auth', 'isActiveUser', 'verified');
 
 //Share post button
 Route::post('/share/facebook', [App\Http\Controllers\ShareController::class, 'facebook'])->name('share.facebook');
@@ -74,13 +74,16 @@ Route::post('/share/twitter', [App\Http\Controllers\ShareController::class, 'twi
 Route::get('/social/share', [App\Http\Controllers\ShareController::class, 'index'])->name('share.index');
 
 //listings Resources
-Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
+Route::middleware('auth', 'isActiveUser', 'isAdmin', 'verified')->group(function () {
     Route::resource('buildings', 'App\Http\Controllers\BuildingController');
     Route::resource('projects', 'App\Http\Controllers\ProjectController');
     Route::resource('destinations', 'App\Http\Controllers\DestinationController');
     Route::resource('admins', 'App\Http\Controllers\AdminController');
     Route::resource('plots', 'App\Http\Controllers\PlotController');
     Route::resource('properties', 'App\Http\Controllers\PropertyController');
+
+    //block user
+    Route::post('/block/unblock/user/{user}', [App\Http\Controllers\BlockUserController::class, 'blockUnblockUser'])->name('block.unblock.user');
 
     //Allocate
     Route::get('/allocate', [App\Http\Controllers\TransactionController::class, 'allocate'])->name('allocate');
@@ -147,7 +150,7 @@ Route::middleware('auth', 'isAdmin', 'verified')->group(function () {
     Route::delete('/gh-image/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'imageDelete'])->name('gh.image.delete');
 });
 
-Route::middleware('auth', 'verified', 'hasAdminButNotAgent', 'isAgent', 'agentHasApproval')->group(function () {
+Route::middleware('auth', 'isActiveUser', 'verified', 'hasAdminButNotAgent', 'isAgent', 'agentHasApproval')->group(function () {
     //Route::resource('properties', 'App\Http\Controllers\PropertyController');
 });
 
@@ -158,60 +161,62 @@ Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middlewar
 
 Route::get('email-subscribers', [App\Http\Controllers\UserController::class, 'subscribers'])->name('subscribed.users')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::get('registered-users', [App\Http\Controllers\UserController::class, 'index'])->name('registered.users')->middleware('auth', 'verified', 'isAuditorAccountant');
-Route::get('registered-agents', [App\Http\Controllers\AgentController::class, 'index'])->name('registered.agents')->middleware('auth', 'verified', 'isAuditorAccountant');
+Route::get('approved/corperate/partners', [App\Http\Controllers\AgentController::class, 'index'])->name('registered.agents')->middleware('auth', 'verified', 'isAuditorAccountant');
+Route::get('approved/individual/partners', [App\Http\Controllers\AgentController::class, 'index2'])->name('registered.agents.2')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::delete('delete/registered-agents/{id}', [App\Http\Controllers\AgentController::class, 'destroy'])->name('registered.agents.destroy')->middleware('auth', 'verified', 'isAuditorAccountant');
 
 
 //account
-Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show')->middleware('auth', 'verified');
-Route::put('/my-profile/update', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update')->middleware('auth', 'verified');
+Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show')->middleware('auth', 'isActiveUser', 'verified');
+Route::put('/my-profile/update', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update')->middleware('auth', 'isActiveUser', 'verified');
 
 //Agent account
-Route::get('/agent-profile/{id}', [App\Http\Controllers\AgentController::class, 'profile'])->name('agent.profile')->middleware('auth', 'verified', 'isAgent');
-Route::put('/agent-profile/{id}/update', [App\Http\Controllers\AgentController::class, 'profileUpdate'])->name('agent.profile.update')->middleware('auth', 'verified', 'isAgent');
+Route::get('/agent-profile/{id}', [App\Http\Controllers\AgentController::class, 'profile'])->name('agent.profile')->middleware('auth', 'isActiveUser', 'verified', 'isAgent');
+Route::put('/agent-profile/{id}/update', [App\Http\Controllers\AgentController::class, 'profileUpdate'])->name('agent.profile.update')->middleware('auth', 'isActiveUser', 'verified', 'isAgent');
 
 //Join Agent
-Route::get('/join-agent-profile/{id}', [App\Http\Controllers\AgentController::class, 'profileJoin'])->name('agent.profile.join')->middleware('auth', 'verified');
-Route::put('/join-agent-profile/{id}/update', [App\Http\Controllers\AgentController::class, 'profileJoinUpdate'])->name('agent.profile.join.update')->middleware('auth', 'verified');
+Route::get('/join-agent-profile/{id}', [App\Http\Controllers\AgentController::class, 'profileJoin'])->name('agent.profile.join')->middleware('auth', 'isActiveUser', 'verified');
+Route::put('/join-agent-profile/{id}/update', [App\Http\Controllers\AgentController::class, 'profileJoinUpdate'])->name('agent.profile.join.update')->middleware('auth', 'isActiveUser', 'verified');
 
 //Paystack
-Route::post('/payment/subscription', [App\Http\Controllers\PaymentController::class, 'subscription'])->name('subscription')->middleware('auth', 'verified');
-Route::post('/payment/inspection', [App\Http\Controllers\PaymentController::class, 'inspection'])->name('inspection')->middleware('auth', 'verified');
-Route::get('/payment/agent', [App\Http\Controllers\PaymentController::class, 'agent'])->name('agent')->middleware('auth', 'verified');
-Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('handleGatewayCallback')->middleware('auth', 'verified');
+Route::post('/payment/subscription', [App\Http\Controllers\PaymentController::class, 'subscription'])->name('subscription')->middleware('auth', 'isActiveUser', 'verified');
+Route::post('/payment/inspection', [App\Http\Controllers\PaymentController::class, 'inspection'])->name('inspection')->middleware('auth', 'isActiveUser', 'verified');
+Route::get('/payment/agent', [App\Http\Controllers\PaymentController::class, 'agent'])->name('agent')->middleware('auth', 'isActiveUser', 'verified');
+Route::get('/payment/callback', [App\Http\Controllers\PaymentController::class, 'handleGatewayCallback'])->name('handleGatewayCallback')->middleware('auth', 'isActiveUser', 'verified');
 
 //Initiate land subscription for client
-Route::get('/initiate/land/subscription/{id}', [App\Http\Controllers\ClientController::class, 'initiateLandPayment'])->name('initiateLandPayment')->middleware('auth', 'verified');
+Route::get('/initiate/land/subscription/{id}', [App\Http\Controllers\ClientController::class, 'initiateLandPayment'])->name('initiateLandPayment')->middleware('auth', 'isActiveUser', 'verified');
 //save client details
-Route::post('/initiate/land/subscription/{id}', [App\Http\Controllers\ClientController::class, 'initiateLandPaymentPost'])->name('initiateLandPaymentPost')->middleware('auth', 'verified');
+Route::post('/initiate/land/subscription/{id}', [App\Http\Controllers\ClientController::class, 'initiateLandPaymentPost'])->name('initiateLandPaymentPost')->middleware('auth', 'isActiveUser', 'verified');
 
 //Callback route
-Route::get('/payment/subscriber/callback/{project}/{plot}', [App\Http\Controllers\CallbackController::class, 'subscribe'])->name('subscribe.handleGatewayCallback')->middleware('auth', 'verified');
+Route::get('/payment/subscriber/callback/{project}/{plot}', [App\Http\Controllers\CallbackController::class, 'subscribe'])->name('subscribe.handleGatewayCallback')->middleware('auth', 'isActiveUser', 'verified');
 Route::get('/payment/subscriber/callback/agent/{project}/{plot}', [App\Http\Controllers\CallbackController::class, 'subscribeAgent'])->name('agent.subscribe.handleGatewayCallback')->middleware('auth', 'verified');
 
 //Final Payment on land
-Route::post('/final/land/payment/{id}', [App\Http\Controllers\TransactionController::class, 'finalLandPayment'])->name('finalLandPayment')->middleware('auth', 'verified');
-Route::get('/payment/land/callback/{id}', [App\Http\Controllers\CallbackController::class, 'finalLandCallback'])->name('finalLandCallback')->middleware('auth', 'verified');
+Route::post('/final/land/payment/{id}', [App\Http\Controllers\TransactionController::class, 'finalLandPayment'])->name('finalLandPayment')->middleware('auth', 'isActiveUser', 'verified');
+Route::get('/payment/land/callback/{id}', [App\Http\Controllers\CallbackController::class, 'finalLandCallback'])->name('finalLandCallback')->middleware('auth', 'isActiveUser', 'verified');
 
 //pdfs
-Route::get('/generate/initial-transaction/paper/{id}', [App\Http\Controllers\PdfController::class, 'generateInitialPdf'])->name('generateInitialPdf')->middleware('auth', 'verified');
-Route::get('/generate/final-transaction/paper/{id}', [App\Http\Controllers\PdfController::class, 'generateFinalPdf'])->name('generateFinalPdf')->middleware('auth', 'verified');
-Route::post('/download/initial-pdf/{id}', [App\Http\Controllers\PdfController::class, 'downloadInitialPdf'])->name('downloadInitialPdf')->middleware('auth', 'verified');
-Route::post('/download/final-pdf/{id}', [App\Http\Controllers\PdfController::class, 'downloadFinalPdf'])->name('downloadFinalPdf')->middleware('auth', 'verified');
+Route::get('/generate/initial-transaction/paper/{id}', [App\Http\Controllers\PdfController::class, 'generateInitialPdf'])->name('generateInitialPdf')->middleware('auth', 'isActiveUser', 'verified');
+Route::get('/generate/final-transaction/paper/{id}', [App\Http\Controllers\PdfController::class, 'generateFinalPdf'])->name('generateFinalPdf')->middleware('auth', 'isActiveUser', 'verified');
+Route::post('/download/initial-pdf/{id}', [App\Http\Controllers\PdfController::class, 'downloadInitialPdf'])->name('downloadInitialPdf')->middleware('auth', 'isActiveUser', 'verified');
+Route::post('/download/final-pdf/{id}', [App\Http\Controllers\PdfController::class, 'downloadFinalPdf'])->name('downloadFinalPdf')->middleware('auth', 'isActiveUser', 'verified');
 
 
 //Error page
 Route::get('/not-found', [App\Http\Controllers\WelcomeController::class, 'error'])->name('error404');
-Route::get('/agent-limit', [App\Http\Controllers\AgentController::class, 'agentupgrade'])->name('agentupgrade')->middleware('auth', 'isAgent');
+Route::get('/blocked/account', [App\Http\Controllers\WelcomeController::class, 'blocked'])->name('blocked');
+Route::get('/agent-limit', [App\Http\Controllers\AgentController::class, 'agentupgrade'])->name('agentupgrade')->middleware('auth', 'isActiveUser', 'isAgent');
 
 //transactions
-Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction')->middleware('auth', 'verified');
-Route::get('/completed/transactions', [App\Http\Controllers\TransactionController::class, 'completed'])->name('transaction.completed')->middleware('auth', 'verified');
+Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction')->middleware('auth', 'isActiveUser', 'verified');
+Route::get('/completed/transactions', [App\Http\Controllers\TransactionController::class, 'completed'])->name('transaction.completed')->middleware('auth', 'isActiveUser', 'verified');
 
 //Inspections
-Route::get('/schedules', [App\Http\Controllers\ScheduleController::class, 'index'])->name('schedule')->middleware('auth', 'verified');
-Route::get('/schedules/post', [App\Http\Controllers\ScheduleController::class, 'schedulePost'])->name('schedulePost')->middleware('auth', 'verified');
-Route::put('/schedules/Update/{id}', [App\Http\Controllers\ScheduleController::class, 'scheduleUpdate'])->name('scheduleUpdate')->middleware('auth', 'verified');
+Route::get('/schedules', [App\Http\Controllers\ScheduleController::class, 'index'])->name('schedule')->middleware('auth', 'isActiveUser', 'verified');
+Route::get('/schedules/post', [App\Http\Controllers\ScheduleController::class, 'schedulePost'])->name('schedulePost')->middleware('auth', 'isActiveUser', 'verified');
+Route::put('/schedules/Update/{id}', [App\Http\Controllers\ScheduleController::class, 'scheduleUpdate'])->name('scheduleUpdate')->middleware('auth', 'isActiveUser', 'verified');
 
 //Newsletter
 Route::post('/newsletter/subscribe', [App\Http\Controllers\NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');

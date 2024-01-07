@@ -31,12 +31,21 @@
                     <b>Partner's Information</b>
                     {{-- approve btn --}}
                     <div class="d-flex">
+                        <form class="m-0 p-0 border-right" method="post" action="{{ route('block.unblock.user', $user->id) }}">
+                            @csrf
+                            @if (!$user->blocked)
+                            <button class="btn rounded-0 btn-sm btn-danger" onclick="return confirm('Are you sure you want to block this user?')">Block<span class="ml-1">user</span></button>
+                            @else
+                            <button class="btn rounded-0 btn-sm btn-success" onclick="return confirm('Are you sure you want to unblock this user?')">Unblock<span class="ml-1">user</span></button>
+                            @endif
+                        </form>
+
                         <form class="m-0 p-0" method="post" action="{{ route('approve.agent', $user->agent->id) }}">
                             @csrf
                             @if ($user->agent->approval == "approved")
                             <button class="btn rounded-0 btn-sm btn-danger" onclick="return confirm('Are you sure you want to revoke this approval?')">Revoke<span class="ml-1">Approval</span></button>
                             @else
-                            <button class="btn rounded-0 btn-sm btn-danger" onclick="return confirm('Are you sure you want to approve this agent?')">Approve<span class="ml-1">Agent</span></button>
+                            <button class="btn rounded-0 btn-sm btn-success" onclick="return confirm('Are you sure you want to approve this agent?')">Approve<span class="ml-1">Agent</span></button>
                             @endif
                         </form>
                     </div>

@@ -54,6 +54,10 @@ class WelcomeController extends Controller
         return view('errors.404');
     }
 
+    public function blocked() {
+        return view('errors.blocked');
+    }
+
     public function property($id) {
         $property = Property::find($id);
         $ogTitle = $property->title;

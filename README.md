@@ -1,5 +1,5 @@
-# FBILTD
-This application is real estate application developed for FBILimited.
+# Church Of Nigeria Anglican Admin Control Dashboard
+This application is real estate application developed for Geohomes Group.
 
 ## Teck stack used on this project
 * Laravel 10

@@ -55,5 +55,4 @@ class PdfController extends Controller
         return $pdf->download('finalPaper.pdf');
     }
 
-
 }

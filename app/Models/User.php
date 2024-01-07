@@ -37,6 +37,7 @@ class User extends Authenticatable
         'cac_extention',
         'rc_no',
         'agent_type',
+        'blocked',
     ];
 
     //Has one agent

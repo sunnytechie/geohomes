@@ -108,7 +108,7 @@
         <span class="ml-auto"><a href="{{ route('password.request') }}" class="forgot-pass">Forgot Password</a></span>
       </div>
 
-      <input type="submit" value="Log In" class="btn text-white btn-block btn-primary">
+      <input type="submit" value="Log In" class="btn text-white btn-block btn-primary mb-3">
 
       <a href="/" class="text-right my-4"> Not ready?</a>
 

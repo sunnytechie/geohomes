@@ -79,7 +79,7 @@
       </div>
 
 
-      <input type="submit" value="Send Reset link" class="btn text-white btn-block btn-primary">
+      <input type="submit" value="Send Reset link" class="btn text-white btn-block btn-primary mb-3">
 
       <a href="/" class="text-right my-4"> Not ready?</a>
 

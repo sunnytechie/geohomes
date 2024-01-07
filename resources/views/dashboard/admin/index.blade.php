@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -17,7 +17,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -57,14 +57,27 @@
               <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($admin->created_at)->format('d M Y') }}</td>
 
               <td class="align-middle"><span class="badge badge-green text-capitalize">{{ $admin->role }}</span></td>
-              
+
               <td class="align-middle">
-                <a href="{{ route('admins.edit', $admin->id) }}" data-toggle="tooltip" title="Edit" class="d-inline-block fs-18 text-muted hover-primary mr-5"><i class="fal fa-pencil-alt"></i></a>
-                <form method="post" action="{{ route('admins.destroy', $admin->id) }}">
-                  @method('delete')
-                  @csrf
-                  <button type="submit" onclick="return confirm('Are you sure you want to delete this user completely from this application?')" class="btn btn-sm btn-default" style="border-top-left-radius: 0; border-bottom-left-radius: 0"><i class="fa fa-trash"></i></button>
-              </form>
+                <div class="d-flex align-items-center">
+                    <form class="m-0 p-0 border-right" method="post" action="{{ route('block.unblock.user', $admin->id) }}">
+                        @csrf
+                        @if (!$admin->blocked)
+                        <button class="btn rounded-0 btn-sm btn-danger" onclick="return confirm('Are you sure you want to block this admin?')">Block<span class="ml-1">Admin</span></button>
+                        @else
+                        <button class="btn rounded-0 btn-sm btn-success" onclick="return confirm('Are you sure you want to unblock this admin?')">Unblock<span class="ml-1">Admin</span></button>
+                        @endif
+                    </form>
+
+                    <a class="btn rounded-0 btn-sm btn-info border-right" href="{{ route('admins.edit', $admin->id) }}" data-toggle="tooltip" title="Edit"><i class="fal fa-pencil-alt"></i> Update</a>
+
+                    <form class="m-0 p-0" method="post" action="{{ route('admins.destroy', $admin->id) }}">
+                    @method('delete')
+                    @csrf
+                    <button class="btn rounded-0 btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user completely from this application?')"><i class="fa fa-trash"></i> Delete</button>
+                    </form>
+                </div>
+
                 {{-- <a href="#" data-toggle="tooltip" title="Delete" class="d-inline-block fs-18 text-muted hover-primary"><i class="fal fa-trash-alt"></i></a> --}}
 
               </td>
