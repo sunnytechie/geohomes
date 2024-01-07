@@ -12,10 +12,26 @@ class AgentController extends Controller
 {
     public function index() {
         $agents = Agent::orderBy('id', 'asc')
-                        ->where('approval', '!=', 'pending')
-                        ->get();
+                    ->where('approval', '!=', 'pending')
+                    ->whereHas('user', function ($query) {
+                        $query->where('agent_type', 'corperate');
+                    })
+                    ->get();
+
 
         return view('dashboard.agent.index', compact('agents'));
+    }
+
+    public function index2() {
+        $agents = Agent::orderBy('id', 'asc')
+                    ->where('approval', '!=', 'pending')
+                    ->whereHas('user', function ($query) {
+                        $query->where('agent_type', 'individual');
+                    })
+                    ->get();
+
+
+        return view('dashboard.agent.individual', compact('agents'));
     }
 
     public function profile() {

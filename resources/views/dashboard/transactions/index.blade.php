@@ -30,7 +30,7 @@
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
                 {{-- alert --}}
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <div class="alert alert-info alert-dismissible fade show pt-5" role="alert">
                     <p>Hi {{ Auth::user()->name }},</p>
                     <p>Sequel to your subscription to purchase land(s) in {{ $alert->project->title }} at {{ $alert->project->address }}</p>
                     <p>We are deligted to inform you that we have allocated your plots and requesting that you pay for the land with an addition fee of ₦ 100,000 (one hundred naira) for legal fee and a 7.5% vat.</p>

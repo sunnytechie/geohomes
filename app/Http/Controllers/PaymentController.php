@@ -119,7 +119,6 @@ class PaymentController extends Controller
             $client->save();
         }
 
-
         $project = $request->project_id;
         $plots = $request->plots;
 
@@ -129,7 +128,6 @@ class PaymentController extends Controller
             "email" => Auth::user()->email,
             "currency" => "NGN",
             "callback_url" => "https://geohomesgroup.com/payment/subscriber/callback/$project/$plots",
-
         );
 
         return Paystack::getAuthorizationUrl($data)->redirectNow();

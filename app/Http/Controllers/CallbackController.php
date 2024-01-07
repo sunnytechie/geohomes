@@ -17,7 +17,6 @@ class CallbackController extends Controller
 {
     public function subscribe($project_id, $plot) {
         $paymentDetails = Paystack::getPaymentData();
-
         //dd($paymentDetails);
 
         //Get required details
@@ -45,7 +44,12 @@ class CallbackController extends Controller
             //update transaction table
             $transaction = Transaction::find($transaction->id);
             $transaction->agent = 1;
+            $transaction->client_id = $client->id;
             $transaction->save();
+
+            //send email to client
+        } else {
+            // send email auth user
         }
 
         return redirect()->route('transaction')->with('message', "Your payment was successful, Geohomes will allocate a plot to you shortly, thank you.");
@@ -53,8 +57,7 @@ class CallbackController extends Controller
 
     public function subscribeAgent($project_id, $plot, $client) {
         $paymentDetails = Paystack::getPaymentData();
-
-        dd($paymentDetails);
+        //dd($paymentDetails);
 
         //Get required details
         $amount = $paymentDetails['data']['amount'];
@@ -114,11 +117,21 @@ class CallbackController extends Controller
 
         //send final email
         //Client information
-        $recipient = Auth::user()->email;
-        $clientName = Auth::user()->name;
-        $clientAddress = Auth::user()->address;
-        $clientCity = Auth::user()->city;
-        $clientZip = Auth::user()->zip;
+        if (Auth::user()->is_customer == 1) {
+            $recipient = Auth::user()->email;
+            $clientName = Auth::user()->name;
+            $clientAddress = Auth::user()->address;
+            $clientCity = Auth::user()->city;
+            $clientZip = Auth::user()->zip;
+        }
+        else {
+            $client = Client::find($transaction->client_id);
+            $recipient = $client->email;
+            $clientName = $client->name;
+            $clientAddress = $client->address;
+            $clientCity = $client->state;
+            $clientZip = $client->zip;
+        }
 
         //find project details
         $project = Project::find($transaction->project_id);

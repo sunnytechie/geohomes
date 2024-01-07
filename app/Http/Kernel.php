@@ -72,5 +72,6 @@ class Kernel extends HttpKernel
         'hasAdminButNotAgent' => \App\Http\Middleware\HasAdminNoAgent::class,
         'isAuditorAccountant' => \App\Http\Middleware\IsAuditorIsAccountant::class,
         'agentHasApproval' => \App\Http\Middleware\AgentHasApproval::class,
+        'isActiveUser' => \App\Http\Middleware\IsActiveUser::class,
     ];
 }

@@ -1,4 +1,4 @@
-<title>Approved corperate partners</title>
+<title>Approved registered partners </title>
 @extends('layouts.admin')
 
 @section('content')

@@ -156,7 +156,7 @@
                           <a class="text-heading lh-1 sidebar-link" href="{{ route('transaction') }}">Subscription</a>
                         </li>
                         <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                          <a class="text-heading lh-1 sidebar-link" href="{{ route('unapproved.agent') }}">Completed</a>
+                          <a class="text-heading lh-1 sidebar-link" href="{{ route('transaction.completed') }}">Completed</a>
                         </li>
                       </ul>
                     </div>
@@ -213,10 +213,10 @@
                         <div class="card card-body border-0 bg-transparent py-0 pl-6">
                         <ul class="list-group list-group-flush list-group-no-border">
                             <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                            <a class="text-heading lh-1 sidebar-link" href="{{ route('registered.agents') }}">Registered Partners</a>
+                                <a class="text-heading lh-1 sidebar-link" href="{{ route('registered.agents') }}">Approved Partners</a>
                             </li>
                             <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                            <a class="text-heading lh-1 sidebar-link" href="{{ route('unapproved.agent') }}">UnApproved Partners</a>
+                                <a class="text-heading lh-1 sidebar-link" href="{{ route('unapproved.agent') }}">UnApproved Partners</a>
                             </li>
                         </ul>
                         </div>
