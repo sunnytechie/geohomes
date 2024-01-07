@@ -24,17 +24,17 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
 
         // Fetch the about information from the database
-        //$aboutInfo = About::first(['phone', 'email', 'office_location']);
+        $aboutInfo = About::first(['phone', 'email', 'office_location']);
 
         // Check if the About record exists before sharing data
-        //if ($aboutInfo) {
+        if ($aboutInfo) {
             // Share the data with all views
-        //    view()->share('aboutInfo', $aboutInfo);
-        //} else {
+            view()->share('aboutInfo', $aboutInfo);
+        } else {
             // Handle the case where About record is not found
             // You might log an error or set default values
-        //    view()->share('aboutInfo', ['phone' => 'N/A', 'email' => 'N/A', 'office_location' => 'N/A']);
-        //}
+            view()->share('aboutInfo', ['phone' => 'N/A', 'email' => 'N/A', 'office_location' => 'N/A']);
+        }
 
     }
 }
