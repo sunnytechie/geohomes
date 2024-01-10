@@ -52,8 +52,14 @@ class AdvertController extends Controller
 
             // Save the modified image
             //$image->save(public_path("storage/{$imagePath}"));
+            //$imagePath = request('image')->store('profile', 'public');
+            //$image = Image::make(public_path("storage/{$imagePath}"))->fit(1920, 1000);
+            //$image->save();
             $imagePath = request('image')->store('profile', 'public');
-            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1920, 1000);
+            $image = Image::make(public_path("storage/{$imagePath}"))->resize(1200, null, function ($constraint) {
+                $constraint->aspectRatio(); // Maintain the aspect ratio
+                $constraint->upsize(); // Prevent up-sizing if the original image is smaller
+            });
             $image->save();
         }
 
