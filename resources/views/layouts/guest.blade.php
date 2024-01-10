@@ -70,7 +70,7 @@
         }
 
         .geo-btn-bg {
-            background: #00A75A;
+            background: #654321;
         }
 
         .geo-btn-bg:hover {

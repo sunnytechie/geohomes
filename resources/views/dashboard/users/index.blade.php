@@ -24,7 +24,7 @@
   @endif
 
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 invoice-listing">
-      <h3 style="color: #00A75A">Customers / Users</h3>
+      <h3 style="color: #654321">Customers / Users</h3>
       <div class="table-responsive">
         <table id="invoice-list" class="table table-hover bg-white border rounded-lg">
           <thead>
@@ -54,7 +54,7 @@
 
               <td class="align-middle"><span class="badge badge-green text-capitalize">{{ $user->role }}</span></td>
               
-              <td class="align-middle"><a style="background: #00A75A; color: #ffffff" class="btn btn-sm btn-default" href="{{ route('show.customer.details', $user->id) }}">Details</a></td>
+              <td class="align-middle"><a style="background: #654321; color: #ffffff" class="btn btn-sm btn-default" href="{{ route('show.customer.details', $user->id) }}">Details</a></td>
             </tr>
             @endforeach
           </tbody>

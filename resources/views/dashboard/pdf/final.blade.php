@@ -54,7 +54,7 @@
             <div class="py-4">
                 <form action="{{ route('downloadFinalPdf', $transaction->id) }}" method="POST">
                     @csrf
-                <button class="btn btn-default" style="background: #00A75A; color: #fff">Download Final Paper</button>
+                <button class="btn btn-default" style="background: #654321; color: #fff">Download Final Paper</button>
                 </form>
             </div>
         </div>

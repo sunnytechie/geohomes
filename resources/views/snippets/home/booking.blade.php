@@ -127,7 +127,7 @@
                         @enderror
                     </div>
 
-                    <button class="btn btn-default" style="background: #00A75A; color: #fff">Submit booking</button>
+                    <button class="btn btn-default" style="background: #654321; color: #fff">Submit booking</button>
                 </form>
               </div>
               @endif

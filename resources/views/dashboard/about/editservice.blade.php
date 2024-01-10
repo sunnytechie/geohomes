@@ -51,7 +51,7 @@
     <div class="px-3 px-lg-6 px-xxl-13 py-4 shadow-sm my-4">
         
         <div class="mb-3 d-flex justify-content-between align-items-center">
-            <h4 style="color: #00A75A">Services</h4>
+            <h4 style="color: #654321">Services</h4>
         </div>
 
         <form action="{{ route('gh.services.update', $service->id) }}" method="POST" enctype="multipart/form-data">

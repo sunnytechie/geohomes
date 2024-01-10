@@ -29,13 +29,13 @@
             <div class="col-md-7 shadow offset-md-2">
               @if ($transaction->allocation_status == "Pending")
                 <div style="padding: 15px; background: #fff">
-                    <div class="text-center mt-2 mb-3" style="font-size: 20px; color: #00A75A; font-weight:700">Allocate Plot.</div>
+                    <div class="text-center mt-2 mb-3" style="font-size: 20px; color: #654321; font-weight:700">Allocate Plot.</div>
                     <form action="{{ route('allocatePost') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
                         <div class="from-group mb-3">
-                            <label for="plot">Allocate a plot to Subscriber: <strong style="color: #00A75A">{{ $transaction->user->name }}</strong> <br> subscribed to Estate: <strong style="color: #00A75A">{{ $transaction->project->title }}</strong></label>
-                            <p>You are expected to select maximum of <strong style="color: #00A75A">{{ $transaction->plots }} plots.</strong></p>
+                            <label for="plot">Allocate a plot to Subscriber: <strong style="color: #654321">{{ $transaction->user->name }}</strong> <br> subscribed to Estate: <strong style="color: #654321">{{ $transaction->project->title }}</strong></label>
+                            <p>You are expected to select maximum of <strong style="color: #654321">{{ $transaction->plots }} plots.</strong></p>
                             {{-- <select name="plot" id="plot" class="form-control border-0 shadow-none form-control-lg selectpicker">
                             </select>   --}}
                             @foreach ($plots as $plot)
@@ -45,7 +45,7 @@
                             </div>
                           @endforeach
 
-                          <div class="mt-1"><strong style="color: #00A75A">Information that will be contained in the Email for the customer</strong></div>
+                          <div class="mt-1"><strong style="color: #654321">Information that will be contained in the Email for the customer</strong></div>
 
                                 <input class="form-control form-control-lg" readonly type="text" id="plotNames" name="plotNames" placeholder="Plot 1, plot, 2">
                                 @error('plotNames')
@@ -55,7 +55,7 @@
                                 @enderror
 
                               @if ($plots->count() == 0)
-                                <div class="mt-3" style="color: #00A75A">You do not have any plots left to allocate, kindly <a href="{{ route('plots.create') }}">Add new plots</a> to this estate before allocating it to this customer.</div>
+                                <div class="mt-3" style="color: #654321">You do not have any plots left to allocate, kindly <a href="{{ route('plots.create') }}">Add new plots</a> to this estate before allocating it to this customer.</div>
                               @endif
                         </div>
 
@@ -110,13 +110,13 @@
                         <div class="spacer p-2"></div>
 
                         <div class="form-group mt-3">
-                            <button class="btn w-100 w-md-50 btn-md p-2" @if ($plots->count() == 0) disabled @endif style="background: #00A75A; color:#fff">Allocate</button>
+                            <button class="btn w-100 w-md-50 btn-md p-2" @if ($plots->count() == 0) disabled @endif style="background: #654321; color:#fff">Allocate</button>
                         </div>
                     </form>
                 </div>
                 @else
                 <div class="alert alert-primary mt-3 text-center" role="alert">
-                  <strong style="color: #00A75A">Allocated!</strong> This Transaction has been Allocated and has/will expired: {{ $transaction->expiry_date }}
+                  <strong style="color: #654321">Allocated!</strong> This Transaction has been Allocated and has/will expired: {{ $transaction->expiry_date }}
                 </div>
 
               @endif

@@ -106,9 +106,9 @@
                     <div class="mr-5">Downloadables:</div>
                     <div>@isset($user->cac)
                         @if ($user->cac_extention == "image")
-                            <a class="btn btn-sm" style="background: #00A75A; color: #ffffff" href="/storage/{{ $user->cac }}" download>Download<span class="ml-1">CAC Image</span></a>
+                            <a class="btn btn-sm" style="background: #654321; color: #ffffff" href="/storage/{{ $user->cac }}" download>Download<span class="ml-1">CAC Image</span></a>
                         @else
-                        <a class="btn btn-sm" style="background: #00A75A; color: #ffffff" href="/{{ $user->cac }}" download>Download<span class="ml-1">CAC Doc</span></a>
+                        <a class="btn btn-sm" style="background: #654321; color: #ffffff" href="/{{ $user->cac }}" download>Download<span class="ml-1">CAC Doc</span></a>
                         @endif
                         @else
                             <div class="text-black">Not found</div>

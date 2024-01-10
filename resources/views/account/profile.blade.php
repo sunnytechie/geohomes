@@ -53,7 +53,7 @@
 
                   <div class="custom-file mt-4 h-auto">
                     <input type="file" class="custom-file-input" hidden id="customFile" name="image">
-                    <label class="btn btn-lg btn-block" for="customFile" style="background: #00A75A; color: #fff">
+                    <label class="btn btn-lg btn-block" for="customFile" style="background: #654321; color: #fff">
                       <span class="d-inline-block mr-1"><i class="fal fa-cloud-upload"></i></span>Upload profile image</label>
                   </div>
 
@@ -147,7 +147,7 @@
             </div> --}}
 
               <div class="d-flex justify-content-start flex-wrap">
-                  <button class="btn btn-lg mb-3 w-100 w-md-auto" style="background: #00A75A; color: #fff">Update Profile</button>
+                  <button class="btn btn-lg mb-3 w-100 w-md-auto" style="background: #654321; color: #fff">Update Profile</button>
               </div>
 
         </div>

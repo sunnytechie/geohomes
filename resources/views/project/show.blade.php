@@ -144,12 +144,12 @@
         <div class="primary-sidebar-inner">
           <div class="card border-0 widget-request-tour">
             <div class="d-flex">
-                <a href="{{ route('initiateLandPayment', $project->id) }}" class="btn btn-primary rounded-0 border-0" style="background: #00A75A;">Subscribe</a>
+                <a href="{{ route('initiateLandPayment', $project->id) }}" class="btn btn-primary rounded-0 border-0" style="background: #654321;">Subscribe</a>
 
               <form class="w-50" action="{{ route('inspection') }}" method="POST" style="padding: 0; margin: 0">
                 @csrf
                 <input type="hidden" name="project_id" value="{{ $project->id }}">
-                <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #00A75A">Inspection</button>
+                <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #654321">Inspection</button>
               </form>
             </div>
           </div>

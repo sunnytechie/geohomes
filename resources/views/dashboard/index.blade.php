@@ -46,7 +46,7 @@
                   <form action="{{ route('finalLandPayment', $alert->id) }}" method="POST">
                     @csrf
                     <input type="hidden" name="amount" value="{{ $totalFee +$vat }}">
-                    <button type="submit" class="btn btn-default" style="background: #00A75A; color: #fff"">
+                    <button type="submit" class="btn btn-default" style="background: #654321; color: #fff"">
                       Pay now ₦ {{ $totalFee +$vat }}
                     </button>
                   </form>
@@ -74,7 +74,7 @@
       {{-- Wallet earning section --}}
       @if (Auth::user()->is_admin || Auth::user()->is_agent)
       <div class="wallet">
-        <div class="shadow p-4" style="background: #00A75A; cursor: default; color:#fff; font-weight: bold">
+        <div class="shadow p-4" style="background: #654321; cursor: default; color:#fff; font-weight: bold">
           <span>Earnings: ₦ {{ number_format($earning, 2) }}</span>
         </div>
       </div>
@@ -197,9 +197,9 @@
 
 
     {{-- Statistics --}}
-    @if (Auth::user()->is_admin || Auth::user()->manager)
+    {{-- @if (Auth::user()->is_admin || Auth::user()->manager)
       @include('dashboard.statistics')
-    @endif
+    @endif --}}
 
 
   </div>

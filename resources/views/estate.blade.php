@@ -142,12 +142,12 @@
 
                     <div class="d-flex">
 
-                        <a href="{{ route('initiateLandPayment', $project->id) }}" class="btn btn-primary pt-2 mr-3 rounded-0 border-0" style="background: #00A75A;">Subscribe</a>
+                        <a href="{{ route('initiateLandPayment', $project->id) }}" class="btn btn-primary pt-2 mr-3 rounded-0 border-0" style="background: #654321;">Subscribe</a>
 
                     <form action="{{ route('inspection') }}" method="POST" style="padding: 0; margin: 0">
                         @csrf
                         <input type="hidden" name="project_id" value="{{ $project->id }}">
-                        <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #00A75A">Inspection</button>
+                        <button type="submit" class="btn btn-primary p-2 w-100 rounded-0 border-0" style="background: #654321">Inspection</button>
                     </form>
                     </div>
 
@@ -198,7 +198,7 @@
                             <div class="text-dark mb-6 mt-n2 font-weight-500">Want to become an
                                 <p class="mb-0 fs-18">Estate Partner?</p>
                             </div>
-                            <a href="{{ route('auth.agent') }}" class="btn btn-primary" style="background: #00A75A;">Register</a>
+                            <a href="{{ route('auth.agent') }}" class="btn btn-primary" style="background: #654321;">Register</a>
                             </div>
                         </div>
 
@@ -264,7 +264,7 @@
             <input type="hidden" name="project_id" value="{{ $project->id }}">
             <div class="modal-body">
 
-                <div class="my-2" style="color: #00A75A">After selecting the number of plots you want, you will first be prompted to subscribe for an allocation with a fee of ₦ 20,000 (twenty thousand naira). <br> After the allocation is made you have 14days to pay for the land else the plot(s) you subscribed for will be available for purchase to other customers.</div>
+                <div class="my-2" style="color: #654321">After selecting the number of plots you want, you will first be prompted to subscribe for an allocation with a fee of ₦ 20,000 (twenty thousand naira). <br> After the allocation is made you have 14days to pay for the land else the plot(s) you subscribed for will be available for purchase to other customers.</div>
 
                 <div class="input-group input-group-lg">
                 <label for="plots">Select the Number of plots you want.</label>
@@ -279,7 +279,7 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" style="background: #00A75A">Proceed</button>
+            <button type="submit" class="btn btn-primary" style="background: #654321">Proceed</button>
             </div>
         </form>
         </div>

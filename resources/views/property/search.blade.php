@@ -20,7 +20,7 @@
 </style>
 
 <main id="content">
-    <section class="mt-12" style="background: #00A75A">
+    <section class="mt-12" style="background: #654321">
       <div class="container">
         @include('snippets.search')
       </div>
@@ -60,8 +60,8 @@
                                          name="email"
                                          placeholder="Enter your email">
                     </div>
-                    <div class="text-center mb-2" id="response-message" style="color: #00A75A"></div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block shadow-none mb-2" style="background: #00A75A">
+                    <div class="text-center mb-2" id="response-message" style="color: #654321"></div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block shadow-none mb-2" style="background: #654321">
                       Subscribe
                     </button>
                   </form>

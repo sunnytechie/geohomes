@@ -49,14 +49,14 @@ Route::get('/blog/{id}', [App\Http\Controllers\Blog\PostController::class, 'show
 //Route::get('/request-properties', [App\Http\Controllers\RequestPropertyController::class, 'new'])->name('new.request');
 //Route::post('/request-properties', [App\Http\Controllers\RequestPropertyController::class, 'store'])->name('store.request');
 
-//Route::get('/gh-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
+//Route::get('/wp-admin/invoice', [App\Http\Controllers\DashboardController::class, 'invoice'])->name('dashboard.invoice');
 
 //Building Material Booking
 Route::get('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'show'])->name('booking.building.material.show');
 Route::post('/booking/building/material/{id}', [App\Http\Controllers\BookingController::class, 'store'])->name('booking.building.material');
 
 //dashboard
-Route::get('/FBILTD/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'isActiveUser', 'verified', 'checkIfAgentAndIsSet', 'agentHasApproval');
+Route::get('/fbiltd/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index')->middleware('auth', 'isActiveUser', 'verified', 'checkIfAgentAndIsSet', 'agentHasApproval');
 Route::get('/estate/{id}', [App\Http\Controllers\WelcomeController::class, 'estate'])->name('estate.show');
 Route::get('/listing/property/{id}', [App\Http\Controllers\WelcomeController::class, 'property'])->name('gh.property.show');
 
@@ -64,7 +64,7 @@ Route::get('/listing/property/{id}', [App\Http\Controllers\WelcomeController::cl
 Route::get('/listing/building/materials', [App\Http\Controllers\PagesController::class, 'building'])->name('listing.building.index');
 
 //UnApproved Agents
-Route::get('/FBILTD/approval/status', [App\Http\Controllers\DashboardController::class, 'status'])->name('dashboard.status')->middleware('auth', 'isActiveUser', 'verified');
+Route::get('/fbiltd/approval/status', [App\Http\Controllers\DashboardController::class, 'status'])->name('dashboard.status')->middleware('auth', 'isActiveUser', 'verified');
 
 //Share post button
 Route::post('/share/facebook', [App\Http\Controllers\ShareController::class, 'facebook'])->name('share.facebook');
@@ -107,47 +107,47 @@ Route::middleware('auth', 'isActiveUser', 'isAdmin', 'verified')->group(function
     Route::post('/review/agents/approval/{id}', [App\Http\Controllers\DashboardController::class, 'approve'])->name('approve.agent');
 
     //blog post
-    Route::get('/gh-blog/posts', [App\Http\Controllers\Blog\PostController::class, 'index'])->name('blog.posts');
-    Route::get('/gh-blog/posts/create', [App\Http\Controllers\Blog\PostController::class, 'create'])->name('blog.posts.create');
-    Route::post('/gh-blog/posts/create', [App\Http\Controllers\Blog\PostController::class, 'store'])->name('blog.posts.store');
-    Route::get('/gh-blog/posts/edit/{id}', [App\Http\Controllers\Blog\PostController::class, 'edit'])->name('blog.posts.edit');
-    Route::put('/gh-blog/posts/update/{id}', [App\Http\Controllers\Blog\PostController::class, 'update'])->name('blog.posts.update');
-    Route::delete('/gh-blog/posts/delete/{id}', [App\Http\Controllers\Blog\PostController::class, 'destroy'])->name('blog.posts.destroy');
+    Route::get('/wp-blog/posts', [App\Http\Controllers\Blog\PostController::class, 'index'])->name('blog.posts');
+    Route::get('/wp-blog/posts/create', [App\Http\Controllers\Blog\PostController::class, 'create'])->name('blog.posts.create');
+    Route::post('/wp-blog/posts/create', [App\Http\Controllers\Blog\PostController::class, 'store'])->name('blog.posts.store');
+    Route::get('/wp-blog/posts/edit/{id}', [App\Http\Controllers\Blog\PostController::class, 'edit'])->name('blog.posts.edit');
+    Route::put('/wp-blog/posts/update/{id}', [App\Http\Controllers\Blog\PostController::class, 'update'])->name('blog.posts.update');
+    Route::delete('/wp-blog/posts/delete/{id}', [App\Http\Controllers\Blog\PostController::class, 'destroy'])->name('blog.posts.destroy');
 
     //advert
-    Route::get('/gh-blog/adverts', [App\Http\Controllers\AdvertController::class, 'index'])->name('advert.index');
-    Route::get('/gh-blog/adverts/create', [App\Http\Controllers\AdvertController::class, 'create'])->name('advert.create');
-    Route::post('/gh-blog/adverts/create', [App\Http\Controllers\AdvertController::class, 'store'])->name('advert.store');
-    Route::get('/gh-blog/adverts/edit/{id}', [App\Http\Controllers\AdvertController::class, 'edit'])->name('advert.edit');
-    Route::put('/gh-blog/adverts/update/{id}', [App\Http\Controllers\AdvertController::class, 'update'])->name('advert.update');
-    Route::delete('/gh-blog/adverts/delete/{id}', [App\Http\Controllers\AdvertController::class, 'destroy'])->name('advert.destroy');
+    Route::get('/wp-blog/adverts', [App\Http\Controllers\AdvertController::class, 'index'])->name('advert.index');
+    Route::get('/wp-blog/adverts/create', [App\Http\Controllers\AdvertController::class, 'create'])->name('advert.create');
+    Route::post('/wp-blog/adverts/create', [App\Http\Controllers\AdvertController::class, 'store'])->name('advert.store');
+    Route::get('/wp-blog/adverts/edit/{id}', [App\Http\Controllers\AdvertController::class, 'edit'])->name('advert.edit');
+    Route::put('/wp-blog/adverts/update/{id}', [App\Http\Controllers\AdvertController::class, 'update'])->name('advert.update');
+    Route::delete('/wp-blog/adverts/delete/{id}', [App\Http\Controllers\AdvertController::class, 'destroy'])->name('advert.destroy');
 
     //gh about
-    Route::get('/gh-about/info', [App\Http\Controllers\Dashboard\AboutController::class, 'index'])->name('gh.about.index');
-    Route::get('/gh-about/services', [App\Http\Controllers\Dashboard\AboutController::class, 'services'])->name('gh.services');
-    Route::get('/gh-about/teams', [App\Http\Controllers\Dashboard\AboutController::class, 'teams'])->name('gh.teams');
+    Route::get('/wp-about/info', [App\Http\Controllers\Dashboard\AboutController::class, 'index'])->name('gh.about.index');
+    Route::get('/wp-about/services', [App\Http\Controllers\Dashboard\AboutController::class, 'services'])->name('gh.services');
+    Route::get('/wp-about/teams', [App\Http\Controllers\Dashboard\AboutController::class, 'teams'])->name('gh.teams');
 
     //gh about update
-    Route::put('/gh-about/update/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'update'])->name('gh.about.update');
+    Route::put('/wp-about/update/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'update'])->name('gh.about.update');
 
     //post services and teams
-    Route::post('/gh-about/services', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceStore'])->name('gh.services.store');
-    Route::post('/gh-about/teams', [App\Http\Controllers\Dashboard\AboutController::class, 'teamStore'])->name('gh.teams.store');
+    Route::post('/wp-about/services', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceStore'])->name('gh.services.store');
+    Route::post('/wp-about/teams', [App\Http\Controllers\Dashboard\AboutController::class, 'teamStore'])->name('gh.teams.store');
     //update services and teams
-    Route::get('/gh-about/services/edit/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceEdit'])->name('gh.services.edit');
-    Route::put('/gh-about/services/update/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceUpdate'])->name('gh.services.update');
-    Route::get('/gh-about/teams/edit/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'teamEdit'])->name('gh.teams.edit');
-    Route::put('/gh-about/teams/update/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'teamUpdate'])->name('gh.teams.update');
+    Route::get('/wp-about/services/edit/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceEdit'])->name('gh.services.edit');
+    Route::put('/wp-about/services/update/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceUpdate'])->name('gh.services.update');
+    Route::get('/wp-about/teams/edit/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'teamEdit'])->name('gh.teams.edit');
+    Route::put('/wp-about/teams/update/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'teamUpdate'])->name('gh.teams.update');
     //delete services and teams
-    Route::delete('/gh-about/services/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceDelete'])->name('gh.services.delete');
-    Route::delete('/gh-about/teams/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'teamDelete'])->name('gh.teams.delete');
+    Route::delete('/wp-about/services/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'serviceDelete'])->name('gh.services.delete');
+    Route::delete('/wp-about/teams/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'teamDelete'])->name('gh.teams.delete');
 
     //gh gallery
-    Route::get('/gh-gallery', [App\Http\Controllers\Dashboard\AboutController::class, 'gallery'])->name('gh.gallery');
+    Route::get('/wp-gallery', [App\Http\Controllers\Dashboard\AboutController::class, 'gallery'])->name('gh.gallery');
     //post gallery
-    Route::post('/gh-gallery', [App\Http\Controllers\Dashboard\AboutController::class, 'galleryStore'])->name('gh.gallery.store');
+    Route::post('/wp-gallery', [App\Http\Controllers\Dashboard\AboutController::class, 'galleryStore'])->name('gh.gallery.store');
     //delete gallery
-    Route::delete('/gh-image/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'imageDelete'])->name('gh.image.delete');
+    Route::delete('/wp-image/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'imageDelete'])->name('gh.image.delete');
 });
 
 Route::middleware('auth', 'isActiveUser', 'verified', 'hasAdminButNotAgent', 'isAgent', 'agentHasApproval')->group(function () {

@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-md-7 shadow offset-md-2">
                 <div style="padding: 15px; background: #fff">
-                    <div class="text-center" style="font-size: 18px; color: #00A75A; font-weight:700">Customer details and histories</div>
+                    <div class="text-center" style="font-size: 18px; color: #654321; font-weight:700">Customer details and histories</div>
                     @isset($user->image)
                         <img src="/storage/{{ $user->image }}" style="width: 80px; height: 80px; border-radius: 50%; margin: 10px auto; display: block" alt="avatar">
                     @endisset

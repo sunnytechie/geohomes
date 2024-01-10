@@ -106,7 +106,7 @@
                     </div>
 
                     <div class="d-flex mb-3">
-                        <a href="{{ route('booking.building.material.show', $building->id) }}" class="btn btn-primary rounded-0 border-0" style="background: #00A75A;">Book Material</a>
+                        <a href="{{ route('booking.building.material.show', $building->id) }}" class="btn btn-primary rounded-0 border-0" style="background: #654321;">Book Material</a>
                     </div>
                     </div>
 

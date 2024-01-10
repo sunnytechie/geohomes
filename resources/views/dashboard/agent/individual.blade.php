@@ -39,7 +39,7 @@
 
 
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-7 invoice-listing">
-      <h3 style="color: #00A75A">Approved Partners</h3>
+      <h3 style="color: #654321">Approved Partners</h3>
       <div class="table-responsive">
         <table id="invoice-list" class="table table-hover table-sm bg-white border rounded-lg">
           <thead>

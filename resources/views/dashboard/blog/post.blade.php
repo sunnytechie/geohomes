@@ -23,7 +23,7 @@
 
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 invoice-listing">
       <div class="mb-6 d-flex justify-content-between align-items-center">
-        <h3 style="color: #00A75A">Blog Posts</h3>
+        <h3 style="color: #654321">Blog Posts</h3>
         <a href="{{ route('blog.posts.create') }}" class="btn btn-primary">Add New Post</a>
       </div>
       <div class="table-responsive">

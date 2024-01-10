@@ -60,7 +60,7 @@
                         <div class="spacer p-2"></div>
 
                         <div class="form-group mt-3">
-                            <button class="btn w-100 w-md-50 btn-md p-2" style="background: #00A75A; color:#fff">Schedule</button>
+                            <button class="btn w-100 w-md-50 btn-md p-2" style="background: #654321; color:#fff">Schedule</button>
                         </div>
                     </form>
                 </div>

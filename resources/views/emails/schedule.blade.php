@@ -30,7 +30,7 @@
       }
 
       #content .text-1, .text-2 {
-        color: #00A75A;
+        color: #654321;
         font-weight: 600;
         font-size: 18px;
       }

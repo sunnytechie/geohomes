@@ -82,6 +82,11 @@
         input, select, option {
             border-radius: 0px !important;
         }
+
+        .btn-primary {
+            background-color: #0A0655 !important;
+            border-color: #1b55e2 !important;
+        }
   </style>
   </head>
   <body>

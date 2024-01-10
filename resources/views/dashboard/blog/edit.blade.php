@@ -27,7 +27,7 @@
   @endif
 
       {{-- <div class="mb-6 d-flex justify-content-between align-items-center">
-        <h3 style="color: #00A75A">Create a Post</h3>
+        <h3 style="color: #654321">Create a Post</h3>
         <a href="{{ route('blog.posts.create') }}" class="btn btn-primary">Add New Post</a>
       </div> --}}
 
@@ -35,7 +35,7 @@
         <div class="col-md-8 offset-md-1">
             <div class="px-3 px-lg-6 px-xxl-13 py-4 shadow-sm my-4">
                 <div class="mb-6 d-flex justify-content-between align-items-center">
-                    <h3 style="color: #00A75A">Edit Post</h3>
+                    <h3 style="color: #654321">Edit Post</h3>
                 </div>
 
                 <form action="{{ route('blog.posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">

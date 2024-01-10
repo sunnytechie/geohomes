@@ -136,7 +136,7 @@
                     @endif
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary" style="background: #00A75A">Proceed</button>
+                        <button type="submit" class="btn btn-primary" style="background: #654321">Proceed</button>
                     </div>
                 </form>
 

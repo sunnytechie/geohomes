@@ -24,7 +24,7 @@
   @endif
 
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 invoice-listing">
-      <h3 style="color: #00A75A">Agents / Users</h3>
+      <h3 style="color: #654321">Agents / Users</h3>
       <div class="table-responsive">
         <table id="invoice-list" class="table table-sm table-hover bg-white border rounded-lg">
           <thead>
@@ -63,9 +63,9 @@
               <td class="align-middle">
                 @isset($agent->user->cac)
                 @if ($agent->user->cac_extention == "image")
-                    <a class="btn btn-sm" style="background: #00A75A; color: #ffffff" href="/storage/{{ $agent->user->cac }}" download>Download<span class="ml-1">CAC Image</span></a>
+                    <a class="btn btn-sm" style="background: #654321; color: #ffffff" href="/storage/{{ $agent->user->cac }}" download>Download<span class="ml-1">CAC Image</span></a>
                 @else
-                <a class="btn btn-sm" style="background: #00A75A; color: #ffffff" href="/{{ $agent->user->cac }}" download>Download<span class="ml-1">CAC Doc</span></a>
+                <a class="btn btn-sm" style="background: #654321; color: #ffffff" href="/{{ $agent->user->cac }}" download>Download<span class="ml-1">CAC Doc</span></a>
                 @endif
                 @else
                     <div class="text-black">Not found</div>

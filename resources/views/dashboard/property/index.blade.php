@@ -25,7 +25,7 @@
 
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 invoice-listing">
       <div class="mb-6 d-flex justify-content-between align-items-center">
-        <h3 style="color: #00A75A">Properties</h3>
+        <h3 style="color: #654321">Properties</h3>
         <div class="align-self-center">
           <a href="{{ route('properties.create') }}" class="btn btn-primary btn-lg" tabindex="0" aria-controls="invoice-list"><span>Add New Property</span></a>
         </div>

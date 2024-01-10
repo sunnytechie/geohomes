@@ -16,7 +16,7 @@
     }
 
     header {
-        border-top: 0.3rem solid #00A75A;
+        border-top: 0.3rem solid #654321;
     }
 </style>
 
@@ -138,7 +138,7 @@
                                     @endif
 
                                     <li class="nav-item ml-auto w-100 w-sm-auto">
-                                        <a class="btn btn-primary border-0 btn-lg" href="{{ route('dashboard.index') }}" style="background: #00A75A">
+                                        <a class="btn btn-primary border-0 btn-lg" href="{{ route('dashboard.index') }}" style="background: #654321">
                                             Your Dashboard
                                         </a>
                                     </li>
@@ -181,7 +181,7 @@
                                     class="ml-1 sticky-button-icon">
                             </a> --}}
                             <a class="btn btn-primary border-0"
-                                href="{{ route('dashboard.index') }}" style="background: #00A75A">
+                                href="{{ route('dashboard.index') }}" style="background: #654321">
                                 Your Dashboard
 
                             </a>

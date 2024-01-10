@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="card-body">
-                    <h5 class="card-title text-center" style="color: #00A75A">Account in Review</h5>
+                    <h5 class="card-title text-center" style="color: #654321">Account in Review</h5>
                     <p class="card-text text-center">Your Account has been set up successfully, <br> FBILTD will review your account and approve you to use our platform.</p>
                 </div>
             </div>

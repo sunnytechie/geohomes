@@ -51,7 +51,7 @@
                     <form action="{{ route('finalLandPayment', $alert->id) }}" method="POST">
                       @csrf
                       <input type="hidden" name="amount" value="{{ $grandTotal }}">
-                      <button type="submit" class="btn btn-default" style="background: #00A75A; color: #fff"">
+                      <button type="submit" class="btn btn-default" style="background: #654321; color: #fff"">
                         Pay now ₦ {{ $grandTotal }}
                       </button>
                     </form>
@@ -63,7 +63,7 @@
 
 
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-10 invoice-listing">
-      <h3 style="color: #00A75A">Transaction / Subscriptions</h3>
+      <h3 style="color: #654321">Transaction / Subscriptions</h3>
       <div class="table-responsive">
         <table id="invoice-list" class="table table-striped table-sm table-hover bg-white border rounded-lg">
           <thead>
@@ -90,11 +90,11 @@
               <td class="align-middle">
                 <div class="btn-group" role="group" aria-label="Basic example">
                     {{-- @if ($transaction->allocation == 0) --}}
-                        <a style="background: #00A75A; color: #fff" class="btn btn-sm mr-1" href="{{ route('generateInitialPdf', $transaction->id) }}">Initital<span class="ml-1">Paper</span></a>
+                        <a style="background: #654321; color: #fff" class="btn btn-sm mr-1" href="{{ route('generateInitialPdf', $transaction->id) }}">Initital<span class="ml-1">Paper</span></a>
                     {{-- @endif --}}
 
                     @if ($transaction->final_status == 1)
-                        <a style="background: #00A75A; color: #fff" class="btn btn-sm" href="{{ route('generateFinalPdf', $transaction->id) }}">Final<span class="ml-1">Paper</span></a>
+                        <a style="background: #654321; color: #fff" class="btn btn-sm" href="{{ route('generateFinalPdf', $transaction->id) }}">Final<span class="ml-1">Paper</span></a>
                     @endif
                     </div>
               </td>
@@ -109,7 +109,7 @@
 
               @if (Auth::user()->manager || Auth::user()->is_admin)
               <td class="align-middle">
-                <button style="background: #00A75A; color: #fff"" class="btn btn-sm">@if ($transaction->final_status == 0)
+                <button style="background: #654321; color: #fff"" class="btn btn-sm">@if ($transaction->final_status == 0)
                   Pending
                 @else
                     Paid
@@ -125,12 +125,12 @@
                         <form action="{{ route('finalLandPayment', $transaction->id) }}" method="POST">
                       @csrf
                       <input type="hidden" name="amount" value="{{ $totalFee }}">
-                      <button type="submit" class="btn btn-default btn-sm" style="background: #00A75A; color: #fff"">
+                      <button type="submit" class="btn btn-default btn-sm" style="background: #654321; color: #fff"">
                         <span>Pay</span><span class="mx-1">₦</span>{{ $totalFee }}
                       </button>
                     </form>
                 @else
-                <button style="background: #00A75A; color: #fff"" class="btn btn-sm">Paid</button>
+                <button style="background: #654321; color: #fff"" class="btn btn-sm">Paid</button>
                 @endif
               </td>
               @endif
@@ -185,7 +185,7 @@
                 <td class="align-middle">
                     <form action="{{ route('survey', $transaction->id) }}" method="POST">
                         @csrf
-                        <button class="btn btn-sm" onclick="return confirm('Are you sure you want the user to apply for survey?')" style="color: #fff; background: #00A75A">Notify<span class="ml-1">Customer</span></button>
+                        <button class="btn btn-sm" onclick="return confirm('Are you sure you want the user to apply for survey?')" style="color: #fff; background: #654321">Notify<span class="ml-1">Customer</span></button>
                     </form>
                 </td>
               @endif
