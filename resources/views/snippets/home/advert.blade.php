@@ -6,10 +6,9 @@
     }
 
     .advert-slider .slick-slider img {
-      width: auto !important;
-      height: 400px !important; /* Maintain aspect ratio */
       object-fit: cover !important; /* Cover the entire container while maintaining aspect ratio */
     }
+
     .advert-slider  {
         margin-top: 40px
       }
