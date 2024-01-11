@@ -1,7 +1,7 @@
 <style>
     .advert-slider .slick-slider .container {
-      width: 100%;
-      height: 100%; /* Set a fixed height */
+      width: 620px;
+      margin: 0 auto;
       overflow: hidden; /* Hide overflowing content */
     }
 
