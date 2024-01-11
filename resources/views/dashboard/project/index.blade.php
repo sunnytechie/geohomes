@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+<title>Estate for sale or rent with geohomes</title>
 
 @section('content')
   {{-- alert --}}
@@ -8,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -16,7 +17,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -53,23 +54,38 @@
                     <img alt="avatar" class="img-fluid w-30px"
                              src="/storage/{{ $project->image }}">
                   </div>
-                  <p class="align-self-center mb-0 user-name">{{ $project->title }}</p>
+                  <p class="align-self-center mb-0 user-name">{{ Str::limit($project->title, 20) }}</p>
                 </div>
               </td>
 
               <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($project->created_at)->format('d M Y') }}</td>
 
-              <td class="align-middle"><span class="badge badge-green text-capitalize">Published</span></td>
-              
               <td class="align-middle">
-                <a href="{{ route('projects.edit', $project->id) }}" data-toggle="tooltip" title="Edit" class="d-inline-block fs-18 text-muted hover-primary mr-5"><i class="fal fa-pencil-alt"></i></a>
-                <form method="post" action="{{ route('projects.destroy', $project->id) }}">
+                <span class="badge badge-green text-capitalize">
+                    @if ($project->status == 1)
+                        published
+                    @else
+                        unpublished
+                    @endif
+                </span>
+                </td>
+
+              <td class="d-flex">
+                <a class="hover-primary border-right btn btn-secondary rounded-0 btn-sm" title="Edit" href="{{ route('projects.edit', $project->id) }}"><i class="fal fa-pencil-alt"></i> Edit</a>
+                <form class="m-0 p-0" method="post" action="{{ route('projects.destroy', $project->id) }}">
                   @method('delete')
                   @csrf
-                  <button type="submit" onclick="return confirm('Are you sure you want to delete this project?')" class="btn btn-sm btn-default" style="border-top-left-radius: 0; border-bottom-left-radius: 0"><i class="fa fa-trash"></i></button>
-              </form>
-                {{-- <a href="#" data-toggle="tooltip" title="Delete" class="d-inline-block fs-18 text-muted hover-primary"><i class="fal fa-trash-alt"></i></a> --}}
-
+                  <button class="hover-danger border-right btn btn-danger rounded-0 btn-sm" type="submit" onclick="return confirm('Are you sure you want to delete this project?')"><i class="fa fa-trash"></i> Delete</button>
+                </form>
+                <form class="m-0 p-0" method="post" action="{{ route('item.visibility', ['item' => "project", 'id' => $project->id]) }}">
+                    @csrf
+                    @method('put')
+                    @if ($project->status == 1)
+                    <button class="btn rounded-0 btn-sm btn-danger" onclick="return confirm('Are you sure you want to unpublish this estate?')">Unpublish</button>
+                    @else
+                    <button class="btn rounded-0 btn-sm btn-success" onclick="return confirm('Are you sure you want to publish this estate?')">Publish</button>
+                    @endif
+                </form>
               </td>
             </tr>
             @endforeach

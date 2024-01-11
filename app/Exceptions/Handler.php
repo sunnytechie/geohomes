@@ -11,9 +11,9 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
-        if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException || $exception instanceof TokenMismatchException || $exception instanceof \ErrorException || $this->isHttpException($exception)) {
-            return redirect()->route('error404');
-        }
+        //if ($exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException || $exception instanceof TokenMismatchException || $exception instanceof \ErrorException || $this->isHttpException($exception)) {
+        //    return redirect()->route('error404');
+        //}
 
         return parent::render($request, $exception);
     }

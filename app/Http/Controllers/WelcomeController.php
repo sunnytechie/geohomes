@@ -15,26 +15,38 @@ class WelcomeController extends Controller
 {
     public function index() {
 
-        $projects = Project::inRandomOrder()->orderBy('id', 'desc')->paginate(6);
+        $projects = Project::inRandomOrder()
+                            ->where('status', true)
+                            ->paginate(6);
 
-        $propertiesForSale = Property::inRandomOrder()->orderBy('id', 'desc')
-                            ->where('lint_in', "For Sale")->paginate(6);
+        $propertiesForSale = Property::inRandomOrder()
+                            ->where('status', true)
+                            ->where('lint_in', "For Sale")
+                            ->paginate(6);
 
-        $propertiesForRent = Property::inRandomOrder()->orderBy('id', 'desc')
-                            ->where('lint_in', "For Rent")->paginate(6);
+        $propertiesForRent = Property::inRandomOrder()
+                            ->where('status', true)
+                            ->where('lint_in', "For Rent")
+                            ->paginate(6);
 
-        $buildings = Building::inRandomOrder()->orderBy('id', 'desc')->paginate(6);
+        $buildings = Building::inRandomOrder()
+                            ->orderBy('id', 'desc')
+                            ->paginate(6);
 
         $apertmentUrl = route('page.sorted', ['parameter_name' => "Apartment"]);
         $houseUrl = route('page.sorted', ['parameter_name' => "House"]);
         $officeUrl = route('page.sorted', ['parameter_name' => "Office"]);
         $landUrl = route('page.sorted', ['parameter_name' => "Land"]);
 
-        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        $posts = Post::orderBy('id', 'desc')
+                ->paginate(10);
         //randomize the posts
-        $posts = $posts->shuffle();
+        $posts = $posts
+                ->shuffle();
 
-        $adverts = Advert::inRandomOrder()->orderBy('id', 'desc')->paginate(5);
+        $adverts = Advert::inRandomOrder()
+                    ->orderBy('id', 'desc')
+                    ->paginate(5);
 
         return view('welcome', compact('projects', 'adverts', 'posts', 'apertmentUrl', 'houseUrl', 'officeUrl', 'landUrl', 'buildings', 'propertiesForSale', 'propertiesForRent'));
     }

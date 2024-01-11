@@ -16,7 +16,7 @@ class PostController extends Controller
 
      public function blog()
      {
-        $posts = Post::orderBy('id', 'desc')->paginate(9);
+        $posts = Post::inRandomOrder()->paginate(9);
         return view('blog.index', compact('posts'));
      }
 

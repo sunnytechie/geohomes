@@ -51,9 +51,11 @@ class PagesController extends Controller
         $city = $request->city;
         $keyword = $request->key_word;
         $properties = Property::inRandomOrder()
-                        ->orderBy('id', 'desc')
+                        ->where('status', true)
                         ->paginate(10);
-        $slideproperties = Property::orderBy('id', 'desc')->paginate(4);
+
+        $slideproperties = Property::where('status', true)
+                        ->paginate(4);
 
         return view('pages.buyrent', compact('properties', 'slideproperties',
         'status',
@@ -77,10 +79,12 @@ class PagesController extends Controller
 
         $countFilteredProperties = Property::where('category', $request->parameter_name)->get();
 
-        $filteredProperties = Property::orderBy('id', 'desc')
+        $filteredProperties = Property::inRandomOrder()
+                            ->where('status', true)
                             ->where('category', $request->parameter_name)->paginate(10);
 
-        $properties = Property::orderBy('id', 'desc')->paginate(4);
+        $properties = Property::inRandomOrder()
+                            ->where('status', true)->paginate(4);
 
         return view('pages.sorted', compact('properties', 'countFilteredProperties', 'filteredProperties',
         'status',
@@ -93,29 +97,50 @@ class PagesController extends Controller
 
     public function projects() {
         $order = "Default";
-        $projects = Project::orderBy('id', 'desc')->paginate(10);
-        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        $projects = Project::inRandomOrder()
+                    ->where('status', true)
+                    ->paginate(10);
+
+        $posts = Post::inRandomOrder()->paginate(5);
         return view('pages.projects', compact('projects', 'posts', 'order'));
     }
 
     public function projectAsc() {
         $order = "Ascending";
-        $projects = Project::orderBy('id', 'asc')->paginate(10);
-        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        $projects = Project::orderBy('id', 'asc')
+                    ->where('status', true)
+                    ->paginate(10);
+
+        $posts = Post::inRandomOrder()
+                    ->orderBy('id', 'desc')
+                    ->paginate(5);
+
         return view('pages.projects', compact('projects', 'posts', 'order'));
     }
 
     public function projectDesc() {
         $order = "Descending";
-        $projects = Project::orderBy('id', 'desc')->paginate(10);
-        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        $projects = Project::orderBy('id', 'desc')
+                    ->where('status', true)
+                    ->paginate(10);
+
+        $posts = Post::inRandomOrder()
+                    ->orderBy('id', 'desc')
+                    ->paginate(5);
+
         return view('pages.projects', compact('projects', 'posts', 'order'));
     }
 
     public function projectRadom() {
         $order = "Random";
-        $projects = Project::inRandomOrder()->paginate(10);
-        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        $projects = Project::inRandomOrder()
+                    ->where('status', true)
+                    ->paginate(10);
+
+        $posts = Post::inRandomOrder()
+                    ->orderBy('id', 'desc')
+                    ->paginate(5);
+
         return view('pages.projects', compact('projects', 'posts', 'order'));
     }
 

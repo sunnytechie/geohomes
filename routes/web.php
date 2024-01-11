@@ -148,6 +148,10 @@ Route::middleware('auth', 'isActiveUser', 'isAdmin', 'verified')->group(function
     Route::post('/gh-gallery', [App\Http\Controllers\Dashboard\AboutController::class, 'galleryStore'])->name('gh.gallery.store');
     //delete gallery
     Route::delete('/gh-image/delete/{id}', [App\Http\Controllers\Dashboard\AboutController::class, 'imageDelete'])->name('gh.image.delete');
+
+    //visibility toggle by admin
+    Route::put('/item/visibility/{item}/{id}', [App\Http\Controllers\Dashboard\ItemVisibiltyController::class, 'visibility'])->name('item.visibility');
+
 });
 
 Route::middleware('auth', 'isActiveUser', 'verified', 'hasAdminButNotAgent', 'isAgent', 'agentHasApproval')->group(function () {
