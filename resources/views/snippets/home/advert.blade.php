@@ -19,6 +19,12 @@
         margin-top: 60px
       }
     }
+
+    .img-advert-responsive {
+      width: 500 !important;
+      height: auto !important;
+      object-fit: cover !important;
+    }
 </style>
 
 <section class="mb-8 advert-slider">
@@ -38,7 +44,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <a href="{{ $advert->link }}" target="_blank">
-                    <img src="/storage/{{ $advert->thumbnail }}" alt="">
+                    <img class="img-advert-responsive" src="/storage/{{ $advert->thumbnail }}" alt="">
                 </a>
               </div>
             </div>
