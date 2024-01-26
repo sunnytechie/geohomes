@@ -1,4 +1,4 @@
-<title>Geo-Home Estate plots</title>
+<title>FBILTD Estate plots</title>
 @extends('layouts.admin')
 
 @section('content')

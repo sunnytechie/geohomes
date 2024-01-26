@@ -37,7 +37,7 @@ class PlotEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Plot allocation confirmation with Geo-Homes.',
+            subject: 'Plot allocation confirmation with FBILTD.',
         );
     }
 

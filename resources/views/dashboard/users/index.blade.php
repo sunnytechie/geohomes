@@ -1,4 +1,4 @@
-<title>Geo-Home Users Registered</title>
+<title>FBILTD Users Registered</title>
 @extends('layouts.admin')
 
 @section('content')
@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -17,7 +17,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -53,13 +53,13 @@
               <td class="align-middle"><span class="text-success pr-1"><i class="fal fa-calendar"></i></span>{{ \Carbon\Carbon::parse($user->created_at)->format('d M Y') }}</td>
 
               <td class="align-middle"><span class="badge badge-green text-capitalize">{{ $user->role }}</span></td>
-              
+
               <td class="align-middle"><a style="background: #654321; color: #ffffff" class="btn btn-sm btn-default" href="{{ route('show.customer.details', $user->id) }}">Details</a></td>
             </tr>
             @endforeach
           </tbody>
         </table>
       </div>
-      
+
     </div>
 @endsection

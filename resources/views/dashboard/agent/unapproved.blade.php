@@ -1,4 +1,4 @@
-<title>Geo-Home Registered Agent</title>
+<title>FBILTD Registered Agent</title>
 @extends('layouts.admin')
 
 @section('content')

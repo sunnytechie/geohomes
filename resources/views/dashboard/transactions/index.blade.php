@@ -1,4 +1,4 @@
-<title>GeoHome Transactions</title>
+<title>FBILTD Transactions</title>
 @extends('layouts.admin')
 
 @section('content')

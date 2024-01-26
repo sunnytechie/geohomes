@@ -26,17 +26,17 @@ Route::get('/register/coperate', [App\Http\Controllers\Auth\RegisterController::
 
 //Pages
 Route::get('/about-us', [App\Http\Controllers\PagesController::class, 'about'])->name('page.about');
-Route::get('/geo-agents', [App\Http\Controllers\PagesController::class, 'agents'])->name('page.agents');
+Route::get('/fbi-agents', [App\Http\Controllers\PagesController::class, 'agents'])->name('page.agents');
 Route::get('/contact', [App\Http\Controllers\PagesController::class, 'contact'])->name('page.contact');
 Route::get('/faq', [App\Http\Controllers\PagesController::class, 'faq'])->name('page.faq');
 Route::get('/listings', [App\Http\Controllers\PagesController::class, 'listings'])->name('page.listings');
 Route::get('/news', [App\Http\Controllers\PagesController::class, 'news'])->name('page.news');
 Route::get('/buy-rent', [App\Http\Controllers\PagesController::class, 'buyRent'])->name('page.buy.rent');
 //Estate
-Route::get('/geohome-estates', [App\Http\Controllers\PagesController::class, 'projects'])->name('page.projects');
-Route::get('/geohome-estates/asc-order', [App\Http\Controllers\PagesController::class, 'projectAsc'])->name('project.asc.order');
-Route::get('/geohome-estates/desc-order', [App\Http\Controllers\PagesController::class, 'projectDesc'])->name('project.desc.order');
-Route::get('/geohome-estates/random-order', [App\Http\Controllers\PagesController::class, 'projectRadom'])->name('project.desc.random');
+Route::get('/fbiltd-estates', [App\Http\Controllers\PagesController::class, 'projects'])->name('page.projects');
+Route::get('/fbiltd-estates/asc-order', [App\Http\Controllers\PagesController::class, 'projectAsc'])->name('project.asc.order');
+Route::get('/fbiltd-estates/desc-order', [App\Http\Controllers\PagesController::class, 'projectDesc'])->name('project.desc.order');
+Route::get('/fbiltd-estates/random-order', [App\Http\Controllers\PagesController::class, 'projectRadom'])->name('project.desc.random');
 
 Route::get('/services', [App\Http\Controllers\PagesController::class, 'services'])->name('page.services');
 Route::get('/filtered-search', [App\Http\Controllers\PagesController::class, 'sorted'])->name('page.sorted');
@@ -154,7 +154,7 @@ Route::middleware('auth', 'isActiveUser', 'verified', 'hasAdminButNotAgent', 'is
     //Route::resource('properties', 'App\Http\Controllers\PropertyController');
 });
 
-Route::get('/geo-projects-image', [App\Http\Controllers\PagesController::class, 'projectImage'])->name('project.image.upload');
+Route::get('/fbi-projects-image', [App\Http\Controllers\PagesController::class, 'projectImage'])->name('project.image.upload');
 
 Route::resource('agents', 'App\Http\Controllers\AgentController')->middleware('auth', 'verified');
 Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middleware('auth', 'verified');

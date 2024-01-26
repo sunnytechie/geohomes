@@ -1,4 +1,4 @@
-<title>Geo-Home Admins ~ Admins and Sper admins</title>
+<title>FBILTD Admins ~ Admins and Sper admins</title>
 @extends('layouts.admin')
 
 @section('content')
@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="hide-from-mobile mt-2"></div>
-            
+
                 {{-- alert --}}
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     {{ session('message') }}
@@ -17,7 +17,7 @@
                       <span aria-hidden="true"><i class="fa fa-window-close"></i></span>
                     </button>
                 </div>
-            
+
         </div>
     </div>
     </div>
@@ -36,7 +36,7 @@
                         <div class="from-group mb-3">
                             <label for="schedule_date">Schedule Date</label>
                             <input type="date" class="form-control @error('schedule_date') is-invalid @enderror form-control-lg border-0" id="schedule_date" name="schedule_date" placeholder="Schedule date">
-                    
+
                             @error('schedule_date')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -49,7 +49,7 @@
                         <div class="from-group mb-3">
                             <label for="schedule_time">Schedule Date</label>
                             <input type="time" class="form-control @error('schedule_time') is-invalid @enderror form-control-lg border-0" id="schedule_time" name="schedule_time" placeholder="Schedule date">
-                    
+
                             @error('schedule_time')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -67,7 +67,7 @@
             </div>
         </div>
       </div>
-      
-      
+
+
     </div>
 @endsection

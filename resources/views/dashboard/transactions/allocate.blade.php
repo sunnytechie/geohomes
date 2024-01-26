@@ -1,4 +1,4 @@
-<title>GeoHome Admins Allocation</title>
+<title>FBILTD Admins Allocation</title>
 @extends('layouts.admin')
 
 @section('content')

@@ -27,7 +27,7 @@
     <div class="mb-6">
 
       @if (Auth::user()->is_admin)
-      <h2 class="mb-0 text-heading fs-22 lh-15">GeoHome Admin Profile</h2>
+      <h2 class="mb-0 text-heading fs-22 lh-15">FBILTD Admin Profile</h2>
       <p class="mb-1">FBILTD Need more details about you so that you can post property as FBILTD</p>
       @else
       <h2 class="mb-0 text-heading fs-22 lh-15">My Profile</h2>

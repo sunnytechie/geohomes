@@ -1,4 +1,4 @@
-<title>Geo-Home Admins ~ Admins and Sper admins</title>
+<title>FBILTD Admins ~ Admins and Sper admins</title>
 @extends('layouts.admin')
 
 @section('content')
