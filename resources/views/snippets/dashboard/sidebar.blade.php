@@ -184,7 +184,7 @@
 
             @if (Auth::user()->auditor == 1 || Auth::user()->accountant == 1 || Auth::user()->is_admin == 1 || Auth::user()->manager == 1)
             <li class="list-group-item pt-6 pb-4">
-                <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Users</h5>
+                <h5 class="fs-13 letter-spacing-087 text-muted mb-3 text-uppercase px-3">Manage Users</h5>
                 <ul class="list-group list-group-no-border rounded-lg">
 
 
@@ -196,31 +196,57 @@
                     </a>
                   </li>
 
-
+                  {{-- Individual Partners --}}
                   <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                    <a href="#partner_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
+                    <a href="#individual_partner_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
                       <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
                         <i class="fal fa-users"></i>
                       </span>
-                      <span class="sidebar-item-text">Partners</span>
+                      <span class="sidebar-item-text">Individual Partners</span>
                       <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
                     </a>
                   </li>
 
-                  {{-- Only Admin --}}
-
-                    <div class="collapse" id="partner_collapse">
+                    {{-- Individual Partners dropdown --}}
+                    <div class="collapse" id="individual_partner_collapse">
                         <div class="card card-body border-0 bg-transparent py-0 pl-6">
                         <ul class="list-group list-group-flush list-group-no-border">
                             <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                                <a class="text-heading lh-1 sidebar-link" href="{{ route('registered.agents') }}">Approved Partners</a>
+                                <a class="text-heading lh-1 sidebar-link" href="{{ route('approved.individual.agents') }}">Approved Partners</a>
                             </li>
                             <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
-                                <a class="text-heading lh-1 sidebar-link" href="{{ route('unapproved.agent') }}">UnApproved Partners</a>
+                                <a class="text-heading lh-1 sidebar-link" href="{{ route('unapproved.individual.agents') }}">UnApproved Partners</a>
                             </li>
                         </ul>
                         </div>
                     </div>
+
+                    {{-- Coperate Partners --}}
+                  <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                    <a href="#coperate_partner_collapse" class="text-heading lh-1 sidebar-link d-flex align-items-center" data-toggle="collapse" aria-haspopup="true" aria-expanded="false">
+                      <span class="sidebar-item-icon d-inline-block mr-3 text-muted fs-20">
+                        <i class="fal fa-users"></i>
+                      </span>
+                      <span class="sidebar-item-text">Coperate Partners</span>
+                      <span class="d-inline-block ml-auto"><i class="fal fa-angle-down"></i></span>
+                    </a>
+                  </li>
+
+                    {{-- Coperate Partners dropdown --}}
+                    <div class="collapse" id="coperate_partner_collapse">
+                        <div class="card card-body border-0 bg-transparent py-0 pl-6">
+                        <ul class="list-group list-group-flush list-group-no-border">
+                            <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                                <a class="text-heading lh-1 sidebar-link" href="{{ route('approved.corperate.agents') }}">Approved Partners</a>
+                            </li>
+                            <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
+                                <a class="text-heading lh-1 sidebar-link" href="{{ route('unapproved.corperate.agents') }}">UnApproved Partners</a>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+
+
 
                     <li class="list-group-item px-3 px-xl-4 py-2 sidebar-item">
                         <a href="{{ route('subscribed.users') }}" class="text-heading lh-1 sidebar-link">

@@ -1,4 +1,4 @@
-<title>Approved corperate partners</title>
+<title>Dashboard | {{ $pageTitle }}</title>
 @extends('layouts.admin')
 
 @section('content')
@@ -30,16 +30,16 @@
   @endif
 
     {{-- Individual / Corperate Partners --}}
-    <div class="col-md-8">
+    {{-- <div class="col-md-8">
         <div class="btn-group pt-8">
             <a class="btn btn-md btn-primary @if(request()->routeIs('registered.agents')) active @endif" href="{{ route('registered.agents') }}">Corperate Partners</a>
             <a class="btn btn-md btn-primary @if(request()->routeIs('registered.agents.2')) active @endif" href="{{ route('registered.agents.2') }}">Individual Partners</a>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="px-3 px-lg-6 px-xxl-13 py-5 py-lg-7 invoice-listing">
-      <h3 style="color: #00A75A">Approved Partners</h3>
+      <h3 style="color: #00A75A">{{ $pageTitle }}</h3>
       <div class="table-responsive">
         <table id="invoice-list" class="table table-hover table-sm bg-white border rounded-lg">
           <thead>

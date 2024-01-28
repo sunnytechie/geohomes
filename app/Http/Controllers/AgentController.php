@@ -18,8 +18,9 @@ class AgentController extends Controller
                     })
                     ->get();
 
+        $pageTitle = "Approved Corperate Agents.";
 
-        return view('dashboard.agent.index', compact('agents'));
+        return view('dashboard.agent.index', compact('agents', 'pageTitle'));
     }
 
     public function index2() {
@@ -30,8 +31,9 @@ class AgentController extends Controller
                     })
                     ->get();
 
+        $pageTitle = "Approved Individual Agents.";
 
-        return view('dashboard.agent.individual', compact('agents'));
+        return view('dashboard.agent.index', compact('agents', 'pageTitle'));
     }
 
     public function profile() {

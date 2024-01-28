@@ -70,15 +70,35 @@ class DashboardController extends Controller
         return view('dashboard.unapproved');
     }
 
-    public function unApproved() {
+    public function unApprovedIndividual() {
         $agents = Agent::orderBy('id', 'desc')
-            ->where('approval', 'pending')->get();
-        return view('dashboard.agent.unapproved', compact('agents'));
+                    ->where('approval', 'pending')
+                    ->whereHas('user', function ($query) {
+                        $query->where('agent_type', 'individual');
+                    })
+                    ->get();
+
+        $pageTitle = "Unapproved Individual Agents.";
+
+        return view('dashboard.agent.unapproved', compact('agents', 'pageTitle'));
+    }
+
+    public function unApprovedCorperate() {
+        $agents = Agent::orderBy('id', 'desc')
+                    ->where('approval', 'pending')
+                    ->whereHas('user', function ($query) {
+                        $query->where('agent_type', 'corperate');
+                    })
+                    ->get();
+
+        $pageTitle = "Unapproved Corperate Agents.";
+
+        return view('dashboard.agent.unapproved', compact('agents', 'pageTitle'));
     }
 
     public function approve($id) {
         $agent = Agent::find($id);
-        
+
         if ($agent->approval == "approved") {
             $agent->approval = "pending";
             $agent->save();

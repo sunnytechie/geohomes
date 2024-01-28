@@ -103,7 +103,8 @@ Route::middleware('auth', 'isActiveUser', 'isAdmin', 'verified')->group(function
     Route::post('/notify/user/survey/{id}', [App\Http\Controllers\SurveyController::class, 'survey'])->name('survey');
 
     //Unapproved agents
-    Route::get('/review/agents/reviews', [App\Http\Controllers\DashboardController::class, 'unApproved'])->name('unapproved.agent');
+    Route::get('/review/individual/agents', [App\Http\Controllers\DashboardController::class, 'unApprovedIndividual'])->name('unapproved.individual.agents');
+    Route::get('/review/corperate/agents', [App\Http\Controllers\DashboardController::class, 'unApprovedCorperate'])->name('unapproved.corperate.agents');
     Route::post('/review/agents/approval/{id}', [App\Http\Controllers\DashboardController::class, 'approve'])->name('approve.agent');
 
     //blog post
@@ -165,10 +166,9 @@ Route::resource('invoices', 'App\Http\Controllers\InvoiceController')->middlewar
 
 Route::get('email-subscribers', [App\Http\Controllers\UserController::class, 'subscribers'])->name('subscribed.users')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::get('registered-users', [App\Http\Controllers\UserController::class, 'index'])->name('registered.users')->middleware('auth', 'verified', 'isAuditorAccountant');
-Route::get('approved/corperate/partners', [App\Http\Controllers\AgentController::class, 'index'])->name('registered.agents')->middleware('auth', 'verified', 'isAuditorAccountant');
-Route::get('approved/individual/partners', [App\Http\Controllers\AgentController::class, 'index2'])->name('registered.agents.2')->middleware('auth', 'verified', 'isAuditorAccountant');
+Route::get('approved/individual/partners', [App\Http\Controllers\AgentController::class, 'index2'])->name('approved.individual.agents')->middleware('auth', 'verified', 'isAuditorAccountant');
+Route::get('approved/corperate/partners', [App\Http\Controllers\AgentController::class, 'index'])->name('approved.corperate.agents')->middleware('auth', 'verified', 'isAuditorAccountant');
 Route::delete('delete/registered-agents/{id}', [App\Http\Controllers\AgentController::class, 'destroy'])->name('registered.agents.destroy')->middleware('auth', 'verified', 'isAuditorAccountant');
-
 
 //account
 Route::get('/my-profile', [App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show')->middleware('auth', 'isActiveUser', 'verified');
