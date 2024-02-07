@@ -1,12 +1,26 @@
 <style>
-    .advert-slider .slick-slider .container {
-      width: 620px;
-      margin: 0 auto;
-      overflow: hidden; /* Hide overflowing content */
-    }
+    /* @media (min-width: 425px) {
+        .advert-slider .slick-slider .container {
+        width: 620px;
+        margin: 0 auto;
+        overflow: hidden;
+        }
 
-    .advert-slider .slick-slider img {
-      object-fit: cover !important; /* Cover the entire container while maintaining aspect ratio */
+        .advert-slider .slick-slider img {
+        object-fit: cover;
+        }
+    } */
+
+    @media (min-width: 430px) {
+        .advert-slider .slick-slider {
+        width: 620px;
+        margin: 0 auto;
+        overflow: hidden;
+        }
+
+        .advert-slider .slick-slider img {
+        object-fit: cover;
+        }
     }
 
     .advert-slider  {
